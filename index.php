@@ -12,37 +12,58 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  $this->need('header.php');
  ?>
 
-<div id="main">
-    <div id="mainContent">
-        <div class="forFlow">
-            <?php while($this->next()): ?>
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-                <h2 class="post-title" itemprop="name headline"><a itemprop="url"
-                        href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
-                <ul class="post-meta">
-                    <li itemprop="author" itemscope itemtype="http://schema.org/Person"><?php _e('作者: '); ?><a
-                            itemprop="name" href="<?php $this->author->permalink(); ?>"
-                            rel="author"><?php $this->author(); ?></a></li>
-                    <li><?php _e('时间: '); ?><time datetime="<?php $this->date('c'); ?>"
-                            itemprop="datePublished"><?php $this->date(); ?></time></li>
-                    <li><?php _e('分类: '); ?><?php $this->category(','); ?></li>
-                    <li itemprop="interactionCount"><a itemprop="discussionUrl"
-                            href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a>
-                    </li>
-                </ul>
-                <div class="post-content" itemprop="articleBody">
-                    <?php $this->content('- 阅读剩余部分 -'); ?>
+
+<div id="mainContent">
+    <div class="forFlow">
+    <?php while($this->next()): ?>
+
+<div class="day">
+            <div class="postTitle">
+                <a id="homepage1_HomePageDays_DaysList_ctl00_DayList_TitleUrl_0" class="postTitle2" href="<?php $this->permalink() ?>"><?php $this->title() ?></a>
+            </div>
+            <div class="postCon">
+                <div class="c_b_p_desc">
+                <?php $this->excerpt('200', '...');?><a class="read-more" href="<?php $this->permalink() ?>"
+                <a href="<?php $this->permalink() ?>" class="c_b_p_desc_readmore">阅读全文</a> 
                 </div>
-            </article>
-            <?php endwhile; ?>
+            </div>
+            <div class="clear"></div>
+            <div class="postDesc" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <img class="author-thumb" id="authorThumb" src="<?php $this->options->adminpicUrl() ?>" alt="<?php $this->author(); ?>" nopin="nopin" />
+                <?php $this->author(); ?>
+                <?php $this->date("Y-m-d H:i:s"); ?>
+                <!-- <a href="https://i.cnblogs.com/EditPosts.aspx?postid=11288570" rel="nofollow">编辑</a> -->
+            </div>
+            <div class="clear"></div>
+        
+            <div class="postSeparator"></div>
+        
+</div>
+<?php endwhile; ?>
 
-            <?php $this->pageNav('&laquo; 前一页', '后一页 &raquo;'); ?>
+<<nav class="pagination" role="navigation">
+        
+        
+       
+</nav> 
 
-        </div>
-        <!--end: forFlow -->
+<div class="topicListFooter">
+    <div id="nav_next_page">
+        <?php $this->pageLink('<xt class="newer-posts"><span aria-hidden="true"></span><span>上一页</span></xt>'); ?>
+
+        <?php if ($this->_currentPage>1) {echo $this->_currentPage;} else {echo 1;}?> 
+            / 
+        <?php echo   ceil($this->getTotal() / $this->parameter->pageSize); ?>
+            
+        <?php $this->pageLink('<xt class="older-posts"><span>下一页</span><span aria-hidden="true"></span></xt>', 'next'); ?>
     </div>
-    <!--end: mainContent 主体内容容器-->
-    <div class="clear"></div>
+
+</div>
+
+    
+    </div><!--end: forFlow -->
+</div>
+<div class="clear"></div>
 
     <?php $this->need('sidebar.php'); ?>
     <?php $this->need('footer.php'); ?>

@@ -59,7 +59,9 @@
                 <li>
                     <a rel="tag" href="<?php $tags->permalink(); ?>">
                         <span class="iconfont icon-label_fill" style="color: #888;font-size: 14px;margin-right: 5px;"></span>
-                        <?php $tags->name(); ?></a>
+                        <?php $tags->name(); ?> (<?php $tags->count()?>) 
+                    </a>
+                
                 </li>
             </ul>
             <?php endwhile; ?>
@@ -68,15 +70,18 @@
             <!-- 随笔分类 -->
             <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)) : ?>
                 <div class="m-list-title" style="display: block;"><span><?php _e('文章分类'); ?></span></div>
+                <?php $this->widget('Widget_Metas_Category_List')->to($classify); ?>
+                <?php while($classify->next()): ?>
                 <div class="m-icon-list" id="sb-classify">
                     <ul>
                         <li>
-                            <span class="iconfont icon-marketing_fill" style="color: #888;font-size: 14px;margin-right: 5px;">
-                                <?php $this->widget('Widget_Metas_Category_List')->listCategories('wrapClass=widget-list'); ?>
-                            </span>
-                            
+                            <a rel="clsaaify" href="<?php $classify->permalink(); ?>">
+                                <span class="iconfont icon-marketing_fill" style="color: #888;font-size: 14px;margin-right: 5px;"></span>
+                                <?php $classify->name(); ?> (<?php $classify->count()?>) 
+                            </a>
                         </li>
                     </ul>
+                    <?php endwhile; ?>
                 </div>
             <?php endif; ?>                
             <!-- 随笔档案 -->
@@ -84,11 +89,11 @@
                 <div class="m-list-title" style="display: block;"><span><?php _e('文章档案'); ?></span></div>
                 <div class="m-icon-list" id="sb-record">
                     <ul>
-                        <?php $this->widget('Widget_Contents_Post_Date', 'type=month&format=F Y')->parse(
+                        <?php $this->widget('Widget_Contents_Post_Date', 'format=Y-m&type=month&limit=0')->parse(
                             '<li>
                                 <a href="{permalink}">
                                     <span class="iconfont icon-task_fill" style="color: #888;font-size: 14px;margin-right: 5px;"></span>
-                                    {date}
+                                    {date} ({count})
                                 </a>
                             </li>'
                         ); ?>

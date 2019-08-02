@@ -15,11 +15,6 @@
 <div id="rightMenu">
 </div>
 
-<!-- 鼠标点击 -->
-<script src="https://files.cnblogs.com/files/wangyang0210/mouse-click.js"></script>
-<canvas width="1777" height="841" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas>
-
-
 <!-- cnzz统计 -->
 <div id="cnzzProtocol"  style="display: none;">
 <span class="id_cnzz_stat_icon" id='cnzz_stat_icon_1275508084'></span>
@@ -29,8 +24,6 @@
 <!-- footer end -->
 </div><!-- home end -->
 <script src="<?php $this->options->themeUrl('static/js/jquery-2.2.0.min.js');?>"></script>
-<!-- 鼠标点击 -->
-<script src="<?php $this->options->themeUrl('static/js/mouseClick.js');?>"></script>
 
 <!-- global var -->
 <script type="text/javascript">
@@ -46,7 +39,7 @@
         // ---- 基础信息配置 ----custom
         blogUser      : "。思索",
         blogAvatar    : "http://cache.wangyangyang.vip/12222222222222.jpg",
-        blogStartDate : "2018-2-12", 
+        blogStartDate : "2019-8-1", 
       
         // ---- 菜单配置 ----
         menuCustomList: { 

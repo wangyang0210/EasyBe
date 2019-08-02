@@ -3,6 +3,13 @@
     font-size: 9pt;
     color: gray
 }
+.author-thumb {
+    width: 24px;
+    height: 24px;
+    float: left;
+    margin-right: 9px;
+    border-radius: 100%;
+}
 
 .topicListFooter {
     text-align: right;
