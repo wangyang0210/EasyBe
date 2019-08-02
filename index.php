@@ -29,7 +29,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             </div>
             <div class="clear"></div>
             <div class="postDesc" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                <img class="author-thumb" id="authorThumb" src="<?php $this->options->adminpicUrl() ?>" alt="<?php $this->author(); ?>" nopin="nopin" />
+                <img class="author-thumb" id="authorAvatar" src="<?php $this->options->adminpicUrl() ?>" alt="<?php $this->author(); ?>" nopin="nopin" />
                 <?php $this->author(); ?>
                 <?php $this->date("Y-m-d H:i:s"); ?>
                 <!-- <a href="https://i.cnblogs.com/EditPosts.aspx?postid=11288570" rel="nofollow">编辑</a> -->

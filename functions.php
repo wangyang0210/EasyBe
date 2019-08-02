@@ -10,8 +10,8 @@ function themeConfig($form) {
     // $form->addInput($indexpicUrl);
     // $contentpicUrl = new Typecho_Widget_Helper_Form_Element_Text('contentpicUrl', null, null, _t('内容页Banner'), _t('填入一个图片URL地址, 内容页Banner'));
     // $form->addInput($contentpicUrl);
-    $adminpicUrl = new Typecho_Widget_Helper_Form_Element_Text('adminpicUrl', null, null, _t('博主头像'), _t('填入一个图片URL地址, 博主头像'));
-    $form->addInput($adminpicUrl);
+    // $adminpicUrl = new Typecho_Widget_Helper_Form_Element_Text('adminpicUrl', null, null, _t('博主头像'), _t('填入一个图片URL地址, 博主头像'));
+    // $form->addInput($adminpicUrl);
     // $selfdiscribition = new Typecho_Widget_Helper_Form_Element_Text('selfdiscribition', null, null, _t('个性签名'), _t('请输入您的个性签名'));
     // $form->addInput($selfdiscribition);
 

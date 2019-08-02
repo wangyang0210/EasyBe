@@ -33,8 +33,8 @@
 
         // ---- GitHub文件源配置 ----
         GhUserName: 'wangyang0210', 
-        GhRepositories: 'Cnblogs-Theme-BNDong', 
-        GhVersions : '6f664454fe3a7ef0dbfa5e96957b10d1c4d60892', 
+        GhRepositories: 'EasyBe', 
+        GhVersions : '8f5d0dd20dcf6ab59d008af29ea9c1e20b569575', 
 
         // ---- 基础信息配置 ----custom
         blogUser      : "。思索",
@@ -198,7 +198,7 @@
     // get file url
     function getJsDelivrUrl(file, directory) {
         file = setFileNameMin(file, directory);
-        return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/' + (file ? file : '');
+        return 'https://cdn.jsdelivr.net/gh/'+(window.cnblogsConfig.GhUserName)+'/'+(window.cnblogsConfig.GhRepositories)+'@'+(window.cnblogsConfig.GhVersions)+'/static/' + (file ? file : '');
     }
 
     // optimization file name
