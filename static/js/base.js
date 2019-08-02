@@ -50,7 +50,7 @@ function Base() {
         $('#menuBlogAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
 
         // 设置文章作者头像
-        $('#authorAvatar').append("<img src='"+window.cnblogsConfig.blogAvatar+"'>");
+        $('#authorAvatar').append("<img class='author-thumb' src='"+window.cnblogsConfig.blogAvatar+"'>");
 
         // 背景动画
 		if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
