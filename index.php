@@ -40,7 +40,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 </div>
 <?php endwhile; ?>
 
-<<nav class="pagination" role="navigation">
+<nav class="pagination" role="navigation">
         
         
        
@@ -49,12 +49,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <div class="topicListFooter">
     <div id="nav_next_page">
         <?php $this->pageLink('<xt class="newer-posts"><span aria-hidden="true"></span><span>上一页</span></xt>'); ?>
-
-        <?php if ($this->_currentPage>1) {echo $this->_currentPage;} else {echo 1;}?> 
-            / 
-        <?php echo   ceil($this->getTotal() / $this->parameter->pageSize); ?>
-            
         <?php $this->pageLink('<xt class="older-posts"><span>下一页</span><span aria-hidden="true"></span></xt>', 'next'); ?>
+        <span>
+            <?php if ($this->_currentPage>1) {echo $this->_currentPage;} else {echo 1;}?> 
+                / 
+            <?php echo   ceil($this->getTotal() / $this->parameter->pageSize); ?>
+        </span>
     </div>
 
 </div>
