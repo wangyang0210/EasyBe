@@ -53,7 +53,7 @@ function Base() {
         $('#authorAvatar').append("<img class='author-thumb' src='"+window.cnblogsConfig.blogAvatar+"'>");
 
         //设置
-        $('#articleAvatar').append("<img  class='author_avatar' src='"+window.cnblogsConfig.blogAvata+"'>");
+        $('#articleAvatar').append("<img  class='author_avatar' src='"+window.cnblogsConfig.blogAvatar+"'>");
 
         // 背景动画
 		if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);

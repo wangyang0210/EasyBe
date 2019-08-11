@@ -68,29 +68,15 @@
         </div>
     </div>
     <div class="clear"></div>
-    <div id="author_profile_honor"></div>
-    <div id="author_profile_follow">
-                <a href="javascript:void(0);" onclick="follow('c79877e4-0312-411b-4f61-08d54dba4453');return false;">+加关注</a>
-    </div>
 </div>
-<div id="div_digg">
-    <div class="diggit" onclick="votePost(9488438,'Digg')">
-        <span class="diggnum" id="digg_count">12</span>
-    </div>
-    <div class="buryit" onclick="votePost(9488438,'Bury')">
-        <span class="burynum" id="bury_count">1</span>
-    </div>
-    <div class="clear"></div>
-    <div class="diggword" id="digg_tips">
-    </div>
-</div>
+
 
 </div>
     <div class="clear"></div>
     <div id="post_next_prev">
-    上一篇： <?php $this->thePrev('%s','没有了'); ?>
+    上一篇： <?php $this->thePrev('%s', '没有了'); ?>
     <br>
-    下一篇： <?php $this->theNext('%s','没有了'); ?>
+    下一篇： <?php $this->theNext('%s', '没有了'); ?>
 </div>
 </div>
             </div>
