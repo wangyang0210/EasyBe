@@ -34,7 +34,7 @@
         // ---- GitHub文件源配置 ----
         GhUserName: 'wangyang0210', 
         GhRepositories: 'EasyBe', 
-        GhVersions : '013079b44b9dcb5644455bfe343316920a8dad09', 
+        GhVersions : 'be2ca0ffc7944410df9fc850b43a16963625ed60', 
 
         // ---- 基础信息配置 ----custom
         blogUser      : "。思索",
