@@ -10,8 +10,8 @@ function themeConfig($form) {
     // $form->addInput($indexpicUrl);
     // $contentpicUrl = new Typecho_Widget_Helper_Form_Element_Text('contentpicUrl', null, null, _t('内容页Banner'), _t('填入一个图片URL地址, 内容页Banner'));
     // $form->addInput($contentpicUrl);
-    // $adminpicUrl = new Typecho_Widget_Helper_Form_Element_Text('adminpicUrl', null, null, _t('博主头像'), _t('填入一个图片URL地址, 博主头像'));
-    // $form->addInput($adminpicUrl);
+    $adminpicUrl = new Typecho_Widget_Helper_Form_Element_Text('adminpicUrl', null, null, _t('博主头像'), _t('填入一个图片URL地址, 博主头像'));
+    $form->addInput($adminpicUrl);
     // $selfdiscribition = new Typecho_Widget_Helper_Form_Element_Text('selfdiscribition', null, null, _t('个性签名'), _t('请输入您的个性签名'));
     // $form->addInput($selfdiscribition);
 
@@ -60,6 +60,21 @@ function themeConfig($form) {
 //     }
 //     echo $class;
 // }
-
+function get_post_view($archive)
+{
+    $cid    = $archive->cid;
+    $db     = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+    if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
+        $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
+        echo 0;
+        return;
+    }
+    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
+    if ($archive->is('single')) {
+       $db->query($db->update('table.contents')->rows(array('views' => (int) $row['views'] + 1))->where('cid = ?', $cid));
+    }
+    echo $row['views'];
+}
 
 

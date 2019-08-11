@@ -80,12 +80,12 @@ $(document).ready(function(){
     } else {
         bottom_html += '<span style="font-weight: bold; white-space:nowrap;">版权声明</span>：署名 - 非商业性使用 - 禁止演绎，<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" alt="协议普通文本" title="协议普通文本" target="_blank">协议普通文本</a> | <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode" alt="协议法律文本" title="协议法律文本" target="_blank">协议法律文本</a>。';
     }
-    bottom_html += '<br>';
-    if (window.cnblogsConfig.essaySuffix.supportHtml != "") {
-        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：'+window.cnblogsConfig.essaySuffix.supportHtml;
-    } else {
-        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost('+uid+',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。您的鼓励是博主的最大动力！';
-    }
+    // bottom_html += '<br>';
+    // if (window.cnblogsConfig.essaySuffix.supportHtml != "") {
+    //     bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：'+window.cnblogsConfig.essaySuffix.supportHtml;
+    // } else {
+    //     bottom_html += '<span style="font-weight: bold; white-space:nowrap;">声援博主</span>：如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost('+uid+',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。您的鼓励是博主的最大动力！';
+    // }
     bottom_html += '<br>';
     bottom_html += '</p>';
     $("#cnblogs_post_body").append(bottom_html);
