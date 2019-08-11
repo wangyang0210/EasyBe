@@ -52,6 +52,9 @@ function Base() {
         // 设置文章作者头像
         $('#authorAvatar').append("<img class='author-thumb' src='"+window.cnblogsConfig.blogAvatar+"'>");
 
+        //设置
+        $('#articleAvatar').append("<img  class='author_avatar' src='"+window.cnblogsConfig.blogAvata+"'>");
+
         // 背景动画
 		if (window.cnblogsConfig.bgAnimationRendered) require(['RibbonsEffect']);
 
