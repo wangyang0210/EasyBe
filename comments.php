@@ -59,7 +59,7 @@
                 <textarea id="tbCommentBody" name="text" class="comment_textarea"></textarea>
                 </div>
                 <p id="commentbox_opt">
-                    <input id="btn_comment_submit" type="button" class="comment_btn" value="提交评论">
+                    <input id="btn_comment_submit" type="submit" class="comment_btn" value="提交评论">
                     <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
                 </p>
             <?php else: ?>
