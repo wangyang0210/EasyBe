@@ -63,7 +63,7 @@
                     <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
                 </p>
             <?php else: ?>
-                注册用户登录后才能发表评论，请 <a href="http://www.easybe.com/admin/login.php">登录</a> 或<a href="http://www.easybe.com/admin/register.php">注册</a>
+                注册用户登录后才能发表评论，请 <a href="<?php $this->options->siteUrl(); ?>admin/login.php">登录</a> 或<a href="<?php $this->options->siteUrl(); ?>admin/register.php">注册</a>
             <?php endif; ?>
         </form>
     </div>
