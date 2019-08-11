@@ -3716,6 +3716,7 @@ span.cnblogs_code {
 }
 
 .comment-avatar {
+    /* vertical-align: middle; */
     width: 48px;
     height: 48px;
     border: 1px solid #dcd6b3;
