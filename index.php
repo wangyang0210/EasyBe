@@ -32,7 +32,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <img class="author-thumb" src="<?php  $this->options->adminpicUrl(); ?>">
                 <?php $this->author(); ?>
                 <?php $this->date("Y-m-d H:i:s"); ?>
-                <!-- <a href="https://i.cnblogs.com/EditPosts.aspx?postid=11288570" rel="nofollow">编辑</a> -->
+                阅读(<?php get_post_view($this) ?>) 
+                评论(<?php $this->commentsNum('%d'); ?>)
+                <?php if($this->user->hasLogin()) :?>
+                    <a href="<?php $this->options->adminUrl(); ?>write-post.php?cid=<?php echo $this->cid;?>" target="_blank">编辑</a>
+                <?php endif;?>
             </div>
             <div class="clear"></div>
         

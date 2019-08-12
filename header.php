@@ -30,10 +30,8 @@
 </head>
 
 <body style="overflow: auto;">
-    <div id="pageAnimationOffOn" data="off"
-        style="z-index:  999;position:  absolute;top: 15px;right: 20px;font-size: 14px;color: #f9f9f9;cursor: pointer;">
-        <span id="pageAnimationOffOnIcon" class="iconfont icon-shandian"
-            style="display: inline-block; transform: rotate(0deg); transform-origin: 50% 50%;"></span>
+    <div id="pageAnimationOffOn" >
+        <span id="pageAnimationOffOnIcon" class="iconfont icon-shandian"></span>
         <span id="pageAnimationOffOnText">关闭页面特效</span>
     </div>
     <a name="top"></a>

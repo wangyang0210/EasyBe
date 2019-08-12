@@ -26,9 +26,9 @@
                                     标签: <?php $this->tags(', ', true, 'none'); ?>
                                 </div>
                                 <div id="green_channel">
-                                    <a href="javascript:void(0);" id="green_channel_digg" onclick="alert('开发中')">好文要顶</a>
-                                    <a id="green_channel_follow" onclick="alert('开发中')" href="javascript:void(0);">关注我</a>
-                                    <a id="green_channel_favorite" onclick="alert('开发中')" href="javascript:void(0);">收藏该文</a> 
+                                    <a href="javascript:void(0);" id="green_channel_digg" onclick="alert('开发中')">脑壳疼</a>
+                                    <a id="green_channel_follow" onclick="alert('开发中')" href="javascript:void(0);">脑仁疼</a>
+                                    <a id="green_channel_favorite" onclick="alert('开发中')" href="javascript:void(0);">脑瓜疼</a> 
                                 </div>
                                 <div class="clear"></div>
                                 <div id="post_next_prev">

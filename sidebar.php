@@ -9,7 +9,23 @@
                 <div class="introduce-head">
                     <div class="introduce-via" id="menuBlogAvatar"></div>
                 </div>
-                <div id="introduce"></div>
+                <div id="introduce">
+                    昵称：
+                    <a href="<?php $this->options->siteUrl(); ?>">
+                        <?php $this->options->adminName() ?>
+                    </a>
+                    <br>
+                    职业：
+                    <a href="<?php $this->options->siteUrl(); ?>">
+                        <?php $this->options->adminWorker() ?>
+                    </a>
+                    <br>
+                    城市：
+                    <a href="<?php $this->options->siteUrl(); ?>">
+                    <?php $this->options->adminCity() ?>
+                    </a>
+                    <br>
+                </div>
             </div>
 
             <!-- 导航 -->
@@ -27,10 +43,9 @@
             </div>
             <!-- 访客来源统计 -->
             <div class="m-list-title" style="display: block;"><span>访客来源</span></div>
-            <a href='https://clustrmaps.com/site/1ahcn' title='Visit tracker'>
-                <img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=268&t=t&d=ymyD9S6Gxrh7BknYYgxQi8uzm-aKKsJUuRZX0vBVlZQ&co=000000' />
+            <a href="https://clustrmaps.com/site/1auid" title="Visit tracker">
+                <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=300&t=n&d=11fgf4r4Uq6j60XBPG78tI1ppUsBRfl7x7WR93lg8t8&co=000000" />
             </a>
-
             <!-- 最新随笔 -->
             <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)) : ?>
                 <div class="m-list-title" style="display: block;"><span><?php _e('最新文章'); ?></span></div>

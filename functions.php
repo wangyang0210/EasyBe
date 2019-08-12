@@ -2,19 +2,18 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form) {
-    // $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点 LOGO 地址'), _t('填入一个图片 URL 地址, 网站标题前加上一个 LOGO'));
-    // $form->addInput($logoUrl);
-    // $blogLogo = new Typecho_Widget_Helper_Form_Element_Text('blogLogo', null, null, _t('站点favicon'), _t('填入一个图片 URL 地址, 网站标签栏上加上一个 LOGO'));
-    // $form->addInput($blogLogo);
-    // $indexpicUrl = new Typecho_Widget_Helper_Form_Element_Text('indexpicUrl', null, null, _t('首页Banner'), _t('填入一个图片URL地址, 首页Banner'));
-    // $form->addInput($indexpicUrl);
-    // $contentpicUrl = new Typecho_Widget_Helper_Form_Element_Text('contentpicUrl', null, null, _t('内容页Banner'), _t('填入一个图片URL地址, 内容页Banner'));
-    // $form->addInput($contentpicUrl);
-    $adminpicUrl = new Typecho_Widget_Helper_Form_Element_Text('adminpicUrl', null, null, _t('博主头像'), _t('填入一个图片URL地址, 博主头像'));
+    $adminpicUrl = new Typecho_Widget_Helper_Form_Element_Text('adminpicUrl', null, null, _t('头像'), _t('填入一个图片URL地址, 博主头像'));
     $form->addInput($adminpicUrl);
-    // $selfdiscribition = new Typecho_Widget_Helper_Form_Element_Text('selfdiscribition', null, null, _t('个性签名'), _t('请输入您的个性签名'));
-    // $form->addInput($selfdiscribition);
-
+    $adminName = new Typecho_Widget_Helper_Form_Element_Text('adminName', null, null, _t('昵称'), _t('填入昵称,用于侧边导航中展示'));
+    $form->addInput($adminName);
+    $adminWorker = new Typecho_Widget_Helper_Form_Element_Text('adminWorker', null, null, _t('职业'), _t('填入职业,用于侧边导航中展示'));
+    $form->addInput($adminWorker);
+    $adminCity = new Typecho_Widget_Helper_Form_Element_Text('adminCity', null, null, _t('居住地'), _t('填入居住地,用于侧边导航中展示'));
+    $form->addInput($adminCity);
+    $siteStatistics = new Typecho_Widget_Helper_Form_Element_Textarea('siteStatistics', array('style'=>"height:200px"), null, ('CNZZ统计'), _t('填入自己的CNZZ统计代码,用于底部站点统计'));
+    $form->addInput($siteStatistics);
+    $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', array('style'=>"height:500px"), null, _t('全局配置'), _t('站点全局配置'));
+    $form->addInput($globalConfig);
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox(
         'sidebarBlock', 
         array('ShowRecentPosts' => _t('显示最新文章'),
@@ -28,38 +27,7 @@ function themeConfig($form) {
     $form->addInput($sidebarBlock->multiMode());
 }
 
-// function header_class($archive)
-// {
-//     if ($archive->is('index')) {
-//         $class = '';
-//     }
-//     if ($archive->is('post')) {
-//         $class = 'post-head';
-//     }
-//     if ($archive->is('page')) {
-//         $class = 'post-head';
-//     }
-//     if ($archive->is('archive')) {
-//         $class = 'post-head';
-//     }
-//     echo $class;
-// }
-// function body_class($archive)
-// {
-//     if ($archive->is('index')) {
-//         $class = 'home';
-//     }
-//     if ($archive->is('post')) {
-//         $class = 'post-template';
-//     }
-//     if ($archive->is('page')) {
-//         $class = 'post-template';
-//     }
-//     if ($archive->is('archive')) {
-//         $class = 'archive';
-//     }
-//     echo $class;
-// }
+//阅读访问量
 function get_post_view($archive)
 {
     $cid    = $archive->cid;
