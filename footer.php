@@ -139,12 +139,11 @@
         essayTopImg: [ 
             "http://cache.wangyangyang.vip/wall-bky.png"
         ],
-        essayCodeHighlightingType: 'cnblogs', // 代码主题插件类型：cnblogs || highlightjs || prettify
-        essayCodeHighlighting: 'cnblogs', // 代码高亮主题，具体主题参考文档
+        essayCodeHighlightingType: 'prettify', // 代码主题插件类型：cnblogs || highlightjs || prettify
+        essayCodeHighlighting: 'prettify', // 代码高亮主题，具体主题参考文档
         essaySuffix:{ // 随笔后缀处配置
             aboutHtml    : '', // 关于博主，不配置使用默认
             copyrightHtml: '', // 版权声明，不配置使用默认
-            supportHtml  : ''  // 声援博主，不配置使用默认
         },
 
         // ---- 页脚配置 ----
