@@ -737,7 +737,6 @@ function Base() {
         $('#footer').append(pvHtml);
         window.setInterval( setRunTime, 500 );
         setBlogroll();
-        beiAn();
         timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
 
         function setRunTime() {
