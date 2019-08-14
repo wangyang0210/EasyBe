@@ -20,7 +20,10 @@
     <?php $this->options->siteStatistics()?>
 </div>
 
-
+<!-- 备案信息 -->
+<div id="beiAnInfo">
+    <?php $this->options->siteBeian() ?>
+</div>
 
 
 
@@ -31,9 +34,7 @@
 </div><!-- home end -->
 <script src="<?php $this->options->themeUrl('static/js/jquery-2.2.0.min.js');?>"></script>
 <script src="<?php $this->options->themeUrl('static/js/highlight.min.js');?>"></script>
-<script>
-    $('#beian').append( <?php $this->options->siteBeian() ?>);
-</script>
+
 <?php $this->options->globalConfig()?>
 
 
