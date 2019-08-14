@@ -57,7 +57,7 @@ EasyBe
               ├─ jquery.mCustomScrollbar.min.js
               ├─ jquery.optiscroll.js
               ├─ jquery.rotate.min.js
-              ├─ loading.js
+              ├─ loading.min.js
               ├─ main4.js
               ├─ marvin.nav2.js
               ├─ mouse-click.js
@@ -68,19 +68,19 @@ EasyBe
 ```
 # 使用说明
 
+## 个人信息
+* 头像
+* 昵称
+* 职业
+* 居住地
+>在设置外观中直接设置即可
+
 ## 代码高亮
 本主题整合了两个代码高亮插件分别是：
 * [code-prettify](https://github.com/google/code-prettify) 
 * [highlightjs](https://highlightjs.org/) 
->大家添加代码，按博客园默认的方式添加就行，不用做任何调整！
 >使用第三方代码高亮插件，对页面加载速度有一定影响，大家自己权衡！
-### 关于主题使用的插件说明
-#### highlightjs
-* 版本：v9.13.1
-#### code-prettify
-* 版本：453bd5f51e61245339b738b1bbdd42d7848722ba
-* 因为国内原因，修改了源码中加载 CDN 的网站『cdn.rawgit.com』--->『cdn.jsdelivr.net』
-* 去除了源码中默认样式的加载。
+
 ### 高亮主题的配置
 #### 配置代码高亮插件
 代码高亮主题的类型配置：```essayCodeHighlightingType```
@@ -201,14 +201,31 @@ obsidian
 doxy
 ```
 ## 网站统计
-本主题整合 CNZZ 网站统计，并对样式进行了优化。如果需要本功能，请首先去 CNZZ 配置网站的统计，然后修改下面的代码，添加至页脚Html代码中。
+本主题整合 CNZZ 网站统计，并对样式进行了优化。如果需要本功能，请首先去 [CNZZ](https://www.umeng.com/) 配置网站的统计，然后修改下面的代码，添加至`CNZZ统计`配置中。
 ```html
  <span class="id_cnzz_stat_icon" id='cnzz_stat_icon_你的统计ID'></span>
  <script src='https://s19.cnzz.com/z_stat.php?id=你的统计ID&online=1&show=line' type='text/javascript'></script>
 ```
 
+## 备案信息
+本主题整合 备案信息,如果需要本功能,请首先去[全国互联网管理平台](http://www.beian.gov.cn/portal/index.do)备案, 然后修改西面代码, 添加至`备案信息`配置中
+```html
+<div style="width:300px;margin:0 auto; padding:20px 0;">
+    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=你的备案号" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+        <img src="http://cache.wangyangyang.vip/beian_icon.png" style="float:left;">
+        <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">你的备案信息</p>
+    </a>
+</div>
+
+```
+
 # 更新历史
 
+## 2019-08-14
+```
+1. 增加设置备案信息
+
+```
 
 ### 2019-08-13 
 
