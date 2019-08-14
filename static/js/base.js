@@ -737,6 +737,7 @@ function Base() {
         $('#footer').append(pvHtml);
         window.setInterval( setRunTime, 500 );
         setBlogroll();
+        beiAn();
         timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
 
         function setRunTime() {
@@ -773,6 +774,10 @@ function Base() {
                 bndongJs.clearIntervalTimeId(timeIds.setCnzzTId);
             }
         }
+        function beiAn() {
+            $('#beian').append(" <?php $this->options->siteBeian() ?>");
+        }
+        
         function setAmazing() {
             // 请去 AmazingCounters.com 配置自己的
             if ($('#amazingStat').length > 0) {

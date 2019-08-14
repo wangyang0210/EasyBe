@@ -20,8 +20,8 @@
     <?php $this->options->siteStatistics()?>
 </div>
 
-<!-- 备案信息 -->
-<?php $this->options->siteBeian() ?>
+
+
 
 
 </div>
