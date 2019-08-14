@@ -64,8 +64,8 @@ $(document).ready(function(){
         homeUrl.pop();
         homeUrl.pop();
         homeUrl = homeUrl.join("/");
-        bottom_html += '<a href="'+homeUrl+'" target="_blank" style="word-break: break-all;">'+ (str != '' ? str : tmp[3]) +'</a></span></strong><br>';
-        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">出　　处</span>：<a href="'+url+'" target="_blank">'+url+'</a>';
+        bottom_html += '<a href="'+homeUrl+'" target="_blank" >'+ (str != '' ? str : tmp[3]) +'</a></span></strong><br>';
+        bottom_html += '<span style="font-weight: bold; white-space:nowrap;">出　　处</span>：<a href="'+url+'" target="_blank" style="word-break: break-all;">'+url+'</a>';
     }
 
     bottom_html += '<br>';
