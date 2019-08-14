@@ -775,6 +775,7 @@ function Base() {
         }
         function setBeiAn() {
             var beiAnInfo = $('#beiAnInfo').html();
+            console.log(beiAnInfo);
             $('beian').append(beiAnInfo);
         }
         function setAmazing() {
