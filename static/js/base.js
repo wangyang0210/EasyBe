@@ -776,7 +776,7 @@ function Base() {
         }
         function setBeiAn() {
             var beiAnInfo = $('#beiAnInfo').html();
-            $('beian').append(beiAnInfo);
+            $('#beian').append(beiAnInfo);
         }
         function setAmazing() {
             // 请去 AmazingCounters.com 配置自己的
