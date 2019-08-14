@@ -12,6 +12,8 @@ function themeConfig($form) {
     $form->addInput($adminCity);
     $siteStatistics = new Typecho_Widget_Helper_Form_Element_Textarea('siteStatistics', array('style'=>"height:200px"), null, ('CNZZ统计'), _t('填入自己的CNZZ统计代码,用于底部站点统计'));
     $form->addInput($siteStatistics);
+    $siteBeian = new Typecho_Widget_Helper_Form_Element_Textarea('siteBeian', array('style'=>"height:100px"), null, ('备案信息'), _t('填入自己的备案信息'));
+    $form->addInput($siteBeian);
     $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', array('style'=>"height:500px"), null, _t('全局配置'), _t('站点全局配置'));
     $form->addInput($globalConfig);
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox(

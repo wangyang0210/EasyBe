@@ -733,6 +733,7 @@ function Base() {
         pvHtml += "<div><span id='blogRunTimeSpan'></span><span class='my-face'>(^・ω・^ )( ^・ω・^)</span></div>";
         pvHtml += '<div id="blogrollInfo"></div>';
         pvHtml += '<div id="cnzzInfo"></div>';
+        pvHtml += '<div id="beian"></div>';
         $('#footer').append(pvHtml);
         window.setInterval( setRunTime, 500 );
         setBlogroll();

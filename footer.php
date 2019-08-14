@@ -19,7 +19,14 @@
 <div id="cnzzProtocol"  style="display: none;">
     <?php $this->options->siteStatistics()?>
 </div>
+
+<!-- 备案信息 -->
+<?php $this->options->siteBeian() ?>
+
+
 </div>
+
+
 <!-- footer end -->
 </div><!-- home end -->
 <script src="<?php $this->options->themeUrl('static/js/jquery-2.2.0.min.js');?>"></script>
