@@ -737,6 +737,7 @@ function Base() {
         $('#footer').append(pvHtml);
         window.setInterval( setRunTime, 500 );
         setBlogroll();
+        setBeiAn();
         timeIds.setCnzzTId    = window.setInterval( setCnzz, 1000 );
 
         function setRunTime() {
@@ -775,7 +776,6 @@ function Base() {
         }
         function setBeiAn() {
             var beiAnInfo = $('#beiAnInfo').html();
-            console.log(beiAnInfo);
             $('beian').append(beiAnInfo);
         }
         function setAmazing() {

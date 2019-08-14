@@ -21,7 +21,7 @@
 </div>
 
 <!-- 备案信息 -->
-<div id="beiAnInfo">
+<div id="beiAnInfo" style="display: none;">
     <?php $this->options->siteBeian() ?>
 </div>
 
