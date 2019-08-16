@@ -35,6 +35,7 @@
 <script src="<?php $this->options->themeUrl('static/js/jquery-2.2.0.min.js');?>"></script>
 <script src="<?php $this->options->themeUrl('static/js/highlight.min.js');?>"></script>
 
+
 <?php $this->options->globalConfig()?>
 
 

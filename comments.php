@@ -1,6 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-
 <?php function threadedComments($comments, $options) {
     $commentClass = '';
     $commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
@@ -12,33 +11,43 @@
     } else {
         echo ' comment-parent';
     }
-    $comments->alt(' comment-odd', ' comment-even');
+    $comments->alt('comment-odd', ' comment-even');
     echo $commentClass;
     ?>">
-        <div id="<?php $comments->theId(); ?>" class="comment-item">
-            <div class="comment-author">
-                <?php $comments->gravatar('40', ''); ?>
-                <span class="fn">
-            <?php $comments->author(); ?>
-            <?php if ($comments->authorId) {
-                if ($comments->authorId == $comments->ownerId) {
-                    echo "<span class='author-after-text'>[作者]</span>";
-                }?>
-            <?php }?>
-        </span>
+    <div class="feedbackItem">
+        <div class="feedbackCon">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
+                    <span class="comment_actions">
+                        <?php 
+                            if ($comments->authorId !== $comments->ownerId) {
+                                $comments->reply(); 
+                            }
+                        ?>
+                    </span>
+                </div>
+                <!-- <a href="#" class="layer">#楼</a> -->
+                <a id="a_comment_author" href="<?php $comments->permalink(); ?>" target="_blank" > 
+                    <?php $comments->author(); ?>
+                    <?php if ($comments->authorId) {
+                        if ($comments->authorId == $comments->ownerId) {
+                            echo "<span class='louzhu'>[作者]</span>";
+                        }?>
+                    <?php }?>
+                </a>
+                <span class="comment_date"><?php $comments->date('Y-m-d H:i:s'); ?></span>
             </div>
-            <div class="comment-meta">
-                <a href="<?php $comments->permalink(); ?>"><?php $comments->date('Y-m-d H:i'); ?></a>
-            </div>
-            <span class="comment-reply"><?php $comments->reply(); ?></span>
-            <div class="comment-content">
-                <?php $comments->content(); ?>
+            <div id="<?php $comments->theId(); ?>">
+                    <img class="comment-avatar" src="http://cache.wangyangyang.vip/avatar-img/avatar-<?php echo mt_rand(928680, 1266901); ?>.jpg">
+                    <div id="comment_body" class="blog_comment_body hvr-bob">
+                        <?php $comments->content(); ?>
+                    </div>
             </div>
         </div>
+    </div>
+
         <?php if ($comments->children) { ?>
-            <div class="comment-children">
                 <?php $comments->threadedComments($options); ?>
-            </div>
         <?php } ?>
     </li>
 <?php } ?>
