@@ -751,6 +751,86 @@ button {
     transition: all .4s linear 0s
 }
 
+/*评论样式 start*/
+.comments-wrapper {
+    border-top: 1px dashed #cccccc;
+    padding-top: 1rem;
+    margin-top: 3rem;
+}
+
+.comments-wrapper img.avatar {
+    text-align: center;
+    margin-right: 10px;
+}
+
+.comments-wrapper .comment-content p {
+    font-size: 14px;
+}
+
+.comment-list, .comment-list li {
+    list-style: none;
+}
+
+.comments-wrapper .comment-author {
+    display: inline-block;
+    font-weight: 600;
+}
+
+.comments-wrapper .comment-meta {
+    display: inline-block;
+}
+
+.comments-wrapper .comment-meta a {
+    color: #cccccc;
+    font-size: 12px;
+}
+
+.comments-wrapper .comment-content {
+    padding-left: 52px;
+}
+
+.comments-wrapper .comment-reply {
+    display: inline-block;
+    float: right;
+    font-size: 12px;
+}
+
+.comments-wrapper .comment-item {
+    border-top: 1px solid #dfdfdf;
+    padding-top: 10px;
+}
+
+.comment-list, .comment-list li {
+    list-style: none;
+}
+
+.comment-children {
+    padding-left: 40px;
+}
+
+.comment-list {
+    padding-left: 0;
+}
+
+.comments-wrapper .cancel-comment-reply {
+    margin: 10px 0;
+}
+
+.comment-author .author-after-text {
+    font-size: 12px;
+    color: #0c5;
+}
+
+.add-comments {
+    margin-top: 1rem;
+}
+
+#response {
+    margin: 1rem 0;
+}
+
+
+
 #AjaxHolder_PostComment_btnSubmit {
     padding: 8px 20px;
     text-align: center;
