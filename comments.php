@@ -21,7 +21,7 @@
                     <span class="comment_actions" 
                         <?php 
                             if ($comments->authorId !== $comments->ownerId) {
-                                echo 'author='. '"' . $comments->author() .'"';
+                                echo 'author='. '"' . $comments->author .'"';
                             }
                         ?> 
                     >
