@@ -11,7 +11,9 @@
                     </span>
                 </div>
                 <!-- <a href="#" class="layer">#楼</a> -->
-                <a id="a_comment_author" href="<?php $comments->permalink(); ?>" target="_blank" data="<?php $comments->author(); ?>"><?php $comments->author(); ?></a>
+                <a id="a_comment_author" href="<?php $comments->permalink(); ?>" target="_blank" >
+                    <span id="reComment"><?php $comments->author(); ?></span>
+                </a>
                 <span class="comment_date"><?php $comments->date('Y-m-d H:i:s'); ?></span>
             </div>
             <div id="<?php $comments->theId(); ?>">
