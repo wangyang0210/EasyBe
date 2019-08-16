@@ -562,6 +562,14 @@ function Base() {
     };
 
     /**
+     * 设置评论回复
+     */
+    $(".comment_actions").click(function() {
+        var userName = '@' + $(".a_comment_author").text();
+        $("#tbCommentBody").text(userName);
+    })
+
+    /**
      * 播放器初始化
      */
     this.musicInit = function() {};

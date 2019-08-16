@@ -11,12 +11,12 @@
                     </span>
                 </div>
                 <!-- <a href="#" class="layer">#楼</a> -->
-                <a id="a_comment_author_4178348" href="<?php $comments->permalink(); ?>" target="_blank"><?php $comments->author(); ?></a>
+                <a id="a_comment_author" href="<?php $comments->permalink(); ?>" target="_blank"><?php $comments->author(); ?></a>
                 <span class="comment_date"><?php $comments->date('Y-m-d H:i:s'); ?></span>
             </div>
             <div id="<?php $comments->theId(); ?>">
                     <img class="comment-avatar" src="http://cache.wangyangyang.vip/avatar-img/avatar-<?php echo mt_rand(928680, 1266901); ?>.jpg">
-                    <div id="comment_body_4178348" class="blog_comment_body hvr-bob">
+                    <div id="comment_body" class="blog_comment_body hvr-bob">
                         <?php $comments->content(); ?>
                     </div>
             </div>
