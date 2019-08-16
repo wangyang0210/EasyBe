@@ -565,9 +565,7 @@ function Base() {
      * 设置评论回复
      */
     $(".comment_actions").click(function() {
-        console.log(123);
-        var userName = '@' + $("#a_comment_author").text() + "  ";
-        console.log(userName);
+        var userName = '@' +  $(this).attr('author') + " ";
         $("#tbCommentBody").text(userName);
     })
 

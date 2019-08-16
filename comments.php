@@ -18,7 +18,13 @@
         <div class="feedbackCon">
             <div class="feedbackListSubtitle">
                 <div class="feedbackManage">
-                    <span class="comment_actions">
+                    <span class="comment_actions" 
+                        <?php 
+                            if ($comments->authorId !== $comments->ownerId) {
+                                echo 'author='. '"' . $comments->author() .'"';
+                            }
+                        ?> 
+                    >
                         <?php 
                             if ($comments->authorId !== $comments->ownerId) {
                                 $comments->reply(); 
