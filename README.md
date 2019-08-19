@@ -4,6 +4,7 @@
 >博客园的皮肤来源于[BNDong](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory)
 * `EasyBe`以阅读为核心，尽可能的美化博客的显示效果，提高用户体验。
 * 支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
+* 页面效果[]()
 
 # 目录结构
 ```
@@ -68,6 +69,9 @@ EasyBe
               └─ tools.js
 ```
 # 使用说明
+
+>首先您可以直接克隆或者fork该仓库
+
 
 ## 个人信息
 * 头像
