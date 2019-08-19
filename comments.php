@@ -23,6 +23,7 @@
                             if ($comments->authorId !== $comments->ownerId) {
                                 echo 'author='. '"' . $comments->author .'"';
                             }
+                            
                         ?> 
                     >
                         <?php 

@@ -1,6 +1,7 @@
 # EasyBe
 
-名字是`easy`和`beautiful`的结合，意味着这个主题是一个简单且美观的博客主题，`EasyBe`基于本人博客园目前所使用的皮肤和typecho的默认主题开发。
+名字是`easy`和`beautiful`的结合，意味着这个主题是一个简单且美观的博客主题，`EasyBe`基于本人[博客园](https://www.cnblogs.com/wangyang0210/)目前所使用的皮肤和typecho的默认主题开发。
+>博客园的皮肤来源于[BNDong](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory)
 * `EasyBe`以阅读为核心，尽可能的美化博客的显示效果，提高用户体验。
 * 支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
 
@@ -481,3 +482,4 @@ doxy
 
 
 
+>使用该主题,请注明来源
