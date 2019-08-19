@@ -91,14 +91,14 @@ EasyBe
     window.cnblogsConfig = {
 
         // ---- GitHub文件源配置 ----
-        GhUserName: 'wangyang0210',   //GitHub用户
-        GhRepositories: 'EasyBe',     //Github仓库
-        GhVersions : 'e6750e1d9e00190f22d1e0b0092153f78c89f054',  //Git提交哈希值
+        GhUserName: 'wangyang0210', 
+        GhRepositories: 'EasyBe', 
+        GhVersions : '28232d480923b7543ab6dc84c14f0c5ee39815c3', 
 
         // ---- 基础信息配置 ----custom
-        blogUser      : "。思索",   //博客昵称
-        blogAvatar    : "http://cache.wangyangyang.vip/12222222222222.jpg",   //博主头像
-        blogStartDate : "2019-8-1",     // 博客建立时间
+        blogUser      : "。思索",
+        blogAvatar    : "http://cache.wangyangyang.vip/12222222222222.jpg",
+        blogStartDate : "2019-8-1", 
       
         // ---- 菜单配置 ----
         menuCustomList: { 
@@ -107,7 +107,7 @@ EasyBe
         
 
        // ---- 网站配置 ----
-        webpageTitleOnblur        : "(◍´꒳`◍) Hi, MyFriend",  
+        webpageTitleOnblur        : "(◍´꒳`◍) Hi, MyFriend", 
         webpageTitleOnblurTimeOut : 500, 
         webpageTitleFocus         : "(*´∇｀*) 欢迎回来！", 
         webpageTitleFocusTimeOut  : 1000, 
