@@ -295,29 +295,25 @@ function Base() {
         var settings = {
             "async": true,
             "crossDomain": true,
-            "url": "https://api.hibai.cn/api/index/index",
-            "method": "POST",
+            "url": "https://v1.hitokoto.cn/?c=d",
+            "method": "GET",
             "headers": {
                 "content-type": "application/x-www-form-urlencoded",
             },
-            "data": {
-                "TransCode": "030111",
-                "OpenId": "123456789",
-                "Body": ""
-            }
         };
         
         $.ajax(settings).done(function (response) {
-            if (response.ResultCode == 1) {
-                $('#hitokoto').text(response.Body.word).css('display', '-webkit-box');
-                $('#hitokotoAuthor').text('- '+response.Body.word_from).show();
+            if (response !== '') {
+                $('#hitokoto').text(response.hitokoto).css('display', '-webkit-box');
+                $('#hitokotoAuthor').text('- ' + response.from).show()
             } else {
                 var listIndex = tools.randomNum(0, topTitleList.length - 1);
-                $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box');
+                $('#hitokoto').text(topTitleList[listIndex]).css('display', '-webkit-box')
             }
             bndongJs.setDomHomePosition();
             return false;
         });
+
 
         // ===================  今日诗词  =================================
         // var settings = {
