@@ -1,0 +1,6 @@
+
+IWeb:AvoidCommentedOutCodeCheck$"Remove this commented out code.(Éõ¢Ü
+r%Web:ItemTagNotWithinContainerTagCheck"<Surround this <li> item tag by a <ul> or <ol> container one.(³çø„ùÿÿÿÿ
+Q	php:S1481"7Remove this unused "$commentLevelClass" local variable.(¥òŠÖüÿÿÿÿ
+Dphp:S121"0Add curly braces around the nested statement(s).(äˆÏº
+GWeb:ImgWithoutAltCheck1"%Add an "alt" attribute to this image.(¾áŽ­

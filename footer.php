@@ -32,7 +32,6 @@
 
 <!-- footer end -->
 </div><!-- home end -->
-<script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
 <script src="https://cdn.staticfile.org/highlight.js/9.15.9/highlight.min.js"></script>
 
 <?php $this->options->globalConfig()?>

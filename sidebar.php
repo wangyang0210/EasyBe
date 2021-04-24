@@ -41,11 +41,6 @@
                     <li><a href="https://www.cnblogs.com/wangyang0210/" target="_blank">CNBlogs</a></li>
                 </ul>
             </div>
-            <!-- 访客来源统计 -->
-            <div class="m-list-title" style="display: block;"><span>访客来源</span></div>
-            <a href="https://clustrmaps.com/site/1auid" title="Visit tracker">
-                <img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=300&t=n&d=11fgf4r4Uq6j60XBPG78tI1ppUsBRfl7x7WR93lg8t8&co=000000" />
-            </a>
             <!-- 最新随笔 -->
             <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)) : ?>
                 <div class="m-list-title" style="display: block;"><span><?php _e('最新文章'); ?></span></div>
@@ -74,9 +69,9 @@
                 <li>
                     <a rel="tag" href="<?php $tags->permalink(); ?>">
                         <span class="iconfont icon-label_fill" style="color: #888;font-size: 14px;margin-right: 5px;"></span>
-                        <?php $tags->name(); ?> (<?php $tags->count()?>) 
+                        <?php $tags->name(); ?> (<?php $tags->count()?>)
                     </a>
-                
+
                 </li>
             </ul>
             <?php endwhile; ?>
@@ -92,13 +87,13 @@
                         <li>
                             <a rel="clsaaify" href="<?php $classify->permalink(); ?>">
                                 <span class="iconfont icon-marketing_fill" style="color: #888;font-size: 14px;margin-right: 5px;"></span>
-                                <?php $classify->name(); ?> (<?php $classify->count()?>) 
+                                <?php $classify->name(); ?> (<?php $classify->count()?>)
                             </a>
                         </li>
                     </ul>
                     <?php endwhile; ?>
                 </div>
-            <?php endif; ?>                
+            <?php endif; ?>
             <!-- 随笔档案 -->
             <?php if (!empty($this->options->sidebarBlock) && in_array('ShowArchive', $this->options->sidebarBlock)) : ?>
                 <div class="m-list-title" style="display: block;"><span><?php _e('文章档案'); ?></span></div>
