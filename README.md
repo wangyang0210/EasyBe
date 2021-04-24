@@ -93,11 +93,12 @@ EasyBe
         // ---- GitHub文件源配置 ----
         GhUserName: 'wangyang0210', 
         GhRepositories: 'EasyBe', 
-        GhVersions : '28232d480923b7543ab6dc84c14f0c5ee39815c3', 
+        GhVersions : '2fe1857351f385f3712cbdd293aff31d96856d4e', 
 
         // ---- 基础信息配置 ----custom
         blogUser      : "。思索",
-        blogAvatar    : "http://cache.wangyangyang.vip/12222222222222.jpg",
+        blogAvatar    : 
+        "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/nothome_top_bg.webp",
         blogStartDate : "2019-8-1", 
       
         // ---- 菜单配置 ----
@@ -188,15 +189,29 @@ EasyBe
 
         // ---- 主页配置 ----
         homeTopImg    : [ 
-            "http://cache.wangyangyang.vip/wallhaven-vgykv8.png",
-            "http://cache.wangyangyang.vip/wallhaven-694674.jpg",
-            "http://cache.wangyangyang.vip/wallhaven-x1991d.jpg"
+             "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-j55w9p_1920x1080.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-dgzkw3_1920x1080.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/home_top_bg.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-x1wroo.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/nothome_top_bg.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-13gom9.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-vg7lv3.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-odej2m.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-j5mz95.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/19059-wallhaven-3911w9.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-6k3oox.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/for.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-737jo3.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/42476-wallhaven-oxzk8m.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-oxdyvl.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/44817-wallhaven-p8rdq9.webp"
         ],
         homeBannerText: "", 
 
         // ---- 随笔页配置 ----
         essayTopImg: [ 
-            "http://cache.wangyangyang.vip/wall-bky.png"
+               "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/nothome_top_bg.webp",
+            "https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@theme-simpleMemory/img/webp/wallhaven-13gom9.webp"
         ],
         essayCodeHighlightingType: 'highlightjs', // 代码主题插件类型：cnblogs || highlightjs || prettify
         essayCodeHighlighting: 'monokai-sublime', // 代码高亮主题，具体主题参考文档
@@ -415,75 +430,5 @@ doxy
 </div>
 
 ```
-
-# 更新历史
-
-## 2019-08-16 
-```
-1. fix - 评论回复
-2. 评论回复增加@
-3. 更新文档
-```
-
-## 2019-08-14
-```
-1. 增加设置备案信息
-2. fix-出处链接自适应
-
-```
-
-### 2019-08-13 
-
-```
-1. fix-代码高亮
-```
-
-
-### 2019-08-12
-
-```
-1. 主题制作完成
-2. 修复小BUG
-```
-
-
-### 2019-08-11
-
-```
-内容页完成
-1. 评论区域
-2. 文章区域
-```
-### 2019-08-02
-
-```
-首页内容基本完成
-1. 样式
-2. 特效
-3. 展示
-``` 
-
-
-### 2019-07-25
-
-```
-1.首页内容
-2.侧边导航内容
-```
-
-### 2019-07-24
-
-```
-1. 项目重构
-```
-
-### 2019-07-18
-
-```
-1. 项目建立
-2. 修改目录结构
-```
-
-
 
 >使用该主题,请注明来源
