@@ -4,7 +4,7 @@
 >博客园的皮肤来源于[BNDong](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory)
 * `EasyBe`以阅读为核心，尽可能的美化博客的显示效果，提高用户体验。
 * 支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
-* 页面效果[]()
+* 页面效果[EasyBe](https://www.wangyangyang.vip/)
 
 # 目录结构
 ```
@@ -71,7 +71,6 @@ EasyBe
 # 使用说明
 
 >首先您可以直接克隆或者fork该仓库
-
 
 ## 个人信息
 * 头像
@@ -287,131 +286,6 @@ EasyBe
 </script>
 ```
 
-## 代码高亮
-本主题整合了两个代码高亮插件分别是：
-* [code-prettify](https://github.com/google/code-prettify) 
-* [highlightjs](https://highlightjs.org/) 
->使用第三方代码高亮插件，对页面加载速度有一定影响，大家自己权衡！
-
-### 高亮主题的配置
-#### 配置代码高亮插件
-代码高亮主题的类型配置：```essayCodeHighlightingType```
-
-|value        |description|
-|:------------|:----------|
-|highlightjs  |使用 **highlightjs** 对代码进行渲染。|
-|prettify     |使用 **code-prettify** 对代码进行渲染。|
-#### 配置代码高亮主题
-配置代码高亮主题的配置为：```essayCodeHighlighting```
-```
-essayCodeHighlighting 可配置范围：
-任意，此配置不会对渲染产生影响。
-```
-* essayCodeHighlightingType: 'highlightjs'
-<br>支持官方所有主题，样式参考：[GoTo](https://highlightjs.org/static/demo/)
-```
-essayCodeHighlighting 可配置范围：
-
-default
-a11y-dark
-a11y-light
-agate
-an-old-hope
-androidstudio
-arduino-light
-arta
-ascetic
-atelier-cave-dark
-atelier-cave-light
-atelier-dune-dark
-atelier-dune-light
-atelier-estuary-dark
-atelier-estuary-light
-atelier-forest-dark
-atelier-forest-light
-atelier-heath-dark
-atelier-heath-light
-atelier-lakeside-dark
-atelier-lakeside-light
-atelier-plateau-dark
-atelier-plateau-light
-atelier-savanna-dark
-atelier-savanna-light
-atelier-seaside-dark
-atelier-seaside-light
-atelier-sulphurpool-dark
-atelier-sulphurpool-light
-atom-one-dark-reasonable
-atom-one-dark
-atom-one-light
-brown-paper
-codepen-embed
-color-brewer
-darcula
-dark
-darkula
-docco
-dracula
-far
-foundation
-github-gist
-github
-gml
-googlecode
-grayscale
-gruvbox-dark
-gruvbox-light
-hopscotch
-hybrid
-idea
-ir-black
-isbl-editor-dark
-isbl-editor-light
-kimbie.dark
-kimbie.light
-lightfair
-magula
-mono-blue
-monokai-sublime
-monokai
-nord
-obsidian
-ocean
-paraiso-dark
-paraiso-light
-pojoaque
-purebasic
-qtcreator_dark
-qtcreator_light
-railscasts
-rainbow
-routeros
-school-book
-shades-of-purple
-solarized-dark
-solarized-light
-sunburst
-tomorrow-night-blue
-tomorrow-night-bright
-tomorrow-night-eighties
-tomorrow-night
-tomorrow
-vs
-vs2015
-xcode
-xt256
-zenburn
-```
-* essayCodeHighlightingType: 'prettify'
-<br>支持官方所有主题，样式参考：[GoTo](https://rawgit.com/google/code-prettify/master/styles/index.html)
-```
-essayCodeHighlighting 可配置范围：
-prettify
-desert
-sunburst
-obsidian
-doxy
-```
 ## 网站统计
 本主题整合 CNZZ 网站统计，并对样式进行了优化。如果需要本功能，请首先去 [CNZZ](https://www.umeng.com/) 配置网站的统计，然后修改下面的代码，添加至`CNZZ统计`配置中。
 ```html

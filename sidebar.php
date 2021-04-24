@@ -34,7 +34,6 @@
                 <ul>
                     <li><a href="<?php $this->options->siteUrl(); ?>" target="_self">首页</a></li>
                     <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2752154874&amp;site=qq&amp;menu=yes" target="_blank">联系</a></li>
-                    <li><a href="<?php $this->options->siteUrl(); ?>feed" target="_blank">订阅</a></li>
                     <li><a href="<?php $this->options->siteUrl(); ?>admin" target="_blank">管理</a></li>
                     <li><a href="<?php $this->options->siteUrl(); ?>admin/write-post.php" target="_blank">添加随笔</a></li>
                     <li><a href="https://github.com/wangyang0210" target="_blank">GitHub</a></li>
