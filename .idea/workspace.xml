@@ -2,7 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d4390fd-c357-4407-86be-abc5ab2d4bbf" name="Default Changelist" comment="代码调整">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-0j16wq_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-2em38y.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-3911w9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-47lv93_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-47pjwe_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-4ge6pq_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-4vw6pm_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-6k3oox.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-6oo3vw.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-6qpzr6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-72pj33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-737jo3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-avkg890.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-dgzkw3_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-e77g8k.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-j55w9p_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-j5mz95.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-k7x1o7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-nm6yo8_1920x1080.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-odej2m.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-oxdyvl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-oxkjgm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-oxzk8m.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-p8rdq9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-v99jk8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-vg7lv3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-x1wroo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-x8831v.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/imgs/bg/wallhaven-z8861j.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

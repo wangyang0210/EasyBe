@@ -55,7 +55,7 @@ EasyBe
               ├─ config.js
               ├─ css.min.js
               ├─ highlight.min.js
-              ├─ jquery-2.2.0.min.js
+              ├─ jquery.js
               ├─ jquery.mCustomScrollbar.min.js
               ├─ jquery.optiscroll.js
               ├─ jquery.rotate.min.js
