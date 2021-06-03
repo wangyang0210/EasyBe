@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d4390fd-c357-4407-86be-abc5ab2d4bbf" name="Default Changelist" comment="代码调整">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/e/2e7ace98767dccabf2b32ef008a3443d5f983446" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3cf4a720c216d250c65c4daf1507c9dd76ba45a7" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3cf4a720c216d250c65c4daf1507c9dd76ba45a7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/2/6246d0d5e9ecbe1054c93f3841188709e0fb6e1a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/2/6246d0d5e9ecbe1054c93f3841188709e0fb6e1a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/6314feee14ea09173c34632864f7659d9d5a5a84" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/6314feee14ea09173c34632864f7659d9d5a5a84" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/4/643aa1403c67715cb89bd66603f19c787bddaea9" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/4/643aa1403c67715cb89bd66603f19c787bddaea9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6cf7e2244b7f47fae3f826f768d20e13b8b16b9f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/8/889df3d9474a4cab8c523c46812a754336f029c7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3cf4a720c216d250c65c4daf1507c9dd76ba45a7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/6314feee14ea09173c34632864f7659d9d5a5a84" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/4/643aa1403c67715cb89bd66603f19c787bddaea9" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive.php" beforeDir="false" afterPath="$PROJECT_DIR$/archive.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +31,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="dev" />
-                    <option name="lastUsedInstant" value="1619277910" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1619287110" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1619277909" />
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1619277910" />
                   </RecentBranch>
                 </list>
               </option>
@@ -81,19 +76,6 @@
       <recent name="E:\Project\EasyBe\static" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
@@ -106,6 +88,11 @@
       <option name="presentableId" value="Default" />
       <updated>1619280189390</updated>
       <workItem from="1619280195691" duration="5047000" />
+      <workItem from="1621959085555" duration="76000" />
+      <workItem from="1621992037314" duration="110000" />
+      <workItem from="1622378342038" duration="1561000" />
+      <workItem from="1622624410140" duration="1201000" />
+      <workItem from="1622686617996" duration="4909000" />
     </task>
     <servers />
   </component>
