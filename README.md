@@ -92,7 +92,7 @@ EasyBe
         // ---- GitHub文件源配置 ----
         GhUserName: 'wangyang0210', 
         GhRepositories: 'EasyBe', 
-        GhVersions : '2fe1857351f385f3712cbdd293aff31d96856d4e', 
+        GhVersions : 'v1.0', 
 
         // ---- 基础信息配置 ----custom
         blogUser      : "。思索",
@@ -298,7 +298,7 @@ EasyBe
 ```html
 <div style="width:300px;margin:0 auto; padding:20px 0;">
     <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=你的备案号" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
-        <img src="http://cache.wangyangyang.vip/beian_icon.png" style="float:left;">
+        <img src="https://cdn.jsdelivr.net/gh/wangyang0210/pic//imgs/beian_icon.png" style="float:left;">
         <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;">你的备案信息</p>
     </a>
 </div>

@@ -18,23 +18,23 @@
         <div class="feedbackCon">
             <div class="feedbackListSubtitle">
                 <div class="feedbackManage">
-                    <span class="comment_actions" 
-                        <?php 
+                    <span class="comment_actions"
+                        <?php
                             if ($comments->authorId !== $comments->ownerId) {
                                 echo 'author='. '"' . $comments->author .'"';
                             }
-                            
-                        ?> 
+
+                        ?>
                     >
-                        <?php 
+                        <?php
                             if ($comments->authorId !== $comments->ownerId) {
-                                $comments->reply(); 
+                                $comments->reply();
                             }
                         ?>
                     </span>
                 </div>
                 <!-- <a href="#" class="layer">#楼</a> -->
-                <a id="a_comment_author" href="<?php $comments->permalink(); ?>" target="_blank" > 
+                <a id="a_comment_author" href="<?php $comments->permalink(); ?>" target="_blank" >
                     <?php $comments->author(); ?>
                     <?php if ($comments->authorId) {
                         if ($comments->authorId == $comments->ownerId) {
@@ -45,7 +45,7 @@
                 <span class="comment_date"><?php $comments->date('Y-m-d H:i:s'); ?></span>
             </div>
             <div id="<?php $comments->theId(); ?>">
-                    <img class="comment-avatar" src="http://cache.wangyangyang.vip/avatar-img/avatar-<?php echo mt_rand(928680, 1266901); ?>.jpg">
+                    <img class="comment-avatar" src="https://cdn.jsdelivr.net/gh/wangyang0210/pic/avatar-img/avatar-<?php echo mt_rand(1, 377); ?>.jpg">
                     <div id="comment_body" class="blog_comment_body hvr-bob">
                         <?php $comments->content(); ?>
                     </div>
@@ -83,7 +83,7 @@
                     <div class="commentbox_title">
                         <div class="commentbox_title_left">评论内容：</div>
                         <div class="commentbox_title_right">
-                            
+
                         </div>
                     </div>
                     <div class="clear"></div>
