@@ -92,7 +92,7 @@ EasyBe
         // ---- GitHub文件源配置 ----
         GhUserName: 'wangyang0210', 
         GhRepositories: 'EasyBe', 
-        GhVersions : 'v1.0', 
+        GhVersions : '80e8d7f9b7acb7ab1318ac39cbfad7b0ed908edd', 
 
         // ---- 基础信息配置 ----custom
         blogUser      : "。思索",
