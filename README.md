@@ -6,6 +6,8 @@
 * 支持响应，尺寸分别为：(1200px,∞px)，(960px,1200px]，(720px,960px]，(0px,720px]
 * 页面效果[EasyBe](https://www.wangyangyang.vip/)
 
+
+
 # 目录结构
 ```
 EasyBe
@@ -306,3 +308,9 @@ EasyBe
 ```
 
 >使用该主题,请注明来源
+
+
+
+## Group
+
+![image-20220720003503285](https://cdn.jsdelivr.net/gh/wangyang0210/pic@428bdf28/imgs/typora-user-images/image-20220720003503285.png)
