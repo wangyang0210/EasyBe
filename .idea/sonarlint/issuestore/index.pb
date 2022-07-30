@@ -15,5 +15,3 @@ A
 static/js/base.js,e\8\e8ac2d4adf867cc63cfef49000225410122221e5
 C
 static/css/base.css,5\3\532914bdbb042b229c519b57cc284d35513bb9dc
-9
-	index.php,b\b\bb6499b8e938f92a3695fff1afe57edea4b9efb7

@@ -1,5 +1,4 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) { exit;
-} ?>
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) { exit;} ?>
 
 <div class="container">
     <div class="menu-wrap optiscroll" id="menuWrap" style="display:none">
