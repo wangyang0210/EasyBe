@@ -2,10 +2,6 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form) {
-    $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', NULL, NULL, _t('站点 LOGO 地址'), _t('在这里填入一个图片 URL 地址, 以在网站标题前加上一个 LOGO'));
-    $form->addInput($logoUrl);
-    $cssConfig = new Typecho_Widget_Helper_Form_Element_Text('cssConfig', NULL, NULL, _t('页面定制CSS代码'));
-    $form->addItem($cssConfig);
     $globalConfig = new Typecho_Widget_Helper_Form_Element_Text('globalConfig', NULL, NULL, _t('全局配置'));
     $form->addItem($globalConfig);
 
