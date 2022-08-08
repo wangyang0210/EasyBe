@@ -36,6 +36,7 @@ module.exports = {
                 onEnd: {
                     copy: [
                         { source: './dist/simpleMemory.js', destination: './dist/simpleMemory.' + randomString(8) + '.js' },
+                        { source: './src/php/*.php', destination: './dist/' },
                     ],
                 }
             }
