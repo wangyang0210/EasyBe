@@ -25,23 +25,6 @@
 <header id="header" class="clearfix">
     <div class="container">
         <div class="row">
-            <div class="site-name col-mb-12 col-9">
-                <?php if ($this->options->logoUrl): ?>
-                    <a id="logo" href="<?php $this->options->siteUrl(); ?>">
-                        <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>"/>
-                    </a>
-                <?php else: ?>
-                    <a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
-                    <p class="description"><?php $this->options->description() ?></p>
-                <?php endif; ?>
-            </div>
-            <div class="site-search col-3 kit-hidden-tb">
-                <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
-                    <label for="s" class="sr-only"><?php _e('搜索关键字'); ?></label>
-                    <input type="text" id="s" name="s" class="text" placeholder="<?php _e('输入关键字搜索'); ?>"/>
-                    <button type="submit" class="submit"><?php _e('搜索'); ?></button>
-                </form>
-            </div>
             <div class="col-mb-12">
                 <nav id="nav-menu" class="clearfix" role="navigation">
                     <a<?php if ($this->is('index')): ?> class="current"<?php endif; ?>
@@ -115,21 +98,7 @@
     </div><!--end: header 头部 -->
     <div id="main">
 
-        <div id="mainContent">
-            <div class="forFlow">
 
-
-
-
-
-                <div class="topicListFooter">
-                    <div id="nav_next_page">
-                    </div>
-                </div>
-
-
-            </div><!--end: forFlow -->
-        </div><!--end: mainContent 主体内容容器-->
         <div id="sideBar">
             <div id="sideBarMain">
                 <div id="sidebar_news" class="newsItem"><!--done-->
@@ -166,6 +135,11 @@
                 <div id="leftcontentcontainer">
                     <div id="blog-sidecolumn"><!-- 搜索 -->
                         <div id="sidebar_search" class="sidebar-block">
+                            <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
+                                <label for="s" class="sr-only"><?php _e('搜索关键字'); ?></label>
+                                <input type="text" id="s" name="s" class="text" placeholder="<?php _e('输入关键字搜索'); ?>"/>
+                                <button type="submit" class="submit"><?php _e('搜索'); ?></button>
+                            </form>
                         </div>
 
                         <!-- 常用链接 -->
