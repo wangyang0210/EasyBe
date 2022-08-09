@@ -6,7 +6,7 @@
 <!--start: footer -->
   <div id="footer">
         <!--done-->
-        Copyright © 2022 WangYang1225
+        Copyright © 2022 。思索
         <br><span id="poweredby">Powered by .NET 6 on Kubernetes</span>
 
   </div>

@@ -2,59 +2,55 @@
 <!DOCTYPE HTML>
 <html class="no-js">
 <head>
-    <meta charset="<?php $this->options->charset(); ?>">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><?php $this->archiveTitle(array(
-            'category'  =>  _t('分类 %s 下的文章'),
-            'search'    =>  _t('包含关键字 %s 的文章'),
-            'tag'       =>  _t('标签 %s 下的文章'),
-            'author'    =>  _t('%s 发布的文章')
+            'category' => _t('分类 %s 下的文章'),
+            'search' => _t('包含关键字 %s 的文章'),
+            'tag' => _t('标签 %s 下的文章'),
+            'author' => _t('%s 发布的文章')
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('simpleMemory.css'); ?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!--[if lt IE 9]>
-    <script src="//cdnjscn.b0.upaiyun.com/libs/html5shiv/r29/html5.min.js"></script>
-    <script src="//cdnjscn.b0.upaiyun.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
 </head>
 <body>
-<!--[if lt IE 8]>
-    <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
-<![endif]-->
 
 <header id="header" class="clearfix">
     <div class="container">
         <div class="row">
             <div class="site-name col-mb-12 col-9">
-            <?php if ($this->options->logoUrl): ?>
-                <a id="logo" href="<?php $this->options->siteUrl(); ?>">
-                    <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
-                </a>
-            <?php else: ?>
-                <a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
-        	    <p class="description"><?php $this->options->description() ?></p>
-            <?php endif; ?>
+                <?php if ($this->options->logoUrl): ?>
+                    <a id="logo" href="<?php $this->options->siteUrl(); ?>">
+                        <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>"/>
+                    </a>
+                <?php else: ?>
+                    <a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a>
+                    <p class="description"><?php $this->options->description() ?></p>
+                <?php endif; ?>
             </div>
             <div class="site-search col-3 kit-hidden-tb">
                 <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
                     <label for="s" class="sr-only"><?php _e('搜索关键字'); ?></label>
-                    <input type="text" id="s" name="s" class="text" placeholder="<?php _e('输入关键字搜索'); ?>" />
+                    <input type="text" id="s" name="s" class="text" placeholder="<?php _e('输入关键字搜索'); ?>"/>
                     <button type="submit" class="submit"><?php _e('搜索'); ?></button>
                 </form>
             </div>
             <div class="col-mb-12">
                 <nav id="nav-menu" class="clearfix" role="navigation">
-                    <a<?php if($this->is('index')): ?> class="current"<?php endif; ?> href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
+                    <a<?php if ($this->is('index')): ?> class="current"<?php endif; ?>
+                            href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
                     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                    <?php while($pages->next()): ?>
-                    <a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                    <?php while ($pages->next()): ?>
+                        <a<?php if ($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?>
+                                href="<?php $pages->permalink(); ?>"
+                                title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
                     <?php endwhile; ?>
                 </nav>
             </div>
@@ -81,7 +77,7 @@
 
             <ul id="navList">
                 <li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
-                    博客园</a>
+                        博客园</a>
                 </li>
                 <li>
                     <a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/wangyang1225/">
@@ -119,150 +115,15 @@
     </div><!--end: header 头部 -->
     <div id="main">
 
-     <div id="mainContent">
+        <div id="mainContent">
             <div class="forFlow">
-                <div class="day" role="article" aria-describedby="postlist_description_16535598">
-                    <div class="dayTitle">
-                        <a href="https://www.cnblogs.com/wangyang1225/archive/2022/07/30.html">2022年7月30日</a>
-                    </div>
-
-                    <div class="postTitle" role="heading" aria-level="2">
-                        <a class="postTitle2 vertical-middle"
-                           href="https://www.cnblogs.com/wangyang1225/p/16535598.html">
-    <span>
-        文章内容测试
-    </span>
-
-                        </a>
-                    </div>
-                    <div class="postCon">
-
-                        <div class="c_b_p_desc" id="postlist_description_16535598">
-                            摘要：
-                            前言 哈喽,你好啊,我来测试一下; 内容 https://i.cnblogs.com/posts/edit | baidu cnblogsEdit <a
-                                href="https://www.cnblogs.com/wangyang1225/p/16535598.html" class="c_b_p_desc_readmore">阅读全文</a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="postDesc">posted @ 2022-07-30 18:58
-                        WangYang1225
-                        <span data-post-id="16535598" class="post-view-count">阅读(1)</span>
-                        <span data-post-id="16535598" class="post-comment-count">评论(0)</span>
-                        <span data-post-id="16535598" class="post-digg-count">推荐(0)</span>
-                        <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16535598" rel="nofollow">
-                            编辑
-                        </a>
-                    </div>
-                    <div class="clear"></div>
-                </div>
 
 
-                <div class="day" role="article" aria-describedby="postlist_description_16533138">
-                    <div class="dayTitle">
-                        <a href="https://www.cnblogs.com/wangyang1225/archive/2022/07/29.html">2022年7月29日</a>
-                    </div>
 
-                    <div class="postTitle" role="heading" aria-level="2">
-                        <a class="postTitle2 vertical-middle"
-                           href="https://www.cnblogs.com/wangyang1225/p/16533332.html">
-    <span>
-        友联测试
-    </span>
-
-                        </a>
-                    </div>
-                    <div class="postCon">
-
-                        <div class="c_b_p_desc" id="postlist_description_16533332">
-                            摘要：
-                            <a href="https://www.cnblogs.com/wangyang1225/p/16533332.html" class="c_b_p_desc_readmore">阅读全文</a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="postDesc">posted @ 2022-07-29 19:30
-                        WangYang1225
-                        <span data-post-id="16533332" class="post-view-count">阅读(7)</span>
-                        <span data-post-id="16533332" class="post-comment-count">评论(0)</span>
-                        <span data-post-id="16533332" class="post-digg-count">推荐(0)</span>
-                        <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16533332" rel="nofollow">
-                            编辑
-                        </a>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="postSeparator"></div>
-                    <div class="postTitle" role="heading" aria-level="2">
-                        <a class="postTitle2 vertical-middle"
-                           href="https://www.cnblogs.com/wangyang1225/p/16533138.html">
-    <span>
-        代码块
-    </span>
-
-                        </a>
-                    </div>
-                    <div class="postCon">
-
-                        <div class="c_b_p_desc" id="postlist_description_16533138">
-                            摘要：
-                            code D:\wamp\www\TIMSDK&gt;kbone init kbone-im ? 请选择开发小程序或 Web 的技术栈 Vue Kbone CLI 正在启动...
-                            Kbone CLI 即将执行 init 命令... Kbone CLI 即将创建一个新的应用在 D:\wamp\www\TIM <a
-                                href="https://www.cnblogs.com/wangyang1225/p/16533138.html" class="c_b_p_desc_readmore">阅读全文</a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="postDesc">posted @ 2022-07-29 17:55
-                        WangYang1225
-                        <span data-post-id="16533138" class="post-view-count">阅读(10)</span>
-                        <span data-post-id="16533138" class="post-comment-count">评论(1)</span>
-                        <span data-post-id="16533138" class="post-digg-count">推荐(0)</span>
-                        <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16533138" rel="nofollow">
-                            编辑
-                        </a>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-
-
-                <div class="day" role="article" aria-describedby="postlist_description_16524958">
-                    <div class="dayTitle">
-                        <a href="https://www.cnblogs.com/wangyang1225/archive/2022/07/27.html">2022年7月27日</a>
-                    </div>
-
-                    <div class="postTitle" role="heading" aria-level="2">
-                        <a class="postTitle2 vertical-middle"
-                           href="https://www.cnblogs.com/wangyang1225/p/16524958.html">
-    <span>
-        测试
-    </span>
-
-                        </a>
-                    </div>
-                    <div class="postCon">
-
-                        <div class="c_b_p_desc" id="postlist_description_16524958">
-                            摘要：
-                            博皮测试页面 标题1
-                            测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测
-                            <a href="https://www.cnblogs.com/wangyang1225/p/16524958.html" class="c_b_p_desc_readmore">阅读全文</a>
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="postDesc">posted @ 2022-07-27 15:11
-                        WangYang1225
-                        <span data-post-id="16524958" class="post-view-count">阅读(5)</span>
-                        <span data-post-id="16524958" class="post-comment-count">评论(3)</span>
-                        <span data-post-id="16524958" class="post-digg-count">推荐(0)</span>
-                        <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16524958" rel="nofollow">
-                            编辑
-                        </a>
-                    </div>
-                    <div class="clear"></div>
-                </div>
 
 
                 <div class="topicListFooter">
                     <div id="nav_next_page">
-
-
                     </div>
                 </div>
 
@@ -338,21 +199,6 @@
                                     <li>
 
                                         <a href="https://www.cnblogs.com/wangyang1225/p/16535598.html">1.文章内容测试</a>
-
-                                    </li>
-                                    <li>
-
-                                        <a href="https://www.cnblogs.com/wangyang1225/p/16533332.html">2.友联测试</a>
-
-                                    </li>
-                                    <li>
-
-                                        <a href="https://www.cnblogs.com/wangyang1225/p/16533138.html">3.代码块</a>
-
-                                    </li>
-                                    <li>
-
-                                        <a href="https://www.cnblogs.com/wangyang1225/p/16524958.html">4.测试</a>
 
                                     </li>
                                 </ul>
@@ -469,4 +315,4 @@
                 </div>
             </div><!--end: sideBarMain -->
         </div><!--end: sideBar 侧边栏容器 -->
-    
+
