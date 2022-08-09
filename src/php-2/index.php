@@ -1,11 +1,11 @@
 <?php
 /**
- * EasyBe是一款
+ * EasyBe主题
  *
  * @package EasyBe
  * @author wangyang
  * @version 2.0
- * @link http://www.wangyangyang.vip
+ * @link https://www.wangyangyang.vip
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;

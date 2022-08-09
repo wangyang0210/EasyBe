@@ -1,3 +1,12 @@
+/**
+ * UPDATES AND DOCS AT: https://github.com/wangyang0210
+ * https://www.cnblogs.com/wangyang0210/
+ * @author: WangYang, wangyang.0210@foxmail.com
+ * @Date 2022-08-09 23:22
+ * ----------------------------------------------
+ * @describe: 评论列表和评论输入表单 | TODO
+ */
+
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
 <?php function threadedComments($comments, $options) {

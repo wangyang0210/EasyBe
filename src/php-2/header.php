@@ -4,7 +4,7 @@
 <html class="no-js">
 
 <head>
-    <meta charset="<?php $this->options->charset(); ?>">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -25,27 +25,17 @@
     <?php $this->header(); ?>
 </head>
 
-<body style="overflow: auto;">
-    <div id="pageAnimationOffOn" >
-        <span id="pageAnimationOffOnIcon" class="iconfont icon-shandian"></span>
-        <span id="pageAnimationOffOnText">关闭页面特效</span>
-    </div>
-    <a name="top"></a>
-
-    <!-- Loading 底层遮罩 -->
-    <div id="loading">
-        <div id="loading-center">
-            <div id="loading-center-absolute">
-                <div class="object" id="first_object"></div>
-                <div class="object" id="second_object"></div>
-                <div class="object" id="third_object"></div>
-            </div>
+<body>
+    <div id="home">
+        <div id="header">
+            <div id="blogTitle">
+                <a id="lnkBlogLogo" href="https://www.cnblogs.com/wangyang1225/">
+                    <img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页">
+                </a>
+                <!--done-->
+                <h1>
+                    <a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/wangyang1225/">wangyang1225</a>
+                </h1>
+                <h2></h2>
+            </div><!--end: blogTitle 博客的标题和副标题 -->
         </div>
-    </div>
-
-
-    <!--[if lt IE 8]>
-        <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
-    <![endif]-->
-    <div class="clear"></div>
-    <div id="home" style="margin-top: 1434px;">

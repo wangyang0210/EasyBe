@@ -22,83 +22,48 @@
 </head>
 <body>
 
-<header id="header" class="clearfix">
-    <div class="container">
-        <div class="row">
-            <div class="col-mb-12">
-                <nav id="nav-menu" class="clearfix" role="navigation">
-                    <a<?php if ($this->is('index')): ?> class="current"<?php endif; ?>
-                            href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
-                    <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-                    <?php while ($pages->next()): ?>
-                        <a<?php if ($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?>
-                                href="<?php $pages->permalink(); ?>"
-                                title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-                    <?php endwhile; ?>
-                </nav>
-            </div>
-        </div><!-- end .row -->
-    </div>
-</header><!-- end #header -->
 <!--done-->
 <div id="home">
     <div id="header">
         <div id="blogTitle">
-            <a id="lnkBlogLogo" href="https://www.cnblogs.com/wangyang1225/"><img id="blogLogo"
-                                                                                  src="/skins/custom/images/logo.gif"
-                                                                                  alt="返回主页"></a>
-
+            <a id="lnkBlogLogo" href="https://www.cnblogs.com/wangyang1225/">
+                <img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页">
+            </a>
             <!--done-->
-            <h1><a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle"
-                   href="https://www.cnblogs.com/wangyang1225/">wangyang1225</a>
+            <h1>
+                <a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/wangyang1225/">wangyang1225</a>
             </h1>
             <h2></h2>
-
-
         </div><!--end: blogTitle 博客的标题和副标题 -->
         <div id="navigator">
-
             <ul id="navList">
-                <li><a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">
-                        博客园</a>
+                <li>
+                    <a id="blog_nav_sitehome" class="menu" href="https://www.cnblogs.com/">博客园</a>
                 </li>
                 <li>
-                    <a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/wangyang1225/">
-                        首页</a>
+                    <a id="blog_nav_myhome" class="menu" href="https://www.cnblogs.com/wangyang1225/">首页</a>
                 </li>
                 <li>
-
-                    <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">
-                        新随笔</a>
+                    <a id="blog_nav_newpost" class="menu" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a>
                 </li>
                 <li>
-                    <a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/WangYang1225">
-                        联系</a></li>
+                    <a id="blog_nav_contact" class="menu" href="https://msg.cnblogs.com/send/WangYang1225">联系</a></li>
                 <li>
-                    <a id="blog_nav_rss" class="menu" href="javascript:void(0)"
-                       data-rss="https://www.cnblogs.com/wangyang1225/rss/">订阅</a>
+                    <a id="blog_nav_rss" class="menu" href="javascript:void(0)" data-rss="https://www.cnblogs.com/wangyang1225/rss/">订阅</a>
                     <!--<partial name="./Shared/_XmlLink.cshtml" model="Model" /></li>--></li>
                 <li>
-                    <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">
-                        管理</a>
+                    <a id="blog_nav_admin" class="menu" href="https://i.cnblogs.com/">管理</a>
                 </li>
             </ul>
-
-
             <div class="blogStats">
                 <span id="stats_post_count">随笔 - 4&nbsp; </span>
                 <span id="stats_article_count">文章 - 0&nbsp; </span>
                 <span id="stats-comment_count">评论 - 4&nbsp; </span>
-                <span id="stats-total-view-count">阅读 -
-<span title="总阅读数: 23">
-23</span></span>
-
+                <span id="stats-total-view-count">阅读 -<span title="总阅读数: 23">23</span></span>
             </div><!--end: blogStats -->
         </div><!--end: navigator 博客导航栏 -->
     </div><!--end: header 头部 -->
     <div id="main">
-
-
         <div id="sideBar">
             <div id="sideBarMain">
                 <div id="sidebar_news" class="newsItem"><!--done-->
