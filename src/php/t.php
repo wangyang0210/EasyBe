@@ -156,12 +156,16 @@
                         </h3>
                         <div class="RecentCommentBlock">
                             <ul>
-                                <li class="recent_comment_title">
-                                    <a href="https://www.cnblogs.com/wangyang1225/p/16535598.html">1. Re:文章内容测试</a>
-                                </li>
-                                <li class="recent_comment_body"><p>测试一下</p>
-                                </li>
-                                <li class="recent_comment_author">--WangYang1225</li>
+                                <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
+                                <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
+                                    <?php while($comments->next()): ?>
+                                        <li class="recent_comment_title">
+                                            <a href="<?php $comments->permalink(); ?>"><?php $comments->title() ?></a>
+                                         </li>
+                                        <li class="recent_comment_body"><p><?php $comments->excerpt(35, '...'); ?></p></li>
+                                        <li class="recent_comment_author">--<?php $comments->author(false); ?></li>
+                                    <?php endwhile; ?>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
