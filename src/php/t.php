@@ -61,6 +61,39 @@
                     </div>
                 </div>
 
+                <div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+                    <h3 class="catListTitle">
+                        <a class="sidebar-card-title-a">随笔分类</a>
+                    </h3>
+                    <ul>
+                        <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)) : ?>
+                        <?php $this->widget('Widget_Metas_Category_List')->to($classify); ?>
+                        <?php while($classify->next()): ?>
+                            <li data-category-list-item-visible="true" style="display: block">
+                                <a href="<?php $classify->permalink(); ?>" class="category-item-link" rel="" target=""> <?php $classify->name(); ?> (<?php $classify->count()?>)</a>
+                            </li>
+                        <?php endwhile; ?>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+
+                <!-- 随笔档案 -->
+                <div id="sidebar_categories">
+                    <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+                        <h3 class="catListTitle">随笔档案</h3>
+                        <ul>
+                            <?php if (!empty($this->options->sidebarBlock) && in_array('ShowArchive', $this->options->sidebarBlock)) : ?>
+                            <?php $this->widget('Widget_Contents_Post_Date', 'format=Y-m&type=month&limit=0')->parse('
+                                <li data-category-list-item-visible="true" style="display: block">
+                                    <a href="{permalink}"
+                                       class="category-item-link" rel="" target="">{date} ({count})</a>
+                                </li>
+                            '); ?>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
+
                 <!-- 我的标签 -->
                 <div id="sidebar_toptags" class="sidebar-block">
                     <div class="catListTag">
@@ -68,48 +101,12 @@
                         <ul>
                             <?php $this->widget('Widget_Metas_Tag_Cloud')->to($tags); ?>
                             <?php while($tags->next()): ?>
-                            <li><a rel="tag" href="<?php $tags->permalink(); ?>"><?php $tags->name(); ?><span class="tag-count">(<?php $tags->count()?>)</span></a></li>
+                                <li><a rel="tag" href="<?php $tags->permalink(); ?>"><?php $tags->name(); ?><span class="tag-count">(<?php $tags->count()?>)</span></a></li>
                             <?php endwhile; ?>
                         </ul>
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-                <!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
-                <div id="sidebar_categories">
-
-                    <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
-                        <h3 class="catListTitle">
-
-                            随笔档案<span class="sidebar-category-item-count">
-    (4)
-</span>
-
-
-                        </h3>
-
-                        <ul>
-
-                            <li data-category-list-item-visible="true" style="display: block">
-
-                                <a href="https://www.cnblogs.com/wangyang1225/archive/2022/07.html"
-                                   class="category-item-link" rel="" target="">2022年7月(4)</a>
-
-                            </li>
-
-                        </ul>
-
-
-                    </div>
-                </div>
-
-                <!-- 最新评论 -->
                 <!-- 阅读排行榜 -->
                 <div id="sidebar_topviewedposts" class="sidebar-block">
                     <div class="catListView">
@@ -117,26 +114,15 @@
                             <a href="https://www.cnblogs.com/wangyang1225/most-viewed" class="sidebar-card-title-a">
                                 阅读排行榜
                             </a>
-
                         </h3>
                         <div id="TopViewPostsBlock">
-                            <ul style="word-break:break-all">
-                                <li>
-                                    <a href="https://www.cnblogs.com/wangyang1225/p/16533138.html">
-                                        1. 代码块(11)
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.cnblogs.com/wangyang1225/p/16533332.html">
-                                        2. 友联测试(7)
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.cnblogs.com/wangyang1225/p/16524958.html">
-                                        3. 测试(6)
-                                    </a>
-                                </li>
-                            </ul>
+<!--                            <ul style="word-break:break-all">-->
+<!--                                <li>-->
+<!--                                    <a href="https://www.cnblogs.com/wangyang1225/p/16533138.html">-->
+<!--                                        1. 代码块(11)-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
                         </div>
                     </div>
                 </div>
@@ -146,77 +132,42 @@
                     <div class="catListFeedback">
                         <h3 class="catListTitle">
                             <a href="https://www.cnblogs.com/wangyang1225/most-commented" class="sidebar-card-title-a">评论排行榜</a>
-
                         </h3>
                         <div id="TopFeedbackPostsBlock">
-                            <ul style="word-break:break-all">
-                                <li>
-                                    <a href="https://www.cnblogs.com/wangyang1225/p/16524958.html">
-                                        1. 测试(3)
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.cnblogs.com/wangyang1225/p/16535598.html">
-                                        2. 文章内容测试(2)
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.cnblogs.com/wangyang1225/p/16533138.html">
-                                        3. 代码块(1)
-                                    </a>
-                                </li>
-                            </ul>
+<!--                            <ul style="word-break:break-all">-->
+<!--                                <li>-->
+<!--                                    <a href="https://www.cnblogs.com/wangyang1225/p/16524958.html">-->
+<!--                                        1. 测试(3)-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
                         </div>
                     </div>
                 </div>
 
                 <!-- 推荐排行榜 -->
                 <div id="sidebar_topdiggedposts" class="sidebar-block"></div>
+
+                <!-- 最新评论 -->
                 <div id="sidebar_recentcomments" class="sidebar-block">
                     <div class="catListComment">
-                        <h3 class="catListTitle"><a href="https://www.cnblogs.com/wangyang1225/comments"
-                                                    class="sidebar-card-title-a">最新评论</a></h3>
+                        <h3 class="catListTitle">
+                            <a href="https://www.cnblogs.com/wangyang1225/comments" class="sidebar-card-title-a">最新评论</a>
+                        </h3>
                         <div class="RecentCommentBlock">
                             <ul>
-                                <li class="recent_comment_title"><a
-                                            href="https://www.cnblogs.com/wangyang1225/p/16535598.html">1. Re:文章内容测试</a>
+                                <li class="recent_comment_title">
+                                    <a href="https://www.cnblogs.com/wangyang1225/p/16535598.html">1. Re:文章内容测试</a>
                                 </li>
                                 <li class="recent_comment_body"><p>测试一下</p>
-                                </li>
-                                <li class="recent_comment_author">--WangYang1225</li>
-                                <li class="recent_comment_title"><a
-                                            href="https://www.cnblogs.com/wangyang1225/p/16535598.html">2. Re:文章内容测试</a>
-                                </li>
-                                <li class="recent_comment_body"><p>学而思</p>
-                                </li>
-                                <li class="recent_comment_author">--WangYang1225</li>
-                                <li class="recent_comment_title"><a
-                                            href="https://www.cnblogs.com/wangyang1225/p/16533138.html">3. Re:代码块</a>
-                                </li>
-                                <li class="recent_comment_body"><p>vfgg</p>
-                                </li>
-                                <li class="recent_comment_author">--WangYang1225</li>
-                                <li class="recent_comment_title"><a
-                                            href="https://www.cnblogs.com/wangyang1225/p/16524958.html">4. Re:测试</a>
-                                </li>
-                                <li class="recent_comment_body"><p>..............123</p>
-                                </li>
-                                <li class="recent_comment_author">--WangYang1225</li>
-                                <li class="recent_comment_title"><a
-                                            href="https://www.cnblogs.com/wangyang1225/p/16524958.html">5. Re:测试</a>
-                                </li>
-                                <li class="recent_comment_body"><p>????</p>
                                 </li>
                                 <li class="recent_comment_author">--WangYang1225</li>
                             </ul>
                         </div>
                     </div>
-
                 </div>
 
-
             </div>
-
         </div>
     </div><!--end: sideBarMain -->
 </div>

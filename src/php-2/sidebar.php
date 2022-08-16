@@ -61,7 +61,6 @@
                     <ul>
                         <li>
                             <a rel="clsaaify" href="<?php $classify->permalink(); ?>">
-                                <span class="iconfont icon-marketing_fill" style="color: #888;font-size: 14px;margin-right: 5px;"></span>
                                 <?php $classify->name(); ?> (<?php $classify->count()?>)
                             </a>
                         </li>
@@ -77,7 +76,7 @@
                         <?php $this->widget('Widget_Contents_Post_Date', 'format=Y-m&type=month&limit=0')->parse(
                             '<li>
                                 <a href="{permalink}">
-                                    <span class="iconfont icon-task_fill" style="color: #888;font-size: 14px;margin-right: 5px;"></span>
+   
                                     {date} ({count})
                                 </a>
                             </li>'
