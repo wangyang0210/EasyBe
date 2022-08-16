@@ -62,7 +62,24 @@
                 </div>
 
                 <!-- 我的标签 -->
-                <div id="sidebar_toptags" class="sidebar-block"></div>
+                <div id="sidebar_toptags" class="sidebar-block">
+                    <div class="catListTag">
+                        <h3 class="catListTitle">我的标签</h3>
+                        <ul>
+                            <?php $this->widget('Widget_Metas_Tag_Cloud')->to($tags); ?>
+                            <?php while($tags->next()): ?>
+                            <li><a rel="tag" href="<?php $tags->permalink(); ?>"><?php $tags->name(); ?><span class="tag-count">(<?php $tags->count()?>)</span></a></li>
+                            <?php endwhile; ?>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+
+
 
                 <!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
                 <div id="sidebar_categories">
