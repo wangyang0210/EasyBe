@@ -49,67 +49,20 @@
                     </div>
                 </div>
 
-                <!-- 常用链接 -->
-                <div id="sidebar_shortcut" class="sidebar-block">
-                    <div class="catListLink">
-                        <h3 class="catListTitle">
-                            常用链接
-                        </h3>
-                        <ul>
-                            <li><a href="https://www.cnblogs.com/wangyang1225/p/" title="我的博客的随笔列表">我的随笔</a></li>
-                            <li><a href="https://www.cnblogs.com/wangyang1225/MyComments.html"
-                                   title="我的发表过的评论列表">我的评论</a></li>
-                            <li><a href="https://www.cnblogs.com/wangyang1225/OtherPosts.html"
-                                   title="我评论过的随笔列表">我的参与</a></li>
-                            <li><a href="https://www.cnblogs.com/wangyang1225/comments" title="我的博客的评论列表">最新评论</a></li>
-                            <li><a href="https://www.cnblogs.com/wangyang1225/tag/" title="我的博客的标签列表">我的标签</a></li>
-
-                        </ul>
-                    </div>
-
-                </div>
-
                 <!-- 最新随笔 -->
                 <div id="sidebar_recentposts" class="sidebar-block">
                     <div class="catListEssay">
                         <h3 class="catListTitle">最新随笔</h3>
                         <ul>
-                            <li>
-
-                                <a href="https://www.cnblogs.com/wangyang1225/p/16535598.html">1.文章内容测试</a>
-
-                            </li>
-                            <li>
-
-                                <a href="https://www.cnblogs.com/wangyang1225/p/16533332.html">2.友联测试</a>
-
-                            </li>
+                            <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)) : ?>
+                                <?php $this->widget('Widget_Contents_Post_Recent')->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
+                            <?php endif; ?>
                         </ul>
                     </div>
-
                 </div>
 
                 <!-- 我的标签 -->
                 <div id="sidebar_toptags" class="sidebar-block"></div>
-
-                <!-- 积分与排名 -->
-                <div id="sidebar_scorerank" class="sidebar-block">
-                    <div class="catListBlogRank">
-                        <h3 class="catListTitle">积分与排名</h3>
-                        <ul>
-                            <li class="liScore">
-                                积分 -
-                                28
-                            </li>
-                            <li class="liRank">
-                                排名 -
-                                467000
-                            </li>
-                        </ul>
-                    </div>
-
-
-                </div>
 
                 <!-- 随笔分类、随笔档案、文章分类、新闻分类、相册、链接 -->
                 <div id="sidebar_categories">
