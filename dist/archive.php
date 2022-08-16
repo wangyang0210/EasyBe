@@ -10,18 +10,29 @@
         ), '', ''); ?></h3>
         <?php if ($this->have()): ?>
     	<?php while($this->next()): ?>
-            <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-    			<h2 class="post-title" itemprop="name headline"><a itemprop="url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
-    			<ul class="post-meta">
-    				<li itemprop="author" itemscope itemtype="http://schema.org/Person"><?php _e('作者: '); ?><a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a></li>
-    				<li><?php _e('时间: '); ?><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date(); ?></time></li>
-    				<li><?php _e('分类: '); ?><?php $this->category(','); ?></li>
-                    <li itemprop="interactionCount"><a href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?></a></li>
-    			</ul>
-                <div class="post-content" itemprop="articleBody">
-        			<?php $this->content('- 阅读剩余部分 -'); ?>
+            // TODO 文章内容
+
+                <div class="day" role="article">
+
+                    <div class="postTitle" role="heading" aria-level="2">
+                        <a class="postTitle2 vertical-middle" href="<?php $this->permalink() ?>">
+                            <span>
+                                <?php $this->title() ?>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="postCon">
+                        <div class="c_b_p_desc" id="postlist_description_16535598">
+                            <?php $this->content(); ?>
+                            <a href="<?php $this->permalink() ?>" class="c_b_p_desc_readmore"><?php $this->content('阅读全文'); ?></a>
+                        </div>
+                    </div>
+                    <div class="postDesc">posted @ <?php $this->date(); ?> <?php $this->author(); ?>
+                        <span class="post-view-count">阅读(1)</span>
+                        <span class="post-comment-count">评论(<?php $this->commentsNum('评论', '1', '%d'); ?>)</span>
+                        <a href="https://i.cnblogs.com/EditPosts.aspx?postid=16535598" rel="nofollow">编辑</a>
+                    </div>
                 </div>
-    		</article>
     	<?php endwhile; ?>
         <?php else: ?>
             <article class="post">

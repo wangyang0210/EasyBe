@@ -62,10 +62,33 @@ export default function main(_) {
         let timeout = 1000;
 
         // ------- 用户个人信息 -------
-        $('#info_name').text(_.__config.info.name);
-        $('#info_job').text(_.__config.info.job);
-        $('#info_postion').text(_.__config.info.postion);
-        $('#info_proverb').text(_.__config.info.proverb);
+        _.__timeIds.introduceTId = window.setInterval(() => {
+            $('#info_name').text(_.__config.info.name);
+            $('#info_job').text(_.__config.info.job);
+            $('#info_postion').text(_.__config.info.postion);
+            $('#info_proverb').text(_.__config.info.proverb);
+            let introduceHtml = $('#profile_block').html(),
+                menuIntroduce = $('#introduce');
+            if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
+                menuIntroduce.html(_.__tools.htmlFiltrationScript(introduceHtml));
+                _.__tools.clearIntervalTimeId(_.__timeIds.introduceTId);
+            }
+        }, timeout);
+
+        // ------- 日历 ------- || TODO 目前是直接干掉的状态
+        _.__timeIds.calendarTId = window.setInterval(() => {
+            let calendarTable = $('#blogCalendar'),
+                calendar      = $('#blog-calendar'),
+                menuCalendar  = $('#calendar-box');
+
+            if (calendarTable.length > 0 && menuCalendar.html() === ''){
+                let calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
+                calendar.remove();
+                menuCalendar.html(calendarHtml).show();
+                $('#blog-calendar').css('visibility', 'visible');
+                _.__tools.clearIntervalTimeId(_.__timeIds.calendarTId);
+            }
+        }, timeout);
 
         // ------- 找找看 -------
         _.__timeIds.searchTId = window.setInterval(() => {
@@ -73,7 +96,7 @@ export default function main(_) {
                 menuSearchBox = $('#sb-sidebarSearchBox');
 
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
-                menuSearchBox.prepend('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text"  autocomplete="off" placeholder="找找看..." onkeydown="return zzk_go_enter(event);" class="input_my_zzk form-control search-menu"></div>');
+                menuSearchBox.prepend('<div id="sb_widget_my_zzk" class="div_my_zzk" xmlns="http://www.w3.org/1999/html"><form method="post"><input id="q" type="text"  autocomplete="off" placeholder="找找看..." class="input_my_zzk form-control search-menu"/> </form></div>');
                 $('.sidebar-search').show();
                 _.__tools.clearIntervalTimeId(_.__timeIds.searchTId);
             }
