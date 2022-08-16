@@ -8,7 +8,10 @@
 {
   // -- 基础信息 --
   info: {
-    name: '',
+    name: '。思索',
+    job: '职业',
+    posting: '坐标',
+    proverb: '格言',
     startDate: '2021-01-01',
     avatar: '',
     blogIcon: '',

@@ -62,29 +62,10 @@ export default function main(_) {
         let timeout = 1000;
 
         // ------- 用户个人信息 -------
-        _.__timeIds.introduceTId = window.setInterval(() => {
-            let introduceHtml = $('#profile_block').html(),
-                menuIntroduce = $('#introduce');
-            if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
-                menuIntroduce.html(_.__tools.htmlFiltrationScript(introduceHtml));
-                _.__tools.clearIntervalTimeId(_.__timeIds.introduceTId);
-            }
-        }, timeout);
-
-        // ------- 日历 -------
-        _.__timeIds.calendarTId = window.setInterval(() => {
-            let calendarTable = $('#blogCalendar'),
-                calendar      = $('#blog-calendar'),
-                menuCalendar  = $('#calendar-box');
-
-            if (calendarTable.length > 0 && menuCalendar.html() === ''){
-                let calendarHtml = '<div id="blog-calendar">' + calendar.html() + '</div>';
-                calendar.remove();
-                menuCalendar.html(calendarHtml).show();
-                $('#blog-calendar').css('visibility', 'visible');
-                _.__tools.clearIntervalTimeId(_.__timeIds.calendarTId);
-            }
-        }, timeout);
+        $('#info_name').text(_.__config.info.name);
+        $('#info_job').text(_.__config.info.job);
+        $('#info_postion').text(_.__config.info.postion);
+        $('#info_proverb').text(_.__config.info.proverb);
 
         // ------- 找找看 -------
         _.__timeIds.searchTId = window.setInterval(() => {
@@ -96,15 +77,6 @@ export default function main(_) {
                 $('.sidebar-search').show();
                 _.__tools.clearIntervalTimeId(_.__timeIds.searchTId);
             }
-        }, timeout);
-
-        // ------- 积分与排名 -------
-        _.__timeIds.scorerankTId = window.setInterval(() => {
-            listHdl(
-                $('#sidebar_scorerank ul li'),
-                $('#sb-sidebarScorerank'),
-                _.__timeIds.scorerankTId
-            );
         }, timeout);
 
         // ------- 最新随笔 -------
@@ -134,15 +106,6 @@ export default function main(_) {
             );
         }, timeout);
 
-        // ------- 文章分类 -------
-        _.__timeIds.articleCategoryTId = window.setInterval(() => {
-            listHdl(
-                $('#sidebar_articlecategory ul li'),
-                $('#sb-ArticleCategory'),
-                _.__timeIds.articleCategoryTId
-            );
-        }, timeout);
-
         // ------- 随笔档案 -------
         _.__timeIds.recordTId = window.setInterval(() => {
             listHdl(
@@ -153,31 +116,12 @@ export default function main(_) {
             );
         }, timeout);
 
-        // ------- 文章档案 -------
-        _.__timeIds.articleTId = window.setInterval(() => {
-            listHdl(
-                $('#sidebar_articlearchive ul li'),
-                $('#sb-articlearchive'),
-                'icon-document-fill',
-                _.__timeIds.articleTId
-            );
-        }, timeout);
-
         // ------- 阅读排行 -------
         _.__timeIds.topViewTId = window.setInterval(() => {
             listHdl(
                 $('#TopViewPostsBlock ul li'),
                 $('#sb-topview'),
                 _.__timeIds.topViewTId
-            );
-        }, timeout);
-
-        // ------- 推荐排行 -------
-        _.__timeIds.topDiggPostsTId = window.setInterval(() => {
-            listHdl(
-                $('#TopDiggPostsBlock ul li'),
-                $('#sb-topDiggPosts'),
-                _.__timeIds.topDiggPostsTId
             );
         }, timeout);
 
@@ -311,11 +255,6 @@ export default function main(_) {
      */
     (() => {
 
-        if ( _.__config.sidebar.submenu.pointsRank) {
-            $('#sb-sidebarScorerank').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-sidebarScorerank').show();
-        }
-
         if (_.__config.sidebar.submenu.latestPosts) {
             $('#sb-sidebarRecentposts').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-sidebarRecentposts').show();
@@ -331,29 +270,15 @@ export default function main(_) {
             $('#sb-classify').show();
         }
 
-        if (_.__config.sidebar.submenu.articleClassify) {
-            $('#sb-ArticleCategory').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-ArticleCategory').show();
-        }
 
         if (_.__config.sidebar.submenu.readRank) {
             $('#sb-topview').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-topview').show();
         }
 
-        if (_.__config.sidebar.submenu.recommendRank) {
-            $('#sb-topDiggPosts').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-topDiggPosts').show();
-        }
-
         if (_.__config.sidebar.submenu.postsArchive) {
             $('#sb-record').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-record').show();
-        }
-
-        if (_.__config.sidebar.submenu.articleArchive) {
-            $('#sb-articlearchive').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-articlearchive').show();
         }
 
         if (_.__config.sidebar.submenu.latestComment) {

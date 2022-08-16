@@ -9,21 +9,12 @@
                     <div class="introduce-via" id="menuBlogAvatar"></div>
                 </div>
                 <div id="introduce">
-                  
                 </div>
             </div>
 
             <!-- 导航 -->
             <div class="nav-title"></div>
             <div class="icon-list">
-                <ul>
-                    <li><a href="<?php $this->options->siteUrl(); ?>" target="_self">首页</a></li>
-                    <li><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=2752154874&amp;site=qq&amp;menu=yes" target="_blank">联系</a></li>
-                    <li><a href="<?php $this->options->siteUrl(); ?>admin" target="_blank">管理</a></li>
-                    <li><a href="<?php $this->options->siteUrl(); ?>admin/write-post.php" target="_blank">添加随笔</a></li>
-                    <li><a href="https://github.com/wangyang0210" target="_blank">GitHub</a></li>
-                    <li><a href="https://www.cnblogs.com/wangyang0210/" target="_blank">CNBlogs</a></li>
-                </ul>
             </div>
             <!-- 最新随笔 -->
             <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)) : ?>
@@ -116,21 +107,3 @@
     <div class="content-wrap" id="content-wrap"></div><!-- /content-wrap -->
 </div>
 <!-- menu html end -->
-
-<!-- banner html -->
-<div class="main-header">
-    <canvas id="notHomeTopCanvas" style=" position: absolute;margin: auto;width: 100%;height: 100%;top: 0;bottom: 0;left: 0;right: 0;"></canvas>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
-            <h1 class="page-title" style="font-family: 'Playball', cursive;" id="homeTopTitle"></h1>
-            <h2 class="page-description" id="hitokoto"></h2>
-            <h3 class="page-author" id="hitokotoAuthor"></h3>
-        </div>
-    </div>
-    <a class="scroll-down" href="javascript:void(0);" data-offset="-45">
-        <span class="hidden">Scroll Down</span>
-        <i class="scroll-down-icon iconfont icon-fanhui"></i>
-    </a>
-</div>
-<!-- banner html end -->
