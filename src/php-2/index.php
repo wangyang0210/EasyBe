@@ -42,7 +42,6 @@ $this->need('header.php');
                         <?php endif; ?>
                     </div>
                     <div class="clear"></div>
-
                     <div class="postSeparator"></div>
 
                 </div>

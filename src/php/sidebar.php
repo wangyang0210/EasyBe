@@ -169,3 +169,4 @@
         </div>
     </div><!--end: sideBarMain -->
 </div>
+<div class="clear"></div>
