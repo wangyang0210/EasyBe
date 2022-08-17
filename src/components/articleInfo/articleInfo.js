@@ -7,6 +7,7 @@
  */
 import postMeta from "../../components/postMeta/postMeta";
 import consoleText from "../../vendor/consoleText/consoleText";
+import iconfontMap from "./lib/iconfontMap";
 
 export default function main(_) {
 
@@ -92,7 +93,42 @@ export default function main(_) {
      * 设置文章信息-链接icon
      */
     (() => {
-        if (_.__config.articleContent.link) $('#cnblogs_post_body a').addClass('iconfont icon-fenxiang')
-    })()
+        if (_.__config.articleContent.link) {
+            $('#cnblogs_post_body a').addClass('iconfont icon-fenxiang')
+            $('.footnote-ref a').removeClass('iconfont icon-fenxiang')
+            $('.footnotes-list a').removeClass('iconfont icon-fenxiang')
+        }
+    })();
+
+    /**
+     * 设置文章标题-iconfont
+     */
+    (() => {
+        let titleInfo = $('#cnblogs_post_body').find(':header');
+        if (_.__config.articleContent.emoji && titleInfo.length > 0) {
+            // 默认字体图标库
+            import(/* webpackChunkName: "fonticon" */ '../../fonts/iconfont');
+            titleInfo.html((i, c) => {
+                let arr = []
+                let num=Math.floor((Math.random()*(160-i))+i);
+                if(arr.indexOf(num)==-1){
+                    arr.push(num)
+                    return '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-' + iconfontMap.food[num]+ '"></use></svg> ' + c;
+                }else{
+                    i--;
+                }
+            })
+        }
+    })();
+
+    /**
+     * 设置文章引用
+     */
+    (() => {
+        $(".blogpost-body p").html((i,c) => {
+            if (/^\?&gt;/.test(c)) return '<p class="tip">' + c.slice(5).trim() + "</p>";
+            if (/^!&gt;/.test(c)) return '<p class="warn">' + c.slice(5).trim() + "</p>";
+        })
+    })();
 
 }
