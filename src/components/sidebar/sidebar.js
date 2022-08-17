@@ -30,10 +30,10 @@ export default function main(_) {
     (() => {
         // ------- 设置导航 -------
         $('.sidebar-footer').html(navTemp);
-        $('#nav_host').attr('herf', _.__config.info.domain);
-        $('#nav_connect').attr('herf', _.__config.info.connect);
-        $('#nav_rss').attr('herf', _.__config.info.rss);
-        $('#nav_manage').attr('herf', _.__config.info.admin);
+        $('#nav_host').attr('href', _.__config.info.domain);
+        $('#nav_connect').attr('href', _.__config.info.connect);
+        $('#nav_rss').attr('href', _.__config.info.rss);
+        $('#nav_manage').attr('href', _.__config.info.admin);
 
 
 
