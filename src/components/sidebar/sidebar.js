@@ -29,8 +29,13 @@ export default function main(_) {
      */
     (() => {
         // ------- 设置导航 -------
-        let navHtml = _.__tools.tempReplacement(navTemp, 'user', _.__status.user);
-        $('.sidebar-footer').html(navHtml);
+        $('.sidebar-footer').html(navTemp);
+        $('#nav_host').attr('herf', _.__config.info.domain);
+        $('#nav_connect').attr('herf', _.__config.info.connect);
+        $('#nav_rss').attr('herf', _.__config.info.rss);
+        $('#nav_manage').attr('herf', _.__config.info.admin);
+
+
 
         // ------- 设置头像 -------
         let blogAvatar = _.__config.info.avatar ? _.__config.info.avatar : defaultAvatarImg;
@@ -75,7 +80,7 @@ export default function main(_) {
             }
         }, timeout);
 
-        // ------- 日历 ------- || TODO 目前是直接干掉的状态
+        // ------- 日历 -------
         _.__timeIds.calendarTId = window.setInterval(() => {
             let calendarTable = $('#blogCalendar'),
                 calendar      = $('#blog-calendar'),
