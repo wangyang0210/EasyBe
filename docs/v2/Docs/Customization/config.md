@@ -1231,21 +1231,6 @@ window.cnblogsConfig = {
 }
 ```
 
-### supportHtml - 声援博主
-
-* 类型：```String```
-* 默认值：```""```
-
-声援博主，支持HTML代码，不配置使用默认。
-
-```javascript
-window.cnblogsConfig = {
-    articleSuffix: {
-        supportHtml: "声援...",
-    },
-}
-```
-
 ## consoleList - 控制台输出
 
 * 类型：```Array```

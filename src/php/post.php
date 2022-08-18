@@ -22,41 +22,6 @@
                             <div id="EntryTag">
                                 标签: <?php $this->tags(', ', true, 'none'); ?>
                             </div>
-
-                            <div id="blog_post_info">
-                                <div id="green_channel">
-                                    <a href="javascript:void(0);" id="green_channel_digg" >好文要顶</a>
-                                    <a id="green_channel_follow"  href="javascript:void(0);">关注我</a>
-                                    <a id="green_channel_favorite"  href="javascript:void(0);">收藏该文</a>
-                                    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" ><img src="https://common.cnblogs.com/images/icon_weibo_24.png" alt=""></a>
-                                    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" ><img src="https://common.cnblogs.com/images/wechat.png" alt=""></a>
-                                </div>
-<!--                                <div id="author_profile">-->
-<!--                                    <div id="author_profile_info" class="author_profile_info">-->
-<!--                                        <a href="https://home.cnblogs.com/u/wangyang1225/" target="_blank"><img src="https://pic.cnblogs.com/face/2937968/20220727151221.png" class="author_avatar" alt=""></a>-->
-<!--                                        <div id="author_profile_detail" class="author_profile_info">-->
-<!--                                            <a href="https://home.cnblogs.com/u/wangyang1225/">WangYang1225</a><br>-->
-<!--                                            <a href="">粉丝 - <span class="follower-count">0</span></a>-->
-<!--                                            <a href="">关注 - <span class="following-count">1</span></a><br>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="clear"></div>-->
-<!--                                    <div id="author_profile_honor"></div>-->
-<!--                                    <div id="author_profile_follow" class="follow-tip">-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div id="div_digg">-->
-<!--                                    <div class="diggit" onclick="votePost(16535598,'Digg')">-->
-<!--                                        <span class="diggnum" id="digg_count">0</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="buryit" onclick="votePost(16535598,'Bury')">-->
-<!--                                        <span class="burynum" id="bury_count">0</span>-->
-<!--                                    </div>-->
-<!--                                    <div class="clear"></div>-->
-<!--                                    <div class="diggword" id="digg_tips">-->
-<!--                                    </div>-->
-<!--                                </div>-->
-                            </div>
                             <div class="clear"></div>
                             <div id="post_next_prev">
                                 <a class="p_n_p_prefix">« </a> 上一篇： <?php $this->thePrev('%s', '我也是有上限的哦,(✿◡‿◡)'); ?> </a>
@@ -76,7 +41,7 @@
                     </div>
                 </div><!--end: topics 文章、评论容器-->
             </div>
-            <!--评论-->
+            <!--TODO 评论-->
         </div><!--end: forFlow -->
     </div>
 
