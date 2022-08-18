@@ -10,11 +10,7 @@
                 <div id="topics">
                     <div class="post">
 
-                        <h1 class="postTitle">
-                            <a id="cb_post_title_url" class="postTitle2 vertical-middle" href="<?php $this->permalink() ?>">
-                                <span role="heading" aria-level="2"><?php $this->title() ?></span>
-                            </a><button class="cnblogs-toc-button" title="显示目录导航" aria-expanded="false"></button>
-                        </h1>
+
 
 
                         <div class="clear"></div>

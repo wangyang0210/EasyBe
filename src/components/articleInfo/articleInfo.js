@@ -95,8 +95,8 @@ export default function main(_) {
     (() => {
         if (_.__config.articleContent.link) {
             $('#cnblogs_post_body a').addClass('iconfont icon-fenxiang')
-            $('.footnote-ref a').removeClass('iconfont icon-fenxiang')
-            $('.footnotes-list a').removeClass('iconfont icon-fenxiang')
+            $('sup a').removeClass('iconfont icon-fenxiang')
+            $('.footnotes a').removeClass('iconfont icon-fenxiang')
         }
     })();
 
