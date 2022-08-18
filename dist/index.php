@@ -21,7 +21,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 </div>
                 <div class="postCon">
                     <div class="c_b_p_desc" >
-                        <?php $this->excerpt('200', '...'); ?>
+                        摘要：<?php $this->excerpt('200', '...'); ?>
                         <a href="<?php $this->permalink() ?>" class="c_b_p_desc_readmore">阅读全文</a>
                     </div>
                 </div>

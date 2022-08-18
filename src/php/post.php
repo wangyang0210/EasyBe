@@ -41,7 +41,7 @@
                     </div>
                 </div><!--end: topics 文章、评论容器-->
             </div>
-            <!--TODO 评论-->
+            <?php $this->need('comments.php'); ?>
         </div><!--end: forFlow -->
     </div>
 

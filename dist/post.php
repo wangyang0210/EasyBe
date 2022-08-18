@@ -22,16 +22,6 @@
                             <div id="EntryTag">
                                 标签: <?php $this->tags(', ', true, 'none'); ?>
                             </div>
-
-<!--                            <div id="blog_post_info">-->
-<!--                                <div id="green_channel">-->
-<!--                                    <a href="javascript:void(0);" id="green_channel_digg" >好文要顶</a>-->
-<!--                                    <a id="green_channel_follow"  href="javascript:void(0);">关注我</a>-->
-<!--                                    <a id="green_channel_favorite"  href="javascript:void(0);">收藏该文</a>-->
-<!--                                    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" ><img src="https://common.cnblogs.com/images/icon_weibo_24.png" alt=""></a>-->
-<!--                                    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" ><img src="https://common.cnblogs.com/images/wechat.png" alt=""></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
                             <div class="clear"></div>
                             <div id="post_next_prev">
                                 <a class="p_n_p_prefix">« </a> 上一篇： <?php $this->thePrev('%s', '我也是有上限的哦,(✿◡‿◡)'); ?> </a>
@@ -51,7 +41,7 @@
                     </div>
                 </div><!--end: topics 文章、评论容器-->
             </div>
-            <!--评论-->
+            <?php $this->need('comments.php'); ?>
         </div><!--end: forFlow -->
     </div>
 
