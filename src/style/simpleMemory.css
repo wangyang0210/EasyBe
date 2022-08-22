@@ -1073,8 +1073,19 @@ div#tbCommentBodyPreview {
     box-sizing: border-box;
     outline: none;
     font-size: 13px;
-    border: none;
     padding: 8px 0;
+}
+
+.commentbox_footer input {
+    width: 31.7%;
+    height: 25px;
+    border: 1px dashed #ccc;
+    padding: 0 5px;
+}
+
+.commentbox_footer input:focus {
+    outline: none;
+    border-color: #409eff;
 }
 
 #comment_form_container .comment_textarea:hover {
