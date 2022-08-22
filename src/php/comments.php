@@ -84,10 +84,11 @@
     <?php endif; ?>
 
     <?php if($this->allow('comment')): ?>
+    <div id="<?php $this->respondId(); ?>" class="respond">
             <div id="commentform_title">发表评论</div>
             <div id="comment_form_container" >
                 <div class="commentbox_main comment_textarea">
-                    <form method="post" action="<?php $this->commentUrl() ?>" role="form">
+                    <form method="post" action="<?php $this->commentUrl() ?>"  id="comment-form" role="form">
                         <?php if($this->user->hasLogin()): ?>
                             <div class="commentbox_title">
                                 <div class="commentbox_title_left">
@@ -120,6 +121,7 @@
                     <input id="btn_comment_submit" type="button" class="comment_btn" title="提交评论" value="提交评论">
                 </p>
             </div>
+    </div>
     <?php else: ?>
         <h3><?php _e('评论已关闭'); ?></h3>
     <?php endif; ?>

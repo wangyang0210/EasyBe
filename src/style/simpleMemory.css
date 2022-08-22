@@ -1088,6 +1088,12 @@ div#tbCommentBodyPreview {
     border-color: #409eff;
 }
 
+.feedbackItem .respond {
+    width: 95%;
+    position: relative;
+    left: 33px;
+}
+
 #comment_form_container .comment_textarea:hover {
     border-color: #5c8ec6;
     outline: 0;
