@@ -267,6 +267,12 @@ span.cnblogs_code, #home code:not([class]) {
     color: #ddd !important;
 }
 
+.commentbox_footer input {
+    border: 1px dashed #555;
+    background: #333333;
+    color: #757575;
+}
+
 #articleDirectory ul li a:hover, #articleDirectory ul li a.active {
     background: rgba(0,0,0,.1) !important;
     color: #567fb5 !important;

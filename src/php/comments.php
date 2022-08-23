@@ -1,6 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-<?php function threadedComments($comments, $options) {
+<?php function threadedComments($comments, $options)
+{
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -23,44 +24,44 @@
     echo $commentClass;
     ?>">
 
-    <div class="feedbackItem" id="<?php $comments->theId(); ?>">
-        <div class="feedbackListSubtitle">
-            <div class="feedbackManage">
+        <div class="feedbackItem" id="<?php $comments->theId(); ?>">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
                 <span class="comment_actions">
                     <?php $comments->reply(); ?>
                 </span>
+                </div>
+                <a href="javascript:void(0);" class="layer">#<?php $comments->sequence(); ?>楼</a>
+                <?php if ($comments->authorId) {
+                    if ($comments->authorId == $comments->ownerId) {
+                        echo "<span class='louzhu'>[楼主]</span>";
+                    } ?>
+                <?php } ?>
+                <span class="comment_date"><?php $comments->date('Y-m-d H:i'); ?></span>
+                <a id="a_comment_author_<?php $comments->sequence(); ?>"
+                   href="<?php $comments->permalink(); ?>"><?php $comments->author(); ?></a>
             </div>
-            <a href="javascript:void(0);" class="layer">#<?php $comments->sequence(); ?>楼</a>
-            <?php if ($comments->authorId) {
-                if ($comments->authorId == $comments->ownerId) {
-                    echo "<span class='louzhu'>[楼主]</span>";
-                }?>
-            <?php }?>
-            <span class="comment_date"><?php $comments->date('Y-m-d H:i'); ?></span>
-            <a id="a_comment_author_<?php $comments->sequence(); ?>" href="<?php $comments->permalink(); ?>"><?php $comments->author(); ?></a>
-        </div>
-        <div class="feedbackCon">
-            <div id="comment_body_<?php $comments->sequence(); ?>"  class="blog_comment_body cnblogs-markdown">
-                <p>
-                    <a><?php echo getPermalinkFromCoid($comments->parent); ?></a>
-                    <br><?php $comments->content(); ?>
-                </p>
-            </div>
-            <div class="comment_vote">
-                <span class="comment_error" style="color: red"></span>
-            </div>
-            <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
+            <div class="feedbackCon">
+                <div id="comment_body_<?php $comments->sequence(); ?>" class="blog_comment_body cnblogs-markdown">
+                    <p>
+                        <a><?php echo getPermalinkFromCoid($comments->parent); ?></a>
+                        <br><?php $comments->content(); ?>
+                    </p>
+                </div>
+                <div class="comment_vote">
+                    <span class="comment_error" style="color: red"></span>
+                </div>
+                <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
              https://cdn.jsdelivr.net/gh/wangyang0210/pic/avatar-img/avatar-<?php echo mt_rand(1, 377); ?>.jpg
             </span>
+            </div>
         </div>
-    </div>
 
         <?php if ($comments->children) { ?>
-                <?php $comments->threadedComments($options); ?>
+            <?php $comments->threadedComments($options); ?>
         <?php } ?>
     </li>
 <?php } ?>
-
 
 
 <div id="comments" class="commentform">
@@ -78,28 +79,30 @@
             </div>
             <?php $comments->listComments(); ?>
             <div id="comment_pager_bottom">
-                <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current', )); ?>
+                <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current',)); ?>
             </div>
         </div>
     <?php endif; ?>
 
-    <?php if($this->allow('comment')): ?>
-    <div id="<?php $this->respondId(); ?>" class="respond">
+    <?php if ($this->allow('comment')): ?>
+        <div id="<?php $this->respondId(); ?>" class="respond">
             <div id="commentform_title">发表评论</div>
-            <div id="comment_form_container" >
-                <div class="commentbox_main comment_textarea">
-                    <form method="post" action="<?php $this->commentUrl() ?>"  id="comment-form" role="form">
-                        <?php if($this->user->hasLogin()): ?>
+            <div id="comment_form_container">
+                <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
+                    <div class="commentbox_main comment_textarea">
+                        <?php if ($this->user->hasLogin()): ?>
                             <div class="commentbox_title">
                                 <div class="commentbox_title_left">
-                                    <a id="btn_edit_comment" class="commentbox_tab" href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>
-                                    <a id="btn_preview_comment" class="commentbox_tab" href="<?php $this->options->logoutUrl(); ?>" title="Logout">退出</a>
+                                    <a id="btn_edit_comment" class="commentbox_tab"
+                                       href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>
+                                    <a id="btn_preview_comment" class="commentbox_tab"
+                                       href="<?php $this->options->logoutUrl(); ?>" title="Logout">退出</a>
                                     <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
                                 </div>
                                 <div class="commentbox_title_right">
                                 </div>
                             </div>
-                            <textarea  name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
+                            <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
                         <?php else: ?>
                             <div class="commentbox_title">
                                 <div class="commentbox_title_left">
@@ -110,18 +113,25 @@
                             </div>
                             <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
                             <div class="commentbox_footer">
-                                <input type="text" name="author"  placeholder="昵称" value="<?php $this->remember('author'); ?>" required />
-                                <input type="email" name="mail"  placeholder="<?php if ($this->options->commentsRequireMail): ?><?php endif; ?>邮箱" value="<?php $this->remember('mail'); ?>" <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?> />
-                                <input type="url" name="url" placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif; ?>网址(http://)" value="<?php $this->remember('url'); ?>" <?php if ($this->options->commentsRequireURL): ?><?php endif; ?> />
+                                <input type="text" name="author" placeholder="昵称"
+                                       value="<?php $this->remember('author'); ?>" required/>
+                                <input type="email" name="mail"
+                                       placeholder="<?php if ($this->options->commentsRequireMail): ?><?php endif; ?>邮箱"
+                                       value="<?php $this->remember('mail'); ?>"
+                                       <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?> />
+                                <input type="url" name="url"
+                                       placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif; ?>网址(http://)"
+                                       value="<?php $this->remember('url'); ?>" <?php if ($this->options->commentsRequireURL): ?><?php endif; ?> />
                             </div>
                         <?php endif; ?>
-                    </form>
-                </div>
-                <p id="commentbox_opt">
-                    <input id="btn_comment_submit" type="button" class="comment_btn" title="提交评论" value="提交评论">
-                </p>
+                    </div>
+
+                    <p id="commentbox_opt">
+                        <input id="btn_comment_submit" type="submit" class="comment_btn" title="提交评论" value="提交评论">
+                    </p>
+                </form>
             </div>
-    </div>
+        </div>
     <?php else: ?>
         <h3><?php _e('评论已关闭'); ?></h3>
     <?php endif; ?>

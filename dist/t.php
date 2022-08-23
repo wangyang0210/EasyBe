@@ -1,195 +1,109 @@
-<div id="blog-comments-placeholder">
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-    <div id="comment_pager_top">
+<?php function threadedComments($comments, $options) {
+    $commentClass = '';
+    $commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent';
+    ?>
+    <li id="li-<?php $comments->theId(); ?>" class="comment-body<?php
+    if ($comments->levels > 0) {
+        echo ' comment-child';
+        $comments->levelsAlt(' comment-level-odd', ' comment-level-even');
+    } else {
+        echo ' comment-parent';
+    }
+    $comments->alt(' comment-odd', ' comment-even');
+    echo $commentClass;
+    ?>">
 
-    </div>
-
-    <br>
-    <div class="feedback_area_title">评论列表
-        <div id="comment_sort" class="comment-sort" title="切换评论排序">
-            <span class="comment-sort-label">时间升序</span>
-        </div></div>
-    <div class="feedbackNoItems">
-        <div class="feedbackNoItems"></div>
-    </div>
-    <div class="feedbackItem">
-        <div class="feedbackListSubtitle">
-            <div class="feedbackManage">
-                &nbsp;&nbsp;
-
+        <div class="feedbackItem" id="<?php $comments->theId(); ?>">
+            <div class="feedbackListSubtitle">
+                <div class="feedbackManage">
                 <span class="comment_actions">
-    <a href="javascript:void(0);" onclick="return ReplyComment(5092113, 'UJnMKSq9Myl7DagXDP9GN4i02NZnBJYGd6Xv65eVCTDB1X82NnnI4g==')">
-        回复
-    </a>
-    <a href="javascript:void(0);" onclick="return QuoteComment(5092113, 'UJnMKSq9Myl7DagXDP9GN4i02NZnBJYGd6Xv65eVCTDB1X82NnnI4g==')">
-        引用
-    </a>
-
-
-</span>
-
-
+                    <?php $comments->reply(); ?>
+                </span>
+                </div>
+                <a href="javascript:void(0);" class="layer">#<?php $comments->sequence(); ?>楼</a>
+                <?php if ($comments->authorId) {
+                    if ($comments->authorId == $comments->ownerId) {
+                        echo "<span class='louzhu'>[楼主]</span>";
+                    }?>
+                <?php }?>
+                <span class="comment_date"><?php $comments->date('Y-m-d H:i'); ?></span>
+                <a id="a_comment_author_<?php $comments->sequence(); ?>" href="<?php $comments->permalink(); ?>"><?php $comments->author(); ?></a>
             </div>
-
-            <a href="#5092113" class="layer">#1楼</a>
-            <a name="5092113" id="comment_anchor_5092113"></a>
-            [<span class="louzhu">楼主</span>]
-            <span class="comment_date">2022-08-18 22:40</span>
-
-
-            <a id="a_comment_author_5092113" href="https://www.cnblogs.com/wangyang1225/" target="_blank">WangYang1225</a>
-
-        </div>
-        <div class="feedbackCon">
-
-            <div id="comment_body_5092113" data-format-type="Markdown" class="blog_comment_body cnblogs-markdown">
-                <p>哈哈哈哈</p>
-
-            </div>
-            <div class="comment_vote">
-                <span class="comment_error" style="color: red"></span>
-                <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(5092113, 'Digg', this.parentElement, false);">
-                    支持(0)
-                </a>
-                <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(5092113, 'Bury', this.parentElement, false);">
-                    反对(0)
-                </a>
-            </div>
-            <span id="comment_5092113_avatar" style="display:none">
-            https://pic.cnblogs.com/face/2937968/20220727151221.png
-        </span>
-
-        </div>
-    </div>
-    <div class="feedbackItem">
-        <div class="feedbackListSubtitle">
-            <div class="feedbackManage">
-                &nbsp;&nbsp;
-
-                <span class="comment_actions">
-    <a href="javascript:void(0);" onclick="return ReplyComment(5092114, 'UJnMKSq9Myl7DagXDP9GN4i02NZnBJYGd6Xv65eVCTDB1X82NnnI4g==')">
-        回复
-    </a>
-    <a href="javascript:void(0);" onclick="return QuoteComment(5092114, 'UJnMKSq9Myl7DagXDP9GN4i02NZnBJYGd6Xv65eVCTDB1X82NnnI4g==')">
-        引用
-    </a>
-
-
-</span>
-
-
-            </div>
-
-            <a href="#5092114" class="layer">#2楼</a>
-            <a name="5092114" id="comment_anchor_5092114"></a>
-            [<span class="louzhu">楼主</span>]
-            <span class="comment_date">2022-08-18 22:40</span>
-
-
-            <a id="a_comment_author_5092114" href="https://www.cnblogs.com/wangyang1225/" target="_blank">WangYang1225</a>
-
-        </div>
-        <div class="feedbackCon">
-
-            <div id="comment_body_5092114" data-format-type="Markdown" class="blog_comment_body cnblogs-markdown">
-                <p>你说什么</p>
-
-            </div>
-            <div class="comment_vote">
-                <span class="comment_error" style="color: red"></span>
-                <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(5092114, 'Digg', this.parentElement, false);">
-                    支持(0)
-                </a>
-                <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(5092114, 'Bury', this.parentElement, false);">
-                    反对(0)
-                </a>
-            </div>
-            <span id="comment_5092114_avatar" style="display:none">
-            https://pic.cnblogs.com/face/2937968/20220727151221.png
-        </span>
-
-        </div>
-    </div>
-    <div class="feedbackItem">
-        <div class="feedbackListSubtitle">
-            <div class="feedbackManage">
-                &nbsp;&nbsp;
-
-                <span class="comment_actions">
-
-
-    <a href="javascript:void(0);" onclick="return GetCommentBody(5092116)">
-        修改
-    </a>
-    <a href="javascript:void(0);" onclick="return DelComment(5092116, this,'16533332')">
-        删除
-    </a>
-</span>
-
-
-            </div>
-
-            <a href="#5092116" class="layer">#3楼</a>
-            <a name="5092116" id="comment_anchor_5092116"></a>
-            <span id="comment-maxId" style="display: none">5092116</span>
-            <span id="comment-maxDate" style="display: none">2022/8/18 下午10:48:42</span>
-
-            <span class="comment_date">2022-08-18 22:48</span>
-
-
-            <a id="a_comment_author_5092116" href="https://www.cnblogs.com/wangyang0210/" target="_blank">。思索</a>
-
-        </div>
-        <div class="feedbackCon">
-
-            <div id="comment_body_5092116" data-format-type="Markdown" class="blog_comment_body cnblogs-markdown">
-                <p><a href="#5092113" title="查看所回复的评论" onclick="commentManager.renderComments(0,50,5092113);">@</a>WangYang1225<br>
-                    哈哈哈哈</p>
-
-            </div>
-            <div class="comment_vote">
-                <span class="comment_error" style="color: red"></span>
-                <a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(5092116, 'Digg', this.parentElement, false);">
-                    支持(0)
-                </a>
-                <a href="javascript:void(0);" class="comment_burry" onclick="return voteComment(5092116, 'Bury', this.parentElement, false);">
-                    反对(0)
-                </a>
-            </div>
-            <span id="comment_5092116_avatar" style="display:none">
-            https://pic.cnblogs.com/face/1334215/20180504110551.png
-        </span>
-
-        </div>
-    </div>
-
-    <div id="comment_pager_bottom">
-
-    </div>
-
-
-</div>
-
-
-<div id="comment_form" class="commentform">
-    <a name="commentform"></a>
-    <div id="divCommentShow"></div>
-    <div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="#" onclick="return RefreshPage();">刷新页面</a><a href="#top">返回顶部</a></div>
-    <div id="comment_form_container" style="visibility: visible;"><script type="text/javascript" src="https://mention.cnblogs.com/bundles/mention.min.js"></script>
-        <div id="commentform_title">发表评论</div>
-        <span id="tip_comment" style="color:Red"></span>
-        <div class="commentbox_main comment_textarea">
-
-            <textarea id="tbCommentBody" placeholder="老板~"></textarea>
-            <div id="tbCommentBodyPreview" class="feedbackCon" style="display: none">
-                <div id="tbCommentBodyPreviewBody" class="blog_comment_body comment_preview cnblogs-markdown"></div>
+            <div class="feedbackCon">
+                <div id="comment_body_<?php $comments->sequence(); ?>"  class="blog_comment_body cnblogs-markdown">
+                    <p>
+                        <a><?php echo getPermalinkFromCoid($comments->parent); ?></a>
+                        <br><?php $comments->content(); ?>
+                    </p>
+                </div>
+                <div class="comment_vote">
+                    <span class="comment_error" style="color: red"></span>
+                </div>
+                <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
+             https://cdn.jsdelivr.net/gh/wangyang0210/pic/avatar-img/avatar-<?php echo mt_rand(1, 377); ?>.jpg
+            </span>
             </div>
         </div>
-        <p id="commentbox_opt">
-            <input id="btn_comment_submit" type="button" class="comment_btn" title="提交评论(Ctrl + Enter)" value="提交评论">
-            <span id="span_comment_canceledit" style="display:none"><a href="javascript:void(0);" onclick="return CancelCommentEdit()">不改了</a></span>
-            <a href="javascript:void(0);" onclick="return account.logout();">退出</a>
-        </p>
-        <div id="tip_comment2" style="color:Red"></div>
+
+        <?php if ($comments->children) { ?>
+            <?php $comments->threadedComments($options); ?>
+        <?php } ?>
+    </li>
+<?php } ?>
+
+
+
+<div id="comments">
+    <?php $this->comments()->to($comments); ?>
+    <?php if ($comments->have()): ?>
+        <div id="blog-comments-placeholder">
+            <div id="comment_pager_top">
+            </div>
+            <br>
+            <!--评论总数--><?php //$this->commentsNum(_t('%d')); ?>
+            <div class="feedback_area_title">评论列表</div>
+            <div class="feedbackNoItems">
+                <div class="feedbackNoItems"></div>
+            </div>
+            <?php $comments->listComments(); ?>
+            <div id="comment_pager_bottom">
+                <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current', )); ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php if($this->allow('comment')): ?>
+    <div id="<?php $this->respondId(); ?>" class="respond">
+        <div id="comment_form_container">
+            <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
+                <?php if($this->user->hasLogin()): ?>
+                    <div id="commentform_title">发表评论</div>
+                    <p>
+                        昵称：<input type="text" id="tbCommentAuthor" class="author" disabled="disabled" size="50" value="<?php $this->user->screenName(); ?>">
+                        <a href="<?php $this->options->logoutUrl(); ?>" title="Logout">退出</a>
+                    </p>
+                    <div class="commentbox_main">
+                        <div class="commentbox_title">
+                            <div class="commentbox_title_right">
+
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <textarea id="tbCommentBody" name="text" class="comment_textarea"></textarea>
+                    </div>
+                    <p id="commentbox_opt">
+                        <input id="btn_comment_submit" type="submit" class="comment_btn" value="提交评论">
+                        <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
+                    </p>
+                <?php else: ?>
+                    注册用户登录后才能发表评论，请 <a href="<?php $this->options->siteUrl(); ?>admin/login.php">登录</a> 或<a href="<?php $this->options->siteUrl(); ?>admin/register.php">注册</a>
+                <?php endif; ?>
+            </form>
+        </div>
+        <?php else: ?>
+            <h3><?php _e('评论已关闭'); ?></h3>
+        <?php endif; ?>
     </div>
 </div>

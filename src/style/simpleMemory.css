@@ -1072,6 +1072,7 @@ div#tbCommentBodyPreview {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     outline: none;
+    border: none;
     font-size: 13px;
     padding: 8px 0;
 }
@@ -1092,6 +1093,11 @@ div#tbCommentBodyPreview {
     width: 95%;
     position: relative;
     left: 33px;
+}
+
+
+.feedbackItem .respond .commentbox_footer input {
+    width: 31.4%;
 }
 
 #comment_form_container .comment_textarea:hover {

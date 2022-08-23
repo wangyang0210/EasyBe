@@ -4,10 +4,8 @@
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
-
             $commentClass .= ' comment-by-author';  //如果是文章作者的评论添加 .comment-by-author 样式
         } else {
-
             $commentClass .= ' comment-by-user';  //如果是评论作者的添加 .comment-by-user 样式
         }
     }
@@ -24,86 +22,106 @@
     $comments->alt(' comment-odd', ' comment-even');
     echo $commentClass;
     ?>">
-        <div id="<?php $comments->theId(); ?>" class="pl-dan comment-txt-box">
-            <div class="t-p comment-author">
-                <?php $comments->gravatar('40', ''); ?>
-            </div>
-            <div class="t-u comment-author">
-                <strong>
-                    <?php $comments->author(); ?>
 
-                </strong>
-                <div><b><?php echo getPermalinkFromCoid($comments->parent); ?></b></div>
-                <div class="t-s"><p><?php $comments->content(); ?></p></div>
-                <span class="t-btn"><?php $comments->reply(); ?> <span class="t-g"><?php $comments->date('Y-m-d H:i'); ?></span></span>
-            </div><!-- 单条评论者信息及内容 -->
-        </div>
-        <?php if ($comments->children) { ?>
-            <div class="pl-list comment-children">
-                <?php $comments->threadedComments($options); ?>
+    <div class="feedbackItem" id="<?php $comments->theId(); ?>">
+        <div class="feedbackListSubtitle">
+            <div class="feedbackManage">
+                <span class="comment_actions">
+                    <?php $comments->reply(); ?>
+                </span>
             </div>
+            <a href="javascript:void(0);" class="layer">#<?php $comments->sequence(); ?>楼</a>
+            <?php if ($comments->authorId) {
+                if ($comments->authorId == $comments->ownerId) {
+                    echo "<span class='louzhu'>[楼主]</span>";
+                }?>
+            <?php }?>
+            <span class="comment_date"><?php $comments->date('Y-m-d H:i'); ?></span>
+            <a id="a_comment_author_<?php $comments->sequence(); ?>" href="<?php $comments->permalink(); ?>"><?php $comments->author(); ?></a>
+        </div>
+        <div class="feedbackCon">
+            <div id="comment_body_<?php $comments->sequence(); ?>"  class="blog_comment_body cnblogs-markdown">
+                <p>
+                    <a><?php echo getPermalinkFromCoid($comments->parent); ?></a>
+                    <br><?php $comments->content(); ?>
+                </p>
+            </div>
+            <div class="comment_vote">
+                <span class="comment_error" style="color: red"></span>
+            </div>
+            <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
+             https://cdn.jsdelivr.net/gh/wangyang0210/pic/avatar-img/avatar-<?php echo mt_rand(1, 377); ?>.jpg
+            </span>
+        </div>
+    </div>
+
+        <?php if ($comments->children) { ?>
+                <?php $comments->threadedComments($options); ?>
         <?php } ?>
     </li>
-
 <?php } ?>
 
 
 
-<div id="comments">
+<div id="comments" class="commentform">
+    <div id="divCommentShow"></div>
     <?php $this->comments()->to($comments); ?>
-
-    <?php if($this->allow('comment')): ?>
-        <div id="<?php $this->respondId(); ?>" class="respond">
-            <div class="cancel-comment-reply">
-                <?php $comments->cancelReply(); ?>
+    <?php if ($comments->have()): ?>
+        <div id="blog-comments-placeholder">
+            <div id="comment_pager_top">
             </div>
-
-            <h4 id="response"><i class="layui-icon">&#xe664;</i> <?php _e('评论啦~'); ?></h4>
-            <br/>
-            <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
-                <?php if($this->user->hasLogin()): ?>
-                    <div class="layui-form-item">
-                        <div class="layui-form-mid layui-word-aux">
-                            <?php _e('登录身份: '); ?>
-                            <a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>
-                            <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a>
-                        </div>
-                    </div>
-                    <div class="layui-form-item">
-                        <textarea rows="5" cols="30" name="text" id="textarea" placeholder="嘿~ 大神，别默默的看了，快来点评一下吧" class="layui-textarea" required></textarea>
-                    </div>
-                <?php else: ?>
-                    <div class="layui-form-item">
-                        <textarea rows="5" cols="30" name="text" id="textarea" placeholder="嘿~ 大神，别默默的看了，快来点评一下吧" class="layui-textarea" required></textarea>
-                    </div>
-                    <div class="layui-form-item layui-row layui-col-space5">
-                        <div class="layui-col-md4">
-                            <input type="text" name="author" id="author" class="layui-input" placeholder="* 怎么称呼" value="<?php $this->remember('author'); ?>" required />
-                        </div>
-                        <div class="layui-col-md4">
-                            <input type="email" name="mail" id="mail" lay-verify="email" class="layui-input" placeholder="<?php if ($this->options->commentsRequireMail): ?>* <?php endif; ?>邮箱(放心~会保密~.~)" value="<?php $this->remember('mail'); ?>" <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?> />
-                        </div>
-                        <div class="layui-col-md4">
-                            <input type="url" name="url" id="url" lay-verify="url" class="layui-input" placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif; ?><?php _e('http://您的主页'); ?>" value="<?php $this->remember('url'); ?>" <?php if ($this->options->commentsRequireURL): ?>required<?php endif; ?> />
-                        </div>
-                    </div>
-                <?php endif; ?>
-                <div class="layui-inline">
-                    <button type="submit" class="layui-btn layui-btn-normal"><?php _e('提交评论'); ?></button>
-                </div>
-            </form>
-        </div>
-        <?php if ($comments->have()): ?>
-            <br/>
-            <h3><?php $this->commentsNum(_t('暂无评论'), _t('唉呀 ~ 仅有一条评论'), _t('已有 %d 条评论')); ?></h3>
-            <br/>
-            <div class="pinglun">
-                <?php $comments->listComments(); ?>
+            <br>
+            <!--评论总数--><?php //$this->commentsNum(_t('%d')); ?>
+            <div class="feedback_area_title">评论列表</div>
+            <div class="feedbackNoItems">
+                <div class="feedbackNoItems"></div>
             </div>
-            <div class="page-navigator">
+            <?php $comments->listComments(); ?>
+            <div id="comment_pager_bottom">
                 <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current', )); ?>
             </div>
-        <?php endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if($this->allow('comment')): ?>
+    <div id="<?php $this->respondId(); ?>" class="respond">
+            <div id="commentform_title">发表评论</div>
+            <div id="comment_form_container" >
+                <div class="commentbox_main comment_textarea">
+                    <form method="post" action="<?php $this->commentUrl() ?>"  id="comment-form" role="form">
+                        <?php if($this->user->hasLogin()): ?>
+                            <div class="commentbox_title">
+                                <div class="commentbox_title_left">
+                                    <a id="btn_edit_comment" class="commentbox_tab" href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>
+                                    <a id="btn_preview_comment" class="commentbox_tab" href="<?php $this->options->logoutUrl(); ?>" title="Logout">退出</a>
+                                    <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
+                                </div>
+                                <div class="commentbox_title_right">
+                                </div>
+                            </div>
+                            <textarea  name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
+                        <?php else: ?>
+                            <div class="commentbox_title">
+                                <div class="commentbox_title_left">
+                                    <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
+                                </div>
+                                <div class="commentbox_title_right">
+                                </div>
+                            </div>
+                            <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
+                            <div class="commentbox_footer">
+                                <input type="text" name="author"  placeholder="昵称" value="<?php $this->remember('author'); ?>" required />
+                                <input type="email" name="mail"  placeholder="<?php if ($this->options->commentsRequireMail): ?><?php endif; ?>邮箱" value="<?php $this->remember('mail'); ?>" <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?> />
+                                <input type="url" name="url" placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif; ?>网址(http://)" value="<?php $this->remember('url'); ?>" <?php if ($this->options->commentsRequireURL): ?><?php endif; ?> />
+                            </div>
+                        <?php endif; ?>
+                    </form>
+                </div>
+                <p id="commentbox_opt">
+                    <input id="btn_comment_submit" type="button" class="comment_btn" title="提交评论" value="提交评论">
+                </p>
+            </div>
+    </div>
     <?php else: ?>
         <h3><?php _e('评论已关闭'); ?></h3>
     <?php endif; ?>
