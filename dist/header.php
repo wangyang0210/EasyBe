@@ -26,12 +26,12 @@
 <div id="home">
     <div id="header">
         <div id="blogTitle">
-            <a id="lnkBlogLogo" href="https://www.cnblogs.com/wangyang1225/">
-                <img id="blogLogo" src="/skins/custom/images/logo.gif" alt="返回主页">
+            <a id="lnkBlogLogo" >
+                <img id="blogLogo" alt="返回主页">
             </a>
             <!--done-->
             <h1>
-                <a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle" href="https://www.cnblogs.com/wangyang1225/">wangyang1225</a>
+                <a id="Header1_HeaderTitle" class="headermaintitle HeaderMainTitle"></a>
             </h1>
             <h2></h2>
         </div><!--end: blogTitle 博客的标题和副标题 -->

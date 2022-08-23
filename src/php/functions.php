@@ -36,3 +36,11 @@ function get_post_view($archive)
     }
     echo $row['views'];
 }
+
+// 留言@
+function getPermalinkFromCoid($coid) {
+    $db = Typecho_Db::get();
+    $row = $db->fetchRow($db->select('author')->from('table.comments')->where('coid = ? AND status = ?', $coid, 'approved'));
+    if (empty($row)) return '';
+    return '<a href="#comment-'.$coid.'">@'.$row['author'].'</a>';
+}

@@ -77,12 +77,117 @@ window.cnblogsConfig = {
 }
 ```
 
-### startDate - 入园时间
+###  job - 职业 
+
+* 类型：```job```
+* 默认值：```""```
+
+职业信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+    job: '野生猿',
+  },
+}
+```
+
+###  position - 位置
+
+* 类型：```position```
+* 默认值：```""```
+
+位置信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      position: '上海',
+  },
+}
+```
+
+###  proverb - 人生格言
+
+* 类型：```proverb```
+* 默认值：```""```
+
+位置信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      proverb: '学无止境,谦卑而行.',
+  },
+}
+```
+
+
+###  domain - 站点网址
+
+* 类型：```domain```
+* 默认值：```""```
+
+站点信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      domain: 'https://www.wangyangyang.vip',
+  },
+}
+```
+
+
+### connect - 联系我
+
+* 类型：```connect```
+* 默认值：```""```
+
+联系我
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      connect: 'http://wpa.qq.com/msgrd?v=3&amp;uin=2752154874&amp;site=qq&amp;menu=yes',
+  },
+}
+```
+
+### rss - 文章订阅
+
+* 类型：```rss```
+* 默认值：```""```
+
+文章订阅
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      rss: 'http://www.easybe.org/index.php/feed/',
+  },
+}
+```
+
+### admin - 管理
+
+* 类型：```rss```
+* 默认值：```""```
+
+管理
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      admin: 'http://www.easybe.org/admin',
+  },
+}
+```
+
+### startDate - 站点建立时间
 
 * 类型：```Date```
 * 默认值：```2021-01-01```
-
-入园时间，年-月-日，入园时间查看方法：鼠标停留园龄时间上，会显示入园时间。
 
 ```javascript
 window.cnblogsConfig = {
