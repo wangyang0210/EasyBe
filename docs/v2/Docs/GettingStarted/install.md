@@ -20,7 +20,7 @@
       },
     }
 </script>
-<script src="https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@v2.1.6/dist/simpleMemory.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.0.0/dist/simpleMemory.js" defer></script>
 ```
 
 详细配置参考相关[文档](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/config) 。
