@@ -1,6 +1,6 @@
 # 书单
 
-样式参考：[https://www.cnblogs.com/wangyang0210/p/16535755.html](https://www.cnblogs.com/wangyang0210/p/16535755.html)
+样式参考：[书单样式](https://www.easybe.org/index.php/archives/3/)
 
 ## 配置方式
 
