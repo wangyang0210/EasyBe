@@ -213,7 +213,7 @@
 
   // -- 代码 --
   code: {
-    type: '',  // hljs
+    type: 'hljs',  // hljs
     options: {
       hljs: {
         theme: 'atom-one-dark-reasonable',

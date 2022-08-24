@@ -1,7 +1,8 @@
 /**
- * UPDATES AND DOCS AT: https://github.com/BNDong
- * https://www.cnblogs.com/bndong/
- * @author: BNDong, dbnuo@foxmail.com
+ * UPDATES AND DOCS AT: https://github.com/wangyang0210
+ * https://www.cnblogs.com/wangyang0210/
+ * @author: WangYang, wangyang.0210@foxmail.com
+ * @Date 2022-08-25 00:57
  * ----------------------------------------------
  * @describe: 代码高亮处理
  */
@@ -105,26 +106,30 @@ export default function main(_) {
      * 渲染代码
      */
     (() => {
-        switch (_.__config.code.type.toLowerCase()) {
-            case 'hljs':
-                import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
-                    const main = module.default;
-                    main(_, setCodeLine);
-                });
-                break;
-
-            default:
-                preList.css('background', '#f5f5fa');
-                $('code-box .code-tools').css('background', '#f5f5fa');
-                $('pre .hljs').css({
-                    'background': 'none',
-                    'border': '0',
-                    'border-radius': '0',
-                    'padding': '0'
-                });
-                setCodeLine();
-                break;
-        }
+        import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
+            const main = module.default;
+            main(_, setCodeLine);
+        });
+        // switch (_.__config.code.type.toLowerCase()) {
+        //     case 'hljs':
+        //         import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
+        //             const main = module.default;
+        //             main(_, setCodeLine);
+        //         });
+        //         break;
+        //
+        //     default:
+        //         preList.css('background', '#f5f5fa');
+        //         $('code-box .code-tools').css('background', '#f5f5fa');
+        //         $('pre .hljs').css({
+        //             'background': 'none',
+        //             'border': '0',
+        //             'border-radius': '0',
+        //             'padding': '0'
+        //         });
+        //         setCodeLine();
+        //         break;
+        // }
         afterCode(_);
     })();
 

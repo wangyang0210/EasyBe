@@ -1086,7 +1086,7 @@ window.cnblogsConfig = {
 ### type - 渲染类型
 
 * 类型：```String```
-* 默认值：```""```
+* 默认值：```"hljs"```
 
 使用何种方式渲染代码。
 
@@ -1116,7 +1116,6 @@ hljs: 使用 Highlighting 插件渲染代码高亮样式。
 }
 ```
 
-只有 `code.type` 为 `hljs` 时，此配置才生效。
 
 * theme：代码高亮主题。
 
