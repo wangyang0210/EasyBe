@@ -13,7 +13,7 @@
     window.cnblogsConfig = {
         info: {
             name: 'userName', // 用户名
-            startDate: '2021-01-01', // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+            startDate: '2021-01-01', // 站点建立时间
             avatar: 'http://xxxx.png', // 用户头像
         },
     }
@@ -27,7 +27,7 @@
     window.cnblogsConfig = {
         info: {
             name: 'userName', // 用户名
-            startDate: '2021-01-01', // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+            startDate: '2021-01-01', // 站点建立时间
             avatar: 'http://xxxx.png', // 用户头像
         },
         banner: {
@@ -50,7 +50,7 @@
 ### name - 用户昵称
 
 * 类型：```String```
-* 默认值：```[默认抓取博客园用户名]```
+* 默认值：```""```
 
 用户昵称。
 
@@ -133,7 +133,7 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
   info: {
-      domain: 'https://www.wangyangyang.vip',
+      domain: 'https://www.easybe.org',
   },
 }
 ```
@@ -164,7 +164,7 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
   info: {
-      rss: 'http://www.easybe.org/index.php/feed/',
+      rss: 'https://www.easybe.org/index.php/feed/',
   },
 }
 ```
@@ -179,7 +179,7 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
   info: {
-      admin: 'http://www.easybe.org/admin',
+      admin: 'https://www.easybe.org/admin',
   },
 }
 ```
@@ -217,7 +217,7 @@ window.cnblogsConfig = {
 ### navList - 菜单导航
 
 * 类型：```Array```
-* 相关文档：[字体图标库](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/fonticon)
+* 相关文档：[字体图标库](https://wangyang0210.github.io/EasyBe/v2/iconfontDemo/demo_index.html)
 * 默认值：```[]```
 
 自定义菜单导航，显示在默认导航下方。
@@ -226,8 +226,8 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
   sidebar: { // 列表数据 ['导航名称', '链接', 'icon']
     navList: [
-        ['我的博客1', 'https://www.cnblogs.com/bndong/', 'icon-github'],
-        ['我的博客2', 'https://www.cnblogs.com/bndong/', 'icon-github'],
+        ['我的博客1', 'https://www.cnblogs.com/wangyang0210/', 'icon-github'],
+        ['我的博客2', 'https://www.cnblogs.com/wangyang0210/', 'icon-github'],
     ],
   },
 }
@@ -236,7 +236,7 @@ window.cnblogsConfig = {
 ### customList - 菜单数据
 
 * 类型：```Object```
-* 相关文档：[字体图标库](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/fonticon)
+* 相关文档：[字体图标库](https://wangyang0210.github.io/EasyBe/v2/iconfontDemo/demo_index.html)
 * 默认值：```{}```
 
 自定义菜单数据，显示在默认数据上方。
@@ -247,21 +247,21 @@ window.cnblogsConfig = {
     customList: {
         "title1": { // 标题
             "data": [ // 列表数据 ['列表', '链接']
-                ['我的博客1', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客2', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客3', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客4', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客5', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客1', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客2', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客3', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客4', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客5', 'https://www.cnblogs.com/wangyang0210/'],
             ],
             "icon": "icon-brush-fill" // 配置图标，参考文档：定制化/字体图标库
         },
         "title2": { // 标题
             "data": [ // 列表数据 ['列表', '链接']
-                ['我的博客6', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客7', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客8', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客9', 'https://www.cnblogs.com/bndong/'],
-                ['我的博客10', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客6', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客7', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客8', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客9', 'https://www.cnblogs.com/wangyang0210/'],
+                ['我的博客10', 'https://www.cnblogs.com/wangyang0210/'],
             ],
             "icon": "icon-brush-fill" // 配置图标，参考文档：定制化/字体图标库
         },
@@ -275,8 +275,7 @@ window.cnblogsConfig = {
 * 类型：```Url```
 * 默认值：```""```
 
-< v2.1.0 侧边栏个人信息背景图片Url。
->= v2.1.0 侧边栏背景图片。
+>= v2.0.0 侧边栏背景图片。
 
 ```javascript
 window.cnblogsConfig = {
@@ -288,10 +287,10 @@ window.cnblogsConfig = {
 
 ### titleMsg - 侧边栏title信息
 
-?> 版本 >= v2.1.0
+?> 版本 >= v2.0.0
 
 * 类型：```String```
-* 默认值：```"随笔 - 475  文章 - 3  评论 - 226  阅读 - 85万"```
+* 默认值：```"欢迎访问本博客~"```
 
 配置侧边栏title信息,默认值为博客状态
 
@@ -305,7 +304,7 @@ window.cnblogsConfig = {
 
 ### submenu - 侧边栏是否展开配置
 
-?> 版本 >= v2.1.1
+?> 版本 >= v2.0.0
 
 * 类型：```Object```
 * 默认值：```{}```
@@ -316,24 +315,18 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
   sidebar: {
       submenu: {
-          // 积分排行
-          pointsRank: false,
           // 最新随笔
           latestPosts: false,
           // 我的标签
           myTags: false,
           // 随笔分类
           postsClassify: false,
-          // 文章分类
-          articleClassify: false,
           // 阅读排行
           readRank: false,
           // 推荐排行
           recommendRank: false,
-          // 帖子档案
+          // 随笔档案
           postsArchive: false,
-          // 文章档案
-          articleArchive: false,
           // 自定义列表
           customList: false,
           // 最新评论
@@ -342,10 +335,6 @@ window.cnblogsConfig = {
   },
 }
 ```
-
-
-
-
 
 ## banner - banner图
 
@@ -357,6 +346,8 @@ window.cnblogsConfig = {
 * 默认值：```[]```
 
 主页banner图片Url，推荐尺寸>= 1920*1080，支持多张，每次刷新随机设置一张。
+
+?>推荐一个壁纸网站 | https://wallhaven.cc/
 
 ```javascript
 window.cnblogsConfig = {
@@ -456,7 +447,7 @@ window.cnblogsConfig = {
 ## loading - 加载loading
 
 * 类型：```Object```
-* 相关文档：[Loading](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/loading)
+* 相关文档：[Loading](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/loading)
 * 默认值：
 
 ```json
@@ -502,7 +493,7 @@ window.cnblogsConfig = {
 ## fontIconExtend - 字体图标库
 
 * 类型：```Url```
-* 相关文档：[字体图标库](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/fonticon)
+* 相关文档：[字体图标库](https://wangyang0210.github.io/EasyBe/v2/iconfontDemo/demo_index.html)
 * 默认值：```""```
 
 字体图标库扩展Css的Url。
@@ -707,11 +698,11 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
   links: {
     footer: [
-        ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
-        ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
-        ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
-        ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
-        ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
+        ["申请坑位", 'https://msg.cnblogs.com/send/wangyang0210'],
+        ["申请坑位", 'https://msg.cnblogs.com/send/wangyang0210'],
+        ["申请坑位", 'https://msg.cnblogs.com/send/wangyang0210'],
+        ["申请坑位", 'https://msg.cnblogs.com/send/wangyang0210'],
+        ["申请坑位", 'https://msg.cnblogs.com/send/wangyang0210'],
     ],
   },
 }
@@ -720,7 +711,7 @@ window.cnblogsConfig = {
 ### page - 友链页
 
 * 类型：```Array```
-* 相关文档：[友链](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/links)
+* 相关文档：[友链](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/links)
 * 默认值：```[]```
 
 友链页。需要在页面源码中添加 `<input id="linkListFlg" type="hidden" />`
@@ -735,16 +726,16 @@ window.cnblogsConfig = {
             style: 'color: #a78bfa;',
             links: [
                 {
-                    name: '测试', // 昵称
+                    name: '思索', // 昵称
                     introduction: 'IT技术类博客', // 简介
                     avatar: 'https://pic.cnblogs.com/face/1334215/20180504110551.png', // 头像
                     url: 'https://cnblogs.com/wangyang0210' // 友链地址
                 },
                 {
-                    name: 'helloWorld', // 昵称
+                    name: '王洋', // 昵称
                     introduction: 'IT技术类博客', // 简介
                     avatar: 'https://pic.cnblogs.com/face/1334215/20180504110551.png', // 头像
-                    url: 'https://cnblogs.com/wangyang0210' // 友链地址
+                    url: 'https://www.wangyangyang.vip' // 友链地址
                 },
             ]
         },
@@ -826,7 +817,7 @@ window.cnblogsConfig = {
     }
 }
 ```
-?> nightMode 配置项要求，版本 >= v2.0.1
+?> nightMode 配置项要求，版本 >= v2.0.0
 
 日/夜间模式配置。页面使用日/夜间模式优先级：用户设置 > 自动切换 > 默认。
 
@@ -905,7 +896,7 @@ window.cnblogsConfig = {
 
 ### articleTitle - 文章页标题动效
 
-?> 版本 >= v2.0.7
+?> 版本 >= v2.0.0
 
 * 类型：```Object```
 * 默认值：
@@ -988,7 +979,7 @@ window.cnblogsConfig = {
 
 ### bannerImages - banner背景图自动切换动效
 
-?> 版本 >= v2.0.8
+?> 版本 >= v2.0.0
 
 * 类型：```Object```
 * 默认值：
@@ -1019,7 +1010,7 @@ window.cnblogsConfig = {
 
 ### backgroundMouse - 背景动效
 
-?> 版本 >= v2.0.8
+?> 版本 >= v2.0.0
 
 * 类型：```Object```
 * 默认值：
@@ -1044,7 +1035,7 @@ window.cnblogsConfig = {
 
 ### mouse - 背景动效
 
-?> 版本 >= v2.0.8
+?> 版本 >= v2.0.0
 
 * 类型：```Object```
 * 默认值：
@@ -1075,7 +1066,7 @@ window.cnblogsConfig = {
 
 ### avatar - 头像旋转特效
 
-?> 版本 >= v2.1.2
+?> 版本 >= v2.0.0
 
 * 类型：```Object```
 * 默认值：
@@ -1107,7 +1098,6 @@ window.cnblogsConfig = {
 }
 
 /** 所有可配置项
-cnblogs: 使用博客园默认代码高亮样式。
 hljs: 使用 Highlighting 插件渲染代码高亮样式。
 */
 ```
@@ -1187,7 +1177,6 @@ window.cnblogsConfig = {
 * 默认值：```false```
 
 是否渲染代码行号，如开启会在代码框左侧增加行号显示，默认不开启。
-不与博客园行号渲染兼容，如果博客园添加代码时勾选显示行号并同时开启此配置，会出现双行号的现象。大家自己权衡使用此配置。
 
 ```javascript
 window.cnblogsConfig = {
@@ -1220,7 +1209,7 @@ window.cnblogsConfig = {
 
 ### position - 文章目录定位
 
-?> 版本 >= v2.0.6
+?> 版本 >= v2.0.0
 
 * 类型：```String```
 * 默认值：```"right"```
@@ -1237,7 +1226,7 @@ window.cnblogsConfig = {
 
 ### minBodyWeight - 文章目录隐藏宽度
 
-?> 版本 >= v2.0.7
+?> 版本 >= v2.0.0
 
 * 类型：```Int```
 * 默认值：```900```
@@ -1254,7 +1243,7 @@ window.cnblogsConfig = {
 
 ### autoWidthScroll - 文章目录横向滚动条
 
-?> 版本 >= v2.0.8
+?> 版本 >= v2.0.0
 
 * 类型：```Boolean```
 * 默认值：```false```
@@ -1271,7 +1260,7 @@ window.cnblogsConfig = {
 
 ## articleContent - 文章内容
 
-?> 版本 >= v2.1.3 
+?> 版本 >= v2.0.0
 
 ### link - 链接分享小尾巴
 
@@ -1291,7 +1280,7 @@ window.cnblogsConfig = {
 
 ### imgUrl - 左侧图片
 
-?> 版本 >= v2.0.1
+?> 版本 >= v2.0.0
 
 * 类型：```Url```
 * 默认值：```""```
@@ -1346,9 +1335,9 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     consoleList: [
-         ['BNDong CNBlogs', 'https://www.cnblogs.com/bndong'],
-         ['BNDong GitHub', 'https://github.com/BNDong'],
-         ['BNDong Email', 'dbuo@foxmail.com'],
+         ['BNDong CNBlogs', 'https://www.cnblogs.com/wangyang0210'],
+         ['BNDong GitHub', 'https://github.com/wangyang0210'],
+         ['BNDong Email', 'wangyang.0210@foxmail.com'],
     ],
 }
 ```
@@ -1356,7 +1345,7 @@ window.cnblogsConfig = {
 ## cnzz - 网站统计
 
 * 类型：```String```
-* 相关文档：[网站统计](https://wangyang0210.github.io/Cnblogs-Theme/v2/#/Docs/Customization/statistical)
+* 相关文档：[网站统计](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/statistical)
 * 默认值：```""```
 
 cnzz网站ID。
@@ -1370,7 +1359,7 @@ window.cnblogsConfig = {
 ## umami - 网站统计
 
 * 类型：```Object```
-* 相关文档：[网站统计](https://wangyang0210.github.io/Cnblogs-Theme/v2/#/Docs/Customization/statistical)
+* 相关文档：[网站统计](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/statistical)
 * 默认值：```{}```
 
 

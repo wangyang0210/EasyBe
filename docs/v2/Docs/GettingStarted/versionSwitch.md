@@ -37,16 +37,15 @@
 例如：
 
 ```html
-<script src="https://www.wangyangyang.vip/dist/simpleMemory.js" defer></script>
+<script src="https://www.easybe.org/dist/simpleMemory.js" defer></script>
 ```
 
 变为
 
 ```html
-<script src="https://www.wangyangyang.vip/dist/simpleMemory.js?_12322" defer></script>
+<script src="https://www.easybe.org/dist/simpleMemory.js?_12322" defer></script>
 ```
 
-这样浏览器就会加载最新的代码。
 
 #### 更换文件方式更新加载资源
 
@@ -56,7 +55,7 @@
 例如：
 
 ```html
-<script src="https://www.wangyangyang.vip/dist/simpleMemory.y7i7sx47.js" defer></script>
+<script src="https://www.easybe.org/dist/simpleMemory.y7i7sx47.js" defer></script>
 ```
 
 变为
@@ -65,4 +64,3 @@
 <script src="https://dbnuo.com/dist/simpleMemory.s8kn7hd6.js" defer></script>
 ```
 
-这样浏览器就会加载最新的代码。

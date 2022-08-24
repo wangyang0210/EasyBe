@@ -23,7 +23,6 @@
 
 - 指南
 
-  - [菜单数据](Docs/Guide/menuData.md)
   - [文章标题与目录](Docs/Guide/articleDirectory.md)
   - [资源托管](Docs/Guide/cdn.md)
 

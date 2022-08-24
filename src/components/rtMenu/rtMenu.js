@@ -1,6 +1,6 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/BNDong
- * https://www.cnblogs.com/bndong/
+ * https://www.cnblogs.com/wangyang0210/
  * @author: BNDong, dbnuo@foxmail.com
  * ----------------------------------------------
  * @describe: 右下角菜单处理

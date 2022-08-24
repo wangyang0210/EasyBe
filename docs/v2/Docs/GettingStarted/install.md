@@ -2,42 +2,10 @@
 
 !> 本文为v2版本的安装配置教程，请核对使用版本！
 
-!> 本主题需要JS权限，没有的请先申请权限。
-
-## 关于博客园后台
-
-进入管理后台：[管理后台](https://i.cnblogs.com/Configure.aspx)
-
-### 设置
-
-设置页面：
-
-!> 侧边栏设置的时候格式要记得选Html
-
-<img src="./Images/install_01.png" width="750" />
-
-本主题当前页面所涉及的配置有：
-
-- 博客皮肤
-- 代码高亮
-- 页面定制CSS代码
-- 禁用模板默认CSS
-- 博客侧边栏公告
-- 页脚Html代码
-
-### 选项
-
-选项页面：
-
-<img src="./Images/install_07.png" width="750" />
-
-本主题当前页面所涉及的配置有：
-
-- 控件显示设置/公告 [#86](https://github.com/BNDong/Cnblogs-Theme-SimpleMemory/issues/86)
 
 ## 获取需要使用的版本
 
-进入主题仓库：[GitHub](https://github.com/wangyang0210/Cnblogs-Theme)
+进入主题仓库：[GitHub](https://github.com/wangyang0210/EasyBe)
 
 切换版本：
 
@@ -84,14 +52,9 @@ CSS代码位置：```/dist/simpleMemory.css``` 拷贝此文件代码至页面定
 <script src="https://cdn.jsdelivr.net/gh/wangyang0210/Cnblogs-Theme@v2.1.6/dist/simpleMemory.js" defer></script>
 ```
 
-详细配置参考相关[文档](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v2/#/Docs/Customization/config)。
+详细配置参考相关[文档](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/config) 。
 
-### 开启公告控件
-
-博客设置 --> 控件显示设置 --> 勾选公告
-
-配置完成保存即可成功应用博皮！
 
 ---
 
-CDN jsdelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。
+> CDN jsdelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。
