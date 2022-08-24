@@ -7,37 +7,8 @@
 
 进入主题仓库：[GitHub](https://github.com/wangyang0210/EasyBe)
 
-切换版本：
-
-![install_05](../../Images/install_06.png)
 
 ## 博客设置
-
-### 设置博客皮肤
-
-博客皮肤：```SimpleMemory```
-
-![install_02](../../Images/install_02.png)
-
-### 设置代码高亮
-
-!> 主题已集成代码高亮,建议直接禁用
-
-![install_02](../../Images/install_08.png)
-
-### 设置页面定制CSS代码
-
-CSS代码位置：```/dist/simpleMemory.css``` 拷贝此文件代码至页面定制CSS代码文本框处。
-
-![install_03](../../Images/install_03.png)
-
-### 禁用模板默认CSS
-
-选中页面定制CSS代码文本框下面的禁用模板默认CSS。
-
-### 设置博客侧边栏公告
-
-在侧边栏HTML代码中设置以下代码：
 
 ```html
 <script type="text/javascript">
