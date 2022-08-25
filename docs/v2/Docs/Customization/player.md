@@ -2,7 +2,7 @@
 
 播放器使用开源项目：[metowolf/MetingJS](https://github.com/metowolf/MetingJS)
 
-如需使用播放器，请根据项目文档配置代码，添加至页脚Html代码中。
+如需使用播放器，请根据项目文档配置代码，添加到全局配置底部。
 
 !> 目前发现受影响的有：1) Markdown 文章中 ```[toc]``` 生成的目录链接跳转。
 
