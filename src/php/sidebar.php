@@ -15,7 +15,7 @@
                     </a>
                     <br>
                     坐标：
-                    <a id="info_postion" href="javascript:void(0)">
+                    <a id="info_position" href="javascript:void(0)">
                         上海
                     </a>
                     <br>

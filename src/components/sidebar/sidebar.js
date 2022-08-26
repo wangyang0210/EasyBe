@@ -71,7 +71,7 @@ export default function main(_) {
         _.__timeIds.introduceTId = window.setInterval(() => {
             $('#info_name').text(_.__config.info.name);
             $('#info_job').text(_.__config.info.job);
-            $('#info_postion').text(_.__config.info.postion);
+            $('#info_position').text(_.__config.info.position);
             $('#info_proverb').text(_.__config.info.proverb);
             let introduceHtml = $('#profile_block').html(),
                 menuIntroduce = $('#introduce');
