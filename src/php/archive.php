@@ -24,7 +24,7 @@
                 </div>
                 <div class="postDesc2">
                     <?php $this->author(); ?> <?php $this->date("Y-m-d H:i:s"); ?>
-                    <span data-post-id="16535598" class="post-view-count">阅读(<?php get_post_view($this) ?>)</span>
+                    <span data-post-id="16535598" class="post-view-count">阅读(<?php getPostView($this) ?>)</span>
                     <span data-post-id="16535598" class="post-comment-count">评论(<?php $this->commentsNum('%d'); ?>)</span>
                     <?php if ($this->user->hasLogin()) : ?>
                         <a href="<?php $this->options->adminUrl(); ?>write-post.php?cid=<?php echo $this->cid; ?>" target="_blank">编辑</a>

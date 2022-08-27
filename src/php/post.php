@@ -68,7 +68,7 @@
                     <div class="postDesc">posted @
                         <span id="post-date"><?php $this->date("Y-m-d H:i:s"); ?></span>
                         <a href="<?php $this->options->siteUrl(); ?>"><?php $this->author(); ?></a>
-                        阅读(<span id="post_view_count"><?php get_post_view($this) ?></span>)
+                        阅读(<span id="post_view_count"><?php getPostView($this) ?></span>)
                         评论(<span id="post_comment_count"><?php $this->commentsNum('%d'); ?></span>)
                         <?php if($this->user->hasLogin()) :?>
                             <a href="<?php $this->options->adminUrl(); ?>write-post.php?cid=<?php echo $this->cid;?>" target="_blank">编辑</a>

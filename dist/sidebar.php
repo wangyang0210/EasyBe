@@ -110,13 +110,9 @@
                             </a>
                         </h3>
                         <div id="TopViewPostsBlock">
-                            <!--                            <ul style="word-break:break-all">-->
-                            <!--                                <li>-->
-                            <!--                                    <a href="p/16533138.html">-->
-                            <!--                                        1. 代码块(11)-->
-                            <!--                                    </a>-->
-                            <!--                                </li>-->
-                            <!--                            </ul>-->
+                            <ul style="word-break:break-all">
+                                <?php getPostViewRank(); ?>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -28,7 +28,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <div class="clear"></div>
                 <div class="postDesc">posted @ <?php $this->date("Y-m-d H:i:s"); ?>
                     <?php $this->author(); ?>
-                    <span class="post-view-count">阅读(<?php get_post_view($this) ?>)</span>
+                    <span class="post-view-count">阅读(<?php getPostView($this) ?>)</span>
                     <span class="post-comment-count">评论(<?php $this->commentsNum('%d'); ?>)</span>
                     <span class="post-digg-count">推荐(0)</span>
                     <?php if ($this->user->hasLogin()) : ?>

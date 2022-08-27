@@ -20,8 +20,7 @@ function themeConfig($form) {
 
 
 //阅读访问量
-function get_post_view($archive)
-{
+function getPostView($archive) {
     $cid    = $archive->cid;
     $db     = Typecho_Db::get();
     $prefix = $db->getPrefix();
@@ -36,6 +35,29 @@ function get_post_view($archive)
     }
     echo $row['views'];
 }
+
+// 获取阅读量最多的文章
+
+function getPostViewRank($limit = 10) {
+    $db     = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+    $posts = $db->fetchAll($db->select()->from('table.contents')
+        ->where('type = ? AND status = ? AND password is NULL', 'post', 'publish')
+        ->order('views', Typecho_Db::SORT_DESC)
+        ->limit($limit)
+    );
+
+    if ($posts) {
+        foreach ($posts as $post) {
+            $result = Typecho_Widget::widget('Widget_Abstract_Contents')->push($post);
+            $post_title = htmlspecialchars($result['title']);
+            $permalink = $result['permalink'];
+            $post_views = $result['views'];
+            echo "<li><a href='$permalink' title='$post_title'>$post_title($post_views)</a></li>";
+        }
+    }
+}
+
 
 // 留言@
 function getPermalinkFromCoid($coid) {
