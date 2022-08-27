@@ -4,7 +4,7 @@
  * @author: WangYang, wangyang.0210@foxmail.com
  * @Date 2022-08-25 15:35
  * ----------------------------------------------
- * @describe: 侧边栏处理
+ * @describe: 侧边栏处理 | v
  */
 import sidebarTemp from '../../template/sidebar.html';
 import navTemp from '../../template/sidebarNav.html';
@@ -102,7 +102,7 @@ export default function main(_) {
                 menuSearchBox = $('#sb-sidebarSearchBox');
 
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
-                menuSearchBox.prepend('<div id="sb_widget_my_zzk" class="div_my_zzk" xmlns="http://www.w3.org/1999/html"><form method="post"><input id="q" type="text"  autocomplete="off" placeholder="找找看..." class="input_my_zzk form-control search-menu"/> </form></div>');
+                menuSearchBox.prepend(sidebarSearch);
                 $('.sidebar-search').show();
                 _.__tools.clearIntervalTimeId(_.__timeIds.searchTId);
             }

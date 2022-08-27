@@ -34,10 +34,9 @@
                     <div id="sidebar_search" class="mySearch">
                         <h3 class="catListTitle">搜索</h3>
                         <div id="sidebar_search_box">
-                            <div id="widget_my_zzk" class="div_my_zzk">
-                                <form method="post">
-                                    <input type="text" id="q" name="s" class="input_my_zzk" />
-                                    <input type="button" value="找找看" id="btnZzk" class="btn_my_zzk">
+                            <div id="sb_widget_my_zzk" class="div_my_zzk">
+                                <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
+                                    <input type="text" id="s" name="s" value="找找看" id="btnZzk" class="input_my_zzk form-control search-menu">
                                 </form>
                             </div>
                         </div>
