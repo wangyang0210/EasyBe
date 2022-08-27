@@ -305,6 +305,12 @@ export default function main(_) {
             $('#sb-topview').show();
         }
 
+
+        if (_.__config.sidebar.submenu.recommendRank) {
+            $('#sb-topDiggPosts').parent('li.sidebar-dropdown').addClass('active');
+            $('#sb-topDiggPosts').show();
+        }
+
         if (_.__config.sidebar.submenu.postsArchive) {
             $('#sb-record').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-record').show();
