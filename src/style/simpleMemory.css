@@ -2697,8 +2697,19 @@ div#rightMenu .rightMenuItem {
     box-shadow: 0 4px 11px -2px rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%)
 }
 
+.author_profile_info {
+    float: left;
+    line-height: 18px;
+}
+
 #author_profile {
+    float: left;
+    width: 280px;
     margin-top: 5px;
+    margin-bottom: 10px;
+    color: #000;
+    margin-left: 0;
+    font-size: 12px;
 }
 
 #div_digg {
@@ -3378,12 +3389,6 @@ a[name=top], div#loading {
     text-align: center;
     display: inline-block;
     vertical-align: middle
-}
-
-#EntryTag {
-    border-bottom: 1px dashed #555;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
 }
 
 #blog_post_info #green_channel a {
