@@ -58,8 +58,15 @@
 
     // 关注博主
     function follow() {
+        $('.hideRightMenu').show()
         $('#rightGzh .rightMenuSpan').show()
     };
+
+    // 打赏博主
+    function sponsor() {
+        $('.hideRightMenu').show()
+        $('#rightDashang .rightMenuSpan').show()
+    }
 
 
 </script>

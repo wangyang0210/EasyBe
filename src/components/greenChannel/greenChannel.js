@@ -63,13 +63,13 @@ export default function main(_) {
     })();
 
     /**
-     * 微信
+     * 打赏博主
      */
     (() => {
         _.__timeIds.greenChannelWechatTId = window.setInterval(() => {
             let greenChannelWechat = $('#green_channel_wechat');
             if (greenChannelWechat.length) {
-                greenChannelWechat.after('<button class="custom-btn btn-13" onclick="' + greenChannelWechat.attr('onclick') + '">分享微信</button>');
+                greenChannelWechat.after('<button class="custom-btn btn-13" onclick="' + greenChannelWechat.attr('onclick') + '">打赏博主</button>');
                 _.__tools.clearIntervalTimeId(_.__timeIds.greenChannelWechatTId);
             }
         }, 1000);
