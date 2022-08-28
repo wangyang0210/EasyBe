@@ -200,6 +200,16 @@ export default function main(_) {
             }
         }, timeout);
 
+
+        // ------- 评论排行 -------
+        _.__timeIds.commentsRankTId = window.setInterval(() => {
+            listHdl(
+                $('#TopFeedbackPostsBlock ul li'),
+                $('#sb-commentsRank'),
+                _.__timeIds.commentsRankTId
+            );
+        }, timeout);
+
         // ------- 自定义导航 -------
         (() => {
             let navList = _.__config.sidebar.navList;

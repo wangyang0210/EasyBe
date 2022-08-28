@@ -117,6 +117,24 @@
                     </div>
                 </div>
 
+                <div id="sidebar_topdiggedposts" class="sidebar-block">
+                    <div id="topdigg_posts_wrap">
+                        <div class="catListView">
+                            <h3 class="catListTitle">
+                                <a href="" class="sidebar-card-title-a">推荐排行榜</a>
+                            </h3>
+                            <div id="TopDiggPostsBlock">
+                                <ul style="word-break: break-all">
+                                    <li>
+                                        <a href="https://www.cnblogs.com/wangyang0210/p/9488438.html">
+                                            1. 博客园美化主题——只需一分钟(51)
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div></div>
+
                 <!-- 评论排行榜 -->
                 <div id="sidebar_topcommentedposts" class="sidebar-block">
                     <div class="catListFeedback">
@@ -124,13 +142,9 @@
                             <a href="" class="sidebar-card-title-a">评论排行榜</a>
                         </h3>
                         <div id="TopFeedbackPostsBlock">
-                            <!--                            <ul style="word-break:break-all">-->
-                            <!--                                <li>-->
-                            <!--                                    <a href="p/16524958.html">-->
-                            <!--                                        1. 测试(3)-->
-                            <!--                                    </a>-->
-                            <!--                                </li>-->
-                            <!--                            </ul>-->
+                                <ul style="word-break:break-all">
+                                    <?php getPostCommentRank(); ?>
+                                </ul>
                         </div>
                     </div>
                 </div>
