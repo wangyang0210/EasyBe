@@ -44,7 +44,7 @@
                                     <div class="clear"></div>
                                     <div id="author_profile_honor"></div>
                                     <div id="author_profile_follow" class="follow-tip">
-                                        <a href="javascript:void(0);" onclick="follow('50a7e35e-e940-4247-3515-08da6c40fc10');return false;">+加关注</a>
+<!--                                        <a href="javascript:void(0);" onclick="follow('50a7e35e-e940-4247-3515-08da6c40fc10');return false;">+加关注</a>-->
                                     </div>
                                 </div>
                                 <div id="div_digg">
