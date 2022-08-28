@@ -36,7 +36,7 @@
                         <div id="sidebar_search_box">
                             <div id="sb_widget_my_zzk" class="div_my_zzk">
                                 <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
-                                    <input type="text" id="s" name="s" value="找找看" id="btnZzk" class="input_my_zzk form-control search-menu">
+                                    <input type="text" id="s" name="s" placeholder="找找看" id="btnZzk" class="input_my_zzk form-control search-menu">
                                 </form>
                             </div>
                         </div>
