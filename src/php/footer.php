@@ -68,6 +68,37 @@
         $('#rightDashang .rightMenuSpan').show()
     }
 
+    // 评论
+    function comments() {
+        $(`<li id="li-comment-25" class="comment-body comment-parent comment-odd comment-by-author">
+
+        <div class="feedbackItem" id="comment-25" style="padding-bottom: 0px;"><div class="feedbackAvatar img-rounded"><a href="http://test.easybe.org/index.php/archives/20/#comment-22" target="_blank"><img src="https://cdn.jsdelivr.net/gh/wangyang0210/pic/avatar-img/avatar-358.jpg"></a></div>
+            <div class="feedbackListSubtitle feedbackListSubtitle-louzhu">
+                <div class="feedbackManage">
+                <span class="comment_actions">
+                    <a href="http://test.easybe.org/index.php/archives/20/?replyTo=25#respond-post-20" rel="nofollow" onclick="return TypechoComment.reply('comment-25', 25);">回复</a>                </span>
+                </div>
+                <a href="javascript:void(0);" class="layer">#7楼</a>
+                <span class="louzhu">[楼主]</span>                                <span class="comment_date">2022-08-28 23:32</span>
+                <a id="a_comment_author_7" href="http://test.easybe.org/index.php/archives/20/#comment-25"></a><a href="https://www.wangyangyang.vip/" rel="external nofollow">王洋</a>
+            </div>
+            <div class="feedbackCon">
+                <div id="comment_body_7" class="blog_comment_body">
+                    <p>
+                        <a></a>
+                        <br></p><p>你好啊,测试下22222222</p>                    <p></p>
+                </div>
+                <div class="comment_vote">
+                    <span class="comment_error" style="color: red"></span>
+                </div>
+                <span id="comment_7_avatar" style="display:none">
+             https://cdn.jsdelivr.net/gh/wangyang0210/pic/avatar-img/avatar-260.jpg
+            </span>
+            </div>
+        </div>
+
+            </li>`).appendTo('.comment-list #li-comment-25')
+    }
 
 </script>
 

@@ -47,7 +47,7 @@
 <!--                                        <a href="javascript:void(0);" onclick="follow('50a7e35e-e940-4247-3515-08da6c40fc10');return false;">+加关注</a>-->
                                     </div>
                                 </div>
-                                <div id="div_digg">
+                                <div id="div_digg" style="display: none">
                                     <div class="diggit" onclick="agree('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">
                                         <span class="diggnum" id="digg_count"><?php echo $agree['agree']; ?></span>
                                     </div>
