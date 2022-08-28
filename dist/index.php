@@ -30,7 +30,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     <?php $this->author(); ?>
                     <span class="post-view-count">阅读(<?php getPostView($this) ?>)</span>
                     <span class="post-comment-count">评论(<?php $this->commentsNum('%d'); ?>)</span>
-                    <span class="post-digg-count">推荐(0)</span>
+                    <?php $agree = $this->hidden?array('agree' => 0, 'recording' => true):agreeNum($this->cid); ?>
+                    <span class="post-digg-count">推荐(<?php echo $agree['agree']; ?>)</span>
                     <?php if ($this->user->hasLogin()) : ?>
                         <a href="<?php $this->options->adminUrl(); ?>write-post.php?cid=<?php echo $this->cid; ?>"
                            target="_blank">编辑</a>

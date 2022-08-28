@@ -18,7 +18,6 @@ function themeConfig($form) {
 }
 
 
-
 //阅读访问量
 function getPostView($archive) {
     $cid    = $archive->cid;
@@ -78,11 +77,53 @@ function getPostCommentRank($limit = 10) {
     }
 }
 
-
 // 留言@
 function getPermalinkFromCoid($coid) {
     $db = Typecho_Db::get();
     $row = $db->fetchRow($db->select('author')->from('table.comments')->where('coid = ? AND status = ?', $coid, 'approved'));
     if (empty($row)) return '';
     return '<a href="#comment-'.$coid.'">@'.$row['author'].'</a>';
+}
+
+// 点赞数量
+function agreeNum($cid, &$record = NULL) {
+    $db = Typecho_Db::get();
+    $callback = array(
+        'agree' => 0,
+        'recording' => false
+    );
+
+    if (!array_key_exists('agree', $data = $db->fetchRow($db->select()->from('table.contents')->where('cid = ?', $cid)))) {
+        $db->query('ALTER TABLE `' . $db->getPrefix() . 'contents` ADD `agree` INT(10) NOT NULL DEFAULT 0;');
+    } else {
+        $callback['agree'] = $data['agree'];
+    }
+
+    if (empty($recording = Typecho_Cookie::get('__typecho_agree_record'))) {
+        Typecho_Cookie::set('__typecho_agree_record', '[]');
+    } else {
+        $callback['recording'] = is_array($record = json_decode($recording)) && in_array($cid, $record);
+    }
+
+    return $callback;
+}
+
+// 点赞
+function agree($cid) {
+    $db = Typecho_Db::get();
+    $callback = agreeNum($cid, $record);
+
+    if (empty($record)) {
+        Typecho_Cookie::set('__typecho_agree_record', "[$cid]");
+    } else {
+        if ($callback['recording']) {
+            return $callback['agree'];
+        }
+        array_push($record, $cid);
+        Typecho_Cookie::set('__typecho_agree_record', json_encode($record));
+    }
+
+    $db->query('UPDATE `' . $db->getPrefix() . 'contents` SET `agree` = `agree` + 1 WHERE `cid` = ' . $cid . ';');
+
+    return ++$callback['agree'];
 }

@@ -17,8 +17,7 @@ export default function main(_) {
         _.__timeIds.greenChannelDiggTId = window.setInterval(() => {
             let greenChannelDigg = $('#green_channel_digg');
             if (greenChannelDigg.length) {
-                greenChannelDigg.after('<button class="custom-btn btn-11" onclick="' + greenChannelDigg.attr('onclick') + '">推荐该文' +
-                    '<div class="dot"></div></button>');
+                greenChannelDigg.after('<button class="custom-btn btn-11"  onclick="' + greenChannelDigg.attr('onclick') + '"> 推荐该文' + '<div class="dot"></div></button>');
                 _.__tools.clearIntervalTimeId(_.__timeIds.greenChannelDiggTId);
             }
         }, 1000);

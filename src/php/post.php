@@ -1,4 +1,5 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php if (isset($_POST['agree']) && $_POST['agree'] == $this->cid) exit( strval(agree($this->cid)) ); ?>
 <?php $this->need('header.php'); ?>
 
 <div id="mainContent">
@@ -24,9 +25,10 @@
                             </div>
                             <div id="blog_post_info">
                                 <div id="green_channel">
-                                    <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(16631057,cb_blogId,1);green_channel_success(this,'谢谢推荐！');">好文要顶</a>
+                                    <?php $agree = $this->hidden?array('agree' => 0, 'recording' => true):agreeNum($this->cid); ?>
+                                    <a href="javascript:void(0);" id="green_channel_digg" onclick="agree('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">推荐该文(<?php echo $agree['agree']; ?>)</a>
                                     <a id="green_channel_follow" onclick="follow('50a7e35e-e940-4247-3515-08da6c40fc10');" href="javascript:void(0);">关注我</a>
-                                    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+                                    <a id="green_channel_favorite" onclick="addFavorite('<?php $this->title() ?>', '<?php $this->permalink(); ?>')" href="javascript:void(0);">收藏该文</a>
                                     <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="https://common.cnblogs.com/images/icon_weibo_24.png" alt=""></a>
                                     <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="https://common.cnblogs.com/images/wechat.png" alt=""></a>
                                 </div>
@@ -46,8 +48,8 @@
                                     </div>
                                 </div>
                                 <div id="div_digg">
-                                    <div class="diggit" onclick="votePost(16631057,'Digg')">
-                                        <span class="diggnum" id="digg_count">0</span>
+                                    <div class="diggit" onclick="agree('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">
+                                        <span class="diggnum" id="digg_count"><?php echo $agree['agree']; ?></span>
                                     </div>
                                     <div class="buryit" onclick="votePost(16631057,'Bury')">
                                         <span class="burynum" id="bury_count">0</span>
