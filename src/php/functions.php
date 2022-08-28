@@ -37,7 +37,6 @@ function getPostView($archive) {
 }
 
 // 获取阅读量最多的文章
-
 function getPostViewRank($limit = 10) {
     $db     = Typecho_Db::get();
     $prefix = $db->getPrefix();
@@ -50,10 +49,31 @@ function getPostViewRank($limit = 10) {
     if ($posts) {
         foreach ($posts as $post) {
             $result = Typecho_Widget::widget('Widget_Abstract_Contents')->push($post);
-            $post_title = htmlspecialchars($result['title']);
+            $postTitle = htmlspecialchars($result['title']);
             $permalink = $result['permalink'];
-            $post_views = $result['views'];
-            echo "<li><a href='$permalink' title='$post_title'>$post_title($post_views)</a></li>";
+            $postViews = $result['views'];
+            echo "<li><a href='$permalink' title='$postTitle'>$postTitle($postViews)</a></li>";
+        }
+    }
+}
+
+// 获取文章阅读排行
+function getPostCommentRank($limit = 10) {
+    $db     = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+    $posts = $db->fetchAll($db->select()->from('table.contents')
+        ->where('type = ? AND status = ? AND password is NULL', 'post', 'publish')
+        ->order('commentsNum', Typecho_Db::SORT_DESC)
+        ->limit($limit)
+    );
+
+    if ($posts) {
+        foreach ($posts as $post) {
+            $result = Typecho_Widget::widget('Widget_Abstract_Contents')->push($post);
+            $postTitle = htmlspecialchars($result['title']);
+            $permalink = $result['permalink'];
+            $postCommentsNum = $result['commentsNum'];
+            echo "<li><a href='$permalink' title='$postTitle'>$postTitle($postCommentsNum)</a></li>";
         }
     }
 }
