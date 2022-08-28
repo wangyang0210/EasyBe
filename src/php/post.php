@@ -27,19 +27,19 @@
                                 <div id="green_channel">
                                     <?php $agree = $this->hidden?array('agree' => 0, 'recording' => true):agreeNum($this->cid); ?>
                                     <a href="javascript:void(0);" id="green_channel_digg" onclick="agree('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">推荐该文(<?php echo $agree['agree']; ?>)</a>
-                                    <a id="green_channel_follow" onclick="follow('50a7e35e-e940-4247-3515-08da6c40fc10');" href="javascript:void(0);">关注我</a>
+                                    <a id="green_channel_follow" onclick="follow();" href="javascript:void(0);">关注我</a>
                                     <a id="green_channel_favorite" onclick="addFavorite('<?php $this->title() ?>', '<?php $this->permalink(); ?>')" href="javascript:void(0);">收藏该文</a>
                                     <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="shareWeibo('<?php $this->permalink(); ?>', '<?php $this->title() ?>')"></a>
                                     <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"></a>
                                 </div>
                                 <div id="author_profile">
                                     <div id="author_profile_info" class="author_profile_info">
-                                        <a href="https://home.cnblogs.com/u/wangyang1225/" target="_blank"><img src="https://pic.cnblogs.com/face/2937968/20220727151221.png" class="author_avatar" alt=""></a>
-                                        <div id="author_profile_detail" class="author_profile_info">
-                                            <a href="https://home.cnblogs.com/u/wangyang1225/">WangYang1225</a><br>
-                                            <a href="https://home.cnblogs.com/u/wangyang1225/followers/">粉丝 - <span class="follower-count">0</span></a>
-                                            <a href="https://home.cnblogs.com/u/wangyang1225/followees/">关注 - <span class="following-count">1</span></a><br>
-                                        </div>
+<!--                                        <a href="" target="_blank"><img src="" class="author_avatar" alt=""></a>-->
+<!--                                        <div id="author_profile_detail" class="author_profile_info">-->
+<!--                                            <a href="https://home.cnblogs.com/u/wangyang1225/">WangYang1225</a><br>-->
+<!--                                            <a href="https://home.cnblogs.com/u/wangyang1225/followers/">粉丝 - <span class="follower-count">0</span></a>-->
+<!--                                            <a href="https://home.cnblogs.com/u/wangyang1225/followees/">关注 - <span class="following-count">1</span></a><br>-->
+<!--                                        </div>-->
                                     </div>
                                     <div class="clear"></div>
                                     <div id="author_profile_honor"></div>

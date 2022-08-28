@@ -54,7 +54,13 @@
     function shareWeibo(url, title, img = '', key = '') {
         let fullUrl = `https://service.weibo.com/share/share.php?url=${url}&title=${title}&pic=${img}&appkey=${key}`;
         window.open(fullUrl)
-    }
+    };
+
+    // 关注博主
+    function follow() {
+        $('#rightGzh .rightMenuSpan').show()
+    };
+
 
 </script>
 
