@@ -59,12 +59,14 @@
     // 关注博主
     function follow() {
         $('.hideRightMenu').show();
+        $('#rightDashang .rightMenuSpan').hide();
         $('#rightGzh .rightMenuSpan').show();
     };
 
     // 打赏博主
     function sponsor() {
         $('.hideRightMenu').show();
+        $('#rightGzh .rightMenuSpan').hide();
         $('#rightDashang .rightMenuSpan').show();
     };
     // 评论
