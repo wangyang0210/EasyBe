@@ -27,7 +27,7 @@ module.exports = {
     output: {
         filename: 'simpleMemory.js',
         chunkFilename:'script/[name].[contenthash:8].js',
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'EasyBe'),
         clean: true,
     },
     plugins: [
@@ -35,9 +35,9 @@ module.exports = {
             events: {
                 onEnd: {
                     copy: [
-                        { source: './dist/simpleMemory.js', destination: './dist/simpleMemory.' + randomString(8) + '.js' },
-                        { source: './src/php/*.php', destination: './dist/' },
-                        { source: './src/php/*.png', destination: './dist/' },
+                        { source: './EasyBe/simpleMemory.js', destination: './EasyBe/simpleMemory.' + randomString(8) + '.js' },
+                        { source: './src/php/*.php', destination: './EasyBe/' },
+                        { source: './src/php/*.png', destination: './EasyBe/' },
                     ],
                 }
             }
