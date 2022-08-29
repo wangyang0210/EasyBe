@@ -100,6 +100,7 @@ export default function main(_) {
     (() => {
         if (_.__config.code.options.maxHeight)
             $('code-box pre').css('max-height', _.__config.code.options.maxHeight);
+            $('code-box pre code').css('max-height', _.__config.code.options.maxHeight);
     })();
 
     /**
@@ -110,26 +111,6 @@ export default function main(_) {
             const main = module.default;
             main(_, setCodeLine);
         });
-        // switch (_.__config.code.type.toLowerCase()) {
-        //     case 'hljs':
-        //         import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
-        //             const main = module.default;
-        //             main(_, setCodeLine);
-        //         });
-        //         break;
-        //
-        //     default:
-        //         preList.css('background', '#f5f5fa');
-        //         $('code-box .code-tools').css('background', '#f5f5fa');
-        //         $('pre .hljs').css({
-        //             'background': 'none',
-        //             'border': '0',
-        //             'border-radius': '0',
-        //             'padding': '0'
-        //         });
-        //         setCodeLine();
-        //         break;
-        // }
         afterCode(_);
     })();
 
