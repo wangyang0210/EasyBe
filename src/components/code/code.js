@@ -100,7 +100,6 @@ export default function main(_) {
     (() => {
         if (_.__config.code.options.maxHeight)
             $('code-box pre').css('max-height', _.__config.code.options.maxHeight);
-            $('code-box pre code').css('max-height', _.__config.code.options.maxHeight);
     })();
 
     /**

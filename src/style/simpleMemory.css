@@ -3106,12 +3106,17 @@ span.cnblogs_code, #home code:not([class]) {
 pre {
     padding: 10px;
     white-space: pre;
+    overflow: auto;
     margin: 0;
     border-radius: 0 0 4px 4px !important;
     border: 0 !important;
     word-break: break-all;
     word-wrap: break-word;
     counter-reset: itemcounter;
+}
+
+code {
+    font-family: inherit
 }
 
 .postBody pre:not(.hljs) {
