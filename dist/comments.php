@@ -103,35 +103,16 @@
                                 </div>
                             </div>
                             <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
-                        <?php else: ?>
-                            <div class="commentbox_title">
-                                <div class="commentbox_title_left">
-                                    <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
-                                </div>
-                                <div class="commentbox_title_right">
-                                </div>
-                            </div>
-                            <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
-                            <div class="commentbox_footer">
-                                <input type="text" name="author" placeholder="昵称"
-                                       value="<?php $this->remember('author'); ?>" required/>
-                                <input type="email" name="mail"
-                                       placeholder="<?php if ($this->options->commentsRequireMail): ?><?php endif; ?>邮箱"
-                                       value="<?php $this->remember('mail'); ?>"
-                                       <?php if ($this->options->commentsRequireMail): ?>required<?php endif; ?> />
-                                <input type="url" name="url"
-                                       placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif; ?>网址(http://)"
-                                       value="<?php $this->remember('url'); ?>" <?php if ($this->options->commentsRequireURL): ?><?php endif; ?> />
-                            </div>
-                        <?php endif; ?>
                     </div>
-
                     <p id="commentbox_opt">
-                        <input id="btn_comment_submit" type="submit" class="comment_btn" title="提交评论" value="提交评论">
+                        <input id="btn_comment_submit" onclick="comments('<?php $this->commentUrl() ?>')" type="button" class="comment_btn" title="提交评论" value="提交评论">
                     </p>
                 </form>
             </div>
         </div>
+            <?php else: ?>
+                注册用户登录后才能发表评论，请 <a href="<?php $this->options->siteUrl(); ?>admin/login.php">登录</a> 或<a href="<?php $this->options->siteUrl(); ?>admin/register.php">注册</a>
+            <?php endif; ?>
     <?php else: ?>
         <h3><?php _e('评论已关闭'); ?></h3>
     <?php endif; ?>

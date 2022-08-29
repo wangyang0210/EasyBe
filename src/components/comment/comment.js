@@ -51,7 +51,7 @@ export default function main(_) {
         }
     },1000);
     $(document).ajaxSuccess(function (event, xhr, settings) {
-        if (settings.url.includes("GetComments.aspx")) {
+        if (settings.url.includes("archive")) {
             setComment();
         }
     });

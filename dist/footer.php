@@ -58,16 +58,33 @@
 
     // 关注博主
     function follow() {
-        $('.hideRightMenu').show()
-        $('#rightGzh .rightMenuSpan').show()
+        $('.hideRightMenu').show();
+        $('#rightGzh .rightMenuSpan').show();
     };
 
     // 打赏博主
     function sponsor() {
-        $('.hideRightMenu').show()
-        $('#rightDashang .rightMenuSpan').show()
-    }
-
+        $('.hideRightMenu').show();
+        $('#rightDashang .rightMenuSpan').show();
+    };
+    // 评论
+    function comments(url) {
+        $.ajax({
+            type: 'post',
+            url: url,
+            data:  $('#comment-form').serializeArray(),
+            async: true,
+            timeout: 30000,
+            cache: false,
+            success: function (data) {
+                $('.comment-list').html($(".comment-list", data).html());
+                $('#tbCommentBody').val("");
+            },
+            error: function () {
+                alert('评论提交失败(っ °Д °;)っ');
+            },
+        })
+    };
 
 </script>
 
