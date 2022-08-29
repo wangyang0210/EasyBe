@@ -1324,6 +1324,34 @@ window.cnblogsConfig = {
 }
 ```
 
+### copyText - 复制版权声明
+* 类型：```Object```
+* 默认值：``````
+
+> 文字复制时版权声明，不配置使用默认。
+
+```json
+{
+  enable: false
+  length: 30,
+  copyright: '' // 默认取copyrightHtml
+}
+
+```
+
+
+```javascript
+window.cnblogsConfig = {
+    articleSuffix: {
+        copyText: {
+            enable: false,
+            length: 30,
+            copyright: ''
+        }
+    },
+}
+```
+
 ## consoleList - 控制台输出
 
 * 类型：```Array```
