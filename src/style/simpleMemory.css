@@ -3256,6 +3256,14 @@ pre .line-numbers-rows:before {
     display: inline
 }
 
+.textUnselect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
 #sideToolbar, .cnblogs_code_copy img, .list .out .icontd {
     display: none
 }
