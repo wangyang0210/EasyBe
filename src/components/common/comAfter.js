@@ -49,7 +49,7 @@ export default function main(_) {
      */
     (() => {
         if (_.__config.animate.background.enable) {
-            import(/* webpackChunkName: "ribbonsEffect" */ '../../vendor/ribbonsEffect/ribbonsEffect').then(module => {
+            import(/* webpackChunkName: "ribbons-effect" */ '../../vendor/ribbonsEffect/ribbonsEffect').then(module => {
                 new Ribbons(_.__config.animate.background.options);
             });
         }
