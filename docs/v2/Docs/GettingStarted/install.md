@@ -31,6 +31,10 @@
 详细配置参考相关[文档](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/config) 。
 
 
----
+--------
 
-> CDN jsdelivr 的 URL 详细规则参考[官方网站](https://www.jsdelivr.com/)。
+> CDN`jsdelivr` 的URL, 详细规则参考[官方网站](https://www.jsdelivr.com/) <br />
+
+!> 版本 >= 2.1.2 支持npm包CDN加速
+
+> CDN`unpkg`的URL, 详细规则参考[官方网站](https://www.unpkg.com/)
