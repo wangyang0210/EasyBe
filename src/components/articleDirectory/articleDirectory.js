@@ -32,9 +32,6 @@ export default function main(_) {
             let obj = $(this);
             let h = parseInt(obj[0].tagName.replace(/H/g, ''));
 
-            // 不处理 h6 级别标题
-            if (h === 6) return true;
-
             // 设置标题标识
             let hid = obj.attr('id');
             let titleId = 'tid-' + _.__tools.randomString(6);
