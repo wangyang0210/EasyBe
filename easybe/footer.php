@@ -79,7 +79,8 @@
             timeout: 30000,
             cache: false,
             success: function (data) {
-                $('.comment-list').html($(".comment-list", data).html());
+                $('#comments').html($("#comments", data).html());
+                // $('.comment-list').html($(".comment-list", data).html());
                 $('#tbCommentBody').val("");
             },
             error: function () {
