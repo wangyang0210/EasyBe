@@ -47,18 +47,15 @@ export default function main(_) {
     /**
      * 背景动效
      */
-    (() => {
-        if (_.__config.animate.background.enable) {
-            import(/* webpackChunkName: "ribbons-effect" */ '../../vendor/ribbonsEffect/ribbonsEffect').then(module => {
-                new Ribbons(_.__config.animate.background.options);
-            });
-        }
-
-        if (_.__config.animate.backgroundMouse.enable) {
-            import(/* webpackChunkName: "particles" */ '../particles/particles').then(module => {
-                let particles = module.default;
-                particles(_);
-            });
+    (() =>  {
+        let obj = _.__config.animate.background;
+        for (let key in obj) {
+            if (obj[key].enable) {
+                import(/* webpackChunkName: "background-[request]" */ `../background/${key}`).then(module => {
+                    let background = module.default;
+                    background(obj[key]?.options);
+                });
+            }
         }
     })();
 
@@ -66,11 +63,14 @@ export default function main(_) {
      * 鼠标动效
      */
     (() => {
-        if (_.__config.animate.mouse.enable) {
-            import(/* webpackChunkName: "mouse" */ '../mouse/mouse').then(module => {
-                let mouse = module.default;
-                mouse(_);
-            });
+        let obj = _.__config.animate.mouse;
+        for (let key in obj) {
+            if (obj[key].enable) {
+                import(/* webpackChunkName: "mouse-[request]" */ `../mouse/${key}`).then(module => {
+                    let mouse = module.default;
+                    mouse(obj[key]?.options);
+                });
+            }
         }
     })();
 
