@@ -11,9 +11,7 @@ import dayNightControl from "../../hooks/dayNightControl";
 
 export default function main(_) {
 
-    if (!_.__config.switchDayNight.enable) {
-        return true;
-    }
+    if (!_.__config.switchDayNight.enable) return true;
 
     let h         = parseInt(new Date().getHours()),
         cookieKey = 'cnblogs_config_isNight',
@@ -31,10 +29,7 @@ export default function main(_) {
             case 'night':
                 daySwitch = ''; break;
             default:
-                daySwitch = _.__config.switchDayNight.auto.enable ?
-                    (h >= _.__config.switchDayNight.auto.nightHour ? '' :
-                            (h >= _.__config.switchDayNight.auto.dayHour ? 'daySwitch' : '')
-                    ) : 'daySwitch'; break;
+                daySwitch = _.__config.switchDayNight.auto.enable ? (h >= _.__config.switchDayNight.auto.nightHour ? '' : (h >= _.__config.switchDayNight.auto.dayHour ? 'daySwitch' : '')) : 'daySwitch'; break;
         }
     })();
 
@@ -94,7 +89,7 @@ export default function main(_) {
                 for (let i = links.length - 1; i > 0; i--) {
                     let obj  = $(links[i]);
                     let href = obj.attr('href');
-                    if (/^.*\/dayNight\.[a-z0-9]{8}\.css$/.test(href)) {
+                    if (/^.*\/day-night\.[a-z0-9]{8}\.css$/.test(href)) {
                         _.__status.dayNightCssHref = href;
                         obj.attr('id', 'baseDarkCss');
                         break;
