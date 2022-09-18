@@ -15,27 +15,22 @@ export default function main(_) {
     /**
      * 文章页公共处理
      */
-    (() => {
-        comArticle(_);
-    })();
+    (() => { comArticle(_); })();
 
     /**
      * 添加友链
      */
     (() => {
         if (_.__config.links.page.length) {
+            import(/* webpackChunkName: "gf-blink" */ '../style/gf-blink.css');
             let postBody = $('#cnblogs_post_body'),
                 html = '';
-
             $.each(_.__config.links.page, (i) => {
                 let list = _.__config.links.page[i];
                 if (list.title) html += '<h1 class="iconfont ' + list.icon + '" style="'+ list.style +'"> ' + list.title + '</h1>';
-
                 html += '<div id="links-box">';
-
                 $.each(list.links, (j) => {
                     let linksHtml = linksTemp,  data = list.links[j];
-
                     // 处理模版
                     linksHtml =  _.__tools.batchTempReplacement(linksHtml, [
                         ['avatar', typeof data.avatar !== 'undefined' ? data.avatar : ''],
@@ -46,10 +41,8 @@ export default function main(_) {
                     ]);
                     html += linksHtml;
                 });
-
                 html += '</div>';
             })
-
             // 插入模版
             let articleSuffixFlg = $('.articleSuffix-flg');
             articleSuffixFlg.length ? articleSuffixFlg.before(html) : postBody.append(html);
@@ -59,7 +52,5 @@ export default function main(_) {
     /**
      * 设置文章目录
      */
-    (() => {
-        articleDirectory(_);
-    })();
+    (() => { articleDirectory(_); })();
 }
