@@ -7,11 +7,11 @@
  * @describe: 事件监听
  */
 
+
 export default function main(_) {
 
     let eventFun = {
         init: () => {
-
             /**
              * 滚动监听
              */
@@ -51,6 +51,6 @@ export default function main(_) {
             },
         }
     };
-
     return eventFun;
 }
+
