@@ -159,23 +159,18 @@ export default function main(_) {
      * 顶踩
      */
     (() => {
-
         // 顶
         _.__timeIds.diggitTId = window.setInterval(() => {
             let diggit = $(".diggit");
             if (diggit.length > 0) {
                 diggit.prepend('<i class="iconfont icon-dianzan"></i>');
-
                 let rightDiggit   = $('#rightDiggit');
                 let rightMenuSpan = rightDiggit.find('.rightMenuSpan');
-
                 rightDiggit.attr('onclick', diggit.attr("onclick"));
                 rightMenuSpan.text($('#digg_count').text());
-
                 rightDiggit.show().click(function () {
                     clickHdl($(this), rightMenuSpan, $('#digg_count').text());
                 });
-
                 _.__tools.clearIntervalTimeId(_.__timeIds.diggitTId);
             }
         }, 1000);
@@ -185,17 +180,13 @@ export default function main(_) {
             let buryit = $(".buryit");
             if (buryit.length > 0) {
                 buryit.prepend('<i class="iconfont icon-buzan"></i>');
-
                 let rightBuryit   = $('#rightBuryit');
                 let rightMenuSpan = rightBuryit.find('.rightMenuSpan');
-
                 rightBuryit.attr('onclick', buryit.attr("onclick"));
                 rightMenuSpan.text($('#bury_count').text());
-
                 rightBuryit.show().click(function () {
                     clickHdl($(this), rightMenuSpan, $('#bury_count').text());
                 });
-
                 _.__tools.clearIntervalTimeId(_.__timeIds.buryitTId);
             }
         }, 1000);
@@ -205,7 +196,6 @@ export default function main(_) {
             if (obj.attr('clickflg') === 'false') {
                 obj.attr('clickflg', 'true');
                 subObj.text('提交中.');
-
                 setTimeout(() => { subObj.text('提交中..') }, 300);
                 setTimeout(() => { subObj.text('提交中...') }, 600);
                 setTimeout(() => { subObj.text('更新中.') }, 900);

@@ -49,8 +49,6 @@ export default function main(_) {
         } else {
             $('.sidebar-title-msg').text($('.blogStats').text().trim().replace(/\n/g,''))
         }
-
-
     })();
 
     /**
@@ -161,7 +159,7 @@ export default function main(_) {
 
             let getMenuCommentsData = (obj) => {
                 let html = '<ul>',
-                    ret  = /^[1-9]+[0-9]*$/,
+                    ret  = /^[1-9]+[\d]*$/,
                     title, body, author;
 
                 if (obj.find('li').length > 2) {
@@ -179,11 +177,9 @@ export default function main(_) {
                         let text = textArr.join('.').trim();
                         o.length > 0 && o.html(text);
                         html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + text + "</a>")
-
                             + '<div class="sb-recent_comment_body">'
                             + $(body[i]).text()
                             + '</div>'
-
                             + '<div class="sb-recent_comment_author">'
                             + $(author[i]).text()
                             + '</div></li>';
@@ -240,7 +236,6 @@ export default function main(_) {
                     $.each(list.data, (key, val) => {
                         html += '<li><a href="' + val[1] + '" target="_blank">' + val[0] + '</a></li>';
                     });
-
                     html += '</ul></div>';
                     html += '</li>';
                     res += html;
@@ -262,7 +257,7 @@ export default function main(_) {
 
         function getMenuData(obj) {
             let html = '<ul>',
-                ret  = /^[1-9]+[0-9]*$/;
+                ret  = /^[1-9]+[\d]*$/;
             obj.each((i) => {
                 let p = $(obj[i]),
                     o = p.text() === p.html() ? {} : $(p.html()),
@@ -309,12 +304,10 @@ export default function main(_) {
             $('#sb-classify').show();
         }
 
-
         if (_.__config.sidebar.submenu.readRank) {
             $('#sb-topview').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-topview').show();
         }
-
 
         if (_.__config.sidebar.submenu.recommendRank) {
             $('#sb-topDiggPosts').parent('li.sidebar-dropdown').addClass('active');
@@ -335,7 +328,6 @@ export default function main(_) {
             $("#customize-sidebar-menu .sidebar-submenu").parent('li.sidebar-dropdown').addClass('active');
             $("#customize-sidebar-menu .sidebar-submenu").show();
         }
-
 
     })();
 
@@ -360,9 +352,7 @@ export default function main(_) {
                    lObj.slideDown(300);
                }
                setTimeout(function () {
-                   if (mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') {
-                       mainObj.myOptiscrollInstance.update();
-                   }
+                   if (mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') mainObj.myOptiscrollInstance.update();
                }, 300);
            }
         });
