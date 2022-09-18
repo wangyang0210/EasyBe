@@ -21,7 +21,6 @@
 
 #links-box .links-item {
     width: 250px;
-    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 10%), 0 1px 3px 0 rgb(93 100 148 / 13%);
     position: relative;
     padding: 0 6px;
     max-width: 100%;
@@ -34,10 +33,11 @@
     color: rgba(107,114,128,1);
     cursor:pointer;
     justify-self: center;
+    box-shadow: 0 1px 7px 2px #c7c9d3;
 }
 
 #links-box .links-item:hover {
-    box-shadow: 0 4px 11px 0 rgb(37 44 97 / 17%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+    transform: scale(1.04);
 }
 
 #links-box .links-item > img {
@@ -86,10 +86,13 @@
     align-items: center;
     display: flex;
     border-radius: 6px;
-    --transform-rotate: 45deg;
-    transform: rotate(45deg);
-    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 0 #0000,0 0 #0000,var(--tw-shadow);
+    -webkit-transform: rotate(360deg);
+    animation: rotation 3s linear infinite;
+    -moz-animation: rotation 3s linear infinite;
+    -webkit-animation: rotation 3s linear infinite;
+    -o-animation: rotation 3s linear infinite;
+    box-shadow: 0 1px 7px 2px #c7c9d3;
+    transition: .3s ease;
 }
 
 #links-box .links-item:nth-child(3n+0) .links-icon {
@@ -123,4 +126,9 @@
     top: 4px;
     left: 3px;
     font-size: 14px;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
 }

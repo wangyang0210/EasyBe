@@ -11,7 +11,7 @@ body {
 
 
 #cnblogs_post_body table tr:nth-child(2n), .feedbackCon table tr:nth-child(2n) {
-    background-color: rgb(0 0 0 / 20%);
+    background-color: rgb(0 0 0 / 10%);
 }
 
 #cnblogs_post_body table tr:hover, .feedbackCon table tr:hover {
@@ -24,6 +24,8 @@ body {
     color: #ddd
 }
 
+
+
 body {
     color: #ddd
 }
@@ -35,7 +37,7 @@ body {
 
 #links-box .links-item {
     background: #2a2a2a;
-    box-shadow: 0 4px 11px 0 rgb(0 0 0/20%),0 1px 3px 0 rgb(0 0 0/20%);
+    box-shadow: 0 1px 7px 2px #2a2a2a;
 }
 
 #links-box .links-item:hover {
@@ -102,15 +104,6 @@ body {
     color: #ddd
 }
 
-#cnblogs_post_body table, .feedbackCon table {
-    border: 1px solid #2a2a2a;
-    color: #ddd
-}
-
-#cnblogs_post_body table th, .feedbackCon table th {
-    background-color: #3e3e3e
-}
-
 #green_channel {
     border-top: #555 1px dashed;
     border-bottom: #555 1px dashed
@@ -145,10 +138,6 @@ footer-background {
 
 #articleSuffix .articleSuffix-left img {
     border: 1px solid #555
-}
-
-details {
-    border: 1px solid #0877ef66;
 }
 
 #topics .postDesc,
@@ -288,12 +277,6 @@ span.cnblogs_code, #home code:not([class]) {
     color: #ddd !important;
 }
 
-.commentbox_footer input {
-    border: 1px dashed #555;
-    background: #333333;
-    color: #757575;
-}
-
 #articleDirectory ul li a:hover, #articleDirectory ul li a.active {
     background: rgba(0,0,0,.1) !important;
     color: #567fb5 !important;
@@ -381,6 +364,10 @@ code-box, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #gree
 
 .aplayer {
     color: #666;
+}
+
+details {
+    border: 1px solid #0877ef66;
 }
 
 @media only screen and (max-width: 720px) {
