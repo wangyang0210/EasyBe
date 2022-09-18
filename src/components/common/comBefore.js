@@ -10,36 +10,32 @@ import loading from "../loading/loading";
 import sidebar from "../sidebar/sidebar";
 import banner from "../banner/banner";
 import event from "../event/event";
-import "../../images/webp/rss.webp";
+import "../../images/rss.webp";
 import "../../style/asset.css";
 import "../../vendor/rotate/jquery.rotate.min"
-import _ from "lodash";
-import {getTodayDate} from "../../utils/common";
 
 export default function main(_) {
 
+    let loadingObj = loading(_);
+
     // 默认字体图标库
-    import(/* webpackChunkName: "fonticon" */ '../../style/fonticon.css');
+    import(/* webpackChunkName: "iconfont" */ '../../style/iconfont.css');
 
     // 谷歌字体
     import(/* webpackChunkName: "google-fonts" */ '../../style/google-fonts.css');
-
-    let loadingObj = loading(_);
-
-    /**
-     * 国家公祭日和自定义重要的缅怀的日子
-     */
-    (() => {
-        if (getTodayDate() == '12-13' || _.__config.memorialDays.includes(getTodayDate()) ) {
-            $('html').addClass('htmlGray')
-        }
-    })();
 
     /**
      * 开启 loading
      */
     (() => {
         loadingObj.start();
+    })();
+
+    /**
+     * 国家公祭日和自定义重要的缅怀的日子
+     */
+    (() => {
+        if (_.__tools.getTodayDate() == '12-13' || _.__config.memorialDays.includes(_.__tools.getTodayDate()) ) $('html').addClass('htmlGray')
     })();
 
     /**
