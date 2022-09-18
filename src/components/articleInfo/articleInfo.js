@@ -61,11 +61,7 @@ export default function main(_) {
         _.__timeIds.articleInfoClassTId = window.setInterval(() => {
             let obj = $('#BlogPostCategory').find('a');
             if (obj.length > 0) {
-                $.each(obj, (i) => {
-                    let tag = $(obj[i]);
-                    tag.prepend('<span class="iconfont icon-marketing_fill"></span>');
-                    $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-class-color">'+(tag.text())+'</span></a>');
-                });
+                _.__tools.articleInfo(obj, 1)
                 _.__tools.setDomHomePosition();
                 _.__tools.clearIntervalTimeId(_.__timeIds.articleInfoClassTId);
             }
@@ -79,11 +75,7 @@ export default function main(_) {
         _.__timeIds.articleInfoTagTId = window.setInterval(() => {
             let obj = $('#EntryTag').find('a');
             if (obj.length > 0) {
-                $.each(obj, (i) => {
-                    let tag = $(obj[i]);
-                    tag.prepend('<span class="iconfont icon-label-fill"></span>');
-                    $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag article-tag-color">'+(tag.text())+'</span></a>');
-                });
+                _.__tools.articleInfo(obj, 2)
                 _.__tools.setDomHomePosition();
                 _.__tools.clearIntervalTimeId(_.__timeIds.articleInfoTagTId);
             }
@@ -96,8 +88,8 @@ export default function main(_) {
     (() => {
         if (_.__config.articleContent.link) {
             $('#cnblogs_post_body a').addClass('iconfont icon-fenxiang')
-            $('sup a').removeClass('iconfont icon-fenxiang')
-            $('.footnotes a').removeClass('iconfont icon-fenxiang')
+            $('.footnote-ref a').removeClass('iconfont icon-fenxiang')
+            $('.footnotes-list a').removeClass('iconfont icon-fenxiang')
         }
     })();
 
@@ -106,15 +98,15 @@ export default function main(_) {
      */
     (() => {
         let titleInfo = $('#cnblogs_post_body').find(':header');
-        if (_.__config.articleContent.emoji && titleInfo.length > 0) {
-            // 默认字体图标库
-            import(/* webpackChunkName: "fonticon" */ '../../fonts/iconfont');
+        if (_.__config.articleContent.iconfont.enable && titleInfo.length > 0) {
+            let type = _.__config.articleContent.iconfont.options.type;
+            import(/* webpackChunkName: "iconfont" */ `../../fonts/iconfont/iconfont-${type}`);
             titleInfo.html((i, c) => {
                 let arr = []
-                let num=Math.floor((Math.random()*(160-i))+i);
+                let num=Math.floor((Math.random()*(iconfontMap[type].length-i))+i);
                 if(arr.indexOf(num)==-1){
                     arr.push(num)
-                    return '<svg class="icon" aria-hidden="true"> <use xlink:href="#icon-' + iconfontMap.food[num]+ '"></use></svg> ' + c;
+                    $('<svg class="icon"> <use xlink:href="#icon-'+ iconfontMap[type][num] +'"></use></svg>').prependTo(titleInfo[i])
                 }else{
                     i--;
                 }
