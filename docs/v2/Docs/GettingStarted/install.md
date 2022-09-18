@@ -23,7 +23,7 @@
       },
     }
 </script>
-<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.0.0/dist/simpleMemory.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.0.0/dist/simple-memory.js" defer></script>
 ```
 
 ![statistical_01](../../Images/install_02.jpg)
