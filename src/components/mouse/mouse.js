@@ -2,14 +2,14 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:34
+ * @Date 2022-08-25 15:23
  * ----------------------------------------------
- * @describe: 鼠标移动特效
+ * @describe: 鼠标移动/点击效果
  */
 import '../../style/mouse.css';
 import {gsap} from "gsap/all";
 
-export default function main(_) {
+export default function main(options) {
     const cursor = document.createElement('div');
     cursor.className = 'cursor';
 
@@ -20,8 +20,8 @@ export default function main(_) {
     let cursorY = 0;
     let pageX = 0;
     let pageY = 0;
-    let size = _.__config.animate.mouse.options.size;
-    let sizeF = _.__config.animate.mouse.options.sizeF;
+    let size = options.size;
+    let sizeF = options.sizeF;
     let followSpeed = .16;
 
     document.body.appendChild(cursor);
@@ -85,7 +85,6 @@ export default function main(_) {
 
         endY = e.clientY || endY;
         if (clicked && startY && Math.abs(startY - endY) >= 40) {
-            // go(!Math.min(0, startY - endY) ? 1 : -1);
             clicked = false;
             startY = null;
             endY = null;
@@ -95,9 +94,7 @@ export default function main(_) {
     window.addEventListener('mousedown', mousedown, false);
     window.addEventListener('touchstart', mousedown, false);
     window.addEventListener('touchmove', function (e) {
-        if (clicked) {
-            endY = e.touches[0].clientY || e.targetTouches[0].clientY;
-        }
+        if (clicked) endY = e.touches[0].clientY || e.targetTouches[0].clientY;
     }, false);
     window.addEventListener('touchend', mouseup, false);
     window.addEventListener('mouseup', mouseup, false);
