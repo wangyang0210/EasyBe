@@ -181,28 +181,72 @@
       enable: false
     },
     background: {
-      enable: false,
-      options: {
-        colorSaturation: "60%",
-        colorBrightness: "50%",
-        colorAlpha: 0.5,
-        colorCycleSpeed: 5,
-        verticalPosition: "random",
-        horizontalSpeed: 200,
-        ribbonCount: 3,
-        strokeSize: 0,
-        parallaxAmount: -0.2,
-        animateSections: true
+      ribbons: {
+        enable: false,
+        options: {
+          colorSaturation: "60%",
+          colorBrightness: "50%",
+          colorAlpha: 0.5,
+          colorCycleSpeed: 5,
+          verticalPosition: "random",
+          horizontalSpeed: 200,
+          ribbonCount: 3,
+          strokeSize: 0,
+          parallaxAmount: -0.2,
+          animateSections: true
+        }
+      },
+      particles: {
+        enable: false,
+        options: {
+
+        }
+      },
+      season: {
+        enable: false,
+        options: {
+          img: "",
+          size: 40,
+        }
       }
     },
-    backgroundMouse: {
-      enable: false
-    },
     mouse: {
-      enable: false,
-      options: {
-        size: 8,
-        sizeF: 36
+      bubble: {
+        enable: false,
+        options: {
+          live: 30,
+          colors: [
+            "149, 197, 252",
+            "224, 199, 252"
+          ],
+          quantity: 15,
+          size: 5
+        }
+      },
+      mouse: {
+        enable: false,
+        options: {
+          size: 8,
+          sizeF: 36
+        }
+      },
+      mo: {
+        enable: false,
+        options: {
+          radius:   { "0": 100 },
+          count:    5,
+          children: {
+            shape:      'polygon',
+            fill:       { 'cyan' : 'yellow' },
+            radius:     20,
+            rotate:      { "360": 0 },
+            duration:   2000
+          }
+        }
+      },
+      click: {
+        enable: false,
+        options: {}
       }
     },
     infoName: {
@@ -215,7 +259,7 @@
 
   // -- 代码 --
   code: {
-    type: 'hljs',  // hljs
+    type: '',  // hljs
     options: {
       hljs: {
         theme: 'atom-one-dark-reasonable',
@@ -235,7 +279,7 @@
     supportHtml: '',
     copyText: {
       enable: false,
-      length: 10,
+      length: 30,
       copyright: ''
     },
   },
@@ -259,8 +303,14 @@
   // -- 文章内容效果
   articleContent: {
     link: false,
+    iconfont: {
+      enable: false,
+      options: {
+        type: 'defaults'
+      }
+    }
   },
 
   // -- 钩子 --
-  hooks: {},
+  hooks: {}
 }
