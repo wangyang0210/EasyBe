@@ -1,10 +1,33 @@
-let gulp = require('gulp');
-let minifycss = require('gulp-clean-css');
+const gulp = require('gulp');
+const cleanCSS = require('gulp-clean-css');
+const uglify = require('gulp-uglify');
+const gzip = require('gulp-gzip');
 
 gulp.task('minify-css', function () {
-    return gulp.src('./src/style/simpleMemory.css')
-        .pipe(minifycss())
-        .pipe(gulp.dest('./easybe'));
+    return gulp.src('./src/style/simple-memory.css')
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./dist'));
 });
 
-gulp.task('default', gulp.series('minify-css', done => done()));
+gulp.task('minify-style', function () {
+    return gulp.src('dist/style/*.css')
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./dist/style/'));
+});
+
+gulp.task('minify-simple', function () {
+    return gulp.src('dist/*.js')
+        .pipe(uglify())
+        .pipe(gzip())
+        .pipe(gulp.dest('./dist'));
+});
+
+
+gulp.task('minify-script', function () {
+    return gulp.src('dist/script/*.js')
+        .pipe(uglify())
+        .pipe(gzip())
+        .pipe(gulp.dest('./dist/script/'));
+});
+
+gulp.task('default', gulp.series(['minify-css', 'minify-simple', 'minify-script', 'minify-style'], done => done()));
