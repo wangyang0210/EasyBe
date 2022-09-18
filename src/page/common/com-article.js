@@ -19,8 +19,7 @@ export default function main(_) {
      * 设置文章banner动效
      */
     (() => {
-        if (_.__config.animate.articleBanner.enable)
-            import(/* webpackChunkName: "nh-banner-animation" */ '../../style/nhBannerAnimation.css');
+        if (_.__config.animate.articleBanner.enable) import(/* webpackChunkName: "nh-banner-animation" */ '../../style/nhBannerAnimation.css');
     })();
 
     /**
@@ -29,9 +28,9 @@ export default function main(_) {
     (() => {
         for (let i = 0; i <= 10; i++) {
             setTimeout(function timer(){
-                let main = $('#main');
-                main.find('.cnblogs-markdown').removeClass('cnblogs-markdown');
-                main.find('.cnblogs-post-body').removeClass('cnblogs-post-body');
+                let postMain = $('#main');
+                postMain.find('.cnblogs-markdown').removeClass('cnblogs-markdown');
+                postMain.find('.cnblogs-post-body').removeClass('cnblogs-post-body');
             }, i * 500);
         }
     })();
@@ -39,35 +38,25 @@ export default function main(_) {
     /**
      * 设置文章信息
      */
-    (() => {
-        articleInfo(_);
-    })();
+    (() => { articleInfo(_); })();
 
     /**
      * 设置文章目录
      */
-    (() => {
-        _.__status.pageType !== 'books' && articleDirectory(_);
-    })();
+    (() => { _.__status.pageType !== 'books' && articleDirectory(_); })();
 
     /**
      * 设置文章底部信息按钮
      */
-    (() => {
-        greenChannel(_);
-    })();
+    (() => { greenChannel(_); })();
 
     /**
      * 设置文章后缀
      */
-    (() => {
-        articleSuffix(_);
-    })();
+    (() => { articleSuffix(_); })();
 
     /**
      * 设置评论框
      */
-    (() => {
-        comment(_);
-    })();
+    (() => { comment(_);  })();
 }
