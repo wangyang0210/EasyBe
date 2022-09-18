@@ -7,8 +7,93 @@
  * @describe: 工具处理类
  */
 
+import moment from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+moment.extend(advancedFormat)
+
 export default function main() {
     return {
+
+        /**
+         * 获取当天00:00:00的13位时间戳
+         * @return {string}
+         */
+        getTodayStart: () => {
+            return moment().startOf('day').format('x')
+        },
+
+        /**
+         * 获取当天23:59:59的13位时间戳
+         * @return {string}
+         */
+        getTodayEnd: () => {
+            return moment().endOf('day').format('x')
+        },
+
+        /**
+         * 获取前一天00:00:00的13位时间戳
+         * @return {string}
+         */
+        getYesterdayStart: () => {
+            return moment().subtract(1, 'days').startOf('day').format('x')
+        },
+
+        /**
+         * 获取前一天23:59:59的13位时间戳
+         * @return {string}
+         */
+        getYesterdayEnd: () => {
+            return moment().subtract(1, 'days').endOf('day').format('x')
+        },
+
+        /**
+         * 获取当天的日期
+         * @return {string}
+         */
+        getTodayDate: () => {
+            return moment().format('MM-DD')
+        },
+
+        /**
+         * jsonp跨域请求
+         * @param {string} url 请求地址
+         * @return {Promise<unknown>}
+         */
+        getJsonp: (url = `https://sentence.iciba.com/index.php?callback=onecallback&c=dailysentence&m=getdetail&title=2022-07-25lback&c=dailysentence&m=getdetail&title=${moment().format('YYYY-MM-DD')}`) => {
+            return new Promise(resolve => {
+                window.jsonCallBack = (result) => {
+                    resolve(result)
+                }
+                let JSONP = document.createElement("script");
+                JSONP.type = "text/javascript";
+                JSONP.src = `${url}&callback=jsonCallBack`;
+                document.getElementsByTagName("head")[0].appendChild(JSONP);
+                setTimeout(() => {
+                    document.getElementsByTagName("head")[0].removeChild(JSONP)
+                }, 500)
+            })
+        },
+
+        /**
+         * 三元运算嵌套拆解
+         */
+        ternaryOperation: (var1, var2, var3) => {
+            if (var1) return var1;
+            return var2 ? var2 : var3;
+        },
+
+        /**
+         * 处理文章信息分类(type=1)和标签(type = 2)
+         */
+        articleInfo: (obj, type) => {
+            let iconfont =  type === 1 ? 'icon-marketing_fill' : 'icon-label-fill';
+            let style = type === 1 ? 'article-tag-class-color' : 'article-tag-color';
+            $.each(obj, (i) => {
+                let tag = $(obj[i]);
+                tag.prepend('<span class="iconfont ' + iconfont + '"></span>');
+                $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag ' + style + '">'+(tag.text())+'</span></a>');
+            });
+        },
 
         /**
          * 模版替换
@@ -106,8 +191,6 @@ export default function main() {
             let birthDay = date;
             let today = new Date();
             let timeold = today.getTime() - birthDay.getTime();
-            let sectimeold = timeold / 1000;
-            let secondsold = Math.floor(sectimeold);
             let msPerDay = 24 * 60 * 60 * 1000;
             let e_daysold = timeold / msPerDay;
             let daysold = Math.floor(e_daysold);
