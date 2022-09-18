@@ -11,7 +11,7 @@
 * 鼠标特效配置聚合 | 新增特效
 * 引入`mo.js`,自定义鼠标点击特效
 * 新增`bubble`鼠标移动效果
-* 文章标题前ICON按需加载 | 新增配置`articleContent.iconfont`
+* 新增配置`articleContent.iconfont`文章标题前ICON
 * 修复移动端展示问题
 * 修复日夜模式切换问题
 * 脚注显示优化
