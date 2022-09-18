@@ -8,13 +8,12 @@
  */
 import "../../style/articleSuffix.css";
 import suffixTemp from '../../template/articleSuffix.html';
-import defaultAvatarImg from './../../images/webp/default_avatar.webp';
+import defaultAvatarImg from './../../images/default_avatar.webp';
 
 export default function main(_) {
 
     // 图片
-    let imgUrl  = _.__config.articleSuffix.imgUrl ? _.__config.articleSuffix.imgUrl :
-        (_.__config.info.avatar ? _.__config.info.avatar : defaultAvatarImg);
+    let imgUrl  = _.__tools.ternaryOperation(_.__config.articleSuffix.imgUrl, _.__config.info.avatar, defaultAvatarImg )
 
     // 本文作者 & 本文链接
     let articleAuthor = $('#articleAuthor');
@@ -25,11 +24,16 @@ export default function main(_) {
         origin  = articleAuthor.length || articleSource.length ? '原' : '本';
 
     // 关于博主
-    let aboutHtml = _.__config.articleSuffix.aboutHtml ? _.__config.articleSuffix.aboutHtml : '评论和私信会在第一时间回复。或者直接通过侧边栏联系我。';
+    let aboutHtml = _.__config.articleSuffix.aboutHtml ? _.__config.articleSuffix.aboutHtml :
+        '评论和私信会在第一时间回复。或者<a href="https://msg.cnblogs.com/msg/send/' + _.__status.user + '" target="_blank">直接私信</a>我。';
 
     // 版权声明
     let copyrightHtml = _.__config.articleSuffix.copyrightHtml ? _.__config.articleSuffix.copyrightHtml :
         '本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" alt="BY-NC-SA" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！';
+
+    // 声援博主
+    let supportHtml = _.__config.articleSuffix.supportHtml ? _.__config.articleSuffix.supportHtml :
+        '如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost(' + _.__status.articleId + ',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。';
 
     let re = [
         ['origin', origin],
@@ -39,6 +43,7 @@ export default function main(_) {
         ['source', source],
         ['aboutHtml', aboutHtml],
         ['copyrightHtml', copyrightHtml],
+        ['supportHtml', supportHtml],
     ];
     let suffixHtml = _.__tools.batchTempReplacement(suffixTemp, re);
 
@@ -50,9 +55,7 @@ export default function main(_) {
             let textLength = _.__config.articleSuffix.copyText.length || 30;
             let copyrightText = _.__config.articleSuffix.copyText.copyright || copyrightHtml;
             document.body.addEventListener('copy', function (e) {
-                if (window.getSelection().toString() && window.getSelection().toString().length > textLength) {
-                    setClipboardText(e);
-                }
+                if (window.getSelection().toString() && window.getSelection().toString().length > textLength) setClipboardText(e);
             });
             function setClipboardText(event) {
                 let clipboardData = event.clipboardData || window.clipboardData;
@@ -76,6 +79,4 @@ export default function main(_) {
             }
         }
     })()
-
-
 }
