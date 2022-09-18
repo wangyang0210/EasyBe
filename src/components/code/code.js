@@ -26,18 +26,6 @@ export default function main(_) {
             // 设置外部标签
             pre.wrap('<code-box id="' + boxId + '"></code-box>');
             pre.attr('boxid', boxId);
-
-            // 增加语言标签
-            let preCode = pre.find('code');
-            if (preCode.length > 0) {
-                let codeClass = preCode.attr('class');
-                if (codeClass) {
-                    let lan = codeClass.match(/.*(language-[a-z0-9]+)\s+.*/);
-                    if (!!lan && lan.length > 0) {
-                        pre.addClass(lan[1]);
-                    }
-                }
-            }
         });
     })();
 
@@ -61,9 +49,8 @@ export default function main(_) {
     (() => {
         let codeBox = $('code-box');
         $.each(codeBox, function (i) {
-            let code  = $(codeBox[i]);
+            let code = $(codeBox[i]);
             let boxId = code.attr('id');
-
             let copyHtml = '<button boxid="' + boxId + '" type="button" class="clipboard code-copay-btn" data-clipboard-action="copy" data-clipboard-target="#' + boxId + ' pre" aria-label="复制代码" ><i class="iconfont icon-fuzhi"></i></button>';
             code.prepend(copyHtml);
         });
@@ -71,18 +58,17 @@ export default function main(_) {
         // 点击效果
         $('code-box .code-copay-btn').click(function () {
             $(this).find('i').removeClass('icon-fuzhi').addClass('icon-right');
-            setTimeout("$('code-box button[boxid="+$(this).attr('boxid')+"] i').removeClass('icon-right').addClass('icon-fuzhi')", 1500);
+            setTimeout("$('code-box button[boxid='" + $(this).attr('boxid') + "'] i').removeClass('icon-right').addClass('icon-fuzhi')", 1500);
         });
-
         // 显示/隐藏
         codeBox.on({
-            mouseover : function () {
+            mouseover: function () {
                 $(this).find('.code-copay-btn').css({
                     opacity: 1,
                     visibility: 'visible'
                 });
             },
-            mouseout : function () {
+            mouseout: function () {
                 $(this).find('.code-copay-btn').css({
                     opacity: 0,
                     visibility: 'hidden'
@@ -90,7 +76,6 @@ export default function main(_) {
             }
         });
 
-        // 拷贝
         new ClipboardJS('.clipboard');
     })();
 
@@ -98,18 +83,30 @@ export default function main(_) {
      * 限制代码框高度
      */
     (() => {
-        if (_.__config.code.options.maxHeight)
-            $('code-box pre').css('max-height', _.__config.code.options.maxHeight);
+        if (_.__config.code.options.maxHeight) $('code-box pre').css('max-height', _.__config.code.options.maxHeight);
     })();
 
     /**
      * 渲染代码
      */
     (() => {
-        import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
-            const main = module.default;
-            main(_, setCodeLine);
-        });
+        let codeType = _.__config.code.type.toLowerCase()
+        if (codeType === 'hljs') {
+            import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
+                const codeMain = module.default;
+                codeMain(_, setCodeLine);
+            });
+        } else {
+            preList.css('background', '#f5f5fa');
+            $('code-box .code-tools').css('background', '#f5f5fa');
+            $('pre .hljs').css({
+                'background': 'none',
+                'border': '0',
+                'border-radius': '0',
+                'padding': '0'
+            });
+            setCodeLine();
+        }
         afterCode(_);
     })();
 
@@ -119,9 +116,9 @@ export default function main(_) {
     function setCodeLine() {
         if (!_.__config.code.options.line) return true;
 
-        let preList = $('code-box pre code');
-        $.each(preList, function (i) {
-            let pre = $(preList[i]);
+        let preListLine = $('code-box pre code');
+        $.each(preListLine, function (i) {
+            let pre = $(preListLine[i]);
             let codeLine = pre.html().replace(/\<br\>/g, '\n').split('\n');
             let code = [];
 

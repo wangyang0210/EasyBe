@@ -34,20 +34,15 @@ export default function main(_, setCodeLine) {
             // 渲染代码
             $.each(code, function (i, e) {
                 let obj = $(code[i]);
-
                 // 做一次换行兼容处理/padding处理
                 obj.css('white-space', 'pre').html().replace(/\<br\>/g, '\n');
                 obj.css({'padding': 0})
-
                 // 清除代码原有样式
                 obj.text(obj.text());
-
                 // 替换白色背景的主题
                 bgFlg && obj.css('background', '#f5f5fa');
-
                 // 开始渲染代码
                 hljs.highlightElement(e);
-
                 // 设置复制按钮颜色
                 $('.clipboard[boxid='+ obj.attr('boxid') +']').addClass('hljs-comment');
             });
