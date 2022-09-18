@@ -11,18 +11,17 @@ import "../../vendor/fancybox/jquery.fancybox.min.css";
 
 export default function main(_) {
     setTimeout(() =>  {
+        let imgLength   = $('#cnblogs_post_body img').length -1;
+        if (!imgLength) return;
+
         let cpb         = $('#cnblogs_post_body')
-            ,imgList    = $('#cnblogs_post_body img:not(#articleSuffixAvatar)')
+            ,imgList    = $(`#cnblogs_post_body img:lt(${imgLength})`)
             ,comImgList = $('.feedbackItem img')
             ,data       = [];
 
-        $.each(imgList, function (i) {
-            data.push(imgList[i]);
-        });
+        $.each(imgList, function (i) { data.push(imgList[i]); });
 
-        $.each(comImgList, function (i) {
-            data.push(comImgList[i]);
-        });
+        $.each(comImgList, function (i) { data.push(comImgList[i]); });
 
         if (cpb.length > 0 && data.length > 0) {
             $.each(data, (i) => {
