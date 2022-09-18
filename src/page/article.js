@@ -14,9 +14,7 @@ export default function main(_) {
     /**
      * 文章页公共处理
      */
-    (() => {
-        comArticle(_);
-    })();
+    (() => { comArticle(_); })();
 
     /**
      * 代码高亮处理
@@ -24,15 +22,13 @@ export default function main(_) {
     (() => {
         // 异步处理防止影响loading结束
         import(/* webpackChunkName: "article-code" */ '../components/code/code').then(module => {
-            const main = module.default;
-            main(_);
+            const code = module.default;
+            code(_);
         });
     })();
 
     /**
      * 图片灯箱处理
      */
-    (() => {
-        imgBox(_);
-    })();
+    (() => { imgBox(_); })();
 }
