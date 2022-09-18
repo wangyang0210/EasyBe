@@ -7,12 +7,11 @@
  * @describe: footer
  */
 import footerTemp from '../../template/footer.html';
-import footerImg from './../../images/webp/footer.webp';
-import backgroundImg from './../../images/webp/background.webp';
-import cloudsImg from './../../images/webp/clouds.webp';
-import foregroundImg from './../../images/webp/foreground.webp';
+import footerImg from './../../images/footer.webp';
+import backgroundImg from './../../images/background.webp';
+import cloudsImg from './../../images/clouds.webp';
+import foregroundImg from './../../images/foreground.webp';
 import {getConfigInfo, getOnline, getWebSiteState} from "../../api";
-import {getToadyEnd, getTodayStart, getYesterdayEnd, getYesterdayState} from "../../utils/common";
 
 export default function main(_) {
 
@@ -63,7 +62,7 @@ export default function main(_) {
     })();
 
     /**
-     * 设置网站统计ID
+     * 设置网站统计地址
      */
     (() => {
         if (_.__config.cnzz) footerHtml = _.__tools.tempReplacement(footerHtml, 'cnzzId', _.__config.cnzz);
@@ -139,8 +138,8 @@ export default function main(_) {
             _.__timeIds.umamiTId = window.setInterval(() => {
                 getConfigInfo(baseUrl, `api/share/${_.__config.umami.shareId}`).then( r => {
                     Promise.all([
-                        getWebSiteState(baseUrl, `api/website/${r.websiteId}/stats`, {'start_at': getTodayStart(),'end_at': getToadyEnd()}),
-                        getWebSiteState(baseUrl, `api/website/${r.websiteId}/stats`, {'start_at': getYesterdayState(),'end_at': getYesterdayEnd()}),
+                        getWebSiteState(baseUrl, `api/website/${r.websiteId}/stats`, {'start_at': _.__tools.getTodayStart(),'end_at': _.__tools.getTodayEnd()}),
+                        getWebSiteState(baseUrl, `api/website/${r.websiteId}/stats`, {'start_at': _.__tools.getYesterdayStart(),'end_at': _.__tools.getYesterdayEnd()}),
                         getOnline(baseUrl, `api/website/${r.websiteId}/active`)])
                         .then(function (results) {
                             const todayState = results[0]
