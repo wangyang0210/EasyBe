@@ -104,6 +104,8 @@ body {
     color: #ddd
 }
 
+
+
 #green_channel {
     border-top: #555 1px dashed;
     border-bottom: #555 1px dashed
@@ -275,6 +277,12 @@ span.cnblogs_code, #home code:not([class]) {
 
 .postBody h1, .postBody h2, .postBody h3, .postBody h4, .postBody h5, .postBody h6{
     color: #ddd !important;
+}
+
+.commentbox_footer input {
+    border: 1px dashed #555;
+    background: #333333;
+    color: #757575;
 }
 
 #articleDirectory ul li a:hover, #articleDirectory ul li a.active {

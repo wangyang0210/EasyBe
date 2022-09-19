@@ -6,6 +6,11 @@
     background: #6fa3ef
 }
 
+#post_next_prev {
+    line-height: 1.8;
+    font-size: 12px;
+}
+
 #blogTitle h1 a:hover, .dayTitle a, a, a:active, a:link, a:visited {
     color: #5c8ec6
 }
@@ -1056,7 +1061,44 @@ div#tbCommentBodyPreview {
     -webkit-border-radius: 3px;
     min-height: 250px;
     width: 100%;
-    height: 100%
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#comment_form_container #tbCommentBody {
+    line-height: 1.6;
+    width: 100%;
+    height: 250px;
+    resize: vertical;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    font-size: 13px;
+    padding: 8px 0;
+}
+
+.commentbox_footer input {
+    width: 31.7%;
+    height: 25px;
+    border: 1px dashed #ccc;
+    padding: 0 5px;
+}
+
+.commentbox_footer input:focus {
+    outline: none;
+    border-color: #409eff;
+}
+
+.feedbackItem .respond {
+    width: 95%;
+    position: relative;
+    left: 33px;
+}
+
+
+.feedbackItem .respond .commentbox_footer input {
+    width: 31.4%;
 }
 
 #comment_form_container .comment_textarea:hover {
@@ -2656,8 +2698,19 @@ div#rightMenu .rightMenuItem {
     box-shadow: 0 4px 11px -2px rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%)
 }
 
+.author_profile_info {
+    float: left;
+    line-height: 18px;
+}
+
 #author_profile {
+    float: left;
+    width: 280px;
     margin-top: 5px;
+    margin-bottom: 10px;
+    color: #000;
+    margin-left: 0;
+    font-size: 12px;
 }
 
 #div_digg {
@@ -3066,12 +3119,17 @@ span.cnblogs_code, #home code:not([class]) {
 pre {
     padding: 10px;
     white-space: pre;
+    overflow: auto;
     margin: 0;
     border-radius: 0 0 4px 4px !important;
     border: 0 !important;
     word-break: break-all;
     word-wrap: break-word;
     counter-reset: itemcounter;
+}
+
+code {
+    font-family: inherit
 }
 
 .postBody pre:not(.hljs) {
