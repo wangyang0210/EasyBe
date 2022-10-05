@@ -14,7 +14,7 @@ export default function main(options) {
         left: 0, top: 0,
        ...options
     });
-    burst.el.style.zIndex = 999999;
+    burst.el.style.zIndex = 100;
 
     document.addEventListener( 'click', function (e) {
         burst
