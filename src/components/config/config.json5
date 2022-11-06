@@ -133,6 +133,16 @@
     shareId: ''
   },
 
+  // -- 备案信息 --
+  beian: {
+    info: '',
+  },
+
+  gonganbeian: {
+    info: '',
+    link: '',
+  },
+
   // -- 右下角菜单 --
   rtMenu: {
     qrCode: '',

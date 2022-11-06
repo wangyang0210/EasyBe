@@ -1583,3 +1583,29 @@ window.cnblogsConfig = {
     memorialDays: ['12-13', '07-27'],
 }
 ```
+
+## beian - 备案信息
+* 类型：```Object```
+* 默认值：```{}```
+
+```javascript
+window.cnblogsConfig = {
+    beian: {
+        info: '皖ICP备17019492号-6',
+    },
+}
+```
+
+## gonganbeian - 公安备案信息
+* 类型：```Object```
+* 默认值：```{}```
+
+```javascript
+window.cnblogsConfig = {
+    gonganbeian: {
+        info: '',
+        link: '',
+    }
+}
+```
+
