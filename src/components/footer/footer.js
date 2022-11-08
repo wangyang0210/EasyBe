@@ -72,9 +72,17 @@ export default function main(_) {
      * 设置备案信息
      */
     (() => {
-        if(_.__config.beian.info) footerHtml = _.__tools.tempReplacement(footerHtml, 'beian', _.__config.beian.info);
-        if(_.__config.gonganbeian.info) footerHtml = _.__tools.tempReplacement(footerHtml, 'gonganbeian', _.__config.gonganbeian.info);
-        if(_.__config.gonganbeian.link) footerHtml = _.__tools.tempReplacement(footerHtml, 'gonganbeianLink', _.__config.gonganbeian.link);
+        if(_.__config.beian.info) {
+            footerHtml = _.__tools.tempReplacement(footerHtml, 'beian', _.__config.beian.info);
+            $("#beian").show()
+        }
+        if(_.__config.gonganbeian.info && _.__config.gonganbeian.link) {
+            footerHtml = _.__tools.tempReplacement(footerHtml, [
+                ['gonganbeian', _.__config.gonganbeian.info],
+                ['gonganbeianLink', _.__config.gonganbeian.link]
+            ]);
+            $("#gonganbeian").show()
+        }
     })();
 
     /**
