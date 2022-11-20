@@ -73,15 +73,21 @@ export default function main(_) {
      */
     (() => {
         if(_.__config.beian.info) {
-            footerHtml = _.__tools.tempReplacement(footerHtml, 'beian', _.__config.beian.info);
-            $("#beian").show()
+            footerHtml = _.__tools.batchTempReplacement(footerHtml, [
+                ['beian', _.__config.beian.info]
+                ['beianShow', 'block']
+            ]);
+        } else {
+            footerHtml = _.__tools.tempReplacement(footerHtml, 'beianShow', 'none');
         }
         if(_.__config.gonganbeian.info && _.__config.gonganbeian.link) {
             footerHtml = _.__tools.batchTempReplacement(footerHtml, [
                 ['gonganbeian', _.__config.gonganbeian.info],
-                ['gonganbeianLink', _.__config.gonganbeian.link]
+                ['gonganbeianLink', _.__config.gonganbeian.link],
+                ['gonganbeianShow', 'block']
             ]);
-            $("#gonganbeian").show()
+        }else {
+            footerHtml = _.__tools.tempReplacement(footerHtml, 'gonganbeianShow', 'none');
         }
     })();
 
