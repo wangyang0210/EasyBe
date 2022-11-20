@@ -77,7 +77,7 @@ export default function main(_) {
             $("#beian").show()
         }
         if(_.__config.gonganbeian.info && _.__config.gonganbeian.link) {
-            footerHtml = _.__tools.tempReplacement(footerHtml, [
+            footerHtml = _.__tools.batchTempReplacement(footerHtml, [
                 ['gonganbeian', _.__config.gonganbeian.info],
                 ['gonganbeianLink', _.__config.gonganbeian.link]
             ]);
