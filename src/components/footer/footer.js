@@ -11,7 +11,7 @@ import footerImg from './../../images/webp/footer.webp';
 import backgroundImg from './../../images/webp/background.webp';
 import cloudsImg from './../../images/webp/clouds.webp';
 import foregroundImg from './../../images/webp/foreground.webp';
-import {getConfigInfo, getOnline, getWebSiteState} from "../../api";
+import {request} from "../../utils/request";
 
 export default function main(_) {
 
@@ -153,11 +153,11 @@ export default function main(_) {
         if (_.__config.umami?.url && _.__config.umami?.shareId) {
             const baseUrl = _.__config.umami.url
             _.__timeIds.umamiTId = window.setInterval(() => {
-                getConfigInfo(baseUrl, `api/share/${_.__config.umami.shareId}`).then( r => {
+                request(`${baseUrl}api/share/${_.__config.umami.shareId}`).then( r => {
                     Promise.all([
-                        getWebSiteState(baseUrl, `api/website/${r.websiteId}/stats`, {'start_at': _.__tools.getTodayStart(),'end_at': _.__tools.getTodayEnd()}),
-                        getWebSiteState(baseUrl, `api/website/${r.websiteId}/stats`, {'start_at': _.__tools.getYesterdayStart(),'end_at': _.__tools.getYesterdayEnd()}),
-                        getOnline(baseUrl, `api/website/${r.websiteId}/active`)])
+                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${_.__tools.getTodayStart()}&end_at=${_.__tools.getTodayEnd()}`),
+                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${_.__tools.getYesterdayStart()}&end_at=${_.__tools.getYesterdayEnd()}`),
+                        request(`${baseUrl}api/website/${r.websiteId}/active`)])
                         .then(function (results) {
                             const todayState = results[0]
                             const yesterdayState = results[1]

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkeasybe=self.webpackChunkeasybe||[]).push([[4170],{50925:function(e,n,t){t.r(n),t.d(n,{default:function(){return c}});var u=t(22707),s=t.n(u);function c(e){const n=new(s().Burst)({left:0,top:0,...e});n.el.style.zIndex=100,document.addEventListener("click",(function(e){n.tune({x:e.pageX,y:e.pageY}).setSpeed(3).replay()}))}}}]);

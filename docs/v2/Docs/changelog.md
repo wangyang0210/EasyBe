@@ -1,5 +1,9 @@
 # 2022.10.24 - v2.1.6
 - 备案信息
+- iconfont使用CDN资源
+- 谷歌字体适用CDN资源
+- 使用fetch代替request
+- 编译统一使用webpack
 
 # 2022.10.05 - v2.1.5
 - bubble优先级调整

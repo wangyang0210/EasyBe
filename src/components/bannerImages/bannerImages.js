@@ -6,7 +6,7 @@
  * ----------------------------------------------
  * @describe: banner 背景切换处理
  */
-import {gsap, Power4} from "gsap/all";
+import {gsap, Power4} from "gsap/dist/gsap.min";
 
 export default function main(id, images, cols, time, sort, current) {
     const bgMain = document.getElementById(id);

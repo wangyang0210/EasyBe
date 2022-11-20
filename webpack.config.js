@@ -4,6 +4,8 @@ const terserPlugin = require("terser-webpack-plugin");
 const fileManagerPlugin = require('filemanager-webpack-plugin');
 const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const cssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CompressionPlugin = require("compression-webpack-plugin")
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 /**
  * 随机字符串
@@ -31,6 +33,10 @@ module.exports = {
         clean: true,
     },
     plugins: [
+        // new BundleAnalyzerPlugin({
+        //     analyzerMode: 'disabled',
+        //     generateStatsFile: true,
+        // }),
         new fileManagerPlugin({
             events: {
                 onEnd: {
@@ -55,9 +61,17 @@ module.exports = {
         minimize: true,
         minimizer: [
             new terserPlugin({
+                parallel: true,
                 extractComments: false,
             }),
             new cssMinimizerPlugin(),
+            new CompressionPlugin({
+                algorithm: 'gzip',
+                test: /\.js$|\.html$|\.css$/,
+                minRatio: 1,
+                threshold: 10240,
+                deleteOriginalAssets: false,
+            })
         ],
     },
     module: {
