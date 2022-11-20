@@ -72,9 +72,7 @@ export default function main(_) {
      * 设置备案信息
      */
     (() => {
-        if(_.__config.beian.info) {
-            footerHtml = _.__tools.tempReplacement(footerHtml, 'beian', _.__config.beian.info);
-        }
+        if(_.__config.beian.info) footerHtml = _.__tools.tempReplacement(footerHtml, 'beian', _.__config.beian.info);
         if(_.__config.gonganbeian.info && _.__config.gonganbeian.link) {
             footerHtml = _.__tools.batchTempReplacement(footerHtml, [
                 ['gonganbeian', _.__config.gonganbeian.info],
