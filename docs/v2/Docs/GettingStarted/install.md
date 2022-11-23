@@ -6,7 +6,7 @@
 ## 获取需要使用的版本
 进入主题仓库：[GitHub](https://github.com/wangyang0210/EasyBe)
 
-> 选择最新版本将`dist`目录上传到`typecho`的主题目录下
+> 选择最新版本将`easybe`目录上传到`typecho`的主题目录下
 
 ![statistical_01](../../Images/install_01.gif)
 
