@@ -322,5 +322,28 @@
   },
 
   // -- 钩子 --
-  hooks: {}
+  hooks: {},
+  default: {
+    version: 'v2.2.5',
+    iconfont: 'https://at.alicdn.com/t/c/font_3628204_t6n3fw8b1zn.js',
+    avatar: 'https://images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_221114123823_default_avatar.webp',
+    mojs: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/mo-js/0.288.2/mo.min.js',
+    moment: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/moment.js/2.29.1/moment.min.js',
+    gsap: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/gsap/3.9.1/gsap.min.js',
+    highlight: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/highlight.js/11.4.0/highlight.min.js',
+    hljscss: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/highlight.js/11.4.0/styles/',
+    fancybox: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/fancybox/3.5.7/jquery.fancybox.min.js',
+    fancyboxcss: 'https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/fancybox/3.5.7/jquery.fancybox.min.css',
+    bootstrap: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/bootstrap/5.0.0-beta3/js/bootstrap.min.js',
+    clipboard: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/clipboard.js/2.0.10/clipboard.min.js',
+    optiscroll: 'https://npm.elemecdn.com/optiscroll@3.2.1/dist/optiscroll.min.js',
+    optiscrollcss: 'https://npm.elemecdn.com/optiscroll@3.2.1/dist/optiscroll.css',
+    snapsvg: 'https://npm.elemecdn.com/snapsvg-cjs@0.0.6/dist/snap.svg.js',
+    toprogress: 'https://npm.elemecdn.com/toprogress@0.1.3/ToProgress.min.js',
+    jqueryrotate: 'https://cdn.jsdelivr.net/gh/wilq32-pwitkowski/jqueryrotate@master/jQueryRotateCompressed.js',
+    aplayer: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.js',
+    aplayercss: 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/aplayer/1.10.1/APlayer.min.css',
+    meting: 'https://cdn.staticfile.org/meting/2.0.1/Meting.min.js',
+    roughNotation: 'https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-y/rough-notation/0.5.1/rough-notation.min.js',
+  }
 }
