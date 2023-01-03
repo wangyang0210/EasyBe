@@ -2,236 +2,316 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:38
+ * @Date 2022-08-25 15:28
  * ----------------------------------------------
  * @describe: 工具处理类
  */
 
-import moment from 'dayjs'
-import advancedFormat from 'dayjs/plugin/advancedFormat'
-moment.extend(advancedFormat)
+import {request} from './request'
 
-export default function main() {
-    return {
+/**
+ * 获取当天00:00:00的13位时间戳
+ * @return {string}
+ */
+function getTodayStart() {
+    return moment().startOf('day').format('x')
+}
 
-        /**
-         * 获取当天00:00:00的13位时间戳
-         * @return {string}
-         */
-        getTodayStart: () => {
-            return moment().startOf('day').format('x')
-        },
+/**
+ * 获取当天23:59:59的13位时间戳
+ * @return {string}
+ */
+function getTodayEnd() {
+    return moment().endOf('day').format('x')
+}
 
-        /**
-         * 获取当天23:59:59的13位时间戳
-         * @return {string}
-         */
-        getTodayEnd: () => {
-            return moment().endOf('day').format('x')
-        },
+/**
+ * 获取前一天00:00:00的13位时间戳
+ * @return {string}
+ */
+function getYesterdayStart() {
+    return moment().subtract(1, 'days').startOf('day').format('x')
+}
 
-        /**
-         * 获取前一天00:00:00的13位时间戳
-         * @return {string}
-         */
-        getYesterdayStart: () => {
-            return moment().subtract(1, 'days').startOf('day').format('x')
-        },
+/**
+ * 获取前一天23:59:59的13位时间戳
+ * @return {string}
+ */
+function getYesterdayEnd() {
+    return moment().subtract(1, 'days').endOf('day').format('x')
+}
 
-        /**
-         * 获取前一天23:59:59的13位时间戳
-         * @return {string}
-         */
-        getYesterdayEnd: () => {
-            return moment().subtract(1, 'days').endOf('day').format('x')
-        },
+/**
+ * 获取当天的日期
+ * @return {string}
+ */
+function getTodayDate() {
+    return moment().format('MM-DD')
+}
 
-        /**
-         * 获取当天的日期
-         * @return {string}
-         */
-        getTodayDate: () => {
-            return moment().format('MM-DD')
-        },
+/**
+ * 处理文章信息分类和标签
+ * @param obj {object} 获取的dom对象
+ * @param type {number} 1为分类2为标签
+ */
+function articleInfo(obj, type) {
+    let iconfont = type === 1 ? 'icon-marketing_fill' : 'icon-label-fill';
+    let style = type === 1 ? 'article-tag-class-color' : 'article-tag-color';
+    $.each(obj, (i) => {
+        let tag = $(obj[i]);
+        tag.prepend('<span class="iconfont ' + iconfont + '"></span>');
+        $('#articleInfo').append('<a href="' + tag.attr('href') + '" target="_blank"><span class="article-info-tag ' + style + '">' + (tag.text()) + '</span></a>');
+    });
+}
 
-        /**
-         * 三元运算嵌套拆解
-         */
-        ternaryOperation: (var1, var2, var3) => {
-            if (var1) return var1;
-            return var2 ? var2 : var3;
-        },
+/**
+ * 模版替换
+ * @param temp {String} 模板文件
+ * @param par {String} 需查找的字符串
+ * @param str {String} 替换后的内容
+ */
+function tempReplacement(temp, par, str) {
+    let re = new RegExp('##' + par + '##', "g");
+    return temp.replace(re, str);
+}
 
-        /**
-         * 处理文章信息分类(type=1)和标签(type = 2)
-         */
-        articleInfo: (obj, type) => {
-            let iconfont =  type === 1 ? 'icon-marketing_fill' : 'icon-label-fill';
-            let style = type === 1 ? 'article-tag-class-color' : 'article-tag-color';
-            $.each(obj, (i) => {
-                let tag = $(obj[i]);
-                tag.prepend('<span class="iconfont ' + iconfont + '"></span>');
-                $('#articleInfo').append('<a href="'+tag.attr('href')+'" target="_blank"><span class="article-info-tag ' + style + '">'+(tag.text())+'</span></a>');
-            });
-        },
+/**
+ * 批量模版替换
+ * @param temp {String} 模板内容
+ * @param list {String} 需查找的字符串
+ */
+function batchTempReplacement(temp, list) {
+    let t = temp;
+    $.each(list, function (i) {
+        let par = list[i];
+        let re = new RegExp('##' + par[0] + '##', "g");
+        t = t.replace(re, par[1]);
+    });
+    return t;
+}
 
-        /**
-         * 模版替换
-         */
-        tempReplacement: (temp, par, str) => {
-            let re = new RegExp('##' + par + '##',"g");
-            return temp.replace(re, str);
-        },
+/**
+ * 动态加载CSS文件
+ * @param href {String} CSS文件地址
+ */
+function dynamicLoadingCss(href) {
+    $('head').append('<link>')
+    const link = $('head').children(':last')
+    link.attr({rel: 'stylesheet', type: 'text/css', href})
+}
 
-        /**
-         * 批量模版替换
-         */
-        batchTempReplacement: (temp, list) => {
-            let t = temp;
-            $.each(list, function (i) {
-                let par = list[i];
-                let re = new RegExp('##' + par[0] + '##',"g");
-                t = t.replace(re, par[1]);
-            });
-            return t;
-        },
-
-        /**
-         * 加载CSS文件
-         */
-        dynamicLoadingCss: (path) => {
-            if (!path || path.length === 0) { throw new Error('argument "path" is required !'); }
-            let head = document.getElementsByTagName('head')[0], link = document.createElement('link');
-            link.href = path; link.rel = 'stylesheet'; link.type = 'text/css'; head.appendChild(link);
-        },
-
-        /**
-         * 过滤HTML中JavaScript代码
-         */
-        htmlFiltrationScript: (str) => {
-            let subStr = new RegExp('\<script.*\<\/script\>', 'ig');
-            return str.replace(subStr,"");
-        },
-
-        /**
-         * 清除单个定时器
-         */
-        clearIntervalTimeId: (timeId) => {
-            null != timeId && window.clearInterval(timeId);
-        },
-
-        /**
-         * 滚动主体滚动条到指定位置
-         */
-        actScroll: (endScroll, time) => {
-            $('html,body').stop().animate({scrollTop: endScroll}, time);
-        },
-
-        /**
-         * 获取页面滚动百分比
-         */
-        getScrollPercent: () => {
-            let scrollTo      = $(window).scrollTop(),
-                docHeight     = $(document).height(),
-                windowHeight  = $(window).height(),
-                scrollPercent = (scrollTo / (docHeight-windowHeight)) * 100;
-            return scrollPercent.toFixed(0);
-        },
-
-        /**
-         * 随机数
-         */
-        randomNum: function(minNum, maxNum) {
-            switch(arguments.length){
-                case 1:
-                    return parseInt(Math.random()*minNum+1);
-                case 2:
-                    return parseInt(Math.random()*(maxNum-minNum+1)+minNum);
-                default:
-                    return 0;
+/**
+ * 动态加载JS文件
+ * @param url {String} JavaScript文件地址
+ *
+ */
+function dynamicLoadingJs(url) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            type: 'GET',
+            dataType: 'script',
+            cache: true,
+            url,
+            success: function (data) {
+                resolve(data)
+            },
+            error: function (err) {
+                reject(err)
             }
-        },
+        })
+    })
+}
 
-        /**
-         * 初始化主体内容位置
-         */
-        setDomHomePosition: () => {
-            $('#home').css('margin-top', $('.main-header').outerHeight() + 'px');
-        },
+/**
+ * 过滤HTML中JavaScript代码
+ * @param str {String} html代码内容
+ */
+function htmlFiltrationScript(str) {
+    let subStr = new RegExp('\<script.*\<\/script\>', 'ig');
+    return str.replace(subStr, "");
+}
 
-        /**
-         * 运行时间
-         * @param dateString 年-月-日
-         */
-        getRunDate: (dateString) => {
-            dateString = (dateString).toString().split('-');
-            let date = new Date();
-            date.setUTCFullYear(dateString[0], dateString[1] - 1, dateString[2]);
-            date.setUTCHours(0, 0, 0, 0);
-            let birthDay = date;
-            let today = new Date();
-            let timeold = today.getTime() - birthDay.getTime();
-            let msPerDay = 24 * 60 * 60 * 1000;
-            let e_daysold = timeold / msPerDay;
-            let daysold = Math.floor(e_daysold);
-            let e_hrsold = (daysold - e_daysold) * -24;
-            let hrsold = Math.floor(e_hrsold);
-            let e_minsold = (hrsold - e_hrsold) * -60;
-            let minsold = Math.floor((hrsold - e_hrsold) * -60);
-            let seconds = Math.floor((minsold - e_minsold) * -60).toString();
-            return {
-                daysold: daysold,
-                hrsold: hrsold,
-                minsold: minsold,
-                seconds: seconds
-            };
-        },
+/**
+ * 清除单个定时器
+ * @param timeId {number} 定时器ID
+ */
+function clearIntervalTimeId(timeId) {
+    null != timeId && window.clearInterval(timeId)
+}
 
-        /**
-         * 设置 cookie
-         * @param key
-         * @param value
-         * @param expires 过期时间，单位秒
-         */
-        setCookie: (key, value, expires) => {
-            let exp = new Date();
-            exp.setTime(exp.getTime() + expires * 1000);
-            document.cookie = key + "=" + escape (value) + "; expires=" + exp.toGMTString() + "; path=/";
-        },
+/**
+ * 滚动主体滚动条到指定位置
+ * @param endScroll {number} 结束位置
+ * @param time {number} 滚动时间
+ */
+function actScroll(endScroll, time) {
+    $('html,body').stop().animate({scrollTop: endScroll}, time)
+}
 
-        /**
-         * 获取 cookie
-         * @param key
-         * @returns {string|null}
-         */
-        getCookie: (key) => {
-            let arr, reg = new RegExp("(^| )"+key+"=([^;]*)(;|$)");
-            arr = document.cookie.match(reg);
-            if (arr) return unescape(arr[2]);
-            else return null;
-        },
+/**
+ * 获取页面滚动百分比
+ * @return {string}
+ */
+function getScrollPercent() {
+    let scrollTo = $(window).scrollTop(),
+        docHeight = $(document).height(),
+        windowHeight = $(window).height(),
+        scrollPercent = (scrollTo / (docHeight - windowHeight)) * 100;
+    return scrollPercent.toFixed(0);
+}
 
-        /**
-         * 随机字符串
-         */
-        randomString: (len) => {
-            len = len || 32;
-            let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length, pwd = '';
-            for (let i = 0; i < len; i++) {
-                pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-            }
-            return pwd;
-        },
+/**
+ * 随机数
+ * @param minNum {number} 最小值
+ * @param maxNum {number} 最大值
+ * @return {number}
+ */
+function randomNum(minNum, maxNum) {
+    switch (arguments.length) {
+        case 1:
+            return parseInt(Math.random() * minNum + 1);
+        case 2:
+            return parseInt(Math.random() * (maxNum - minNum + 1) + minNum);
+        default:
+            return 0;
+    }
+}
 
-        /**
-         * 分钟转换为时间格式
-         */
-        minToTime: (min) => {
-            let minTime = parseInt(min);
-            let second =  parseInt((min - minTime) * 60);
-            second = ('' + second).length === 1 ? '0' + second : second;
-            return `${minTime}:${second}`;
-        },
+/**
+ * 初始化主体内容位置
+ */
+function setDomHomePosition() {
+    $('#home').css('margin-top', $('.main-header').outerHeight() + 'px')
+}
 
-    };
+/**
+ * 运行时间
+ * @param dateString {String} 年-月-日
+ */
+function getRunDate(dateString) {
+    let temp = dateString.split('-');
+    let date = new Date();
+    date.setUTCFullYear(temp[0], temp[1] - 1, temp[2]);
+    date.setUTCHours(0, 0, 0, 0);
+    let birthDay = date;
+    let today = new Date();
+    let timeold = today.getTime() - birthDay.getTime();
+    let msPerDay = 24 * 60 * 60 * 1000;
+    let e_daysold = timeold / msPerDay;
+    let daysold = Math.floor(e_daysold);
+    let e_hrsold = (daysold - e_daysold) * -24;
+    let hrsold = Math.floor(e_hrsold);
+    let e_minsold = (hrsold - e_hrsold) * -60;
+    let minsold = Math.floor((hrsold - e_hrsold) * -60);
+    let seconds = Math.floor((minsold - e_minsold) * -60).toString();
+    return {daysold: daysold, hrsold: hrsold, minsold: minsold, seconds: seconds};
+}
+
+/**
+ * 设置 cookie
+ * @param key {String} key名
+ * @param value {String} key值
+ * @param expires 过期时间，单位秒
+ */
+function setCookie(key, value, expires) {
+    let exp = new Date();
+    exp.setTime(exp.getTime() + expires * 1000);
+    document.cookie = key + "=" + escape(value) + "; expires=" + exp.toGMTString() + "; path=/";
+}
+
+/**
+ * 获取 cookie
+ * @param key {String} key名
+ * @returns {string|null}
+ */
+function getCookie(key) {
+    let arr, reg = new RegExp("(^| )" + key + "=([^;]*)(;|$)");
+    arr = document.cookie.match(reg);
+    if (arr) return unescape(arr[2]);
+    else return null;
+}
+
+/**
+ * 随机字符串
+ * @param len {number} 字符串长度
+ */
+function randomString(len) {
+    len = len || 32;
+    let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678', maxPos = $chars.length, pwd = '';
+    for (let i = 0; i < len; i++) {
+        pwd += $chars.charAt(Math.floor(Math.random() * maxPos))
+    }
+    return pwd;
+}
+
+/**
+ * 分钟转换为时间格式
+ * @param min {number} 文章内容长度
+ * @return {String} 阅读时间范围
+ */
+function minToTime(min) {
+    let minTime = parseInt(min);
+    let second = parseInt((min - minTime) * 60);
+    second = ('' + second).length === 1 ? '0' + second : second;
+    return `${minTime}:${second}`;
+}
+
+/**
+ * 版本对比
+ * @param v1 {string} 当前版本
+ * @param v2 {string} 最新版本
+ * @return {number} 是否为最新版本
+ */
+function compareVersion(v1, v2) {
+    const nums1 = v1.split('.')
+    const nums2 = v2.split('.')
+    let i = 0
+    while (i < nums1.length || i < nums2.length) {
+        let x = 0, y = 0
+        if (i < nums1.length) x = parseInt(nums1[i])
+        if (i < nums2.length) y = parseInt(nums2[i])
+        if (x > y) return 1
+        if (x < y) return -1
+        i++
+    }
+    return 0
+}
+
+/**
+ * 获取当前版本是否为最新版本
+ * @return {number}
+ */
+function getVersion() {
+    request('https://api.github.com/repos/wangyang0210/cnblogs-theme/releases/latest').then(r => {
+        localStorage.setItem('version', r.tag_name)
+        localStorage.setItem('repoUrl', r.html_url)
+    })
+    return compareVersion(localStorage.getItem('version'), $.__config.default.version)
+}
+
+
+export default {
+    getTodayStart,
+    getTodayEnd,
+    getYesterdayStart,
+    getYesterdayEnd,
+    getTodayDate,
+    articleInfo,
+    tempReplacement,
+    batchTempReplacement,
+    dynamicLoadingCss,
+    dynamicLoadingJs,
+    htmlFiltrationScript,
+    clearIntervalTimeId,
+    actScroll,
+    getScrollPercent,
+    randomNum,
+    setDomHomePosition,
+    getRunDate,
+    setCookie,
+    getCookie,
+    randomString,
+    minToTime,
+    compareVersion,
+    getVersion,
 }
