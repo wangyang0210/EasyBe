@@ -2,15 +2,14 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:30
+ * @Date 2022-08-25 15:18
  * ----------------------------------------------
  * @describe: 文章目录处理
  */
 import "../../style/articleDirectory.css";
 import articleDirectoryTemp from '../../template/articleDirectory.html';
-import "bootstrap/dist/js/bootstrap.min";
-
-export default function main(_) {
+await $.__tools.dynamicLoadingJs($.__config.default.bootstrap).catch(e => console.error('bootstrap.js', e))
+export default function main() {
     let body     = $('body');
     let postBody = $('#cnblogs_post_body');
     let header   = postBody.find(':header');
@@ -30,9 +29,9 @@ export default function main(_) {
             let h = parseInt(obj[0].tagName.replace(/H/g, ''));
 
             let hid = obj.attr('id');
-            let titleId = 'tid-' + _.__tools.randomString(6);
+            let titleId = 'tid-' + $.__tools.randomString(6);
             obj.attr('tid', titleId);
-            if (!hid || /^[\d]+.*/.test(hid)) {
+            if (!hid || /^-?[\W]+.*/.test(hid)) {
                 if (hid) {
                     let tocObj = $('.toc a[href="#'+hid+'"]');
                     tocObj.length && tocObj.attr('href', '#' + titleId);
@@ -43,10 +42,11 @@ export default function main(_) {
 
             let num = uniqTagList.indexOf(h);
             let str = num === 0 || num === -1 ? '' : '&nbsp;&nbsp;&nbsp;&nbsp;'.repeat(num);
-            html += '<li class="nav-item"><a class="nav-link" href="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + str + obj.text() + '</a></li>';
+            let text =  str + obj.text().replace(/</g, "&lt;").replace(/>/g, "&gt;")
+            html += '<li class="nav-item"><a class="nav-link" href="#' + hid + '" goto="' + titleId + '" onclick="return false;">' + text + '</a></li>';
         });
 
-        let dirHtml = _.__tools.tempReplacement(articleDirectoryTemp, 'dirHtml', html);
+        let dirHtml = $.__tools.tempReplacement(articleDirectoryTemp, 'dirHtml', html);
 
         postBody.append(dirHtml);
 
@@ -56,23 +56,23 @@ export default function main(_) {
         body.attr('tabindex', '0');
         body.scrollspy({ target: '#articleDirectory' });
 
-        if (!_.__config.articleDirectory.autoWidthScroll) {
+        if (! $.__config.articleDirectory.autoWidthScroll) {
             $('#articleDirectory ul li').addClass('articleDirectory-overflow');
             $('#articleDirectory ul li a').addClass('articleDirectory-overflow');
         }
 
-        _.__event.scroll.handle.push(() => {
+        $.__event.scroll.handle.push(() => {
             let articleDirectory = $('#articleDirectory');
-            if (_.__event.scroll.temScroll < _.__event.scroll.docScroll && _.__event.scroll.homeScroll <= _.__event.scroll.docScroll) {
+            if ( $.__event.scroll.temScroll < $.__event.scroll.docScroll && $.__event.scroll.homeScroll <= $.__event.scroll.docScroll) {
                 articleDirectory.addClass('articleDirectoryFixed');
             }
 
-            if (_.__event.scroll.temScroll > _.__event.scroll.docScroll &&_.__event.scroll.homeScroll >= _.__event.scroll.docScroll) {
+            if ( $.__event.scroll.temScroll > $.__event.scroll.docScroll && $.__event.scroll.homeScroll >= $.__event.scroll.docScroll) {
                 articleDirectory.removeClass('articleDirectoryFixed');
             }
         });
 
-        _.__event.resize.handle.push(() => {
+        $.__event.resize.handle.push(() => {
             const bodyWidth = parseFloat(document.body.clientWidth),
                 articleDirectory = $('#articleDirectory');
             if (articleDirectory.length > 0) {
@@ -82,7 +82,7 @@ export default function main(_) {
                     rightPx          = bothWidth - listWidth - 5,
                     sideToolbarTop   = $('.main-header').outerHeight();
 
-                switch (_.__config.articleDirectory.position) {
+                switch ( $.__config.articleDirectory.position) {
                     case 'left':
                         articleDirectory.css({
                             'top': (sideToolbarTop + 5) + 'px',
@@ -100,7 +100,7 @@ export default function main(_) {
                         break;
                 }
 
-                if (bodyWidth <= _.__config.articleDirectory.minBodyWeight || bothWidth <= 190) {
+                if (bodyWidth <= $.__config.articleDirectory.minBodyWeight || bothWidth <= 190) {
                     articleDirectory.hide();
                 } else {
                     articleDirectory.show();
@@ -110,7 +110,7 @@ export default function main(_) {
 
         $('#articleDirectory .nav-link').click(function () {
             let titleH = $(':header[tid="' + $(this).attr('goto') + '"]');
-            titleH.length && _.__tools.actScroll(titleH.offset().top + 3, 500);
+            titleH.length && $.__tools.actScroll(titleH.offset().top + 3, 500);
         });
     }
 
