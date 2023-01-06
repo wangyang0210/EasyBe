@@ -2,27 +2,27 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:30
+ * @Date 2022-08-25 15:18
  * ----------------------------------------------
  * @describe: 文章信息处理
  */
-import postMeta from "../../components/postMeta/postMeta";
-import consoleText from "../../vendor/consoleText/consoleText";
+import postMeta from "../../components/postMeta/postMeta"
+import consoleText from "../../vendor/consoleText/consoleText"
 
-export default function main(_) {
+export default function main() {
 
     /**
      * 设置文章标题
      */
     (() => {
         const sbTitle = $('#cb_post_title_url').text();
-        if (_.__config.animate.articleTitle.enable) {
-            consoleText([sbTitle], 'sbTitleText', 'sbTitleConsole', ['#fff'], false, _.__tools.setDomHomePosition);
+        if ( $.__config.animate.articleTitle.enable) {
+            consoleText([sbTitle], 'sbTitleText', 'sbTitleConsole', ['#fff'], false, $.__tools.setDomHomePosition);
         } else {
             $('#sbTitleText').text(sbTitle).css('color', '#fff');
         }
         $('.inner').css('max-width', '100vw');
-        _.__tools.setDomHomePosition();
+        $.__tools.setDomHomePosition();
     })();
 
     /**
@@ -30,12 +30,12 @@ export default function main(_) {
      */
     (() => {
         $('#articleInfo').append('<p class="article-info-text"></p>');
-        _.__timeIds.postDescTid = window.setInterval( () => {
+        $.__timeIds.postDescTid = window.setInterval( () => {
             if ($('#post_view_count').text() !== '...' && $('#post_comment_count').text() !== '...') {
                 let postDescText = $('.postDesc').show().text();
                 $('#articleInfo p.article-info-text').html(postMetaHtml(postDescText));
-                _.__tools.setDomHomePosition();
-                _.__tools.clearIntervalTimeId(_.__timeIds.postDescTid);
+                $.__tools.setDomHomePosition();
+                $.__tools.clearIntervalTimeId( $.__timeIds.postDescTid);
             }
         }, 1000 );
 
@@ -48,7 +48,7 @@ export default function main(_) {
                 '<i class="iconfont icon-interactive"></i>' + info.cnum + '' +
                 '<i class="iconfont icon-hot"></i>' + info.tnum + '' +
                 '<br><i class="iconfont icon-article"></i>' + textNum + '' +
-                '<i class="iconfont icon-kafei"></i>' + _.__tools.minToTime(textNum / 500) + ' ~ ' + _.__tools.minToTime(textNum / 300) +
+                '<i class="iconfont icon-kafei"></i>' + $.__tools.minToTime(textNum / 500) + ' ~ ' + $.__tools.minToTime(textNum / 300) +
                 '</span>';
         }
     })();
@@ -57,12 +57,12 @@ export default function main(_) {
      * 设置文章信息-分类
      */
     (() => {
-        _.__timeIds.articleInfoClassTId = window.setInterval(() => {
+        $.__timeIds.articleInfoClassTId = window.setInterval(() => {
             let obj = $('#BlogPostCategory').find('a');
             if (obj.length > 0) {
-                _.__tools.articleInfo(obj, 1)
-                _.__tools.setDomHomePosition();
-                _.__tools.clearIntervalTimeId(_.__timeIds.articleInfoClassTId);
+                $.__tools.articleInfo(obj, 1)
+                $.__tools.setDomHomePosition();
+                $.__tools.clearIntervalTimeId( $.__timeIds.articleInfoClassTId);
             }
         }, 1000);
     })();
@@ -71,12 +71,12 @@ export default function main(_) {
      * 设置文章信息-标签
      */
     (() => {
-        _.__timeIds.articleInfoTagTId = window.setInterval(() => {
+        $.__timeIds.articleInfoTagTId = window.setInterval(() => {
             let obj = $('#EntryTag').find('a');
             if (obj.length > 0) {
-                _.__tools.articleInfo(obj, 2)
-                _.__tools.setDomHomePosition();
-                _.__tools.clearIntervalTimeId(_.__timeIds.articleInfoTagTId);
+                $.__tools.articleInfo(obj, 2)
+                $.__tools.setDomHomePosition();
+                $.__tools.clearIntervalTimeId( $.__timeIds.articleInfoTagTId);
             }
         }, 1000);
     })();
@@ -85,7 +85,7 @@ export default function main(_) {
      * 设置文章信息-链接icon
      */
     (() => {
-        if (_.__config.articleContent.link) {
+        if ( $.__config.articleContent.link) {
             $('#cnblogs_post_body a').addClass('iconfont icon-fenxiang')
             $('.footnote-ref a').removeClass('iconfont icon-fenxiang')
             $('.footnotes-list a').removeClass('iconfont icon-fenxiang')
@@ -97,24 +97,8 @@ export default function main(_) {
      */
     (() => {
         let titleInfo = $('#cnblogs_post_body').find(':header');
-        if (_.__config.articleContent.iconfont.enable && titleInfo.length > 0) {
-            let iconfonts = [
-                'hebaodan','bingtanghulu','kesong','qianceng','fengmi','feiyuguantou','shengjian','youtiao','yuzijiang',
-                'zhutongfan','doujiang','sanmingzhi','paofu','shanbei','dangaojuan','futejia','huangyou','xiangchang',
-                'banji','danta','qingning','lajiao','shizi','mojituo','pijiu','putaojiu','kouxiangtang','xiangcaobingqilin',
-                'jiaozi','tilamisu','huoguo','hongshu','bingkuai','mianhuatang','paobing','meishikafei','mantou','qishui',
-                'ganlan','jiroujuan','guodong','baozi','pingguo','chengzi','qingjiao','jidan','xihongshi','mangguo','baocai',
-                'niunai','mianbao','huluobu','zhangyu','pangxie','longxia','yangcong','rou','jitui','huage','xianyu','mogu',
-                'qiezi','xilanhua','ningmeng','liulian','banli','sanwenyu','tudou','xigua','nangua','huolongguo','fantuan',
-                'zhusun','shuiluobu','shanzhu','lanmei','shiliu','yezi','tiangua','mihoutao','boluo','kaixinguo','hetao',
-                'xiaweiyiguo','huasheng','bigenguo','kuihuazi','songzi','xiguazi','badanmu','yaoguo','danhuangsu','dangao',
-                'binggan','buding','tangguo','qiaokeli','hongzao','candou','putaogan','manyuemei','taozi','xiangjiao','caomei',
-                'niuyouguo','hamigua','chelizi','li','bale','kafei1','shutiao','zhenzhunaicha','xuegao','nailao','kele','tiantong',
-                'hanbao','xiezishousi','baomihua','regou','makalong','tianfuluo','juzi','baixiangguo','putao','shaomai','yumi','pipa',
-                'yangtao','youzi','lianwu','wuhuaguo','paomian','wandou','huanggua','suantou','tiantianquan','shupian','huafubing',
-                'bangbangtang','shousi','lizhi','doufu','mocha','boluomi','zhouzi','bingsha','suannai','pisa','haixing','haizhe',
-                'tongluoshao','nuomici','kuangquanshui','roujiamo','cha','zhangyuxiaowanzi','chengzhi','yuancaitou','baicai'
-            ]
+        if ( $.__config.articleContent.iconfont && titleInfo.length > 0) {
+            let iconfonts = $.__config.articleContent.iconfontArr
             titleInfo.html((i, c) => {
                 let arr = []
                 let num=Math.floor((Math.random()*(iconfonts.length-i))+i);
@@ -129,12 +113,61 @@ export default function main(_) {
     })();
 
     /**
-     * 设置文章引用
+     * 设置文章引用 | 扩展markdown语法
      */
     (() => {
         $(".blogpost-body p").html((i,c) => {
             if (/^\?&gt;/.test(c)) return '<p class="tip">' + c.slice(5).trim() + "</p>";
             if (/^!&gt;/.test(c)) return '<p class="warn">' + c.slice(5).trim() + "</p>";
+        })
+    })();
+
+    /**
+     * 设置文章手绘效果
+     */
+    (() => {
+        $(".blogpost-body p").html((i,c) => {
+            return  c.replace(/~bk|bk~|~b|b~|~c|c~|~u|u~|~h|h~|~s|s~|~x|x~/g, function(matchStr) {
+                let tokenMap = {
+                    '~bk':'<mbk>',
+                    'bk~':'</mbk>',
+                    '~b': '<mbox>',
+                    'b~': '</mbox>',
+                    '~c': '<mc>',
+                    'c~': '</mc>',
+                    '~u': '<mu>',
+                    'u~': '</mu>',
+                    '~h':'<mhl>',
+                    'h~':'</mhl>',
+                    '~s':'<mst>',
+                    's~':'</mst>',
+                    '~x':'<mco>',
+                    'x~':'</mco>',
+                };
+                return tokenMap[matchStr];
+            });
+        })
+        $.__tools.dynamicLoadingJs($.__config.default.roughNotation).then(r => {
+            setTimeout(() => {
+                const {annotate, annotationGroup} = window.RoughNotation
+                const n1 = document.querySelector('mu') || '';
+                const n2 = document.querySelector('mc') || '';
+                const n3 = document.querySelector('mbox') || '';
+                const n4 = document.querySelector('mhl') || '';
+                const n5 = document.querySelector('mbk') || '';
+                const n6 = document.querySelector('mst') || '';
+                const n7 = document.querySelector('mco') || "";
+
+                const a1 = annotate(n1, $.__config.articleContent.roughNotation.underline);
+                const a2 = annotate(n2, $.__config.articleContent.roughNotation.circle);
+                const a3 = annotate(n3, $.__config.articleContent.roughNotation.box);
+                const a4 = annotate(n4, $.__config.articleContent.roughNotation.highlight);
+                const a5 = annotate(n5, $.__config.articleContent.roughNotation.bracket)
+                const a6 = annotate(n6, $.__config.articleContent.roughNotation.strikeThrough)
+                const a7 = annotate(n7, $.__config.articleContent.roughNotation.crossedOff)
+                const ag = annotationGroup([a1, a2, a3, a4, a5, a6, a7]);
+                ag.show();
+            }, 2000)
         })
     })();
 
