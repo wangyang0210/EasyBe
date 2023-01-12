@@ -2,18 +2,17 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:31
+ * @Date 2022-08-25 15:20
  * ----------------------------------------------
  * @describe: 代码高亮处理
  */
-import ClipboardJS from "clipboard/dist/clipboard.min";
 import beforeCode from "../../hooks/beforeCode";
 import afterCode from "../../hooks/afterCode";
+await $.__tools.dynamicLoadingJs($.__config.default.clipboard).catch(e => console.error('clipboard.js', e))
+export default function main() {
 
-export default function main(_) {
     let preList = $('#main pre');
-
-    beforeCode(_);
+    beforeCode();
 
     /**
      * 初始化代码结构
@@ -21,7 +20,7 @@ export default function main(_) {
     (() => {
         $.each(preList, function (i) {
             let pre = $(preList[i]);
-            let boxId = 'code-' + _.__tools.randomString(6);
+            let boxId = 'code-' + $.__tools.randomString(6);
 
             // 设置外部标签
             pre.wrap('<code-box id="' + boxId + '"></code-box>');
@@ -33,7 +32,7 @@ export default function main(_) {
      * 工具条
      */
     (() => {
-        if (_.__config.code.options.macStyle) {
+        if ( $.__config.code.options.macStyle) {
             let codeBox = $('code-box');
             $.each(codeBox, function (i) {
                 $(codeBox[i]).prepend('<div class="code-tools"></div>');
@@ -83,18 +82,18 @@ export default function main(_) {
      * 限制代码框高度
      */
     (() => {
-        if (_.__config.code.options.maxHeight) $('code-box pre').css('max-height', _.__config.code.options.maxHeight);
+        if ( $.__config.code.options.maxHeight) $('code-box pre').css('max-height', $.__config.code.options.maxHeight);
     })();
 
     /**
      * 渲染代码
      */
     (() => {
-        let codeType = _.__config.code.type.toLowerCase()
+        let codeType = $.__config.code.type.toLowerCase()
         if (codeType === 'hljs') {
-            import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
+            import(/* webpackChunkName: "code-hljs" */ /* webpackPrefetch: true */ './lib/hljs').then(module => {
                 const codeMain = module.default;
-                codeMain(_, setCodeLine);
+                codeMain(setCodeLine);
             });
         } else {
             preList.css('background', '#f5f5fa');
@@ -107,14 +106,14 @@ export default function main(_) {
             });
             setCodeLine();
         }
-        afterCode(_);
+        afterCode();
     })();
 
     /**
      * 设置代码行号
      */
     function setCodeLine() {
-        if (!_.__config.code.options.line) return true;
+        if (!$.__config.code.options.line) return true;
 
         let preListLine = $('code-box pre code');
         $.each(preListLine, function (i) {
