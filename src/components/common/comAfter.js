@@ -2,7 +2,7 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:32
+ * @Date 2022-08-25 15:20
  * ----------------------------------------------
  * @describe: 后置公共处理
  */
@@ -14,44 +14,44 @@ import blogIcon from "../blogIcon/blogIcon";
 import dayNight from "../dayNight/dayNight";
 import console from "../console/console";
 
-export default function main(_) {
+export default function main() {
 
     /**
      * 页脚
      */
     (() => {
-        footer(_);
+        footer();
     })();
 
     /**
      * 右下角菜单
      */
     (() => {
-        rtMenu(_);
+        rtMenu();
     })();
 
     /**
      * 日/夜模式
      */
     (() => {
-        dayNight(_);
+        dayNight();
     })();
 
     /**
      * 进度条
      */
     (() => {
-        progress(_);
+        progress();
     })();
 
     /**
      * 背景动效
      */
     (() =>  {
-        let obj = _.__config.animate.background;
+        let obj = $.__config.animate.background;
         for (let key in obj) {
             if (obj[key].enable) {
-                import(/* webpackChunkName: "background-[request]" */ `../background/${key}`).then(module => {
+                import(/* webpackChunkName: "background-[request]" */ /* webpackPrefetch: true */ `../background/${key}`).then(module => {
                     let background = module.default;
                     background(obj[key]?.options);
                 });
@@ -63,10 +63,10 @@ export default function main(_) {
      * 鼠标动效
      */
     (() => {
-        let obj = _.__config.animate.mouse;
+        let obj = $.__config.animate.mouse;
         for (let key in obj) {
             if (obj[key].enable) {
-                import(/* webpackChunkName: "mouse-[request]" */ `../mouse/${key}`).then(module => {
+                import(/* webpackChunkName: "mouse-[request]" */ /* webpackPrefetch: true */ `../mouse/${key}`).then(module => {
                     let mouse = module.default;
                     mouse(obj[key]?.options);
                 });
@@ -78,20 +78,20 @@ export default function main(_) {
      * 网站图标
      */
     (() => {
-        blogIcon(_);
+        blogIcon();
     })();
 
     /**
      * 页面title
      */
     (() => {
-        title(_);
+        title();
     })();
 
     /**
      * 控制台输出
      */
     (() => {
-        console(_);
+        console();
     })();
 }

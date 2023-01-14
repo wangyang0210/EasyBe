@@ -2,7 +2,7 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:32
+ * @Date 2022-08-25 15:20
  * ----------------------------------------------
  * @describe: 前置公共处理
  */
@@ -10,19 +10,17 @@ import loading from "../loading/loading";
 import sidebar from "../sidebar/sidebar";
 import banner from "../banner/banner";
 import event from "../event/event";
-import "../../images/webp/rss.webp";
-import "../../style/asset.css";
-import "../../vendor/rotate/jquery.rotate.min"
+await $.__tools.dynamicLoadingJs($.__config.default.jqueryrotate).catch(e => console.error('jqueryrotate.js', e))
 
-export default function main(_) {
+export default function main() {
 
-    let loadingObj = loading(_);
+    let loadingObj = loading();
 
     // 默认字体图标库
-    import(/* webpackChunkName: "iconfont" */ '../../style/iconfont.css');
+    import(/* webpackChunkName: "iconfont" */ /* webpackPreload: true */ '../../style/iconfont.css');
 
     // 谷歌字体
-    import(/* webpackChunkName: "google-fonts" */ '../../style/google-fonts.css');
+    import(/* webpackChunkName: "google-fonts" */ /* webpackPreload: true */ '../../style/google-fonts.css');
 
     /**
      * 开启 loading
@@ -35,7 +33,7 @@ export default function main(_) {
      * 国家公祭日和自定义重要的缅怀的日子
      */
     (() => {
-        if (_.__tools.getTodayDate() == '12-13' || _.__config.memorialDays.includes(_.__tools.getTodayDate()) ) $('html').addClass('htmlGray')
+        if ( $.__tools.getTodayDate() == '12-13' || $.__config.memorialDays.includes( $.__tools.getTodayDate()) ) $('html').addClass('htmlGray')
     })();
 
     /**
@@ -43,8 +41,8 @@ export default function main(_) {
      */
     (() => {
         setTimeout(() => {
-            $.each(_.__timeIds, (e) => {
-                null != _.__timeIds[e] && window.clearInterval(_.__timeIds[e]);
+            $.each( $.__timeIds, (e) => {
+                null != $.__timeIds[e] && window.clearInterval( $.__timeIds[e]);
             });
         }, 30000);
     })();
@@ -53,28 +51,28 @@ export default function main(_) {
      * 事件绑定
      */
     (() => {
-        event(_).init();
+        event.init();
     })();
 
     /**
      * 侧边栏
      */
     (() => {
-        sidebar(_);
+        sidebar();
     })();
 
     /**
      * 头图
      */
     (() => {
-        banner(_);
+        banner();
     })();
 
     /**
      * 添加扩展字体图标库
      */
     (() => {
-        if (_.__config.fontIconExtend !== '') _.__tools.dynamicLoadingCss(_.__config.fontIconExtend);
+        if ( $.__config.fontIconExtend !== '') $.__tools.dynamicLoadingCss( $.__config.fontIconExtend, 1);
     })();
 
     /**
