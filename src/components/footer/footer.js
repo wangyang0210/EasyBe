@@ -2,26 +2,57 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:33
+ * @Date 2022-08-25 15:22
  * ----------------------------------------------
- * @describe: footer
+ * @describe: footer底部信息
  */
 import footerTemp from '../../template/footer.html';
-import footerImg from './../../images/webp/footer.webp';
-import backgroundImg from './../../images/webp/background.webp';
-import cloudsImg from './../../images/webp/clouds.webp';
-import foregroundImg from './../../images/webp/foreground.webp';
 import {request} from "../../utils/request";
 
-export default function main(_) {
+export default function main() {
 
     const footer = $('#footer');
     const footerText = footer.text();
 
     let footerHtml = footerTemp;
-    let config = _.__config.footer;
+    let config = $.__config.footer;
 
-    footerHtml = _.__tools.tempReplacement(footerHtml, 'footerText', footerText);
+    footerHtml = $.__tools.tempReplacement(footerHtml, 'footerText', footerText);
+
+    /**
+     * 设置音乐播放器
+     */
+    (() => {
+        if (config.aplayer.enable) {
+            Promise.all([
+                $.__tools.dynamicLoadingJs($.__config.default.aplayer),
+                $.__tools.dynamicLoadingJs($.__config.default.meting),
+            ]).then(r => {
+                $.__tools.dynamicLoadingCss($.__config.default.aplayercss)
+                $('#footer').append(`
+               <meting-js 
+                  id="${config.aplayer.options.id}"
+                  server="${config.aplayer.options.server}"
+                  type="${config.aplayer.options.type}"
+                  auto="${config.aplayer.options.auto}"
+                  fixed="${config.aplayer.options.fixed}"
+                  mini="${config.aplayer.options.mini}"
+                  autoplay="${config.aplayer.options.autoplay}"
+                  theme="${config.aplayer.options.theme}"
+                  loop="${config.aplayer.options.loop}"
+                  order="${config.aplayer.options.order}"
+                  preload="${config.aplayer.options.preload}"
+                  volume="${config.aplayer.options.volume}"
+                  mutex="${config.aplayer.options.mutex}"
+                  lrc-type="${config.aplayer.options.lrcType}"
+                  list-folded="${config.aplayer.options.listFolded}"
+                  list-max-height="${config.aplayer.options.listMaxHeight}"
+                  storage-hame="${config.aplayer.options.storageHame}"
+               > 
+              </meting-js>`)
+            }).catch(e => console.error('aplayer|meting', e))
+        }
+    })();
 
     /**
      * 设置标语
@@ -36,9 +67,9 @@ export default function main(_) {
                 ['textRight', config.text.right],
                 ['textShow', 'block'],
             ];
-            footerHtml = _.__tools.batchTempReplacement(footerHtml, re);
+            footerHtml = $.__tools.batchTempReplacement(footerHtml, re);
         } else {
-            footerHtml = _.__tools.tempReplacement(footerHtml, 'textShow', 'none');
+            footerHtml = $.__tools.tempReplacement(footerHtml, 'textShow', 'none');
         }
     })();
 
@@ -46,38 +77,18 @@ export default function main(_) {
      * 设置友情链接
      */
     (() => {
-        if (_.__config.links.footer.length > 0) {
+        if ( $.__config.links.footer.length > 0) {
             let linksHtml = '友情链接：';
-            for (let i = 0; i < _.__config.links.footer.length; i++) {
-                linksHtml += '<a href="' + (_.__config.links.footer[i][1]) + '" target="_blank">' + (_.__config.links.footer[i][0]) + '</a>';
-                if (i < _.__config.links.footer.length - 1) linksHtml += '<span style="margin: 0 3px;">/</span>';
+            for (let i = 0; i < $.__config.links.footer.length; i++) {
+                linksHtml += '<a href="' + ( $.__config.links.footer[i][1]) + '" target="_blank">' + ( $.__config.links.footer[i][0]) + '</a>';
+                if (i < $.__config.links.footer.length - 1) linksHtml += '<span style="margin: 0 3px;">/</span>';
             }
-            footerHtml = _.__tools.batchTempReplacement(footerHtml, [
+            footerHtml = $.__tools.batchTempReplacement(footerHtml, [
                 ['linksHtml', linksHtml],
                 ['linkShow', 'block']
             ]);
         } else {
-            footerHtml = _.__tools.tempReplacement(footerHtml, 'linkShow', 'none');
-        }
-    })();
-
-    /**
-     * 设置网站统计地址
-     */
-    (() => {
-        if (_.__config.cnzz) footerHtml = _.__tools.tempReplacement(footerHtml, 'cnzzId', _.__config.cnzz);
-    })();
-
-    /**
-     * 设置备案信息
-     */
-    (() => {
-        if(_.__config.beian.info) footerHtml = _.__tools.tempReplacement(footerHtml, 'beian', _.__config.beian.info);
-        if(_.__config.gonganbeian.info && _.__config.gonganbeian.link) {
-            footerHtml = _.__tools.batchTempReplacement(footerHtml, [
-                ['gonganbeian', _.__config.gonganbeian.info],
-                ['gonganbeianLink', _.__config.gonganbeian.link]
-            ]);
+            footerHtml = $.__tools.tempReplacement(footerHtml, 'linkShow', 'none');
         }
     })();
 
@@ -86,8 +97,6 @@ export default function main(_) {
      */
     (() => {
         footer.html(footerHtml);
-        if(_.__config.beian.info) $('#beian').show()
-        if (_.__config.gonganbeian.info) $('#gonganbeian').show()
     })();
 
     /**
@@ -97,7 +106,7 @@ export default function main(_) {
         switch (parseInt(config.style)) {
             case 1:
                 $('#footer').addClass('footer-t1').find('#footerStyle1')
-                    .show().css('background', 'url(\'' + footerImg + '\')  no-repeat 50%');
+                    .show().css('background', 'url(//images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_221114131838_footer.webp)  no-repeat 50%');
                 break;
             case 2:
             default:
@@ -107,9 +116,9 @@ export default function main(_) {
                     'margin-bottom': '0'
                 });
                 let footerStyle2 = $('#footerStyle2');
-                footerStyle2.show().find('.clouds').css('background', 'url(\'' + cloudsImg + '\')  repeat-x');
-                footerStyle2.find('.background').css('background', 'url(\'' + backgroundImg + '\')  repeat-x');
-                footerStyle2.find('.foreground').css('background', 'url(\'' + foregroundImg + '\')  repeat-x');
+                footerStyle2.show().find('.clouds').css('background', 'url(//images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_221114132857_clouds.webp)  repeat-x');
+                footerStyle2.find('.background').css('background', 'url(//images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_221114134558_background.webp)  repeat-x');
+                footerStyle2.find('.foreground').css('background', 'url(//images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_221114132230_foreground.webp)  repeat-x');
                 break;
         }
     })();
@@ -119,7 +128,7 @@ export default function main(_) {
      */
     (() => {
         window.setInterval(() => {
-            let runDate = _.__tools.getRunDate(_.__config.info.startDate ? _.__config.info.startDate : '2021-01-01');
+            let runDate = $.__tools.getRunDate( $.__config.info.startDate ||= '2021-01-01');
             $('#blogRunTimeSpan').text('This blog has running : ' + runDate.daysold + ' d ' + runDate.hrsold + ' h ' + runDate.minsold + ' m ' + runDate.seconds + ' s');
         }, 500);
     })();
@@ -128,33 +137,13 @@ export default function main(_) {
      * 定时网站统计
      */
     (() => {
-        if (_.__config.cnzz) {
-            _.__timeIds.cnzzTId = window.setInterval(() => {
-                let cnzzStat = $('.id_cnzz_stat_icon a');
-                if (cnzzStat.length > 0) {
-                    let cnzzInfo = [];
-                    let cnzzArr = $(cnzzStat[1]).text().split('|');
-                    $.each(cnzzArr, (i) => {
-                        let str = cnzzArr[i].trim();
-                        if (str !== '') {
-                            str = str.replace('今日', 'Today').replace('昨日', 'Yesterday').replace('[', ':').replace(']', '');
-                            cnzzInfo.push(str)
-                        }
-                    });
-                    cnzzInfo.push($(cnzzStat[2]).text().replace('当前在线', 'Online').replace('[', ':').replace(']', ''));
-                    $('#cnzzInfo').text(cnzzInfo.join(' | ')).show();
-                    _.__tools.clearIntervalTimeId(_.__timeIds.cnzzTId);
-                }
-            }, 1000);
-        }
-
-        if (_.__config.umami?.url && _.__config.umami?.shareId) {
-            const baseUrl = _.__config.umami.url
-            _.__timeIds.umamiTId = window.setInterval(() => {
-                request(`${baseUrl}api/share/${_.__config.umami.shareId}`).then( r => {
+        if ( $.__config.umami?.url && $.__config.umami?.shareId) {
+            const baseUrl = $.__config.umami.url
+            $.__timeIds.umamiTId = window.setInterval(() => {
+                request(`${baseUrl}api/share/${ $.__config.umami.shareId}`).then( r => {
                     Promise.all([
-                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${_.__tools.getTodayStart()}&end_at=${_.__tools.getTodayEnd()}`),
-                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${_.__tools.getYesterdayStart()}&end_at=${_.__tools.getYesterdayEnd()}`),
+                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${ $.__tools.getTodayStart()}&end_at=${ $.__tools.getTodayEnd()}`),
+                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${ $.__tools.getYesterdayStart()}&end_at=${ $.__tools.getYesterdayEnd()}`),
                         request(`${baseUrl}api/website/${r.websiteId}/active`)])
                         .then(function (results) {
                             const todayState = results[0]
@@ -163,7 +152,7 @@ export default function main(_) {
                             $('#cnzzInfo').text(`Online: ${online[0].x} | Today: ${todayState.pageviews.value} / ${todayState.uniques.value} / ${todayState.totaltime.value} | Yesterday: ${yesterdayState.pageviews.value} / ${yesterdayState.uniques.value} / ${yesterdayState.totaltime.value}`).show();
                         });
                 })
-                _.__tools.clearIntervalTimeId(_.__timeIds.umamiTId);
+                $.__tools.clearIntervalTimeId( $.__timeIds.umamiTId);
             },1000);
         }
     })();
