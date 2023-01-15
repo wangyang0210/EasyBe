@@ -7,9 +7,9 @@
  * @describe: 鼠标移动/点击效果
  */
 import '../../style/mouse.css';
-import {gsap} from "gsap/dist/gsap.min";
-
+await  $.__tools.dynamicLoadingJs($.__config.default.gsap).catch(e => console.error('gsap.js', e))
 export default function main(options) {
+
     const cursor = document.createElement('div');
     cursor.className = 'cursor';
 

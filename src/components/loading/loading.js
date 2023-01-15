@@ -2,7 +2,7 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:33
+ * @Date 2022-08-25 15:22
  * ----------------------------------------------
  * @describe: loading 处理
  */
@@ -13,12 +13,12 @@ import {
 import beforeLoading from "../../hooks/beforeLoading";
 import afterLoading from "../../hooks/afterLoading";
 
-export default function main(_) {
+export default function main() {
 
     let loading = function() {
         let that = this;
 
-        this.config  = _.__config.loading;
+        this.config  = $.__config.loading;
         this.spring  = null;
         this.spinner = null;
 
@@ -32,10 +32,8 @@ export default function main(_) {
 
             let settings = that.config.rebound;
 
-            // Create a SpringSystem.
             let springSystem = new rebound.SpringSystem();
 
-            // Add a spring to the system.
             that.spring = springSystem.createSpring(settings.tension, settings.friction);
         }
 
@@ -46,7 +44,6 @@ export default function main(_) {
 
             let settings = that.config.spinner;
 
-            // Instantiate Spinner.
             that.spinner = new Spinner(settings);
         }
 
@@ -54,7 +51,7 @@ export default function main(_) {
          * 开启 loading
          */
         this.start = () => {
-            beforeLoading(_);
+            beforeLoading();
             $('#blog-news').prepend('<div id="loading"></div>');
             that.initRebound();
             that.initSpinner();
@@ -69,7 +66,7 @@ export default function main(_) {
             that.spinner.setComplete();
             $('div#loading').hide();
             $('a[name="top"]').hide();
-            afterLoading(_);
+            afterLoading();
         }
     }
 

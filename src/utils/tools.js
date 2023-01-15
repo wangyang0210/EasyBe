@@ -282,7 +282,7 @@ function compareVersion(v1, v2) {
  * @return {number}
  */
 function getVersion() {
-    request('https://api.github.com/repos/wangyang0210/cnblogs-theme/releases/latest').then(r => {
+    request('https://api.github.com/repos/wangyang0210/easybe/releases/latest').then(r => {
         localStorage.setItem('version', r.tag_name)
         localStorage.setItem('repoUrl', r.html_url)
     })
