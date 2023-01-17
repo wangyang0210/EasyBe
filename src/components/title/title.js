@@ -2,21 +2,21 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:35
+ * @Date 2022-08-25 15:25
  * ----------------------------------------------
- * @describe: 面title处理
+ * @describe: 页面title处理
  */
 
-export default function main(_) {
+export default function main() {
 
     let RelTitle = document.title,
         hidden,
         visibilityChange,
         timer,
-        onblur = _.__config.title.onblur,
-        onblurTime = _.__config.title.onblurTime,
-        focus = _.__config.title.focus,
-        focusTime = _.__config.title.focusTime;
+        onblur = $.__config.title.onblur,
+        onblurTime = $.__config.title.onblurTime,
+        focus = $.__config.title.focus,
+        focusTime = $.__config.title.focusTime;
 
     if (typeof document.hidden !== "undefined") {
         hidden = "hidden";
@@ -48,7 +48,9 @@ export default function main(_) {
             }, focusTime);
         }
 
-        if (!document[hidden] && focusTime < 0) document.title = RelTitle;
+        if (!document[hidden] && focusTime < 0) {
+            document.title = RelTitle;
+        }
 
     }
     if (typeof document.addEventListener !== "undefined" || typeof document[hidden] !== "undefined") {
