@@ -42,9 +42,9 @@ export default function main(words, id, conId, colors, isCycle, callback) {
         } else if (isCycle && letterCount === words[0].length + 1 && waiting === false) {
             waiting = true;
             window.setTimeout(function () {
-              x = -1;
-              letterCount += x;
-              waiting = false;
+                x = -1;
+                letterCount += x;
+                waiting = false;
             }, 1000);
         } else if (waiting === false) {
             let ih = words[0].substring(0, letterCount);

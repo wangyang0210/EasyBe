@@ -2,26 +2,26 @@
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
  * @author: WangYang, wangyang.0210@foxmail.com
- * @Date 2022-08-25 15:37
+ * @Date 2022-08-25 15:27
  * ----------------------------------------------
  * @describe: 主页处理
  */
 import postMeta from "../components/postMeta/postMeta";
 import {request} from "../utils/request";
 
-export default function main(_) {
+export default function main() {
 
     /**
      * 设置主页标语
      */
     (() => {
 
-        $('#homeTopTitle span').text(_.__config.info.name);
+        $('#homeTopTitle span').text( $.__config.info.name);
 
         /**
          * 博客名字动效
          */
-        if (_.__config.animate.infoName.enable) {
+        if ( $.__config.animate.infoName.enable) {
             $('#homeTopTitle span').hover(function () {
                     $('#homeTopTitle span').css("animation", "pageTitleText 2s infinite")
                     $('#homeTopTitle span').css("-webkit-animation", "pageTitleText 1s infinite")
@@ -33,19 +33,19 @@ export default function main(_) {
         }
 
         // 判断用户是否自定义了设置
-        let configTitle = _.__config.banner.home.title,
+        let configTitle = $.__config.banner.home.title,
             hitokoto = $('#hitokoto');
 
         if ($.isArray(configTitle) && configTitle.length > 0) {
-            let listIndex = _.__tools.randomNum(0, configTitle.length - 1);
+            let listIndex = $.__tools.randomNum(0, configTitle.length - 1);
             hitokoto.html(configTitle[listIndex]).css('display', '-webkit-box');
-            _.__tools.setDomHomePosition();
+            $.__tools.setDomHomePosition();
             return true;
         }
 
         if (typeof configTitle === "string" && configTitle !== "") {
             hitokoto.html(configTitle).css('display', '-webkit-box');
-            _.__tools.setDomHomePosition();
+            $.__tools.setDomHomePosition();
             return true;
         }
 
@@ -58,14 +58,14 @@ export default function main(_) {
                 hitokoto.html(note).css('display', '-webkit-box');
                 $('#hitokotoAuthor').text(content).show();
             } else {
-                let listIndex = _.__tools.randomNum(0, topTitleList.length - 1);
+                let listIndex = $.__tools.randomNum(0, topTitleList.length - 1);
                 hitokoto.html(topTitleList[listIndex]).css('display', '-webkit-box');
             }
-            _.__tools.setDomHomePosition();
+            $.__tools.setDomHomePosition();
         }
 
-        if (_.__config.banner.home.titleSource === 'one') request('https://api.wangyangyang.vip/').then(r =>  topTitleContent(r))
-        if (_.__config.banner.home.titleSource === 'jinrishici')  request('https://v2.jinrishici.com/one.json').then(r =>  topTitleContent(r))
+        if ( $.__config.banner.home.titleSource === 'one') request('https://api.wangyangyang.vip/').then(r =>  topTitleContent(r))
+        if ( $.__config.banner.home.titleSource === 'jinrishici')  request('https://v2.jinrishici.com/one.json').then(r =>  topTitleContent(r))
     })();
 
     /**
@@ -74,7 +74,7 @@ export default function main(_) {
     (() => {
         $('.scroll-down').click(function () {
             let endScroll;
-            endScroll = $('#home').offset().top + 10; _.__tools.actScroll(endScroll, 500);})
+            endScroll = $('#home').offset().top + 10; $.__tools.actScroll(endScroll, 500);})
     })();
 
     /**
@@ -131,9 +131,9 @@ export default function main(_) {
      * 主页banner动效
      */
     (() => {
-        if (_.__config.animate.homeBanner.enable) {
-            import(/* webpackChunkName: "circle-magic" */ '../vendor/circleMagic/circleMagic').then(module => {
-                $('.main-header').circleMagic(_.__config.animate.homeBanner.options);
+        if ( $.__config.animate.homeBanner.enable) {
+            import(/* webpackChunkName: "circle-magic" */ /* webpackPrefetch: true */  '../vendor/circleMagic/circleMagic').then(module => {
+                $('.main-header').circleMagic( $.__config.animate.homeBanner.options);
             });
         }
     })();
