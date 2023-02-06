@@ -47,7 +47,7 @@ module.exports = {
                         { source: './easybe/simple-memory.js', destination: './easybe/simple-memory.' + randomString(8) + '.js' },
                         { source: './src/php/*.php', destination: './easybe/' },
                         { source: './src/php/*.png', destination: './easybe/' },
-                        { source: './src/images/banner/*.webp', destination: './easybe/images/' },
+                        // { source: './src/images/banner/*.webp', destination: './easybe/images/' },
                     ],
                 }
             }
