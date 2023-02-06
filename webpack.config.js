@@ -32,6 +32,9 @@ module.exports = {
         path: path.resolve(__dirname, 'easybe'),
         clean: true,
     },
+    experiments: {
+        topLevelAwait: true,
+    },
     plugins: [
         // new BundleAnalyzerPlugin({
         //     analyzerMode: 'disabled',
