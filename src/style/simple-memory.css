@@ -2795,7 +2795,7 @@ div#rightMenu .rightMenuItem {
     background-image: linear-gradient(180deg, #fff, #f5f5fa)
 }
 
-#attention i, #rightBuryit i, #rightDiggit i, #toUpDownI i, #rtaDirectory i, #rightMenuHome i {
+#attention i, #update i, #rightBuryit i, #rightDiggit i, #toUpDownI i, #rtaDirectory i, #rightMenuHome i {
     font-weight: 600
 }
 
@@ -2815,6 +2815,7 @@ div#rightMenu .rightMenuItem {
 }
 
 #attention .rightMenuSpan,
+#update .rightMenuSpan,
 #rightBuryit .rightMenuSpan,
 #rightDiggit .rightMenuSpan,
 #rightMenuHome .rightMenuSpan,
@@ -2842,6 +2843,7 @@ div#rightMenu .rightMenuItem {
 }
 
 #attention .rightMenuSpan::before,
+#update .rightMenuSpan::before,
 #rightBuryit .rightMenuSpan::before,
 #rightDiggit .rightMenuSpan::before,
 #rightMenuHome .rightMenuSpan::before,
@@ -3994,6 +3996,91 @@ table#blogCalendar > tbody > tr > td > a {
     }
     56% {
         transform: translatex(-10px)
+    }
+}
+
+@-moz-keyframes refreshAnimation {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+@-webkit-keyframes refreshAnimation {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+@-o-keyframes refreshAnimation {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+@keyframes refreshAnimation {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+@-moz-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@-webkit-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@-o-keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
 }
 
