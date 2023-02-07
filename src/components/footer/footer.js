@@ -96,11 +96,11 @@ export default function main() {
      * 设置备案信息
      */
     (() => {
-        if(_.__config.beian.info) footerHtml = _.__tools.tempReplacement(footerHtml, 'beian', _.__config.beian.info);
-        if(_.__config.gonganbeian.info && _.__config.gonganbeian.link) {
-            footerHtml = _.__tools.batchTempReplacement(footerHtml, [
-                ['gonganbeian', _.__config.gonganbeian.info],
-                ['gonganbeianLink', _.__config.gonganbeian.link]
+        if($.__config.beian.info) footerHtml = $.__tools.tempReplacement(footerHtml, 'beian', $.__config.beian.info);
+        if($.__config.gonganbeian.info && $.__config.gonganbeian.link) {
+            footerHtml = $.__tools.batchTempReplacement(footerHtml, [
+                ['gonganbeian', $.__config.gonganbeian.info],
+                ['gonganbeianLink', $.__config.gonganbeian.link]
             ]);
         }
     })();
