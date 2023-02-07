@@ -28,6 +28,7 @@
     customList: {},
     infoBackground: '',
     titleMsg: '欢迎访问本博客~',
+    blogStatus: true,
     submenu: {
       // 最新随笔
       latestPosts: false,
