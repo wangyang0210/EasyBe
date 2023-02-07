@@ -110,6 +110,8 @@ export default function main() {
      */
     (() => {
         footer.html(footerHtml);
+        if(_.__config.beian.info) $('#beian').show()
+        if (_.__config.gonganbeian.info) $('#gonganbeian').show()
     })();
 
     /**
