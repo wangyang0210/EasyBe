@@ -8,3 +8,12 @@
 ```
 
 !> 注意：是添加到Html源码中，博客园文章的富文本编辑器和 Markdown 都有添加Html代码的方式！
+
+
+## 富文本编辑器
+
+![reprinted_01](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/reprinted_01.png)
+
+## Markdown
+
+直接拷贝到文本即可。

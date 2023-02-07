@@ -19,7 +19,7 @@ div#loading, a[name=top] {    display: none   }
 </style>
 ```
 
-即可关闭Loading，然后在全局配置JS的顶部里添加
+即可关闭Loading，然后在侧边栏公告JS的顶部里添加
 
 ```html
 <script type="text/javascript">

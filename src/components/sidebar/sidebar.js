@@ -47,7 +47,7 @@ export default function main() {
      * 设置菜单个人信息背景图片
      */
     (() => {
-        let mbg = $.__config.sidebar.infoBackground ? $.__config.sidebar.infoBackground : 'https://images.cnblogs.com/cnblogs_com/wangyang0210/1943283/o_221114135508_sidebar_bg_2.webp';
+        let mbg = $.__config.sidebar.infoBackground ? $.__config.sidebar.infoBackground : 'https://www.wangyangyang.vip/usr/uploads/imgs/o_221114135508_sidebar_bg_2.webp';
         $('.container .menu-wrap').css('background-image', 'url(\''+mbg+'\')');
     })();
 
