@@ -30,6 +30,10 @@ export default function main() {
         // ------- 设置导航 -------
         let navHtml = $.__tools.tempReplacement(navTemp, 'user', $.__status.user);
         $('.sidebar-footer').html(navHtml);
+        $('#nav_host').attr('href', $.__config.info.domain);
+        $('#nav_connect').attr('href', $.__config.info.connect);
+        $('#nav_rss').attr('href', $.__config.info.rss);
+        $('#nav_manage').attr('href', $.__config.info.admin);
 
         // ------- 设置头像 -------
         let blogAvatar = $.__config.info.avatar ? $.__config.info.avatar : $.__config.default.avatar;
