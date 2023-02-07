@@ -58,6 +58,10 @@ export default function main() {
         let timeout = 1000;
         // ------- 用户个人信息 -------
         $.__timeIds.introduceTId = window.setInterval(() => {
+            $('#info_name').text($.__config.info.name);
+            $('#info_job').text($.__config.info.job);
+            $('#info_position').text($.__config.info.position);
+            $('#info_proverb').text($.__config.info.proverb);
             let introduceHtml = $('#profile_block').html(),
                 menuIntroduce = $('#introduce');
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
@@ -99,20 +103,13 @@ export default function main() {
                 menuSearchBox = $('#sb-sidebarSearchBox');
 
             if (sidebarSearch.length > 0 && menuSearchBox.html() === ''){
-                menuSearchBox.prepend('<div id="sb_widget_my_zzk" class="div_my_zzk"><input id="q" type="text"  autocomplete="off" placeholder="找找看..." onkeydown="return zzk_go_enter(event);" class="input_my_zzk form-control search-menu"></div>');
+                menuSearchBox.prepend(sidebarSearch);
                 $('.sidebar-search').show();
-                $.__tools.clearIntervalTimeId( $.__timeIds.searchTId);
+                $.__tools.clearIntervalTimeId($.__timeIds.searchTId);
             }
         }, timeout);
 
-        // ------- 积分与排名 -------
-        $.__timeIds.scorerankTId = window.setInterval(() => {
-            listHdl(
-                $('#sidebar_scorerank ul li'),
-                $('#sb-sidebarScorerank'),
-                $.__timeIds.scorerankTId
-            );
-        }, timeout);
+
 
         // ------- 最新随笔 -------
         $.__timeIds.newEssayTId = window.setInterval(() => {
@@ -141,30 +138,13 @@ export default function main() {
             );
         }, timeout);
 
-        // ------- 文章分类 -------
-        $.__timeIds.articleCategoryTId = window.setInterval(() => {
-            listHdl(
-                $('#sidebar_articlecategory ul li'),
-                $('#sb-ArticleCategory'),
-                $.__timeIds.articleCategoryTId
-            );
-        }, timeout);
-
         // ------- 随笔档案 -------
         $.__timeIds.recordTId = window.setInterval(() => {
             listHdl(
                 $('#sidebar_postarchive ul li'),
                 $('#sb-record'),
+                'icon-task-fill',
                 $.__timeIds.recordTId
-            );
-        }, timeout);
-
-        // ------- 文章档案 -------
-        $.__timeIds.articleTId = window.setInterval(() => {
-            listHdl(
-                $('#sidebar_articlearchive ul li'),
-                $('#sb-articlearchive'),
-                $.__timeIds.articleTId
             );
         }, timeout);
 
@@ -177,15 +157,6 @@ export default function main() {
             );
         }, timeout);
 
-        // ------- 推荐排行 -------
-        $.__timeIds.topDiggPostsTId = window.setInterval(() => {
-            listHdl(
-                $('#TopDiggPostsBlock ul li'),
-                $('#sb-topDiggPosts'),
-                $.__timeIds.topDiggPostsTId
-            );
-        }, timeout);
-
         // ------- 最新评论 -------
         $.__timeIds.commentsTId = window.setInterval(() => {
             let recentComments     = $('#sidebar_recentcomments ul'),
@@ -193,7 +164,7 @@ export default function main() {
 
             let getMenuCommentsData = (obj) => {
                 let html = '<ul>',
-                    ret  = /^[1-9]+\d*$/,
+                    ret  = /^[1-9]+[\d]*$/,
                     title, body, author;
 
                 if (obj.find('li').length > 2) {
@@ -211,11 +182,9 @@ export default function main() {
                         let text = textArr.join('.').trim();
                         o.length > 0 && o.html(text);
                         html += '<li>' + (o.length > 0 ?  o.prop("outerHTML") : "<a href='javascript:void(0);'>" + text + "</a>")
-
                             + '<div class="sb-recent_comment_body">'
                             + $(body[i]).text()
                             + '</div>'
-
                             + '<div class="sb-recent_comment_author">'
                             + $(author[i]).text()
                             + '</div></li>';
@@ -228,52 +197,57 @@ export default function main() {
             if (recentComments.length > 0 && menuRecentComments.html() === '') {
                 menuRecentComments.html(getMenuCommentsData(recentComments));
                 menuRecentComments.parent('.sidebar-dropdown').show();
-                $.__tools.clearIntervalTimeId( $.__timeIds.commentsTId);
+                $.__tools.clearIntervalTimeId($.__timeIds.commentsTId);
             }
+        }, timeout);
+
+
+        // ------- 评论排行 -------
+        $.__timeIds.commentsRankTId = window.setInterval(() => {
+            listHdl(
+                $('#TopFeedbackPostsBlock ul li'),
+                $('#sb-commentsRank'),
+                $.__timeIds.commentsRankTId
+            );
         }, timeout);
 
         // ------- 自定义导航 -------
         (() => {
-            if ( $.__config.sidebar?.navList) {
-                let navList = $.__config.sidebar.navList;
-                let navHtml = '';
-                if (navList.length > 0) {
-                    navHtml = '<ul>';
-                    $.each(navList, function (i) {
-                        let iconClass = navList[i].length > 2 ? navList[i][2] : "icon-qianzishenhe";
-                        navHtml += '<li><a href="'+(navList[i][1])+'" class="sidebar-dropdown-box" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
-                    });
-                    navHtml += '</ul>';
-                    $('.customize-nav').append(navHtml).show();
-                }
+            let navList = $.__config.sidebar.navList;
+            let navHtml = '';
+            if (navList.length > 0) {
+                navHtml = '<ul>';
+                $.each(navList, function (i) {
+                    let iconClass = navList[i].length > 2 ? navList[i][2] : "icon-qianzishenhe";
+                    navHtml += '<li><a href="'+(navList[i][1])+'" class="sidebar-dropdown-box" target="_blank"><i class="iconfont '+iconClass+'"></i>'+(navList[i][0])+'</a></li>';
+                });
+                navHtml += '</ul>';
+                $('.customize-nav').append(navHtml).show();
             }
         })();
 
         // ------- 自定义列表 -------
         (() => {
-            if ( $.__config.sidebar?.customList) {
-                let customData = $.__config.sidebar.customList;
-                if (Object.keys(customData).length > 0) {
-                    let res = '';
-                    $.each(customData, (title, list) => {
-                        let html = '<li class="ng-star-inserted sidebar-dropdown">';
-                        html += '<a href="javascript:void(0)" class="ng-star-inserted sidebar-dropdown-box">';
-                        html += '   <i class="iconfont '+ list.icon +'"></i>';
-                        html += '   <span class="sidebar-dropdown-title">'+ title +'</span>';
-                        html += '</a>';
-                        html += '<div class="sidebar-submenu"><ul>';
-                        $.each(list.data, (key, val) => {
-                            html += '<li><a href="' + val[1] + '" target="_blank">' + val[0] + '</a></li>';
-                        });
-
-                        html += '</ul></div>';
-                        html += '</li>';
-                        res += html;
+            let customData = $.__config.sidebar.customList;
+            if (Object.keys(customData).length > 0) {
+                let res = '';
+                $.each(customData, (title, list) => {
+                    let html = '<li class="ng-star-inserted sidebar-dropdown">';
+                    html += '<a href="javascript:void(0)" class="ng-star-inserted sidebar-dropdown-box">';
+                    html += '   <i class="iconfont '+ list.icon +'"></i>';
+                    html += '   <span class="sidebar-dropdown-title">'+ title +'</span>';
+                    html += '</a>';
+                    html += '<div class="sidebar-submenu"><ul>';
+                    $.each(list.data, (key, val) => {
+                        html += '<li><a href="' + val[1] + '" target="_blank">' + val[0] + '</a></li>';
                     });
-                    $('#customize-sidebar-menu ul').append(res);
-                    $('#customize-sidebar-menu').show();
-                    $('#customize-sidebar-menu .sidebar-dropdown').show();
-                }
+                    html += '</ul></div>';
+                    html += '</li>';
+                    res += html;
+                });
+                $('#customize-sidebar-menu ul').append(res);
+                $('#customize-sidebar-menu').show();
+                $('#customize-sidebar-menu .sidebar-dropdown').show();
             }
         })();
 
@@ -288,7 +262,7 @@ export default function main() {
 
         function getMenuData(obj) {
             let html = '<ul>',
-                ret  = /^[1-9]+\d*$/;
+                ret  = /^[1-9]+[\d]*$/;
             obj.each((i) => {
                 let p = $(obj[i]),
                     o = p.text() === p.html() ? {} : $(p.html()),
@@ -307,7 +281,7 @@ export default function main() {
      * 头像旋转动效
      */
     (() => {
-        if ( $.__config.animate.avatar.enable) {
+        if ($.__config.animate.avatar.enable) {
             $('#menuBlogAvatar').addClass('img-rounded')
             $('.author_avatar').addClass('img-rounded')
         }
@@ -320,61 +294,45 @@ export default function main() {
      */
     (() => {
 
-        if ( $.__config.sidebar.submenu.pointsRank) {
-            $('#sb-sidebarScorerank').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-sidebarScorerank').show();
-        }
-
-        if ( $.__config.sidebar.submenu.latestPosts) {
+        if ($.__config.sidebar.submenu.latestPosts) {
             $('#sb-sidebarRecentposts').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-sidebarRecentposts').show();
         }
 
-        if ( $.__config.sidebar.submenu.myTags) {
+        if ($.__config.sidebar.submenu.myTags) {
             $('#sb-toptags').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-toptags').show();
         }
 
-        if ( $.__config.sidebar.submenu.postsClassify) {
+        if ($.__config.sidebar.submenu.postsClassify) {
             $('#sb-classify').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-classify').show();
         }
 
-        if ( $.__config.sidebar.submenu.articleClassify) {
-            $('#sb-ArticleCategory').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-ArticleCategory').show();
-        }
-
-        if ( $.__config.sidebar.submenu.readRank) {
+        if ($.__config.sidebar.submenu.readRank) {
             $('#sb-topview').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-topview').show();
         }
 
-        if ( $.__config.sidebar.submenu.recommendRank) {
+        if ($.__config.sidebar.submenu.recommendRank) {
             $('#sb-topDiggPosts').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-topDiggPosts').show();
         }
 
-        if ( $.__config.sidebar.submenu.postsArchive) {
+        if ($.__config.sidebar.submenu.postsArchive) {
             $('#sb-record').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-record').show();
         }
 
-        if ( $.__config.sidebar.submenu.articleArchive) {
-            $('#sb-articlearchive').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-articlearchive').show();
-        }
-
-        if ( $.__config.sidebar.submenu.latestComment) {
+        if ($.__config.sidebar.submenu.latestComment) {
             $('#sb-recentComments').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-recentComments').show();
         }
 
-        if ( $.__config.sidebar.submenu.customList) {
+        if ($.__config.sidebar.submenu.customList) {
             $("#customize-sidebar-menu .sidebar-submenu").parent('li.sidebar-dropdown').addClass('active');
             $("#customize-sidebar-menu .sidebar-submenu").show();
         }
-
 
     })();
 
@@ -399,9 +357,7 @@ export default function main() {
                     lObj.slideDown(300);
                 }
                 setTimeout(function () {
-                    if (mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') {
-                        mainObj.myOptiscrollInstance.update();
-                    }
+                    if (mainObj && typeof mainObj.myOptiscrollInstance !== 'undefined') mainObj.myOptiscrollInstance.update();
                 }, 300);
             }
         });
