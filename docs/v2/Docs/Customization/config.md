@@ -27,7 +27,7 @@
     window.cnblogsConfig = {
         info: {
             name: 'userName', // 用户名
-            startDate: '2021-01-01', // 入园时间，年-月-日。入园时间查看方法：鼠标停留园龄时间上，会显示入园时间
+            startDate: '2021-01-01', // 网站创建时间
             avatar: 'http://xxxx.png', // 用户头像
         },
         banner: {
@@ -49,7 +49,7 @@
 ### name - 用户昵称
 
 * 类型：```String```
-* 默认值：```[默认抓取博客园用户名]```
+* 默认值：```""```
 
 用户昵称。
 
@@ -60,9 +60,6 @@ window.cnblogsConfig = {
   },
 }
 ```
-
-![userName](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221210235557.png)
-
 
 ### avatar - 用户头像
 
@@ -79,14 +76,117 @@ window.cnblogsConfig = {
 }
 ```
 
-![avatar](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221211003506.png)
+###  job - 职业
 
-### startDate - 入园时间
+* 类型：```job```
+* 默认值：```""```
+
+职业信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+    job: '野生猿',
+  },
+}
+```
+
+###  position - 位置
+
+* 类型：```position```
+* 默认值：```""```
+
+位置信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      position: '上海',
+  },
+}
+```
+
+###  proverb - 人生格言
+
+* 类型：```proverb```
+* 默认值：```""```
+
+位置信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      proverb: '学无止境,谦卑而行.',
+  },
+}
+```
+
+
+###  domain - 站点网址
+
+* 类型：```domain```
+* 默认值：```""```
+
+站点信息
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      domain: 'https://www.easybe.org',
+  },
+}
+```
+
+
+### connect - 联系我
+
+* 类型：```connect```
+* 默认值：```""```
+
+联系我
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      connect: 'http://wpa.qq.com/msgrd?v=3&amp;uin=2752154874&amp;site=qq&amp;menu=yes',
+  },
+}
+```
+
+### rss - 文章订阅
+
+* 类型：```rss```
+* 默认值：```""```
+
+文章订阅
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      rss: 'https://www.easybe.org/index.php/feed/',
+  },
+}
+```
+
+### admin - 管理
+
+* 类型：```rss```
+* 默认值：```""```
+
+管理
+
+```javascript
+window.cnblogsConfig = {
+  info: {
+      admin: 'https://www.easybe.org/admin',
+  },
+}
+```
+
+### startDate - 站点建立时间
 
 * 类型：```Date```
 * 默认值：```2021-01-01```
-
-入园时间，年-月-日，入园时间查看方法：鼠标停留园龄时间上，会显示入园时间。
 
 ```javascript
 window.cnblogsConfig = {
@@ -95,7 +195,6 @@ window.cnblogsConfig = {
   },
 }
 ```
-![startDate](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221211003720.png)
 
 ### blogIcon - 网站图标
 
@@ -112,15 +211,12 @@ window.cnblogsConfig = {
 }
 ```
 
-![blogIcon](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221211003835.png)
-
-
 ## sidebar - 侧边栏
 
 ### navList - 菜单导航
 
 * 类型：```Array```
-* 相关文档：[字体图标库](https://wangyang0210.github.io/cnblogs-theme/v2/iconfontDemo/demo_index.html)
+* 相关文档：[字体图标库](https://wangyang0210.github.io/EasyBe/v2/iconfontDemo/demo_index.html)
 * 默认值：```[]```
 
 自定义菜单导航，显示在默认导航下方。
@@ -145,7 +241,7 @@ window.cnblogsConfig = {
 ### customList - 菜单数据
 
 * 类型：```Object```
-* 相关文档：[字体图标库](https://wangyang0210.github.io/cnblogs-theme/v2/iconfontDemo/demo_index.html)
+* 相关文档：[字体图标库](https://wangyang0210.github.io/EasyBe/v2/iconfontDemo/demo_index.html)
 * 默认值：```{}```
 
 自定义菜单数据，显示在默认数据上方。
@@ -244,24 +340,18 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
   sidebar: {
       submenu: {
-          // 积分排行
-          pointsRank: false,
           // 最新随笔
           latestPosts: false,
           // 我的标签
           myTags: false,
           // 随笔分类
           postsClassify: false,
-          // 文章分类
-          articleClassify: false,
           // 阅读排行
           readRank: false,
           // 推荐排行
           recommendRank: false,
-          // 帖子档案
+          // 随笔档案
           postsArchive: false,
-          // 文章档案
-          articleArchive: false,
           // 自定义列表
           customList: false,
           // 最新评论
@@ -298,6 +388,7 @@ window.cnblogsConfig = {
 * 默认值：```[]```
 
 主页banner图片Url，推荐尺寸>= 1920*1080，支持多张，每次刷新随机设置一张。
+?>推荐一个壁纸网站 | https://wallhaven.cc/
 
 ```javascript
 window.cnblogsConfig = {
@@ -448,7 +539,7 @@ window.cnblogsConfig = {
 ## fontIconExtend - 字体图标库
 
 * 类型：```Url```
-* 相关文档：[字体图标库](https://wangyang0210.github.io/cnblogs-theme/v2/iconfontDemo/demo_index.html)
+* 相关文档：[字体图标库](https://wangyang0210.github.io/EasyBe/v2/iconfontDemo/demo_index.html)
 * 默认值：```""```
 
 字体图标库扩展css的Url,可用于自定义列表配置等icon配置。

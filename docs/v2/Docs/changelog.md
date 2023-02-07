@@ -1,9 +1,10 @@
 # 2023.2.7 - v2.1.7
 - 新增配置`roughNotation`，配置手绘风格的图画
 - 新增控制台版本更新提示
-- 增加配置`articleContent.iconfontArr`,配置iconfont图标
-- 增加配置`default`，外部静态资源使用字节跳动和elementCDN引入
-- 增加配置`footer.aplayer`来设置音乐播放器
+- 新增配置`articleContent.iconfontArr`,配置iconfont图标
+- 新增配置`default`，外部静态资源使用字节跳动和elementCDN引入
+- 新增配置`footer.aplayer`来设置音乐播放器
+- 新增配置`sidebar.blogStatus`,设置是否显示博客状态
 - 修复h1-h6 出现特殊字符是不是渲染不了
 - 修复默认输出的github仓库信息
 - 修复particles图片引用错误

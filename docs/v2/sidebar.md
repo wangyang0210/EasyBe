@@ -21,8 +21,4 @@
   - [播放器](Docs/Customization/player.md)
   - [网站统计](Docs/Customization/statistical.md)
 
-- 指南
-
-  - [菜单数据](Docs/Guide/menuData.md)
-
 - [Changelog](Docs/changelog.md)

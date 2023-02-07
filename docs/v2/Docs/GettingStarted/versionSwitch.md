@@ -11,16 +11,16 @@
 例如：
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/wangyang0210/cnblogs-theme@v2.2.3/dist/simple-memory.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.6/easybe/simple-memory.js" defer></script>
 ```
 
 变为
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/wangyang0210/cnblogs-theme@v2.2.4/dist/simple-memory.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js" defer></script>
 ```
 
-版本变更： `v2.2.3` >>> `v2.2.4` 
+版本变更： `v2.1.6` >>> `v2.1.7` 
 
 ### 使用自己的云资源
 
