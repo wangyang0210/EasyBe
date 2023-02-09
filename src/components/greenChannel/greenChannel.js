@@ -38,32 +38,6 @@ export default function main() {
     })();
 
     /**
-     * 收藏该文
-     */
-    (() => {
-        $.__timeIds.greenChannelFavoriteTId = window.setInterval(() => {
-            let greenChannelFavorite = $('#green_channel_favorite');
-            if (greenChannelFavorite.length) {
-                greenChannelFavorite.after('<button class="custom-btn btn-7" onclick="' + greenChannelFavorite.attr('onclick') + '"><span>收藏本文</span></button>');
-                $.__tools.clearIntervalTimeId( $.__timeIds.greenChannelFavoriteTId);
-            }
-        }, 1000);
-    })();
-
-    /**
-     * 微博
-     */
-    (() => {
-        $.__timeIds.greenChannelWeiboTId = window.setInterval(() => {
-            let greenChannelWeibo = $('#green_channel_weibo');
-            if (greenChannelWeibo.length) {
-                greenChannelWeibo.after('<button class="custom-btn btn-15" onclick="' + greenChannelWeibo.attr('onclick') + '">分享微博</button>');
-                $.__tools.clearIntervalTimeId( $.__timeIds.greenChannelWeiboTId);
-            }
-        }, 1000);
-    })();
-
-    /**
      * 打赏博主
      */
     (() => {

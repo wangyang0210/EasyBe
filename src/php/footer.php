@@ -37,25 +37,6 @@
         })
     };
 
-    // 浏览器收藏
-    function addFavorite(title, url) {
-        try {
-            window.external.addFavorite(url, title);
-        } catch (e) {
-            try {
-                window.sidebar.addPanel(title, url, "");
-            } catch (e) {
-                alert("抱歉，您所使用的浏览器无法完成此操作，请使用Ctrl+D进行添加!");
-            }
-        }
-    };
-
-    // 分享到微博
-    function shareWeibo(url, title, img = '', key = '') {
-        let fullUrl = `https://service.weibo.com/share/share.php?url=${url}&title=${title}&pic=${img}&appkey=${key}`;
-        window.open(fullUrl)
-    };
-
     // 关注博主
     function follow() {
         $('.hideRightMenu').show();
