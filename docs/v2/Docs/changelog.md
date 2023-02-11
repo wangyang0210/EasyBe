@@ -6,6 +6,7 @@
 
 # 2023.2.9 - v2.1.8
 - 删除微博分享，收藏本文按钮
+- 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998)
 
 # 2023.2.7 - v2.1.7
 - 新增配置`roughNotation`，配置手绘风格的图画
