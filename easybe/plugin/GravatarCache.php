@@ -3,7 +3,7 @@
  * Gravatar 头像缓存插件
  *
  * @package GravatarCache
- * @author Byends & asdi998
+ * @author Byends & asdi998 & wangyang
  * @version 3.2.0
  * @link https://github.com/asdi998
  */

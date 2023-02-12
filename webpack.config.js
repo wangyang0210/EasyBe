@@ -90,6 +90,18 @@ module.exports = {
                 ],
             },
             {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    {
+                        loader: miniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },
+                    'css-loader',
+                ],
+            },
+            {
                 test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
                 type: 'asset/resource',
                 generator: {
