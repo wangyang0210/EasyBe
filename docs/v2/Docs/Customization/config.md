@@ -1577,13 +1577,10 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     articleContent: {
-        emoji: false,
+        iconfont: false,
     },
 }
 ```
-
-!> 版本 >= v2.2.3 配置名称由emoji改为iconfont <br> 版本 >= v2.2.4 增加配置项iconfontArr
-
 * 类型：```Boolean```
 * 默认值：```Object```
 
