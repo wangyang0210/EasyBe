@@ -9,15 +9,15 @@
 {
   // -- 基础信息 --
   info: {
-    name: '。思索',
-    job: '职业',
-    posting: '坐标',
-    proverb: '格言',
+    name: '',
+    job: '',
+    posting: '',
+    proverb: '',
     domain:'',
     connect: '',
     rss: '',
     admin: '',
-    startDate: '2021-01-01',
+    startDate: '',
     avatar: '',
     blogIcon: '',
   },
@@ -364,6 +364,17 @@
       'crossedOff': { type: 'crossed-off', color: 'red' }
 
     }
+  },
+
+  // -- 备案信息
+  beian: {
+    info: '',
+  },
+
+  // -- 公安备案
+  gonganbeian: {
+    info: '',
+    link: '',
   },
 
   // -- 評論内容效果
