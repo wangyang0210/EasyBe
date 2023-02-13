@@ -121,23 +121,6 @@ window.cnblogsConfig = {
 }
 ```
 
-
-###  domain - 站点网址
-
-* 类型：```domain```
-* 默认值：```""```
-
-站点信息
-
-```javascript
-window.cnblogsConfig = {
-  info: {
-      domain: 'https://www.easybe.org',
-  },
-}
-```
-
-
 ### connect - 联系我
 
 * 类型：```connect```
@@ -149,36 +132,6 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
   info: {
       connect: 'http://wpa.qq.com/msgrd?v=3&amp;uin=2752154874&amp;site=qq&amp;menu=yes',
-  },
-}
-```
-
-### rss - 文章订阅
-
-* 类型：```rss```
-* 默认值：```""```
-
-文章订阅
-
-```javascript
-window.cnblogsConfig = {
-  info: {
-      rss: 'https://www.easybe.org/index.php/feed/',
-  },
-}
-```
-
-### admin - 管理
-
-* 类型：```rss```
-* 默认值：```""```
-
-管理
-
-```javascript
-window.cnblogsConfig = {
-  info: {
-      admin: 'https://www.easybe.org/admin',
   },
 }
 ```
@@ -225,11 +178,11 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
   sidebar: { // 列表数据 ['导航名称', '链接', 'icon']
       navList: [
-          ['随笔', 'https://i.cnblogs.com/posts/edit', 'icon-brush-fill'],
+          ['随笔', 'https://www.wangyangyang.vip/admin/write-post.php/', 'icon-brush-fill'],
           ['GitHub', 'https://github.com/wangyang0210', 'icon-github'],
-          ['Cnblogs', 'https://www.cnblogs.com/', 'icon-cnblogs'],
-          ['书单', 'https://www.cnblogs.com/wangyang0210/p/16535755.html', 'icon-book'],
-          ['友链', 'https://www.cnblogs.com/wangyang0210/p/16535757.html', 'icon-lianjie'],
+          ['Cnblogs', 'https://www.cnblogs.com/wangyang0210', 'icon-cnblogs'],
+          ['书单', 'https://www.wangyangyang.vip/index.php/archives/26/', 'icon-book'],
+          ['友链', 'https://www.wangyangyang.vip/index.php/archives/27/', 'icon-lianjie'],
       ],
   },
 }
