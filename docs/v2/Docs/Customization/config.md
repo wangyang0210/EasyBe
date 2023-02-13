@@ -1794,3 +1794,28 @@ window.cnblogsConfig = {
 ```
 
 ![纪念日](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221211021314.png)
+
+## beian - 备案信息
+* 类型：```Object```
+* 默认值：```{}```
+
+```javascript
+window.cnblogsConfig = {
+    beian: {
+        info: '皖ICP备17019492号-6',
+    },
+}
+```
+
+## gonganbeian - 公安备案信息
+* 类型：```Object```
+* 默认值：```{}```
+
+```javascript
+window.cnblogsConfig = {
+    gonganbeian: {
+        info: '',
+        link: '',
+    }
+}
+```

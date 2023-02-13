@@ -4,13 +4,15 @@
 - 新增文章置顶
 - 新增配置浏览器信息,IP地址等
 - 保存后将配置存放到浏览器中
-- 全局配置启用主题的时候增加默认配置
 
 # 2023.2.9 - v2.1.8
-- 删除微博分享，收藏本文按钮
 - 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
 - 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)
 - 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail
+- 文档增加伪静态配置教程
+- 优化增加默认全局配置
+- 优化默认展示网站名称[待测试]
+- 删除微博分享，收藏本文按钮
 
 # 2023.2.7 - v2.1.7
 - 新增配置`roughNotation`，配置手绘风格的图画
