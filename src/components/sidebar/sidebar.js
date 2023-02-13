@@ -28,12 +28,11 @@ export default function main() {
      */
     (() => {
         // ------- 设置导航 -------
-        let navHtml = $.__tools.tempReplacement(navTemp, 'user', $.__status.user);
-        $('.sidebar-footer').html(navHtml);
-        $('#nav_host').attr('href', $.__config.info.domain);
+        $('.sidebar-footer').html(navTemp);
+        $('#nav_host').attr('href', $.__status.homeUrl);
         $('#nav_connect').attr('href', $.__config.info.connect);
-        $('#nav_rss').attr('href', $.__config.info.rss);
-        $('#nav_manage').attr('href', $.__config.info.admin);
+        $('#nav_rss').attr('href', $.__status.homeUrl + '/index.php/feed/');
+        $('#nav_manage').attr('href', $.__status.homeUrl + '/admin');
 
         // ------- 设置头像 -------
         let blogAvatar = $.__config.info.avatar ? $.__config.info.avatar : $.__config.default.avatar;
@@ -62,8 +61,7 @@ export default function main() {
             $('#info_job').text($.__config.info.job);
             $('#info_position').text($.__config.info.position);
             $('#info_proverb').text($.__config.info.proverb);
-            let introduceHtml = $('#profile_block').html(),
-                menuIntroduce = $('#introduce');
+            let introduceHtml = $('#profile_block').html(), menuIntroduce = $('#introduce');
             if ((typeof introduceHtml == 'string') && menuIntroduce.html() === '') {
                 menuIntroduce.html( $.__tools.htmlFiltrationScript(introduceHtml));
                 $.__tools.clearIntervalTimeId( $.__timeIds.introduceTId);
