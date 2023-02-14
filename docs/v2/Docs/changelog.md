@@ -11,7 +11,7 @@
 - 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
 - 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)
 - 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail
-- 文章底部增加声援博主信息[待测试]
+- 文章底部增加声援博主信息
 - 文档增加伪静态配置教程
 - 优化直接私信功能[待测试]
 - 优化增加默认全局配置

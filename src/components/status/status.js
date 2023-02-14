@@ -15,9 +15,9 @@ let status = {
 };
 status.url = window.location.href
 let tmp = status.url.split("/")
-status.user = $("title").text()
 status.homeUrl = [tmp[0], tmp[1], tmp[2]].join("/")
 let topics = $('#topics').length
+status.user = (!topics) ?  $("title").text() : $("title").text().split('- ')[1]
 status.pageType = (!topics) ? 'home' : $('#bookListFlg').length ? 'books' :  $('#linkListFlg').length ? 'links' : 'article'
 if (topics) status.articleId = tmp[tmp.length - 2]
 
