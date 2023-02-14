@@ -20,6 +20,7 @@ $(document).ready(function () {
     $.__timeIds = {};  // 定时器
     $.__event = {};   // 事件
     $.__config.info.name ||= $.__status.user;
+    $.__tools.dynamicLoadingJs($.__config.default.jquery).catch(e => console.error('iconfont.js', e))
     $.__tools.dynamicLoadingJs($.__config.default.moment).then(r => {
         import(/* webpackChunkName: "page-[request]" */ /* webpackPrefetch: true */ `./page/${ $.__status.pageType}`).then(module => {
             const page = module.default;
