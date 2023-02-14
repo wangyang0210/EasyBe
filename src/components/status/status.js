@@ -19,6 +19,6 @@ status.user = $("title").text()
 status.homeUrl = [tmp[0], tmp[1], tmp[2]].join("/")
 let topics = $('#topics').length
 status.pageType = (!topics) ? 'home' : $('#bookListFlg').length ? 'books' :  $('#linkListFlg').length ? 'links' : 'article'
-if (topics) status.articleId = (tmp[tmp.length - 1]).split(".")[0]
+if (topics) status.articleId = tmp[tmp.length - 2]
 
 export default status
