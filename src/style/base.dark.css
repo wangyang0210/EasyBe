@@ -362,8 +362,6 @@ code-box, .feedbackItem pre, #cnblogs_post_body img, #EntryTag, #div_digg, #gree
 
 .cnblogs_code_collapse {
     background-color: #333 !important;
-    color: #fbfbfbb3 !important;
-    box-shadow: 0 1px 7px 2px #c7c9d32e !important;
 }
 
 .aplayer {
@@ -375,7 +373,9 @@ details {
 }
 
 .commentClose {
-    background: #33333361;
+    background: #33333361 !important;
+    color: #fbfbfbb3 !important;
+    box-shadow: 0 1px 7px 2px #c7c9d32e !important;
 }
 
 @media only screen and (max-width: 720px) {

@@ -3880,7 +3880,7 @@ table#blogCalendar > tbody > tr > td > a {
 }
 
 .commentClose {
-    ttext-align: center;
+    text-align: center;
     background: #ffffff;
     padding: 10px 0px;
     border: 1px solid transparent;
