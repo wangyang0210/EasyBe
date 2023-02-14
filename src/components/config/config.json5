@@ -27,6 +27,8 @@
     infoBackground: '',
     titleMsg: '欢迎访问本博客~',
     blogStatus: true,
+    postLimit: 10,
+    commentLimit: 10,
     submenu: {
       // 最新随笔
       latestPosts: false,
@@ -144,9 +146,6 @@
     page: []
   },
 
-  // -- cnzz --
-  cnzz: '',
-
   // -- umami --
   umami: {
     url: '',
@@ -158,6 +157,7 @@
     info: '',
   },
 
+  // -- 公安备案信息 --
   gonganbeian: {
     info: '',
     link: '',
@@ -289,7 +289,7 @@
 
   // -- 代码 --
   code: {
-    type: '',  // hljs
+    type: '',
     options: {
       hljs: {
         theme: 'atom-one-dark-reasonable',

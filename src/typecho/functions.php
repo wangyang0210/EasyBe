@@ -4,8 +4,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 function themeConfig($form) {
     $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js" defer></script>', _t('全局配置'));
     $form->addInput($globalConfig);
-
-
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock',
         array('ShowRecentPosts' => _t('显示最新文章'),
             'ShowRecentComments' => _t('显示最近回复'),
@@ -18,27 +16,23 @@ function themeConfig($form) {
 }
 
 
-//阅读访问量
+// 指定文章的阅读访问量
 function getPostView($archive) {
     $cid    = $archive->cid;
     $db     = Typecho_Db::get();
-    $prefix = $db->getPrefix();
     if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
-        $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
-        echo 0;
-        return;
+        $db->query('ALTER TABLE `' . $db->getPrefix() . 'contents` ADD `views` INT(10) DEFAULT 0;');
+        return 0;
     }
-    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
-    if ($archive->is('single')) {
-        $db->query($db->update('table.contents')->rows(array('views' => (int) $row['views'] + 1))->where('cid = ?', $cid));
-    }
-    echo $row['views'];
+    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid))['views'];
+    if ($archive->is('single')) $db->query($db->update('table.contents')->rows(array('views' => (int) $row + 1))->where('cid = ?', $cid));
+    return $row;
 }
 
-// 获取阅读量最多的文章
+
+// 获取文章阅读排行
 function getPostViewRank($limit = 10) {
     $db     = Typecho_Db::get();
-    $prefix = $db->getPrefix();
     $posts = $db->fetchAll($db->select()->from('table.contents')
         ->where('type = ? AND status = ? AND password is NULL', 'post', 'publish')
         ->order('views', Typecho_Db::SORT_DESC)
@@ -46,20 +40,21 @@ function getPostViewRank($limit = 10) {
     );
 
     if ($posts) {
+        $postViewsRank = '';
         foreach ($posts as $post) {
             $result = Typecho_Widget::widget('Widget_Abstract_Contents')->push($post);
             $postTitle = htmlspecialchars($result['title']);
             $permalink = $result['permalink'];
             $postViews = $result['views'];
-            echo "<li><a href='$permalink' title='$postTitle'>$postTitle($postViews)</a></li>";
+            $postViewsRank .= "<li><a href='$permalink' title='$postTitle'>$postTitle($postViews)</a></li>";
         }
+        return $postViewsRank;
     }
 }
 
-// 获取文章阅读排行
+// 获取文章评论排行
 function getPostCommentRank($limit = 10) {
     $db     = Typecho_Db::get();
-    $prefix = $db->getPrefix();
     $posts = $db->fetchAll($db->select()->from('table.contents')
         ->where('type = ? AND status = ? AND password is NULL', 'post', 'publish')
         ->order('commentsNum', Typecho_Db::SORT_DESC)
@@ -67,13 +62,15 @@ function getPostCommentRank($limit = 10) {
     );
 
     if ($posts) {
+        $postCommentRank = '';
         foreach ($posts as $post) {
             $result = Typecho_Widget::widget('Widget_Abstract_Contents')->push($post);
             $postTitle = htmlspecialchars($result['title']);
             $permalink = $result['permalink'];
             $postCommentsNum = $result['commentsNum'];
-            echo "<li><a href='$permalink' title='$postTitle'>$postTitle($postCommentsNum)</a></li>";
+            $postCommentRank .= "<li><a href='$permalink' title='$postTitle'>$postTitle($postCommentsNum)</a></li>";
         }
+        return $postCommentRank;
     }
 }
 
@@ -116,9 +113,7 @@ function agree($cid) {
     if (empty($record)) {
         Typecho_Cookie::set('__typecho_agree_record', "[$cid]");
     } else {
-        if ($callback['recording']) {
-            return $callback['agree'];
-        }
+        if ($callback['recording']) return $callback['agree'];
         array_push($record, $cid);
         Typecho_Cookie::set('__typecho_agree_record', json_encode($record));
     }

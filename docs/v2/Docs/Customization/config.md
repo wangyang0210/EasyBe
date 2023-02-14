@@ -265,7 +265,7 @@ window.cnblogsConfig = {
 
 ### blogStatus - 博客状态信息
 
-?> 版本 >= v2.2.4
+?> 版本 >= v2.1.7
 
 * 类型：```Boolean```
 * 默认值： true
@@ -314,6 +314,35 @@ window.cnblogsConfig = {
 }
 ```
 ![侧边栏是否展开](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221211005951.png)
+
+### postLimit - 文章阅读排行展示数量
+?> 版本 >= v2.1.8
+
+* 类型：```bigInt```
+* 默认值： 10
+
+```javascript
+window.cnblogsConfig = {
+  sidebar: {
+      postLimit: 10,
+  },
+}
+```
+
+### commentLimit - 文章评论排行展示数量
+?> 版本 >= v2.1.8
+
+* 类型：```bigInt```
+* 默认值： 10
+
+```javascript
+window.cnblogsConfig = {
+  sidebar: {
+      commentLimit: 10,
+  },
+}
+```
+
 
 ## banner - banner图
 
@@ -1267,7 +1296,7 @@ window.cnblogsConfig = {
 
 具体的教程大家可以去官网查看[mo.js](https://mojs.github.io/)
 
-?> 版本 >= v2.2.0
+?> 版本 >= v2.1.7
 
 * 类型：```Object```
 * 默认值：
@@ -1299,7 +1328,7 @@ window.cnblogsConfig = {
 
 #### click - 粒子炸开效果
 
-?> 版本 >= v2.2.0
+?> 版本 >= v2.1.7
 
 * 类型：```Object```
 * 默认值：
