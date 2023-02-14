@@ -27,12 +27,14 @@
             async: true,
             timeout: 30000,
             cache: false,
-            //  请求成功的函数
             success: function (data) {
-                $('#digg_count').text(data)
+                if(data) {
+                    $('#digg_count').text(data);
+                    $('.btn-11').text("感谢推荐!");
+                }
             },
-            error: function () {
-                // 错误处理
+            error: function (e) {
+                console.error(e)
             },
         })
     };
