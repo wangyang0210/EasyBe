@@ -6,7 +6,7 @@
 <!--start: footer -->
   <div id="footer">
         <!--done-->
-        Copyright © 2022 。思索
+        Copyright © 2023 王洋
         <br><span id="poweredby">Powered by Typecho</span>
 
   </div>
@@ -18,6 +18,7 @@
 
 <!--事件监听-->
 <script>
+
     // 点赞
     function agree(url, cid) {
         $.ajax({
@@ -52,6 +53,7 @@
         $('#rightGzh .rightMenuSpan').hide();
         $('#rightDashang .rightMenuSpan').show();
     };
+
     // 评论
     function comments(url) {
         $.ajax({
@@ -63,7 +65,6 @@
             cache: false,
             success: function (data) {
                 $('#comments').html($("#comments", data).html());
-                // $('.comment-list').html($(".comment-list", data).html());
                 $('#tbCommentBody').val("");
             },
             error: function () {

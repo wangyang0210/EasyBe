@@ -2,8 +2,13 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form) {
+    $jqueryConfig = new Typecho_Widget_Helper_Form_Element_Textarea('jqueryConfig', NULL, 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js', _t('JQuery CDN'));
+    $form->addInput($jqueryConfig);
+
     $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js" defer></script>', _t('全局配置'));
     $form->addInput($globalConfig);
+
+
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock',
         array('ShowRecentPosts' => _t('显示最新文章'),
             'ShowRecentComments' => _t('显示最近回复'),
@@ -13,6 +18,14 @@ function themeConfig($form) {
         array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'), _t('侧边栏显示'));
 
     $form->addInput($sidebarBlock->multiMode());
+}
+
+// 所有文章的阅读访问量
+
+function getAllPostViews() {
+    $db = Typecho_Db::get();
+    $row = $db->fetchAll('select sum(views) as views from `typecho_contents`;');
+    return $row[0]['views'];
 }
 
 

@@ -15,6 +15,7 @@
 
     <!-- 使用url函数转换相关路径 -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('simple-memory.css'); ?>">
+    <script src="<?php  $this->options->jqueryConfig()?>"></script>
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
@@ -36,10 +37,11 @@
         </div><!--end: blogTitle 博客的标题和副标题 -->
         <div id="navigator">
             <div class="blogStats">
-                <span id="stats_post_count">随笔 - 4&nbsp; </span>
-                <span id="stats_article_count">文章 - 0&nbsp; </span>
-                <span id="stats-comment_count">评论 - 4&nbsp; </span>
-                <span id="stats-total-view-count">阅读 -<span title="总阅读数: 23">23</span></span>
+                <?php Typecho_Widget::widget('Widget_Stat')->to($stat); ?>
+                <span id="stats_post_count">随笔 - <?php $stat->publishedPostsNum() ?>&nbsp; </span>
+                <span id="stats_article_count">分类 - <?php $stat->categoriesNum() ?>&nbsp; </span>
+                <span id="stats-comment_count">评论 - <?php $stat->publishedCommentsNum() ?>&nbsp; </span>
+                <span id="stats-total-view-count">阅读 - <?php getAllPostViews() ?></span>
             </div><!--end: blogStats -->
         </div><!--end: navigator 博客导航栏 -->
     </div><!--end: header 头部 -->
