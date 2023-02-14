@@ -3879,6 +3879,24 @@ table#blogCalendar > tbody > tr > td > a {
     -webkit-filter: grayscale(1);
 }
 
+.commentClose {
+    ttext-align: center;
+    background: #ffffff;
+    padding: 10px 0px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 7px 2px #c7c9d3;
+    font-size: 14px;
+    color: #7073a5;
+    width: 95%;
+    max-width: 100%;
+    margin-left: 2.5%;
+}
+
+.commentClose:hover {
+    transform: scale(1.03);
+}
+
 @keyframes starAnim1 {
     0% {
         transform: translate(5px, 30px) scale(.3)

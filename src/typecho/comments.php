@@ -114,6 +114,6 @@
                 注册用户登录后才能发表评论，请 <a href="<?php $this->options->siteUrl(); ?>admin/login.php">登录</a> 或<a href="<?php $this->options->siteUrl(); ?>admin/register.php">注册</a>
             <?php endif; ?>
     <?php else: ?>
-        <h3><?php _e('o_o ....评论被关闭咯~'); ?></h3>
+        <p class="commentClose panel">o_o ....评论被关闭咯~</p>
     <?php endif; ?>
 </div>
