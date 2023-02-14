@@ -24,7 +24,7 @@ export default function main() {
 
     // 关于博主
     let aboutHtml = $.__config.articleSuffix.aboutHtml ? $.__config.articleSuffix.aboutHtml :
-        '评论和私信会在第一时间回复。或者<a href="https://msg.cnblogs.com/msg/send/' + $.__status.user + '" target="_blank">直接私信</a>我。';
+        '评论和私信会在第一时间回复。或者<a href="' + $.__config.info.connect + '" target="_blank">直接私信</a>我。';
 
     // 版权声明
     let copyrightHtml = $.__config.articleSuffix.copyrightHtml ? $.__config.articleSuffix.copyrightHtml :
@@ -32,7 +32,7 @@ export default function main() {
 
     // 声援博主
     let supportHtml = $.__config.articleSuffix.supportHtml ? $.__config.articleSuffix.supportHtml :
-        '如果您觉得文章对您有帮助，可以点击文章右下角<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="votePost(' + $.__status.articleId + ',\'Digg\')" href="javascript:void(0);">推荐</a>】</span></strong>一下。';
+        '如果您觉得文章对您有帮助，可以点击文章下方<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="agree(`${$.__status.url}, ${$.__status.articleId}`)" href="javascript:void(0);">推荐</a>】</span></strong>一下。';
 
     let re = [
         ['origin', origin],

@@ -72,7 +72,6 @@
             <div id="comment_pager_top">
             </div>
             <br>
-            <!--评论总数--><?php //$this->commentsNum(_t('%d')); ?>
             <div class="feedback_area_title">评论列表</div>
             <div class="feedbackNoItems">
                 <div class="feedbackNoItems"></div>
