@@ -5,25 +5,22 @@
 - 新增配置浏览器信息,IP地址等
 - 保存后将配置存放到浏览器中
 - 文章加密输入密码优化
-<form class="protected" action="https://dev.wangyangyang.vip/archives/68/?_=35e32eed5d296dc2680fab9d6cc7f613" method="post">
-        <p class="word">请输入密码访问</p>
-        <p>
-            <input type="password" class="text" name="protectPassword">
-            <input type="hidden" name="protectCID" value="68">
-            <input type="submit" class="submit" value="提交">
-        </p>
-</form>
+- 文章踩功能完善
 
 # 2023.2.9 - v2.1.8
 - 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
 - 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)
 - 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail
+- 文章底部增加声援博主信息[待测试]
 - 文档增加伪静态配置教程
+- 优化直接私信功能[待测试]
 - 优化增加默认全局配置
+- 优化点赞/推荐功能
 - 优化默认展示网站名称[待测试]
 - 优化自动配置侧边栏底部导航[待测试]
 - 优化评论关闭样式[待测试]
 - 删除微博分享，收藏本文按钮
+- 删除博客园相关的关注模块
 
 # 2023.2.7 - v2.1.7
 - 新增配置`roughNotation`，配置手绘风格的图画

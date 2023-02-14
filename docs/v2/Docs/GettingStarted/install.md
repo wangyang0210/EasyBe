@@ -1,7 +1,6 @@
 # 安装配置
 
-!> 本文为v2版本的安装配置教程，请核对使用版本！
-
+!> 本文为v2版本的安装配置教程，请核对使用版本！<br /> 博客请务必开启伪静态,具体可参考[配置文件](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/rewrite)
 
 ## 获取需要使用的版本
 进入主题仓库：[GitHub](https://github.com/wangyang0210/EasyBe)
