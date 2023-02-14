@@ -117,32 +117,11 @@ export default function main() {
     })();
 
     /**
-     * 关注
-     */
-    (() => {
-        $.__timeIds.followTId = window.setInterval(() => {
-            let followObj = $('#p_b_follow');
-            if (followObj.length > 0) {
-                let clickStr = followObj.text() !== '' ? $('#p_b_follow a').attr('onclick') : '';
-                if (clickStr && !!clickStr.indexOf('unfollow') > 0) {
-                    let attention = $('#attention');
-                    attention.attr('onclick', clickStr.replace('unfollow', 'follow'))
-                        .attr('clickflg', 'false');
-                    attention.find('.rightMenuSpan').text('关注');
-                    attention.find('i').removeClass('icon-follower').addClass('icon-unfollower');
-                }
-                $.__tools.clearIntervalTimeId( $.__timeIds.followTId);
-            }
-        }, 1000);
-    })();
-
-    /**
      * 二维码
      */
     (() => {
         if ($.__config.rtMenu.qrCode) $('#rightGzh').show().find('.ds-gzh img').attr('src', $.__config.rtMenu.qrCode);
     })();
-
 
     /**
      * 打赏
@@ -169,7 +148,7 @@ export default function main() {
                 let rightMenuSpan = rightDiggit.find('.rightMenuSpan');
 
                 rightDiggit.attr('onclick', diggit.attr("onclick"));
-                rightMenuSpan.text($('#digg_count').text());
+                rightMenuSpan.text(Number($('#digg_count').text()) + 1);
 
                 rightDiggit.show().click(function () {
                     clickHdl($(this), rightMenuSpan, $('#digg_count').text());
