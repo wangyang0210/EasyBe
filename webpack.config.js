@@ -86,7 +86,7 @@ module.exports = {
                             publicPath: '../'
                         }
                     },
-                    'css-loader'
+                    'style-loader','css-loader'
                 ],
             },
             {
@@ -98,7 +98,7 @@ module.exports = {
                             publicPath: '../'
                         }
                     },
-                    'css-loader',
+                    'style-loader','css-loader','sass-loader'
                 ],
             },
             {
