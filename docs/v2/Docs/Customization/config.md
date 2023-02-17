@@ -1600,6 +1600,35 @@ window.cnblogsConfig = {
 ```
 ![roughnotation](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20230102230137.png)
 
+### commentTyping - 评论增加打字特效
+
+* 类型：```Boolean```
+* 默认值：```false```
+
+```javascript
+window.cnblogsConfig = {
+    articleContent: {
+        commentTyping: false,
+    },
+}
+```
+
+![commentTyping](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/commentTyping.gif)
+
+### diggit - 点赞特效
+
+* 类型：```Boolean```
+* 默认值：```false```
+
+```javascript
+window.cnblogsConfig = {
+    articleContent: {
+        diggit: false,
+    },
+}
+```
+![diggit](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/diggit.gif)
+
 ## articleSuffix - 文章后缀
 
 ### imgUrl - 左侧图片

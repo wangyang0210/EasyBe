@@ -359,7 +359,10 @@
       'strikeThrough': { type: 'strike-through', color: 'red' },
       'crossedOff': { type: 'crossed-off', color: 'red' }
 
-    }
+    },
+    diggit: false,
+    commentTyping: false,
+    owo: false,
   },
 
   // -- 评论内容效果

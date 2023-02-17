@@ -8,8 +8,12 @@
  */
 
 export default function main() {
-    import(/* webpackChunkName: "comment-typing" */ /* webpackPrefetch: true */ './commentTyping/commentTyping').catch(e => console.error("commentTyping.js", e))
-    import(/* webpackChunkName: "owo" */ /* webpackPrefetch: true */ './owo/owo').catch(e => console.error("owo.js", e))
+    // ($.__config.articleContent.commentTyping) && import(/* webpackChunkName: "comment-typing" */ /* webpackPrefetch: true */ './commentTyping/commentTyping.js')
+    if($.__config.articleContent.owo) {
+        $(".OwO").show()
+        import(/* webpackChunkName: "owo" */ /* webpackPrefetch: true */ './owo/owo')
+        import(/* webpackChunkName: "owo-css" */ /* webpackPrefetch: true */ '../../style/owo.scss')
+    }
     let setComment = () => {
         let feedbackItem = $('.feedbackItem');
         if (feedbackItem.length > 0) {

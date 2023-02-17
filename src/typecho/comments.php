@@ -99,7 +99,7 @@
                                     <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
                                 </div>
                                 <div class="commentbox_title_right">
-                                    <div class="OwO"></div>
+                                    <div class="OwO" style="display: none">OwO</div>
                                 </div>
                             </div>
                             <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
