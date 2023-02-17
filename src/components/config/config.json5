@@ -27,8 +27,6 @@
     infoBackground: '',
     titleMsg: '欢迎访问本博客~',
     blogStatus: true,
-    postLimit: 10,
-    commentLimit: 10,
     submenu: {
       // 最新随笔
       latestPosts: false,

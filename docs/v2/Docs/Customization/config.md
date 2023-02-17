@@ -315,35 +315,6 @@ window.cnblogsConfig = {
 ```
 ![侧边栏是否展开](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/20221211005951.png)
 
-### postLimit - 文章阅读排行展示数量
-?> 版本 >= v2.1.8
-
-* 类型：```bigInt```
-* 默认值： 10
-
-```javascript
-window.cnblogsConfig = {
-  sidebar: {
-      postLimit: 10,
-  },
-}
-```
-
-### commentLimit - 文章评论排行展示数量
-?> 版本 >= v2.1.8
-
-* 类型：```bigInt```
-* 默认值： 10
-
-```javascript
-window.cnblogsConfig = {
-  sidebar: {
-      commentLimit: 10,
-  },
-}
-```
-
-
 ## banner - banner图
 
 ### text - 所有banner文字是否可选

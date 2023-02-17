@@ -2,21 +2,22 @@
 - 头像优化展示
 - 优化评论问题
 - 新增文章置顶
-- 新增配置浏览器信息,IP地址等
+- 新增配置浏览器信息,IP地址等[https://github.com/hakula139/UserAgent-for-Typecho | https://doge.uk/coding/useragent-modify.html]
 - 文章加密输入密码优化
 - 文章踩功能完善
 - 插件部署的文档
-- 文章阅读排行展示数量配置 | 文章评论数量展示配置
+- 评论增加打字特效
 
 # 2023.2.9 - v2.1.8
 - 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
 - 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)
 - 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail
 - 新增将配置存放到浏览器中防止主题切换导致配置丢失[待测试]
-- 新增配置`sidebar.commentLimit`, `sidebar.postLimit`用来配置展示文章评论排行和文章阅读排行的数量[待测试]
-- 文章底部增加声援博主信息
-- 文档增加伪静态配置教程
-- 优化jquery加载改为主题配置加载
+- 新增配置`sidebar.commentLimit`, `sidebar.postLimit`用来配置展示文章评论排行和文章阅读排行的数量[待调整]
+- 新增文章底部增加声援博主信息
+- 新增文档增加伪静态配置教程
+- 修复博客状态显示功能[待测试]
+- 优化后台配置增加jquery CDN 配置
 - 优化直接私信功能
 - 优化增加默认全局配置
 - 优化点赞/推荐功能

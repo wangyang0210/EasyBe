@@ -12,7 +12,7 @@
   </div>
 <!--end: footer -->
 
-<?php $this->options->globalConfig()?>
+<?php $this->options->globalConfig(); ?>
 
 <?php $this->footer(); ?>
 

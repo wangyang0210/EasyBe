@@ -14,13 +14,14 @@ import event from "./components/event/event";
 $(document).ready(function () {
 
     // 初始化
+    if (localStorage.getItem('cnblogsConfig') && !Object.keys(window?.cnblogsConfig || {}).length) window.cnblogsConfig = JSON.parse(localStorage.getItem('cnblogsConfig'))
     $.__config = $.extend( true, defaultConfig,  window?.cnblogsConfig || {}); // 配置信息
     $.__status = status; // 页面状态信息
     $.__tools = tools;  // 公共处理工具
     $.__timeIds = {};  // 定时器
     $.__event = {};   // 事件
     $.__config.info.name ||= $.__status.user;
-    $.__tools.dynamicLoadingJs($.__config.default.jquery).catch(e => console.error('iconfont.js', e))
+    localStorage.setItem('cnblogsConfig', JSON.stringify($.__config))
     $.__tools.dynamicLoadingJs($.__config.default.moment).then(r => {
         import(/* webpackChunkName: "page-[request]" */ /* webpackPrefetch: true */ `./page/${ $.__status.pageType}`).then(module => {
             const page = module.default;

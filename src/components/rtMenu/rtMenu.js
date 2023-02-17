@@ -148,7 +148,7 @@ export default function main() {
                 let rightMenuSpan = rightDiggit.find('.rightMenuSpan');
 
                 rightDiggit.attr('onclick', diggit.attr("onclick"));
-                rightMenuSpan.text(Number($('#digg_count').text()) + 1);
+                rightMenuSpan.text($('#digg_count').text());
 
                 rightDiggit.show().click(function () {
                     clickHdl($(this), rightMenuSpan, $('#digg_count').text());

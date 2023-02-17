@@ -1,12 +1,24 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
+
+// 主题配置
 function themeConfig($form) {
-    $jqueryConfig = new Typecho_Widget_Helper_Form_Element_Textarea('jqueryConfig', NULL, 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js', _t('JQuery CDN'));
+
+    $jqueryConfig = new Typecho_Widget_Helper_Form_Element_Text('jqueryConfig', NULL, '//lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js', _t('JQuery CDN'));
     $form->addInput($jqueryConfig);
 
-    $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '<script src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js" defer></script>', _t('全局配置'));
+    $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '<script src="//cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js" defer></script>', _t('全局配置'));
     $form->addInput($globalConfig);
+
+    $postRank = new Typecho_Widget_Helper_Form_Element_Text('text', NULL, '10', _t('阅读排行'), _t('阅读排行显示数量'));
+    $postRank->input->setAttribute('class', 'w-100');
+    $form->addInput($postRank->addRule('isInteger', _t('请输入纯数字')));
+
+    $commentsRank = new Typecho_Widget_Helper_Form_Element_Text('text', NULL, '10', _t('评论排行'), _t('评论排行显示数量'));
+    $commentsRank->input->setAttribute('class', 'w-100');
+    $form->addInput($commentsRank->addRule('isInteger', _t('请输入纯数字')));
+
 
 
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock',
@@ -20,8 +32,9 @@ function themeConfig($form) {
     $form->addInput($sidebarBlock->multiMode());
 }
 
-// 所有文章的阅读访问量
+// TODO 重写所有SQL
 
+// 全部文章阅读量
 function getAllPostViews() {
     $db = Typecho_Db::get();
     $row = $db->fetchAll('select sum(views) as views from `typecho_contents`;');
@@ -135,3 +148,4 @@ function agree($cid) {
 
     return ++$callback['agree'];
 }
+

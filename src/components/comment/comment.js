@@ -8,6 +8,8 @@
  */
 
 export default function main() {
+    import(/* webpackChunkName: "comment-typing" */ /* webpackPrefetch: true */ './commentTyping/commentTyping').catch(e => console.error("commentTyping.js", e))
+    import(/* webpackChunkName: "owo" */ /* webpackPrefetch: true */ './owo/owo').catch(e => console.error("owo.js", e))
     let setComment = () => {
         let feedbackItem = $('.feedbackItem');
         if (feedbackItem.length > 0) {
@@ -22,13 +24,9 @@ export default function main() {
                 if (idInfo && idInfo.length > 0) {
                     let id = idInfo[idInfo.length - 1],
                         idTmp = id.toString().match(/\d/g);
-
                     if ($.isArray(idTmp)) id = idTmp.join('');
-
                     let op = $('#comment_' + id + '_avatar'), patch  = op.length > 0 ? op.text().trim() : $.__config.default.avatar;
-
                     let ac = $('#a_comment_author_' + id), ah = ac.length ? ac.attr('href') : 'javascropt:void(0);';
-
                     avatarHtml = '<div class="feedbackAvatar"><a href="' + ah + '" target="_blank"><img src="'+patch+'"/></a></div>';
                     obj.prepend(avatarHtml);
                 }
@@ -48,6 +46,6 @@ export default function main() {
     },1000);
 
     $(document).ajaxSuccess(function (event, xhr, settings) {
-        if (settings.url.includes("GetComments.aspx")) setComment();
+        if (settings.url.includes("archive")) setComment();
     });
 }
