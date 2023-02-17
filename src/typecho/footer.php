@@ -20,18 +20,43 @@
 <script>
 
     // 点赞
-    function agree(url, cid) {
+    function digg(url, cid) {
         $.ajax({
             type: 'post',
             url: url,
-            data: `agree=${cid}`,
+            data: `digg=${cid}`,
             async: true,
             timeout: 30000,
             cache: false,
             success: function (data) {
                 if(data) {
+                    $('.rightDiggitSpan').text(data)
                     $('#digg_count').text(data);
                     $('.btn-11').text("感谢推荐!");
+                    $('#digg_tips').text("感谢支持");
+
+                }
+            },
+            error: function (e) {
+                console.error(e)
+            },
+        })
+    };
+
+    // 踩
+    function bury(url, cid) {
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: `bury=${cid}`,
+            async: true,
+            timeout: 30000,
+            cache: false,
+            success: function (data) {
+                if(data) {
+                    $('.rightBuryitSpan').text(data)
+                    $('#bury_count').text(data);
+                    $('#digg_tips').text("感谢批评,我会再接再厉的(づ￣ 3￣)づ");
                 }
             },
             error: function (e) {

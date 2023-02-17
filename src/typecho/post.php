@@ -1,5 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php if (isset($_POST['agree']) && $_POST['agree'] == $this->cid) exit( strval(agree($this->cid)) ); ?>
+<?php if (isset($_POST['digg']) && $_POST['digg'] == $this->cid) exit( strval(digg($this->cid)) ); ?>
+<?php if (isset($_POST['bury']) && $_POST['bury'] == $this->cid) exit( strval(bury($this->cid)) ); ?>
 <?php $this->need('header.php'); ?>
 <div <?php if ($this->hidden): ?> class="">
     <form class="protected" action="https://dev.wangyangyang.vip/archives/68/" method="post">
@@ -35,8 +36,9 @@
                             </div>
                             <div id="blog_post_info">
                                 <div id="green_channel">
-                                    <?php $agree = $this->hidden?array('agree' => 0, 'recording' => true):agreeNum($this->cid); ?>
-                                    <a href="javascript:void(0);" id="green_channel_digg" onclick="agree('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">推荐该文(<?php echo $agree['agree']; ?>)</a>
+                                    <?php $digg = $this->hidden ? array('digg' => 0, 'recording' => true) : getDiggNum($this->cid); ?>
+                                    <?php $bury = $this->hidden ? array('bury' => 0, 'recording' => true) : getBuryNum($this->cid); ?>
+                                    <a href="javascript:void(0);" id="green_channel_digg" onclick="digg('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">推荐该文(<?php echo $digg['digg']; ?>)</a>
                                     <a id="green_channel_follow" onclick="follow();" href="javascript:void(0);">关注我</a>
                                     <a id="green_channel_wechat" href="javascript:void(0);" title="打赏博主" onclick="sponsor()"></a>
                                 </div>
@@ -55,12 +57,12 @@
 <!--                                        <a href="javascript:void(0);" onclick="follow('50a7e35e-e940-4247-3515-08da6c40fc10');return false;">+加关注</a>-->
                                     </div>
                                 </div>
-                                <div id="div_digg" style="display: none">
-                                    <div class="diggit" onclick="agree('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">
-                                        <span class="diggnum" id="digg_count"><?php echo $agree['agree']; ?></span>
+                                <div id="div_digg">
+                                    <div class="diggit" onclick="digg('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">
+                                        <span class="diggnum" id="digg_count"><?php echo $digg['digg']; ?></span>
                                     </div>
-                                    <div class="buryit" onclick="votePost(16631057,'Bury')">
-                                        <span class="burynum" id="bury_count">0</span>
+                                    <div class="buryit" onclick="bury('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">
+                                        <span class="burynum" id="bury_count"><?php echo $bury['bury']; ?></span>
                                     </div>
                                     <div class="clear"></div>
                                     <div class="diggword" id="digg_tips">

@@ -32,7 +32,7 @@ export default function main() {
 
     // 声援博主
     let supportHtml = $.__config.articleSuffix.supportHtml ? $.__config.articleSuffix.supportHtml :
-        '如果您觉得文章对您有帮助，可以点击文章下方<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="agree(`${$.__status.url}, ${$.__status.articleId}`)" href="javascript:void(0);">推荐</a>】</span></strong>一下。';
+        '如果您觉得文章对您有帮助，可以点击文章下方<strong><span style="color: #ff0000; font-size: 12pt;">【<a id="post-up" onclick="digg(`${$.__status.url}, ${$.__status.articleId}`)" href="javascript:void(0);">推荐</a>】</span></strong>一下。';
 
     let re = [
         ['origin', origin],

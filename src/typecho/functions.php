@@ -101,21 +101,21 @@ function getPermalinkFromCoid($coid) {
 }
 
 // 获取指定文章的点赞数量
-function agreeNum($cid, &$record = NULL) {
+function getDiggNum($cid, &$record = NULL) {
     $db = Typecho_Db::get();
     $res = [
-        'agree' => 0,
+        'digg' => 0,
         'recording' => false
     ];
     $data = $db->fetchRow($db->select()->from('table.contents')->where('cid = ?', $cid));
-    if (!array_key_exists('agree', $data)) {
-        $db->query("ALTER TABLE `{$db->getPrefix()}contents` ADD `agree` INT(10) NOT NULL DEFAULT 0;");
+    if (!array_key_exists('digg', $data)) {
+        $db->query("ALTER TABLE `{$db->getPrefix()}contents` ADD `digg` INT(10) NOT NULL DEFAULT 0;");
     } else {
-        $res['agree'] = $data['agree'];
+        $res['digg'] = $data['digg'];
     }
-    $recording = Typecho_Cookie::get('__typecho_agree_record');
+    $recording = Typecho_Cookie::get('__typecho_digg_record');
     if (empty($recording)) {
-        Typecho_Cookie::set('__typecho_agree_record', '[]');
+        Typecho_Cookie::set('__typecho_digg_record', '[]');
     } else {
         $record = json_decode($recording);
         $res['recording'] = is_array($record) && in_array($cid, $record);
@@ -124,16 +124,56 @@ function agreeNum($cid, &$record = NULL) {
 }
 
 // 请求点赞
-function agree($cid) {
+function digg($cid) {
     $db = Typecho_Db::get();
-    $res = agreeNum($cid, $record);
+    $res = getDiggNum($cid, $record);
     if (empty($record)) {
-        Typecho_Cookie::set('__typecho_agree_record', "[$cid]");
+        Typecho_Cookie::set('__typecho_digg_record', "[$cid]");
     } else {
-        if ($res['recording']) return $res['agree'];
+        if ($res['recording']) return $res['digg'];
         array_push($record, $cid);
-        Typecho_Cookie::set('__typecho_agree_record', json_encode($record));
+        Typecho_Cookie::set('__typecho_digg_record', json_encode($record));
     }
-    $db->query("UPDATE `{$db->getPrefix()}contents` SET `agree` = `agree` + 1 WHERE `cid` = {$cid};");
-    return ++$res['agree'];
+    $digg = ++$res['digg'];
+    $db->query("UPDATE `{$db->getPrefix()}contents` SET `digg` = {$digg} WHERE `cid` = {$cid};");
+    return $digg;
+}
+
+// 获取指定文章的踩
+function getBuryNum($cid, &$record = NULL) {
+    $db = Typecho_Db::get();
+    $res = [
+        'bury' => 0,
+        'recording' => false
+    ];
+    $data = $db->fetchRow($db->select()->from('table.contents')->where('cid = ?', $cid));
+    if (!array_key_exists('bury', $data)) {
+        $db->query("ALTER TABLE `{$db->getPrefix()}contents` ADD `bury` INT(10) NOT NULL DEFAULT 0;");
+    } else {
+        $res['bury'] = $data['bury'];
+    }
+    $recording = Typecho_Cookie::get('__typecho_bury_record');
+    if (empty($recording)) {
+        Typecho_Cookie::set('__typecho_bury_record', '[]');
+    } else {
+        $record = json_decode($recording);
+        $res['recording'] = is_array($record) && in_array($cid, $record);
+    }
+    return $res;
+}
+
+// 请求踩
+function bury($cid) {
+    $db = Typecho_Db::get();
+    $res = getDiggNum($cid, $record);
+    if (empty($record)) {
+        Typecho_Cookie::set('__typecho_bury_record', "[$cid]");
+    } else {
+        if ($res['recording']) return $res['bury'];
+        array_push($record, $cid);
+        Typecho_Cookie::set('__typecho_bury_record', json_encode($record));
+    }
+    $bury = ++$res['bury'];
+    $db->query("UPDATE `{$db->getPrefix()}contents` SET `bury` = {$bury} WHERE `cid` = {$cid};");
+    return $bury;
 }

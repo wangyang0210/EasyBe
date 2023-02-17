@@ -111,7 +111,7 @@
                         </h3>
                         <div id="TopViewPostsBlock">
                             <ul style="word-break:break-all">
-                                <?php getPostViewRank(); ?>
+                                <?php getPostViewRank($this->options->postRank); ?>
                             </ul>
                         </div>
                     </div>
@@ -143,7 +143,7 @@
                         </h3>
                         <div id="TopFeedbackPostsBlock">
                                 <ul style="word-break:break-all">
-                                    <?php getPostCommentRank(); ?>
+                                    <?php getPostCommentRank($this->options->commentsRank); ?>
                                 </ul>
                         </div>
                     </div>
