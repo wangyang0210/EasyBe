@@ -107,8 +107,6 @@ export default function main() {
             }
         }, timeout);
 
-
-
         // ------- 最新随笔 -------
         $.__timeIds.newEssayTId = window.setInterval(() => {
             listHdl(
@@ -155,6 +153,15 @@ export default function main() {
             );
         }, timeout);
 
+        // ------- 推荐排行 -------
+        $.__timeIds.topDiggPostsTId = window.setInterval(() => {
+            listHdl(
+                $('#TopDiggPostsBlock ul li'),
+                $('#sb-topDiggPosts'),
+                $.__timeIds.topDiggPostsTId
+            );
+        }, timeout);
+
         // ------- 最新评论 -------
         $.__timeIds.commentsTId = window.setInterval(() => {
             let recentComments     = $('#sidebar_recentcomments ul'),
@@ -198,7 +205,6 @@ export default function main() {
                 $.__tools.clearIntervalTimeId($.__timeIds.commentsTId);
             }
         }, timeout);
-
 
         // ------- 评论排行 -------
         $.__timeIds.commentsRankTId = window.setInterval(() => {
@@ -291,42 +297,47 @@ export default function main() {
      * 设置是否默认展开菜单栏
      */
     (() => {
-
+        // 最新随笔
         if ($.__config.sidebar.submenu.latestPosts) {
             $('#sb-sidebarRecentposts').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-sidebarRecentposts').show();
         }
-
+        // 我的标签
         if ($.__config.sidebar.submenu.myTags) {
             $('#sb-toptags').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-toptags').show();
         }
-
+        // 随笔分类
         if ($.__config.sidebar.submenu.postsClassify) {
             $('#sb-classify').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-classify').show();
         }
-
+        // 阅读排行
         if ($.__config.sidebar.submenu.readRank) {
             $('#sb-topview').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-topview').show();
         }
-
+        // 推荐排行
         if ($.__config.sidebar.submenu.recommendRank) {
             $('#sb-topDiggPosts').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-topDiggPosts').show();
         }
-
-        if ($.__config.sidebar.submenu.postsArchive) {
-            $('#sb-record').parent('li.sidebar-dropdown').addClass('active');
-            $('#sb-record').show();
-        }
-
+        // 最新评论
         if ($.__config.sidebar.submenu.latestComment) {
             $('#sb-recentComments').parent('li.sidebar-dropdown').addClass('active');
             $('#sb-recentComments').show();
         }
-
+        // 评论排行
+        if($.__config.sidebar.submenu.commentsRank) {
+            $('#sb-commentsRank').parent('li.sidebar-dropdown').addClass('active');
+            $('#sb-commentsRank').show();
+        }
+        // 随笔档案
+        if ($.__config.sidebar.submenu.postsArchive) {
+            $('#sb-record').parent('li.sidebar-dropdown').addClass('active');
+            $('#sb-record').show();
+        }
+        // 自定义列表
         if ($.__config.sidebar.submenu.customList) {
             $("#customize-sidebar-menu .sidebar-submenu").parent('li.sidebar-dropdown').addClass('active');
             $("#customize-sidebar-menu .sidebar-submenu").show();

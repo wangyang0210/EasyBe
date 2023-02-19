@@ -105,9 +105,7 @@
                 <div id="sidebar_topviewedposts" class="sidebar-block">
                     <div class="catListView">
                         <h3 class="catListTitle">
-                            <a href="" class="sidebar-card-title-a">
-                                阅读排行榜
-                            </a>
+                            <a href="" class="sidebar-card-title-a">阅读排行榜</a>
                         </h3>
                         <div id="TopViewPostsBlock">
                             <ul style="word-break:break-all">
@@ -116,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!--推荐排行榜-->
                 <div id="sidebar_topdiggedposts" class="sidebar-block">
                     <div id="topdigg_posts_wrap">
                         <div class="catListView">
@@ -144,9 +142,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- 推荐排行榜 -->
-                <div id="sidebar_topdiggedposts" class="sidebar-block"></div>
 
                 <!-- 最新评论 -->
                 <div id="sidebar_recentcomments" class="sidebar-block">

@@ -303,12 +303,14 @@ window.cnblogsConfig = {
           readRank: false,
           // 推荐排行
           recommendRank: false,
+          // 最新评论
+          latestComment: false,
+          // 评论排行
+          commentsRank: false,
           // 随笔档案
           postsArchive: false,
           // 自定义列表
           customList: false,
-          // 最新评论
-          latestComment: false,
       }
   },
 }

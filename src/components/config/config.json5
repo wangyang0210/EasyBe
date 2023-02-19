@@ -30,8 +30,6 @@
     submenu: {
       // 最新随笔
       latestPosts: false,
-      // 最新评论
-      latestComment: false,
       // 我的标签
       myTags: false,
       // 随笔分类
@@ -40,10 +38,14 @@
       readRank: false,
       // 推荐排行
       recommendRank: false,
-      // 帖子档案
+      // 最新评论
+      latestComment: false,
+      // 评论排行
+      commentsRank: false,
+      // 随笔档案
       postsArchive: false,
       // 自定义列表
-      customList: false
+      customList: false,
     }
   },
 
@@ -361,7 +363,13 @@
 
     },
     diggit: false,
-    commentTyping: false,
+    commentTyping: {
+      enable: false,
+      options: {
+        colorful: true,
+        shake: false,
+      }
+    },
     owo: false,
   },
 
