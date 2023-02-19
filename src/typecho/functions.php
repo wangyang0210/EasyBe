@@ -138,6 +138,7 @@ function getPermalinkFromCoid($coid) {
 function getDiggNum($cid, &$record = NULL) {
     $db = Typecho_Db::get();
     $res = [
+        'msg' => '',
         'digg' => 0,
         'recording' => false
     ];
@@ -164,19 +165,25 @@ function digg($cid) {
     if (empty($record)) {
         Typecho_Cookie::set('__typecho_digg_record', "[$cid]");
     } else {
-        if ($res['recording']) return $res['digg'];
+        if ($res['recording']) {
+            $res['msg'] = "您已经推荐过了哦O(∩_∩)O";
+            return json_encode($res);
+        }
         array_push($record, $cid);
         Typecho_Cookie::set('__typecho_digg_record', json_encode($record));
     }
     $digg = ++$res['digg'];
     $db->query($db->update('table.contents')->rows(array('digg'=>$digg))->where('cid = ?', $cid));
-    return $digg;
+    $res['msg'] = '感谢推荐!';
+    $res['digg'] = $digg;
+    return json_encode($res);
 }
 
 // 获取指定文章的踩
 function getBuryNum($cid, &$record = NULL) {
     $db = Typecho_Db::get();
     $res = [
+        'msg' => '',
         'bury' => 0,
         'recording' => false
     ];
@@ -199,18 +206,23 @@ function getBuryNum($cid, &$record = NULL) {
 // 请求踩
 function bury($cid) {
     $db = Typecho_Db::get();
-    $res = getDiggNum($cid, $record);
+    $res = getBuryNum($cid, $record);
     if (empty($record)) {
         Typecho_Cookie::set('__typecho_bury_record', "[$cid]");
     } else {
-        if ($res['recording']) return $res['bury'];
+        if ($res['recording']) {
+            $res['msg'] = "您已经批评过了哦/(ㄒoㄒ)/~~";
+            return json_encode($res);
+        }
         array_push($record, $cid);
         Typecho_Cookie::set('__typecho_bury_record', json_encode($record));
     }
     $bury = ++$res['bury'];
     $db->query($db->update('table.contents')->rows(array('bury'=>$bury))->where('cid = ?', $cid));
-    return $bury;
+    $res['msg'] = '感谢批评,我会再接再厉的(づ￣ 3￣)づ';
+    $res['bury'] = $bury;
+    return json_encode($res);
 }
-?>
+
 
 

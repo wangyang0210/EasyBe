@@ -30,11 +30,11 @@
             cache: false,
             success: function (data) {
                 if(data) {
-                    $('.rightDiggitSpan').text(data)
-                    $('#digg_count').text(data);
-                    $('.btn-11').text("感谢推荐!");
-                    $('#digg_tips').text("感谢支持");
-
+                    data = JSON.parse(data)
+                    $('.rightDiggitSpan').text(data.digg)
+                    $('#digg_count').text(data.digg);
+                    $('.btn-11').text(data.msg);
+                    $('#digg_tips').text(data.msg);
                 }
             },
             error: function (e) {
@@ -54,9 +54,10 @@
             cache: false,
             success: function (data) {
                 if(data) {
-                    $('.rightBuryitSpan').text(data)
-                    $('#bury_count').text(data);
-                    $('#digg_tips').text("感谢批评,我会再接再厉的(づ￣ 3￣)づ");
+                    data = JSON.parse(data)
+                    $('.rightBuryitSpan').text(data.bury)
+                    $('#bury_count').text(data.bury);
+                    $('#digg_tips').text(data.msg);
                 }
             },
             error: function (e) {
