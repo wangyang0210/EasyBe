@@ -33,7 +33,7 @@
                     data = JSON.parse(data)
                     $('.rightDiggitSpan').text(data.digg)
                     $('#digg_count').text(data.digg);
-                    $('.btn-11').text(data.msg);
+                    $('.btn-11').text('感谢推荐!');
                     $('#digg_tips').text(data.msg);
                 }
             },
