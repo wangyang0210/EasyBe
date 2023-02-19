@@ -10,6 +10,10 @@ function themeConfig($form) {
     $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '<script src="//cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js" defer></script>', _t('全局配置'));
     $form->addInput($globalConfig);
 
+    $diggRank = new Typecho_Widget_Helper_Form_Element_Text('diggRank', NULL, '10', _t('推荐排行'), _t('推荐排行显示数量'));
+    $diggRank->input->setAttribute('class', 'w-20');
+    $form->addInput($diggRank->addRule('isInteger', _t('请输入纯数字')));
+
     $postRank = new Typecho_Widget_Helper_Form_Element_Text('postRank', NULL, '10', _t('阅读排行'), _t('阅读排行显示数量'));
     $postRank->input->setAttribute('class', 'w-20');
     $form->addInput($postRank->addRule('isInteger', _t('请输入纯数字')));
@@ -84,6 +88,26 @@ function getPostView($archive) {
     $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid))['views'];
     if ($archive->is('single')) $db->query($db->update('table.contents')->rows(array('views' => (int) $row + 1))->where('cid = ?', $cid));
     echo $row;
+}
+
+// 获取推荐最多的文章
+function getPostDiggRank($limit){
+    $db     = Typecho_Db::get();
+    $posts = $db->fetchAll($db->select()->from('table.contents')
+        ->where('type = ? AND status = ? AND password is NULL', 'post', 'publish')
+        ->order('digg', Typecho_Db::SORT_DESC)
+        ->limit($limit)
+    );
+
+    if ($posts) {
+        foreach ($posts as $post) {
+            $result = Typecho_Widget::widget('Widget_Abstract_Contents')->push($post);
+            $postTitle = htmlspecialchars($result['title']);
+            $permalink = $result['permalink'];
+            $postDiggNum = $result['digg'];
+            echo "<li><a href='$permalink' title='$postTitle'>$postTitle($postDiggNum)</a></li>";
+        }
+    }
 }
 
 // 获取阅读量最多的文章

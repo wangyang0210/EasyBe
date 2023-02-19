@@ -125,11 +125,7 @@
                             </h3>
                             <div id="TopDiggPostsBlock">
                                 <ul style="word-break: break-all">
-                                    <li>
-                                        <a href="https://www.cnblogs.com/wangyang0210/p/9488438.html">
-                                            1. 博客园美化主题——只需一分钟(51)
-                                        </a>
-                                    </li>
+                                    <?php getPostDiggRank($this->options->diggRank); ?>
                                 </ul>
                             </div>
                         </div>
