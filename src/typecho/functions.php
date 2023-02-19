@@ -165,7 +165,7 @@ function getPostCommentRank($limit) {
             $postTitle = htmlspecialchars($result['title']);
             $permalink = $result['permalink'];
             $postCommentsNum = $result['commentsNum'];
-            echo "<li><a href='$permalink' title='$postTitle'>$postTitle($postCommentsNum)</a></li>";
+            echo "<li><a href='$permalink' title='$postTitle'>Re:$postTitle($postCommentsNum)</a></li>";
         }
     }
 }
