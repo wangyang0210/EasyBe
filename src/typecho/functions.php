@@ -4,7 +4,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 // 主题配置
 function themeConfig($form) {
-
     $jqueryConfig = new Typecho_Widget_Helper_Form_Element_Text('jqueryConfig', NULL, '//lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js', _t('JQuery CDN'));
     $form->addInput($jqueryConfig);
 
@@ -19,8 +18,6 @@ function themeConfig($form) {
     $commentsRank->input->setAttribute('class', 'w-20');
     $form->addInput($commentsRank->addRule('isInteger', _t('请输入纯数字')));
 
-
-
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock',
         array('ShowRecentPosts' => _t('显示最新文章'),
             'ShowRecentComments' => _t('显示最近回复'),
@@ -28,8 +25,45 @@ function themeConfig($form) {
             'ShowArchive' => _t('显示归档'),
             'ShowOther' => _t('显示其它杂项')),
         array('ShowRecentPosts', 'ShowRecentComments', 'ShowCategory', 'ShowArchive', 'ShowOther'), _t('侧边栏显示'));
-
     $form->addInput($sidebarBlock->multiMode());
+
+    // 备份主题配置信息
+    $name = 'easybe';
+    $db = Typecho_Db::get();
+    $themeData = $db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'theme:'.$name))['value'];
+    $themeBackup = $db->fetchRow($db->select()->from ('table.options')->where ('name = ?', 'themeBackup:'.$name))['value'];
+
+    if(isset($_POST) && $themeData) {
+        if($_POST["jqueryConfig"]){
+            if($themeBackup){
+                $db->query($db->update('table.options')->rows(array('value'=>$themeData))->where('name = ?', 'themeBackup:'.$name));
+            }else{
+                $db->query($db->insert('table.options')->rows(array('name' => 'themeBackup:'.$name,'user' => '0','value' => $themeData)));
+            }
+        }
+        if($_POST["restore"]){
+            if($themeBackup){
+                $updateRows= $db->query($db->update('table.options')->rows(array('value'=>$themeBackup))->where('name = ?', 'theme:'.$name));
+                if ($updateRows)  {
+                    echo '<div class="message popup success" style="position: absolute; top: 36px; display: block;"><ul><li>主题备份数据已恢复</li></ul></div>';
+                    echo "<meta http-equiv='refresh' content ='1';url=".getUrl().">";
+                }
+            }else{
+                echo '<div class="message popup error" style="position: absolute; top: 36px; display: block;"><ul><li>不存在主题备份数据，请先进行主题数据备份</li></ul></div>';
+                echo "<meta http-equiv='refresh' content ='1';url=".getUrl().">";
+            }
+        }
+    }
+    echo '<form class="protected home col-mb-12" action="" method="post"><ul class="typecho-option" style="position: relative;left: -9px;"><li><label class="typecho-label">主题配置恢复</label><input type="submit" name="restore" class="btn primary" value="恢复主题配置"></li></ul></form>';
+}
+
+// 获取当前页面地址
+function getUrl() {
+    $protocal = isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443' ? 'https://' : 'http://';
+    $php_self = $_SERVER['PHP_SELF'] ?? $_SERVER['SCRIPT_NAME'];
+    $path_info = $_SERVER['PATH_INFO'] ??  '';
+    $relate_url = $_SERVER['REQUEST_URI'] ?? $php_self.$path_info;
+    return $protocal.($_SERVER['HTTP_HOST'] ?? '').$relate_url;
 }
 
 // 获取全部文章阅读量
@@ -135,7 +169,7 @@ function digg($cid) {
         Typecho_Cookie::set('__typecho_digg_record', json_encode($record));
     }
     $digg = ++$res['digg'];
-    $db->query("UPDATE `{$db->getPrefix()}contents` SET `digg` = {$digg} WHERE `cid` = {$cid};");
+    $db->query($db->update('table.contents')->rows(array('digg'=>$digg))->where('cid = ?', $cid));
     return $digg;
 }
 
@@ -174,6 +208,9 @@ function bury($cid) {
         Typecho_Cookie::set('__typecho_bury_record', json_encode($record));
     }
     $bury = ++$res['bury'];
-    $db->query("UPDATE `{$db->getPrefix()}contents` SET `bury` = {$bury} WHERE `cid` = {$cid};");
+    $db->query($db->update('table.contents')->rows(array('bury'=>$bury))->where('cid = ?', $cid));
     return $bury;
 }
+?>
+
+
