@@ -1611,7 +1611,9 @@ window.cnblogsConfig = {
         commentTyping: {
             enable: false,
             options: {
+                // 是否多彩粒子
                 colorful: true,
+                // 是否抖动
                 shake: false,
             }
         },
