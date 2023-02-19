@@ -1,7 +1,7 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: https://github.com/DIYgod/OwO
  * @Date 2023-02-18 11:37
  * ----------------------------------------------
  * @describe: owo.js

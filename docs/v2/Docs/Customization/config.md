@@ -1602,13 +1602,19 @@ window.cnblogsConfig = {
 
 ### commentTyping - 评论增加打字特效
 
-* 类型：```Boolean```
-* 默认值：```false```
+* 类型：```Object```
+* 默认值：```{}```
 
 ```javascript
 window.cnblogsConfig = {
     articleContent: {
-        commentTyping: false,
+        commentTyping: {
+            enable: false,
+            options: {
+                colorful: true,
+                shake: false,
+            }
+        },
     },
 }
 ```

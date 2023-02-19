@@ -8,11 +8,27 @@
  */
 
 export default function main() {
-    // ($.__config.articleContent.commentTyping) && import(/* webpackChunkName: "comment-typing" */ /* webpackPrefetch: true */ './commentTyping/commentTyping.js')
+    if($.__config.articleContent.commentTyping.enable) {
+        const POWERMODE  = require('./commentTyping/commentTyping')
+        POWERMODE.colorful = $.__config.articleContent.commentTyping.options.colorful; // make power mode colorful
+        POWERMODE.shake = $.__config.articleContent.commentTyping.options.shake; // turn off shake
+        document.body.addEventListener('input', POWERMODE);
+    }
     if($.__config.articleContent.owo) {
         $(".OwO").show()
-        import(/* webpackChunkName: "owo" */ /* webpackPrefetch: true */ './owo/owo')
-        import(/* webpackChunkName: "owo-css" */ /* webpackPrefetch: true */ '../../style/owo.scss')
+        import(/* webpackChunkName: "owo-css" */  '../../style/owo.scss')
+        import(/* webpackChunkName: "owo" */ './owo/owo').then(module => {
+            const OwO = module.default;
+             OwO({
+                 logo: 'OwO表情',
+                 container: document.getElementsByClassName('OwO')[0],
+                 target: document.getElementsByTagName('textarea')[0],
+                 position: 'down',
+                 width: '100%',
+                 maxHeight: '250px',
+                 data: $.__config.comment.emoticon
+            });
+        })
     }
     let setComment = () => {
         let feedbackItem = $('.feedbackItem');
