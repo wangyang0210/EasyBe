@@ -4,6 +4,16 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 // 主题配置
 function themeConfig($form) {
+    echo '<style>
+            #typecho-option-item-latestPosts-2, #typecho-option-item-myTags-3, 
+            #typecho-option-item-postsClassify-4, #typecho-option-item-postRank-5, 
+            #typecho-option-item-diggRank-6, #typecho-option-item-latestComment-7, 
+            #typecho-option-item-commentsRank-8, #typecho-option-item-postsArchive-9 {
+                position: relative;
+                float: right;
+           }
+          </style>';
+
     $jqueryConfig = new Typecho_Widget_Helper_Form_Element_Text('jqueryConfig', NULL, '//lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js', _t('JQuery CDN'));
     $form->addInput($jqueryConfig);
 
@@ -11,35 +21,35 @@ function themeConfig($form) {
     $form->addInput($globalConfig);
 
     $latestPosts = new Typecho_Widget_Helper_Form_Element_Text('latestPosts', NULL, '10', _t('最新随笔'), _t('最新随笔展示数量'));
-    $latestPosts->input->setAttribute('class', 'w-20');
+    $latestPosts->input->setAttribute('class', 'w-60');
     $form->addInput($latestPosts->addRule('isInteger', _t('请输入纯数字')));
 
     $myTags = new Typecho_Widget_Helper_Form_Element_Text('myTags', NULL, '10', _t('我的标签'), _t('我的标签展示数量'));
-    $myTags->input->setAttribute('class', 'w-20');
+    $myTags->input->setAttribute('class', 'w-60');
     $form->addInput($myTags->addRule('isInteger', _t('请输入纯数字')));
 
     $postsClassify = new Typecho_Widget_Helper_Form_Element_Text('postsClassify', NULL, '10', _t('随笔分类'), _t('随笔分类展示数量'));
-    $postsClassify->input->setAttribute('class', 'w-20');
+    $postsClassify->input->setAttribute('class', 'w-60');
     $form->addInput($postsClassify->addRule('isInteger', _t('请输入纯数字')));
 
     $postRank = new Typecho_Widget_Helper_Form_Element_Text('postRank', NULL, '10', _t('阅读排行'), _t('阅读排行展示数量'));
-    $postRank->input->setAttribute('class', 'w-20');
+    $postRank->input->setAttribute('class', 'w-60');
     $form->addInput($postRank->addRule('isInteger', _t('请输入纯数字')));
 
     $diggRank = new Typecho_Widget_Helper_Form_Element_Text('diggRank', NULL, '10', _t('推荐排行'), _t('推荐排行展示数量'));
-    $diggRank->input->setAttribute('class', 'w-20');
+    $diggRank->input->setAttribute('class', 'w-60');
     $form->addInput($diggRank->addRule('isInteger', _t('请输入纯数字')));
 
     $latestComment = new Typecho_Widget_Helper_Form_Element_Text('latestComment', NULL, '10', _t('最新评论'), _t('最新评论展示数量'));
-    $latestComment->input->setAttribute('class', 'w-20');
+    $latestComment->input->setAttribute('class', 'w-60');
     $form->addInput($latestComment->addRule('isInteger', _t('请输入纯数字')));
 
     $commentsRank = new Typecho_Widget_Helper_Form_Element_Text('commentsRank', NULL, '10', _t('评论排行'), _t('评论排行展示数量'));
-    $commentsRank->input->setAttribute('class', 'w-20');
+    $commentsRank->input->setAttribute('class', 'w-60');
     $form->addInput($commentsRank->addRule('isInteger', _t('请输入纯数字')));
 
     $postsArchive = new Typecho_Widget_Helper_Form_Element_Text('postsArchive', NULL, '10', _t('随笔档案'), _t('随笔档案展示数量'));
-    $postsArchive->input->setAttribute('class', 'w-20');
+    $postsArchive->input->setAttribute('class', 'w-60');
     $form->addInput($postsArchive->addRule('isInteger', _t('请输入纯数字')));
 
     $sidebarBlock = new Typecho_Widget_Helper_Form_Element_Checkbox('sidebarBlock',
