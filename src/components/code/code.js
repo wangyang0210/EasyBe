@@ -91,7 +91,7 @@ export default function main() {
     (() => {
         let codeType = $.__config.code.type.toLowerCase()
         if (codeType === 'hljs') {
-            import(/* webpackChunkName: "code-hljs" */ /* webpackPrefetch: true */ './lib/hljs').then(module => {
+            import(/* webpackChunkName: "code-hljs" */ './lib/hljs').then(module => {
                 const codeMain = module.default;
                 codeMain(setCodeLine);
             });

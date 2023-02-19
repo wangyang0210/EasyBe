@@ -10,8 +10,8 @@
 export default function main() {
     if($.__config.articleContent.commentTyping.enable) {
         const POWERMODE  = require('./commentTyping/commentTyping')
-        POWERMODE.colorful = $.__config.articleContent.commentTyping.options.colorful; // make power mode colorful
-        POWERMODE.shake = $.__config.articleContent.commentTyping.options.shake; // turn off shake
+        POWERMODE.colorful = $.__config.articleContent.commentTyping.options.colorful;
+        POWERMODE.shake = $.__config.articleContent.commentTyping.options.shake;
         document.body.addEventListener('input', POWERMODE);
     }
     if($.__config.articleContent.owo) {

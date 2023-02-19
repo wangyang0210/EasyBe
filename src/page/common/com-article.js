@@ -19,7 +19,7 @@ export default function main() {
      * 设置文章banner动效
      */
     (() => {
-        if ( $.__config.animate.articleBanner.enable) import(/* webpackChunkName: "nh-banner-animation" */ /* webpackPrefetch: true */ '../../style/nhBannerAnimation.css');
+        if ( $.__config.animate.articleBanner.enable) import(/* webpackChunkName: "nh-banner-animation" */ '../../style/nhBannerAnimation.css');
     })();
 
     /**

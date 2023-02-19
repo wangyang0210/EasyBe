@@ -102,7 +102,7 @@
                                     <div class="OwO" style="display: none">OwO</div>
                                 </div>
                             </div>
-                            <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
+                            <textarea name="text" class="OwO-textarea" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
                     </div>
                     <p id="commentbox_opt">
                         <input id="btn_comment_submit" onclick="comments('<?php $this->commentUrl() ?>')" type="button" class="comment_btn" title="提交评论" value="提交评论">

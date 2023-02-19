@@ -132,7 +132,7 @@ export default function main() {
      */
     (() => {
         if ( $.__config.animate.homeBanner.enable) {
-            import(/* webpackChunkName: "circle-magic" */ /* webpackPrefetch: true */  '../vendor/circleMagic/circleMagic').then(module => {
+            import(/* webpackChunkName: "circle-magic" */  '../vendor/circleMagic/circleMagic').then(module => {
                 $('.main-header').circleMagic( $.__config.animate.homeBanner.options);
             });
         }

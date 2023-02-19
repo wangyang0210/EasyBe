@@ -5,17 +5,18 @@
 - 新增配置浏览器信息,IP地址等[https://github.com/hakula139/UserAgent-for-Typecho | https://doge.uk/coding/useragent-modify.html]
 - 文章加密输入密码优化
 - 插件部署的文档
-- owo表情相关文档
+- owo表情相关文档 | 表情速查https://emotion.xiaokang.me/#/emotion/bilibili2233
+- 推荐排行榜
 
 # 2023.2.9 - v2.1.8
-- 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
-- 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)
-- 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail
-- 新增评论打字特效[待测试]
+- 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache) [todo]
+- 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO) [todo]
+- 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail [todo]
+- 新增评论打字特效,来自[activate-power-mode](https://github.com/disjukr/activate-power-mode)
 - 新增文章点赞特效
 - 新增文章踩功能
-- 新增将配置存放到浏览器中防止主题切换导致配置丢失[待测试]
-- 新增后台配置，展示文章评论排行和文章阅读排行的数量
+- 新增后台配置,用于备份主题配置和恢复主题配置
+- 新增后台配置,展示文章评论排行和文章阅读排行的数量
 - 新增文章底部增加声援博主信息
 - 新增文档增加伪静态配置教程
 - 修复博客状态显示功能

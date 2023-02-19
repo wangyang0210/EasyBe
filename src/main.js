@@ -14,20 +14,18 @@ import event from "./components/event/event";
 $(document).ready(function () {
 
     // 初始化
-    if (localStorage.getItem('cnblogsConfig') && !Object.keys(window?.cnblogsConfig || {}).length) window.cnblogsConfig = JSON.parse(localStorage.getItem('cnblogsConfig'))
     $.__config = $.extend( true, defaultConfig,  window?.cnblogsConfig || {}); // 配置信息
     $.__status = status; // 页面状态信息
     $.__tools = tools;  // 公共处理工具
     $.__timeIds = {};  // 定时器
     $.__event = {};   // 事件
     $.__config.info.name ||= $.__status.user;
-    localStorage.setItem('cnblogsConfig', JSON.stringify($.__config))
     $.__tools.dynamicLoadingJs($.__config.default.moment).then(r => {
-        import(/* webpackChunkName: "page-[request]" */ /* webpackPrefetch: true */ `./page/${ $.__status.pageType}`).then(module => {
+        import(/* webpackChunkName: "page-[request]" */ `./page/${ $.__status.pageType}`).then(module => {
             const page = module.default;
 
             // 前置公共处理
-            import(/* webpackChunkName: "com-before" */ /* webpackPrefetch: true */ './components/common/comBefore').then(beforeModule => {
+            import(/* webpackChunkName: "com-before" */ './components/common/comBefore').then(beforeModule => {
                 const comBefore = beforeModule.default;
                 comBefore();
 
@@ -35,7 +33,7 @@ $(document).ready(function () {
                 page();
 
                 // 后置公共处理
-                import(/* webpackChunkName: "com-after" */ /* webpackPrefetch: true */ './components/common/comAfter').then(afterModule => {
+                import(/* webpackChunkName: "com-after" */ './components/common/comAfter').then(afterModule => {
                     const comAfter = afterModule.default;
                     comAfter();
                     (() => {
