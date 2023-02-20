@@ -110,7 +110,6 @@ function getAllPostViews() {
     echo $row[0]['views'];
 }
 
-
 // 获取指定文章的阅读访问量
 function getPostView($archive) {
     $cid    = $archive->cid;
@@ -119,6 +118,18 @@ function getPostView($archive) {
     if ($archive->is('single')) $db->query($db->update('table.contents')->rows(array('views' => (int) $row + 1))->where('cid = ?', $cid));
     echo $row;
 }
+
+// TODO
+
+// 获取我的标签
+
+// 获取随笔分类
+
+// 获取随笔档案
+
+// 获取最新评论
+
+// 获取最新随笔
 
 // 获取推荐最多的文章
 function getPostDiggRank($limit){
