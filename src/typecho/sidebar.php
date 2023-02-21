@@ -49,7 +49,7 @@
                         <h3 class="catListTitle">最新随笔</h3>
                         <ul>
                             <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)) : ?>
-                                <?php $this->widget('Widget_Contents_Post_Recent')->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
+                                <?php $this->widget('Widget_Contents_Post_Recent',"pageSize={$this->options->latestPosts}")->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
                             <?php endif; ?>
                         </ul>
                     </div>
@@ -62,7 +62,9 @@
                     <ul>
                         <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)) : ?>
                             <?php $this->widget('Widget_Metas_Category_List')->to($classify); ?>
-                            <?php while($classify->next()): ?>
+                            <?php $classifyNum = 0 ?>
+                            <?php while($classify->next() && $classifyNum < $this->options->postsClassify): ?>
+                                <?php  $classifyNum++ ?>
                                 <li data-category-list-item-visible="true" style="display: block">
                                     <a href="<?php $classify->permalink(); ?>" class="category-item-link" rel="" target=""> <?php $classify->name(); ?> (<?php $classify->count()?>)</a>
                                 </li>
@@ -77,7 +79,7 @@
                         <h3 class="catListTitle">随笔档案</h3>
                         <ul>
                             <?php if (!empty($this->options->sidebarBlock) && in_array('ShowArchive', $this->options->sidebarBlock)) : ?>
-                                <?php $this->widget('Widget_Contents_Post_Date', 'format=Y-m&type=month&limit=0')->parse('
+                                <?php $this->widget('Widget_Contents_Post_Date', "format=Y-m&type=month&limit={$this->options->postsArchive}")->parse('
                                 <li data-category-list-item-visible="true" style="display: block">
                                     <a href="{permalink}"
                                        class="category-item-link" rel="" target="">{date} ({count})</a>
@@ -93,7 +95,7 @@
                     <div class="catListTag">
                         <h3 class="catListTitle">我的标签</h3>
                         <ul>
-                            <?php $this->widget('Widget_Metas_Tag_Cloud')->to($tags); ?>
+                            <?php $this->widget('Widget_Metas_Tag_Cloud',"limit={$this->options->myTags}")->to($tags); ?>
                             <?php while($tags->next()): ?>
                                 <li><a rel="tag" href="<?php $tags->permalink(); ?>"><?php $tags->name(); ?><span class="tag-count">(<?php $tags->count()?>)</span></a></li>
                             <?php endwhile; ?>
@@ -152,7 +154,7 @@
                         <div class="RecentCommentBlock">
                             <ul>
                                 <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
-                                    <?php $this->widget('Widget_Comments_Recent')->to($comments); ?>
+                                    <?php $this->widget('Widget_Comments_Recent', "pageSize={$this->options->latestComment}")->to($comments); ?>
                                     <?php while($comments->next()): ?>
                                         <li class="recent_comment_title">
                                             <a href="<?php $comments->permalink(); ?>"><?php $comments->title() ?></a>

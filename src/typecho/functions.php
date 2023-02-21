@@ -119,23 +119,6 @@ function getPostView($archive) {
     echo $row;
 }
 
-// TODO
-
-// 获取我的标签
-function getMyTag($limit) {}
-
-// 获取随笔分类
-function getPostsClassify($limit) {}
-
-// 获取随笔档案
-function getPostsArchive($limit) {}
-
-// 获取最新评论
-function getLatestComment($limit) {}
-
-// 获取最新随笔
-function getLatestPosts($limit) {}
-
 // 获取推荐最多的文章
 function getPostDiggRank($limit){
     $db     = Typecho_Db::get();
@@ -293,6 +276,3 @@ function bury($cid) {
     $res['bury'] = $bury;
     return json_encode($res);
 }
-
-
-
