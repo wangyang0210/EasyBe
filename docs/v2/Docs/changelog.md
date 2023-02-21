@@ -10,6 +10,7 @@
 - 我的标签页面（更多）| https://www.cnblogs.com/wangyang0210/tag/
 - 随笔分类页面（更多）
 - 随笔档案页面（更多）
+- 默认iconfont问题
 
 # 2023.2.9 - v2.1.8
 - 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache) [todo]

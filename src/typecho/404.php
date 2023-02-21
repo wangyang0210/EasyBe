@@ -30,8 +30,8 @@
             <div class="box-description-title">o_o ....</div>
             <div class="box-description-text">你竟然来到了无人区</div>
             <form method="post">
-                <input type="text" name="s" class="text" style="border: 1px solid #332f63;height: 28px;outline:0;padding: 0px 0px 0px 12px;" autofocus placeholder="找找看" />
-                <button type="submit" class="box-button" style="float: right;top: -30px;left: 54px;">搜索</button>
+                <input type="text" name="s" class="text n-input" autofocus placeholder="找找看" />
+                <button type="submit" class="box-button">搜索</button>
             </form>
         </div>
     </div>

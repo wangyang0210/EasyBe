@@ -4554,6 +4554,10 @@ table#blogCalendar > tbody > tr > td > a {
     transition: background .5s ease;
     overflow: hidden;
     width: 70px;
+    float: right;
+    top: -30px;
+    left: 54px;
+    border-radius: 0;
 }
 .box .box-description .box-button:before {
     content: '';
@@ -4567,9 +4571,7 @@ table#blogCalendar > tbody > tr > td > a {
     transform: translateX(-50px) rotate(45deg);
     transition: transform .5s ease;
 }
-.box .box-description .box-button:hover {
-    border-color: #332f63;
-}
+
 .box .box-description .box-button:hover:before {
     transform: translateX(250px) rotate(45deg);
 }
@@ -4609,4 +4611,11 @@ table#blogCalendar > tbody > tr > td > a {
     100% {
         opacity: .2;
     }
+}
+
+.box .box-description .n-input{
+    border: 1px solid #332f63;
+    height: 28px;
+    outline:0;
+    padding: 0px 0px 0px 12px;
 }

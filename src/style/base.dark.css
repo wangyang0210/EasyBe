@@ -399,7 +399,8 @@ details {
 .box .box-ghost .symbol:nth-child(3):before, .box .box-ghost .symbol:nth-child(3):after,
 .box .box-ghost .symbol:nth-child(4):before, .box .box-ghost .symbol:nth-child(4):after,
 .box .box-ghost .symbol:nth-child(6):before, .box .box-ghost .symbol:nth-child(6):after,
-.box .box-ghost .box-ghost-container {
+.box .box-ghost .box-ghost-container,
+.box .box-ghost .box-ghost-container .box-ghost-bottom div {
     background: #ffffff !important;
 }
 
@@ -419,4 +420,13 @@ details {
 
 .box .box-ghost .box-ghost-shadow {
     box-shadow: 0 50px 15px 5px #f7f7f7;
+}
+
+.box .box-description .box-button {
+    background: #8c8aa7 !important;
+}
+
+.box .box-description .n-input {
+    border: #83829c !important;
+    background: #333333 !important;
 }
