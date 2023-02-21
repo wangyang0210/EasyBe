@@ -5,7 +5,6 @@
 
 <!--start: footer -->
   <div id="footer">
-      Copyright © 2023 王洋
 
   </div>
 <!--end: footer -->
