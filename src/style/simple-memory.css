@@ -4337,3 +4337,276 @@ table#blogCalendar > tbody > tr > td > a {
         width: 15px
     }
 }
+
+/*404 page style*/
+.box {
+    width: 90% !important;
+    height: 450px;
+    max-width: 900px;
+    max-height: 600px;
+    border-radius: 10px;
+    position: relative;
+    top: 50px;
+}
+.box .box-ghost {
+    padding: 15px 25px 25px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -30%);
+}
+.box .box-ghost .symbol:nth-child(1) {
+    opacity: .2;
+    animation: shine 4s ease-in-out 3s infinite;
+}
+.box .box-ghost .symbol:nth-child(1):before, .box .box-ghost .symbol:nth-child(1):after {
+    content: '';
+    width: 12px;
+    height: 4px;
+    background: #332F63;
+    position: absolute;
+    border-radius: 5px;
+    bottom: 65px;
+    left: 0;
+}
+.box .box-ghost .symbol:nth-child(1):before {
+    transform: rotate(45deg);
+}
+.box .box-ghost .symbol:nth-child(1):after {
+    transform: rotate(-45deg);
+}
+.box .box-ghost .symbol:nth-child(2) {
+    position: absolute;
+    left: -5px;
+    top: 30px;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    border: 4px solid #332F63;
+    opacity: .2;
+    animation: shine 4s ease-in-out 1.3s infinite;
+}
+.box .box-ghost .symbol:nth-child(3) {
+    opacity: .2;
+    animation: shine 3s ease-in-out .5s infinite;
+}
+.box .box-ghost .symbol:nth-child(3):before, .box .box-ghost .symbol:nth-child(3):after {
+    content: '';
+    width: 12px;
+    height: 4px;
+    background: #332F63;
+    position: absolute;
+    border-radius: 5px;
+    top: 5px;
+    left: 40px;
+}
+.box .box-ghost .symbol:nth-child(3):before {
+    transform: rotate(90deg);
+}
+.box .box-ghost .symbol:nth-child(3):after {
+    transform: rotate(180deg);
+}
+.box .box-ghost .symbol:nth-child(4) {
+    opacity: .2;
+    animation: shine 6s ease-in-out 1.6s infinite;
+}
+.box .box-ghost .symbol:nth-child(4):before, .box .box-ghost .symbol:nth-child(4):after {
+    content: '';
+    width: 15px;
+    height: 4px;
+    background: #332F63;
+    position: absolute;
+    border-radius: 5px;
+    top: 10px;
+    right: 30px;
+}
+.box .box-ghost .symbol:nth-child(4):before {
+    transform: rotate(45deg);
+}
+.box .box-ghost .symbol:nth-child(4):after {
+    transform: rotate(-45deg);
+}
+.box .box-ghost .symbol:nth-child(5) {
+    position: absolute;
+    right: 5px;
+    top: 40px;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 3px solid #332F63;
+    opacity: .2;
+    animation: shine 1.7s ease-in-out 7s infinite;
+}
+.box .box-ghost .symbol:nth-child(6) {
+    opacity: .2;
+    animation: shine 2s ease-in-out 6s infinite;
+}
+.box .box-ghost .symbol:nth-child(6):before, .box .box-ghost .symbol:nth-child(6):after {
+    content: '';
+    width: 15px;
+    height: 4px;
+    background: #332F63;
+    position: absolute;
+    border-radius: 5px;
+    bottom: 65px;
+    right: -5px;
+}
+.box .box-ghost .symbol:nth-child(6):before {
+    transform: rotate(90deg);
+}
+.box .box-ghost .symbol:nth-child(6):after {
+    transform: rotate(180deg);
+}
+.box .box-ghost .box-ghost-container {
+    background: #332F63;
+    width: 100px;
+    height: 100px;
+    border-radius: 100px 100px 0 0;
+    position: relative;
+    margin: 0 auto;
+    animation: upndown 3s ease-in-out infinite;
+}
+.box .box-ghost .box-ghost-container .box-ghost-eyes {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    height: 12px;
+    width: 70px;
+}
+.box .box-ghost .box-ghost-container .box-ghost-eyes .box-eye-left {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    position: absolute;
+    left: 0;
+}
+.box .box-ghost .box-ghost-container .box-ghost-eyes .box-eye-right {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    position: absolute;
+    right: 0;
+}
+.box .box-ghost .box-ghost-container .box-ghost-bottom {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+.box .box-ghost .box-ghost-container .box-ghost-bottom div {
+    flex-grow: 1;
+    position: relative;
+    top: -10px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #fff;
+}
+.box .box-ghost .box-ghost-container .box-ghost-bottom div:nth-child(2n) {
+    top: -12px;
+    margin: 0 -0px;
+    border-top: 15px solid #332F63;
+    background: transparent;
+}
+.box .box-ghost .box-ghost-shadow {
+    height: 20px;
+    box-shadow: 0 50px 15px 5px #3B3769;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: smallnbig 3s ease-in-out infinite;
+}
+.box .box-description {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.box .box-description .box-description-container {
+    color: #332f63;
+    text-align: center;
+    width: 200px;
+    font-size: 16px;
+    margin: 0 auto;
+}
+.box .box-description .box-description-container .box-description-title {
+    font-size: 24px;
+    letter-spacing: .5px;
+}
+.box .box-description .box-description-container .box-description-text {
+    color: #8C8AA7;
+    line-height: 20px;
+    margin: 10px 0px;
+}
+.box .box-description .box-button {
+    display: block;
+    position: relative;
+    background: #332f63;
+    border: 1px solid transparent;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: background .5s ease;
+    overflow: hidden;
+    width: 70px;
+}
+.box .box-description .box-button:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 100px;
+    background: #fff;
+    bottom: -25px;
+    left: 0;
+    border: 2px solid #fff;
+    transform: translateX(-50px) rotate(45deg);
+    transition: transform .5s ease;
+}
+.box .box-description .box-button:hover {
+    border-color: #332f63;
+}
+.box .box-description .box-button:hover:before {
+    transform: translateX(250px) rotate(45deg);
+}
+
+@keyframes upndown {
+    0% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+@keyframes smallnbig {
+    0% {
+        width: 90px;
+    }
+    50% {
+        width: 100px;
+    }
+    100% {
+        width: 90px;
+    }
+}
+@keyframes shine {
+    0% {
+        opacity: .2;
+    }
+    25% {
+        opacity: .1;
+    }
+    50% {
+        opacity: .2;
+    }
+    100% {
+        opacity: .2;
+    }
+}

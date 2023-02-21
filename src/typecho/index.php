@@ -1,9 +1,9 @@
 <?php
 /**
- *
+ * EasyBe Themes
  * @package EasyBe
  * @author WangYang
- * @version 2.0
+ * @version 2.1.7
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;

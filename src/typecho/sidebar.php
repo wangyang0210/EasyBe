@@ -72,7 +72,6 @@
                         <?php endif; ?>
                     </ul>
                 </div>
-
                 <!-- 随笔档案 -->
                 <div id="sidebar_categories">
                     <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
@@ -89,7 +88,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <!-- 我的标签 -->
                 <div id="sidebar_toptags" class="sidebar-block">
                     <div class="catListTag">
@@ -102,7 +100,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <!-- 阅读排行榜 -->
                 <div id="sidebar_topviewedposts" class="sidebar-block">
                     <div class="catListView">
@@ -130,7 +127,6 @@
                             </div>
                         </div>
                     </div></div>
-
                 <!-- 评论排行榜 -->
                 <div id="sidebar_topcommentedposts" class="sidebar-block">
                     <div class="catListFeedback">
@@ -144,7 +140,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- 最新评论 -->
                 <div id="sidebar_recentcomments" class="sidebar-block">
                     <div class="catListComment">

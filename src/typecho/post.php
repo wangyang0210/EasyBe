@@ -86,11 +86,12 @@
                             <a href="<?php $this->options->adminUrl(); ?>write-post.php?cid=<?php echo $this->cid;?>" target="_blank">编辑</a>
                         <?php endif;?>
                     </div>
-                </div><!--end: topics 文章、评论容器-->
-            </div>
+                </div>
+            </div><!--end: topics 文章、评论容器-->
+        </div>
             <?php $this->need('comments.php'); ?>
-        </div><!--end: forFlow -->
-    </div>
+    </div><!--end: forFlow -->
+</div>
 
 
 <?php $this->need('sidebar.php'); ?>

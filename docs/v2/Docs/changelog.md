@@ -10,7 +10,6 @@
 - 我的标签页面（更多）| https://www.cnblogs.com/wangyang0210/tag/
 - 随笔分类页面（更多）
 - 随笔档案页面（更多）
-- 404页面异常
 
 # 2023.2.9 - v2.1.8
 - 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache) [todo]
@@ -25,6 +24,7 @@
 - 新增文章底部增加声援博主信息
 - 新增文档增加伪静态配置教程
 - 修复博客状态显示功能
+- 优化404页面
 - 优化版权信息
 - 优化后台配置增加jquery CDN 配置
 - 优化直接私信功能

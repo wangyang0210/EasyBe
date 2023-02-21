@@ -69,8 +69,7 @@
     <?php $this->comments()->to($comments); ?>
     <?php if ($comments->have()): ?>
         <div id="blog-comments-placeholder">
-            <div id="comment_pager_top">
-            </div>
+            <div id="comment_pager_top"></div>
             <br>
             <div class="feedback_area_title">评论列表</div>
             <div class="feedbackNoItems">

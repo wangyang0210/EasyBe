@@ -390,3 +390,33 @@ details {
         background: #444!important;
     }
 }
+
+.box .box-description .box-description-container {
+    color: #f5f5f5de !important;
+}
+
+.box .box-ghost .symbol:nth-child(1):before, .box .box-ghost .symbol:nth-child(1):after,
+.box .box-ghost .symbol:nth-child(3):before, .box .box-ghost .symbol:nth-child(3):after,
+.box .box-ghost .symbol:nth-child(4):before, .box .box-ghost .symbol:nth-child(4):after,
+.box .box-ghost .symbol:nth-child(6):before, .box .box-ghost .symbol:nth-child(6):after,
+.box .box-ghost .box-ghost-container {
+    background: #ffffff !important;
+}
+
+.box .box-ghost .symbol:nth-child(2),
+.box .box-ghost .symbol:nth-child(5) {
+    border-color:  #ffffff !important;
+}
+
+.box .box-ghost .box-ghost-container .box-ghost-eyes .box-eye-left,
+.box .box-ghost .box-ghost-container .box-ghost-eyes .box-eye-right {
+    background: #332f63 !important;
+}
+
+.box .box-ghost .box-ghost-container .box-ghost-bottom div:nth-child(2n) {
+    border-top: #333333 !important;
+}
+
+.box .box-ghost .box-ghost-shadow {
+    box-shadow: 0 50px 15px 5px #f7f7f7;
+}

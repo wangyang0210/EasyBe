@@ -33,7 +33,7 @@ export default function main() {
         $.__timeIds.postDescTid = window.setInterval( () => {
             if ($('#post_view_count').text() !== '...' && $('#post_comment_count').text() !== '...') {
                 let postDescText = $('.postDesc').show().text();
-                if (postDescText) return;
+                if (!postDescText) return;
                 $('#articleInfo p.article-info-text').html(postMetaHtml(postDescText));
                 $.__tools.setDomHomePosition();
                 $.__tools.clearIntervalTimeId( $.__timeIds.postDescTid);

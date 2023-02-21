@@ -2,7 +2,6 @@
 <?php $this->need('header.php'); ?>
 <div id="mainContent">
     <div class="forFlow">
-
         <h1 class="PostListTitle">
             <?php $this->archiveTitle(array(
                 'category'  =>  _t('文章分类 - %s'),
@@ -13,8 +12,7 @@
         </h1>
         <?php if ($this->have()): ?>
         <?php while($this->next()): ?>
-        <div class="pager">
-        </div>
+        <div class="pager"></div>
         <div id="myposts">
             <div class="PostList" role="article">
                 <div class="postTitl2" role="heading" aria-level="2">
