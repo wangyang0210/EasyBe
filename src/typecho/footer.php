@@ -5,9 +5,7 @@
 
 <!--start: footer -->
   <div id="footer">
-        <!--done-->
-        Copyright © 2023 王洋
-        <br><span id="poweredby">Powered by Typecho</span>
+      Copyright © 2023 王洋
 
   </div>
 <!--end: footer -->

@@ -12,7 +12,7 @@ import {request} from "../../utils/request";
 export default function main() {
 
     const footer = $('#footer');
-    const footerText = footer.text();
+    const footerText = `Copyright © ${new Date().getFullYear()} ${$.__config.info.name}`
 
     let footerHtml = footerTemp;
     let config = $.__config.footer;
