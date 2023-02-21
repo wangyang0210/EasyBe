@@ -432,3 +432,7 @@ details {
     border: 1px solid #83829c!important;
     background: #333333 !important;
 }
+
+.box .box-description .box-description-container .box-description-text {
+    color: #fcfcfc !important;
+}
