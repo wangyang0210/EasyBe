@@ -415,7 +415,8 @@ details {
 }
 
 .box .box-ghost .box-ghost-container .box-ghost-bottom div:nth-child(2n) {
-    border-top: #333333 !important;
+    border-top: 15px solid #333!important;
+    background: #3330 !important;
 }
 
 .box .box-ghost .box-ghost-shadow {
@@ -427,6 +428,7 @@ details {
 }
 
 .box .box-description .n-input {
-    border: #83829c !important;
+    color: #bdbdbd;
+    border: 1px solid #83829c!important;
     background: #333333 !important;
 }

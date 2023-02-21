@@ -4499,18 +4499,18 @@ table#blogCalendar > tbody > tr > td > a {
     right: 0;
 }
 .box .box-ghost .box-ghost-container .box-ghost-bottom div {
+    background-color: #332f63;
+    border-radius: 100%;
     flex-grow: 1;
+    height: 20px;
     position: relative;
     top: -10px;
-    height: 20px;
-    border-radius: 100%;
-    background-color: #fff;
 }
 .box .box-ghost .box-ghost-container .box-ghost-bottom div:nth-child(2n) {
+    background: #3330 !important;
+    border-top: 15px solid #ffffff;
+    margin: 0;
     top: -12px;
-    margin: 0 -0px;
-    border-top: 15px solid #332F63;
-    background: transparent;
 }
 .box .box-ghost .box-ghost-shadow {
     height: 20px;
@@ -4537,7 +4537,7 @@ table#blogCalendar > tbody > tr > td > a {
     letter-spacing: .5px;
 }
 .box .box-description .box-description-container .box-description-text {
-    color: #8C8AA7;
+    color: #312e60;
     line-height: 20px;
     margin: 10px 0px;
 }
