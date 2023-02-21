@@ -48,7 +48,7 @@
                     <div class="catListEssay">
                         <h3 class="catListTitle">最新随笔</h3>
                         <ul>
-                            <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)) : ?>
+                            <?php if ($this->options->latestPosts) : ?>
                                 <?php $this->widget('Widget_Contents_Post_Recent',"pageSize={$this->options->latestPosts}")->parse('<li><a href="{permalink}">{title}</a></li>'); ?>
                             <?php endif; ?>
                         </ul>
@@ -60,7 +60,7 @@
                         <a class="sidebar-card-title-a">随笔分类</a>
                     </h3>
                     <ul>
-                        <?php if (!empty($this->options->sidebarBlock) && in_array('ShowCategory', $this->options->sidebarBlock)) : ?>
+                        <?php if ($this->options->postsClassify) : ?>
                             <?php $this->widget('Widget_Metas_Category_List')->to($classify); ?>
                             <?php $classifyNum = 0 ?>
                             <?php while($classify->next() && $classifyNum < $this->options->postsClassify): ?>
@@ -77,7 +77,7 @@
                     <div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
                         <h3 class="catListTitle">随笔档案</h3>
                         <ul>
-                            <?php if (!empty($this->options->sidebarBlock) && in_array('ShowArchive', $this->options->sidebarBlock)) : ?>
+                            <?php if ($this->options->postsArchive) : ?>
                                 <?php $this->widget('Widget_Contents_Post_Date', "format=Y-m&type=month&limit={$this->options->postsArchive}")->parse('
                                 <li data-category-list-item-visible="true" style="display: block">
                                     <a href="{permalink}"
@@ -93,10 +93,12 @@
                     <div class="catListTag">
                         <h3 class="catListTitle">我的标签</h3>
                         <ul>
-                            <?php $this->widget('Widget_Metas_Tag_Cloud',"limit={$this->options->myTags}")->to($tags); ?>
-                            <?php while($tags->next()): ?>
-                                <li><a rel="tag" href="<?php $tags->permalink(); ?>"><?php $tags->name(); ?><span class="tag-count">(<?php $tags->count()?>)</span></a></li>
-                            <?php endwhile; ?>
+                            <?php if ($this->options->myTags) : ?>
+                                <?php $this->widget('Widget_Metas_Tag_Cloud',"limit={$this->options->myTags}")->to($tags); ?>
+                                <?php while($tags->next()): ?>
+                                    <li><a rel="tag" href="<?php $tags->permalink(); ?>"><?php $tags->name(); ?><span class="tag-count">(<?php $tags->count()?>)</span></a></li>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
@@ -108,7 +110,9 @@
                         </h3>
                         <div id="TopViewPostsBlock">
                             <ul style="word-break:break-all">
-                                <?php getPostViewRank($this->options->postRank); ?>
+                                <?php if ($this->options->postRank) : ?>
+                                    <?php getPostViewRank($this->options->postRank); ?>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
@@ -122,7 +126,9 @@
                             </h3>
                             <div id="TopDiggPostsBlock">
                                 <ul style="word-break: break-all">
-                                    <?php getPostDiggRank($this->options->diggRank); ?>
+                                    <?php if ($this->options->diggRank) : ?>
+                                        <?php getPostDiggRank($this->options->diggRank); ?>
+                                    <?php endif; ?>
                                 </ul>
                             </div>
                         </div>
@@ -135,7 +141,9 @@
                         </h3>
                         <div id="TopFeedbackPostsBlock">
                                 <ul style="word-break:break-all">
-                                    <?php getPostCommentRank($this->options->commentsRank); ?>
+                                    <?php if ($this->options->commentsRank) : ?>
+                                        <?php getPostCommentRank($this->options->commentsRank); ?>
+                                    <?php endif; ?>
                                 </ul>
                         </div>
                     </div>
@@ -148,7 +156,7 @@
                         </h3>
                         <div class="RecentCommentBlock">
                             <ul>
-                                <?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
+                                <?php if ($this->options->latestComment): ?>
                                     <?php $this->widget('Widget_Comments_Recent', "pageSize={$this->options->latestComment}")->to($comments); ?>
                                     <?php while($comments->next()): ?>
                                         <li class="recent_comment_title">
