@@ -18,6 +18,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     <a class="postTitle2 vertical-middle" href="<?php $this->permalink() ?>">
                         <span><?php $this->title() ?></span>
                     </a>
+                    <?php if(1) : ?>[置顶]<?php endif; ?>
                 </div>
                 <div class="postCon">
                     <div class="c_b_p_desc" >

@@ -46,14 +46,13 @@
 
     $(document).mousemove(function( event ) {
         mouseY = event.pageY;
-        yAxis = (pageY/2-mouseY)/pageY*300;
-        //horizontalAxis
+        let yAxis = (pageY/2-mouseY)/pageY*300;
         mouseX = event.pageX / -pageX;
-        xAxis = -mouseX * 100 - 100;
-
+        let xAxis = -mouseX * 100 - 100;
         $('.box-ghost-eyes').css({ 'transform': 'translate('+ xAxis +'%,-'+ yAxis +'%)' });
-
     });
+
+
 </script>
 <?php $this->need('sidebar.php'); ?>
 <?php $this->need('footer.php'); ?>

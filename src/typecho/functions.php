@@ -83,6 +83,29 @@ function themeConfig($form) {
     echo '<form class="protected home col-mb-12" action="" method="post"><ul class="typecho-option" style="position: relative;left: -9px;"><li><label class="typecho-label">主题配置恢复</label><input type="submit" name="restore" class="btn primary" value="恢复主题配置"></li></ul></form>';
 }
 
+// 字段配置
+function themeFields($layout) {
+    $list = [
+        0 => '关闭',
+        1 => '开启'
+    ];
+    $postTop = new Typecho_Widget_Helper_Form_Element_Radio('postSticky', $list, '0', _t('置顶'));
+    $layout->addItem($postTop);
+}
+
+// 获取全部文章
+function getAllPosts($page, $limit) {
+    $db = Typecho_Db::get();
+    $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.commentsNum', 'c.views', 'c.digg', 'c.bury', 'f.str_value as sticky')
+            ->from('table.contents as c', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
+            ->join('table.fields as f')
+            ->where('c.status = ? and c.type = ?', 'publish', 'post')
+            ->order('sticky', Typecho_Db::SORT_DESC)
+            ->order('c.created desc', Typecho_Db::SORT_DESC)
+            ->page($page, $limit);
+    var_dump($sql);
+}
+
 // 获取当前页面地址
 function getUrl() {
     $protocal = isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443' ? 'https://' : 'http://';
