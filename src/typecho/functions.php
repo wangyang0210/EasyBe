@@ -85,25 +85,21 @@ function themeConfig($form) {
 
 // 字段配置
 function themeFields($layout) {
-    $list = [
-        0 => '关闭',
-        1 => '开启'
-    ];
-    $postTop = new Typecho_Widget_Helper_Form_Element_Radio('postSticky', $list, '0', _t('置顶'));
+    $postTop = new Typecho_Widget_Helper_Form_Element_Radio('postSticky', [1 => '开启', 0 => '关闭'], '0', _t('是否置顶'));
     $layout->addItem($postTop);
 }
 
 // 获取全部文章
 function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
-    $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.commentsNum', 'c.views', 'c.digg', 'c.bury', 'f.str_value as sticky')
-            ->from('table.contents as c', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
-            ->join('table.fields as f')
+    $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
+            ->from('table.contents as c')
+            ->join('table.fields as f', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
             ->where('c.status = ? and c.type = ?', 'publish', 'post')
             ->order('sticky', Typecho_Db::SORT_DESC)
-            ->order('c.created desc', Typecho_Db::SORT_DESC)
+            ->order('c.created', Typecho_Db::SORT_DESC)
             ->page($page, $limit);
-    var_dump($sql);
+    return  $db->fetchAll($sql);
 }
 
 // 获取当前页面地址

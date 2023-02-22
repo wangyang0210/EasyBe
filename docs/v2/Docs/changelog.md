@@ -12,7 +12,7 @@
 - 默认iconfont问题 => iconfont炸了暂时无法处理
 
 # 2023.2.9 - v2.1.8
-- 新增文章置顶[todo]
+- 新增文章置顶
 - 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache) [todo]
 - 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO) [todo]
 - 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail [todo]
