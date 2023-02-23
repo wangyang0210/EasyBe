@@ -9,13 +9,12 @@
 - 我的标签页面（更多）| https://www.cnblogs.com/wangyang0210/tag/
 - 随笔分类页面（更多）
 - 随笔档案页面（更多）
-- 默认iconfont问题 => iconfont炸了暂时无法处理
+- 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail 
+- 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache) 
 
 # 2023.2.9 - v2.1.8
 - 新增文章置顶
-- 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache) [todo]
 - 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO) [todo]
-- 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail [todo]
 - 新增评论打字特效,来自[activate-power-mode](https://github.com/disjukr/activate-power-mode)
 - 新增文章点赞特效
 - 新增文章踩功能

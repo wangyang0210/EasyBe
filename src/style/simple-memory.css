@@ -1336,6 +1336,77 @@ div#tbCommentBodyPreview {
     float: right
 }
 
+.commentbox_footer {
+    border-top: 1px solid #d2d2d2;
+    padding-top: 10px;
+}
+
+.commentbox_title {
+    border-bottom: 1px solid #ddd;
+}
+
+.commentbox_footer,.commentbox_title {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.commentbox_title_right {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 5px
+}
+
+.comment_icon {
+    cursor: pointer;
+    margin: 0 0 0 20px;
+}
+
+.comment_option {
+    cursor: pointer;
+    margin-bottom: 4px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #808080;
+    fill: gray;
+}
+
+.comment_option svg {
+    display: inline-block;
+    vertical-align: middle;
+    width: 18px;
+    height: 18px;
+}
+
+.inline_middle {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 .pfl_feedbackname a {
     color: #5c8ec6;
     font-weight: 700
