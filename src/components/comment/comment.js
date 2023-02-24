@@ -6,7 +6,7 @@
  * ----------------------------------------------
  * @describe: 评论处理
  */
-
+import OwO from "./owo/owo";
 export default function main() {
     if($.__config.articleContent.commentTyping.enable) {
         const POWERMODE  = require('./commentTyping/commentTyping')
@@ -14,21 +14,18 @@ export default function main() {
         POWERMODE.shake = $.__config.articleContent.commentTyping.options.shake;
         document.body.addEventListener('input', POWERMODE);
     }
-    if($.__config.articleContent.owo) {
+    if($.__config.articleContent.owo.enabled) {
         $(".OwO").show()
         import(/* webpackChunkName: "owo-css" */  '../../style/owo.scss')
-        import(/* webpackChunkName: "owo" */ './owo/owo').then(module => {
-            const OwO = module.default;
-             OwO({
-                 logo: 'OwO表情',
-                 container: document.getElementsByClassName('OwO')[0],
-                 target: document.getElementsByTagName('textarea')[0],
-                 position: 'down',
-                 width: '100%',
-                 maxHeight: '250px',
-                 data: $.__config.comment.emoticon
-            });
-        })
+        new OwO({
+            logo: 'OwO表情',
+            container: document.getElementsByClassName('OwO')[0],
+            target: document.getElementsByTagName('textarea')[0],
+            position: 'down',
+            width: '100%',
+            maxHeight: '250px',
+            data: $.__config.articleContent.owo.options
+        });
     }
     let setComment = () => {
         let feedbackItem = $('.feedbackItem');

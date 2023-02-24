@@ -17,7 +17,7 @@
                 position: 'down',
                 width: '100%',
                 maxHeight: '250px',
-                data: $.__config.comment.emoticon,
+                data: $.__config.articleContent.owo.options,
             }
             for (let defaultKey in defaultOption) {
                 if (defaultOption.hasOwnProperty(defaultKey) && !options.hasOwnProperty(defaultKey))
