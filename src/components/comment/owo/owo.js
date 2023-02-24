@@ -26,7 +26,6 @@
             this.container = options.container
             this.target = options.target
             if (options.position === 'up') this.container.classList.add('OwO-up')
-            console.log(options, 'options')
             this.init(options)
         }
 

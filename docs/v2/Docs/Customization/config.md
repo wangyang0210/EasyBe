@@ -1641,6 +1641,8 @@ window.cnblogsConfig = {
 
 ### owo - 开启表情
 
+> 表情速查网站 | https://emotion.xiaokang.me/#/emotion/bilibili2233
+
 * 类型：```Object```
 * 默认值：```{}```
 

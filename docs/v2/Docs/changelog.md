@@ -5,7 +5,6 @@
 - 新增配置浏览器信息,IP地址等[https://github.com/hakula139/UserAgent-for-Typecho | https://doge.uk/coding/useragent-modify.html]
 - 文章加密输入密码优化
 - 插件部署的文档
-- owo表情相关文档 | 表情速查https://emotion.xiaokang.me/#/emotion/bilibili2233
 - 我的标签页面（更多）| https://www.cnblogs.com/wangyang0210/tag/
 - 随笔分类页面（更多）
 - 随笔档案页面（更多）
@@ -35,6 +34,7 @@
 - 优化评论关闭样式
 - 删除微博分享，收藏本文按钮
 - 删除博客园相关的关注模块
+- 更新文档
 
 # 2023.2.7 - v2.1.7
 - 新增配置`roughNotation`，配置手绘风格的图画
