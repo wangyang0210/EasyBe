@@ -26,14 +26,14 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 </div>
                 <div class="postCon">
                     <div class="c_b_p_desc" >
-                        摘要：<?php echo $res['password'] ? '文章被加密了，不可以偷看哦🍉' : preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0}((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,200}).*#s', '$1', $res['text']); ?>
+                        摘要：<?php echo ($res['password'] && !$this->user->hasLogin()) ? '文章被加密了，不可以偷看哦🍉' : preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0}((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,200}).*#s', '$1', $res['text']); ?>
                         <a href="<?php echo $res['permalink']; ?>" class="c_b_p_desc_readmore">阅读全文</a>
                     </div>
                 </div>
                 <div class="clear"></div>
-                <div class="postDesc">posted @ <?php $this->date("Y-m-d H:i:s", $res['created']); ?>
+                <div class="postDesc">posted @ <?php echo date("Y-m-d H:i:s", $res['created']); ?>
                     <?php $this->author(); ?>
-                    <span class="post-view-count">阅读(<?php getPostView($this); ?>)</span>
+                    <span class="post-view-count">阅读(<?php echo $res['views'];?>)</span>
                     <span class="post-comment-count">评论(<?php echo $res['commentsNum']; ?>)</span>
                     <?php $digg = $res['password'] ? 0 : $res['digg']; ?>
                     <span class="post-digg-count">推荐(<?php echo $digg; ?>)</span>
