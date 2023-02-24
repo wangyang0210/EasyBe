@@ -92,6 +92,18 @@ function themeFields($layout) {
 // 获取全部文章
 function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+    $data = $db->fetchRow($db->select()->from('table.contents'));
+    if (!array_key_exists('views', $data )) {
+        $db->query("ALTER TABLE `{$prefix}contents` ADD `views` INT(10) NOT NULL DEFAULT 0;");
+    }
+    if (!array_key_exists('digg', $data)) {
+        $db->query("ALTER TABLE `{$prefix}contents` ADD `digg` INT(10) NOT NULL DEFAULT 0;");
+    }
+    if (!array_key_exists('bury', $data)) {
+        $db->query("ALTER TABLE `{$prefix}contents` ADD `bury` INT(10) NOT NULL DEFAULT 0;");
+    }
+
     $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
             ->from('table.contents as c')
             ->join('table.fields as f', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
@@ -114,9 +126,6 @@ function getUrl() {
 // 获取全部文章阅读量
 function getAllPostViews() {
     $db = Typecho_Db::get();
-    if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
-        $db->query("ALTER TABLE `{$db->getPrefix()}contents` ADD `views` INT(10) DEFAULT 0;");
-    }
     $row = $db->fetchAll("select sum(views) as views from `{$db->getPrefix()}contents`;");
     echo $row[0]['views'];
 }
@@ -206,12 +215,7 @@ function getDiggNum($cid, &$record = NULL) {
         'digg' => 0,
         'recording' => false
     ];
-    $data = $db->fetchRow($db->select()->from('table.contents')->where('cid = ?', $cid));
-    if (!array_key_exists('digg', $data)) {
-        $db->query("ALTER TABLE `{$db->getPrefix()}contents` ADD `digg` INT(10) NOT NULL DEFAULT 0;");
-    } else {
-        $res['digg'] = $data['digg'];
-    }
+    $res['digg'] = $db->fetchRow($db->select()->from('table.contents')->where('cid = ?', $cid))['digg'];
     $recording = Typecho_Cookie::get('__typecho_digg_record');
     if (empty($recording)) {
         Typecho_Cookie::set('__typecho_digg_record', '[]');
@@ -251,12 +255,7 @@ function getBuryNum($cid, &$record = NULL) {
         'bury' => 0,
         'recording' => false
     ];
-    $data = $db->fetchRow($db->select()->from('table.contents')->where('cid = ?', $cid));
-    if (!array_key_exists('bury', $data)) {
-        $db->query("ALTER TABLE `{$db->getPrefix()}contents` ADD `bury` INT(10) NOT NULL DEFAULT 0;");
-    } else {
-        $res['bury'] = $data['bury'];
-    }
+    $res['bury'] = $db->fetchRow($db->select()->from('table.contents')->where('cid = ?', $cid))['bury'];
     $recording = Typecho_Cookie::get('__typecho_bury_record');
     if (empty($recording)) {
         Typecho_Cookie::set('__typecho_bury_record', '[]');
