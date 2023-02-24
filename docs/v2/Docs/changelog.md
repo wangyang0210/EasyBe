@@ -14,7 +14,7 @@
 
 # 2023.2.9 - v2.1.8
 - 新增文章置顶
-- 新增评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO) [todo]
+- 新增配置`articleContent.owo`,评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO) 
 - 新增评论打字特效,来自[activate-power-mode](https://github.com/disjukr/activate-power-mode)
 - 新增文章点赞特效
 - 新增文章踩功能
