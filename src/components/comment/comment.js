@@ -19,8 +19,8 @@ export default function main() {
         import(/* webpackChunkName: "owo-css" */  '../../style/owo.scss')
         new OwO({
             logo: 'OwO表情',
-            container: document.getElementsByClassName('OwO')[0],
-            target: document.getElementsByTagName('textarea')[0],
+            container: $('.OwO')[0],
+            target: $('textarea')[0],
             position: 'down',
             width: '100%',
             maxHeight: '250px',

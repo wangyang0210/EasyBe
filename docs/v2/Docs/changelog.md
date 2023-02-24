@@ -1,15 +1,13 @@
 # todo
 - typecho后台主题+antDesign [后期]
-- 头像优化展示
-- 优化评论问题
 - 新增配置浏览器信息,IP地址等[https://github.com/hakula139/UserAgent-for-Typecho | https://doge.uk/coding/useragent-modify.html]
 - 文章加密输入密码优化
 - 插件部署的文档
 - 我的标签页面（更多）| https://www.cnblogs.com/wangyang0210/tag/
 - 随笔分类页面（更多）
 - 随笔档案页面（更多）
-- 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail 
-- 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache) 
+- 优化评论问题 | 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail 
+- 头像优化展示 | 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
 
 # 2023.2.9 - v2.1.8
 - 新增文章置顶

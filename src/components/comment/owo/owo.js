@@ -12,16 +12,15 @@
         constructor(options) {
             const defaultOption = {
                 logo: 'OwO表情',
-                container: document.getElementsByClassName('OwO')[0],
-                target: document.getElementsByTagName('textarea')[0],
+                container: $('.OwO')[0],
+                target: $('textarea')[0],
                 position: 'down',
                 width: '100%',
                 maxHeight: '250px',
                 data: $.__config.articleContent.owo.options,
             }
             for (let defaultKey in defaultOption) {
-                if (defaultOption.hasOwnProperty(defaultKey) && !options.hasOwnProperty(defaultKey))
-                    options[defaultKey] = defaultOption[defaultKey]
+                if (defaultOption.hasOwnProperty(defaultKey) && !options.hasOwnProperty(defaultKey)) options[defaultKey] = defaultOption[defaultKey]
             }
             this.container = options.container
             this.target = options.target
@@ -30,7 +29,6 @@
         }
 
         init(options) {
-            console.log()
             this.area = options.target
             this.packages = Object.keys(options.data)
 
@@ -65,9 +63,7 @@
 
             // bind event
             this.logo = this.container.getElementsByClassName('OwO-logo')[0]
-            this.logo.addEventListener('click', () => {
-                this.toggle()
-            })
+            this.logo.addEventListener('click', () => { this.toggle() })
 
             this.container.getElementsByClassName('OwO-body')[0].addEventListener('click', e => {
                 let target = null
@@ -88,9 +84,7 @@
             this.packagesEle = this.container.getElementsByClassName('OwO-packages')[0]
             for (let i = 0; i < this.packagesEle.children.length; i++) {
                 ;(index => {
-                    this.packagesEle.children[i].addEventListener('click', () => {
-                        this.tab(index)
-                    })
+                    this.packagesEle.children[i].addEventListener('click', () => { this.tab(index) })
                 })(i)
             }
             this.tab(0)
