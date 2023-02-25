@@ -98,51 +98,38 @@
                                     <div class="commentbox_title_right">
                                         <span id="ubb_bold" class="comment_icon" alt="表情" title="OwO" style="display: none"></span>
                                         <span id="ubb_url" class="comment_icon" title="添加链接(Ctrl + K)" alt="链接">
-                                            <svg class="comment_svg comment_svg_stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <g fill-rule="evenodd">
-                                                    <g transform="translate(4 4)" fill-rule="nonzero" stroke-width=".4">
-                                                        <path d="m6.304 9.696c-0.288-0.288-0.512-0.608-0.704-0.992-0.16-0.32-0.032-0.704 0.288-0.864 0.32-0.16 0.704-0.032 0.864 0.288 0.128 0.224 0.256 0.448 0.448 0.64 0.928 0.928 2.432 0.928 3.36 0l3.36-3.328c0.928-0.928 0.928-2.432 0-3.36s-2.432-0.928-3.36 0l-2.272 2.272c-0.256 0.256-0.64 0.256-0.896 0-0.256-0.256-0.256-0.64 0-0.896l2.272-2.272c1.44-1.44 3.744-1.44 5.184 0 1.44 1.44 1.44 3.744 0 5.184l-3.36 3.296c-0.704 0.704-1.632 1.088-2.592 1.088-0.928 0-1.856-0.352-2.592-1.056z"></path>
-                                                        <path d="m3.776 15.808c-0.992 0-1.888-0.384-2.592-1.056-1.44-1.44-1.44-3.744 0-5.184l3.328-3.328c1.44-1.44 3.744-1.44 5.184 0 0.288 0.288 0.544 0.64 0.736 1.024 0.16 0.32 0 0.704-0.32 0.864-0.32 0.16-0.704 0-0.864-0.32-0.128-0.256-0.288-0.48-0.48-0.672-0.928-0.928-2.432-0.928-3.36 0l-3.296 3.328c-0.928 0.928-0.928 2.432 0 3.36 0.448 0.448 1.056 0.704 1.664 0.704 0.608 0 1.248-0.256 1.664-0.704l2.112-2.112c0.256-0.256 0.64-0.256 0.896 0s0.256 0.64 0 0.896l-2.112 2.112c-0.672 0.704-1.568 1.088-2.56 1.088z"></path>
-                                                    </g>
-                                                </g>
-                                            </svg>
+
                                         </span>
                                         <span id="ubb_code" class="comment_icon" title="添加代码(Ctrl + `)" alt="代码">
-                                            <svg class="comment_svg comment_svg_stroke" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <g fill-rule="evenodd">
-                                                    <g transform="translate(16 6)" stroke-linecap="round" stroke-width="2">
-                                                        <line x1=".5" x2="4.5" y1=".7" y2="6.3"></line>
-                                                        <line transform="translate(2.5 9.1) scale(1 -1) translate(-2.5 -9.1)" x1=".5" x2="4.5" y1="6.3" y2="11.9"></line>
-                                                    </g>
-                                                    <g transform="translate(3 6.1)" stroke-linecap="round" stroke-width="2">
-                                                        <line transform="translate(2.5 3.5) scale(-1 1) translate(-2.5 -3.5)" x1=".5" x2="4.5" y1=".7" y2="6.3"></line>
-                                                        <line transform="translate(2.5 9.1) scale(-1) translate(-2.5 -9.1)" x1=".5" x2="4.5" y1="6.3" y2="11.9"></line>
-                                                    </g>
-                                                    <path transform="translate(12 12.5) scale(1 -1) translate(-12 -12.5)" d="m10.778 7.1249c0.50008-0.11366 0.9978 0.16911 1.1643 0.64128l0.032406 0.11223 2 8.8c0.1224 0.53855-0.21496 1.0744-0.75351 1.1968-0.50008 0.11366-0.9978-0.16911-1.1643-0.64128l-0.032406-0.11223-2-8.8c-0.1224-0.53855 0.21496-1.0744 0.75351-1.1968z" fill-rule="nonzero" stroke-width=".25"></path>
-                                                </g>
-                                            </svg>
+
                                         </span>
                                         <span id="ubb_quote" class="comment_icon" title="添加引用(Ctrl + Q)" alt="引用">
-                                            <svg class="comment_svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <g fill-rule="evenodd">
-                                                    <g transform="translate(5 4)" fill-rule="nonzero" stroke-width=".25">
-                                                        <path d="m5.0013 15v-5.2702h-2.8008c-0.13413-3.3762 1.2004-6.2143 4.0009-8.5135l-1.2-1.2163c-3.335 2.2996-5.0013 5.8119-5.0013 10.54v4.4595h5.0013-1.285e-5zm8.7987 0v-5.2702h-2.8008c-0.13453-3.3762 1.2-6.2143 4.0009-8.5135l-1.2-1.2163c-3.335 2.2996-5.0013 5.8119-5.0013 10.54v4.4595h5.0013-1.28e-5z"></path>
-                                                    </g>
-                                                </g>
-                                            </svg>
+
                                         </span>
                                         <span id="ubb_img" class="comment_icon" alt="图片" title="上传图片(Ctrl + I)">
-                                            <svg class="comment_svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                <g fill-rule="evenodd">
-                                                    <g transform="translate(3 3.8)" fill-rule="nonzero">
-                                                        <path d="m14.1 0.58235h-11.2c-1.32 0-2.4 1.0482-2.4 2.3294v10.871c0 1.2812 1.08 2.3294 2.4 2.3294h11.2c1.32 0 2.4-1.0482 2.4-2.3294v-10.871c0-1.2812-1.08-2.3294-2.4-2.3294zm0.7 13.569-3.63-3.4165 1.33-1.2909c0.21-0.20382 0.59-0.20382 0.8 0l1.6 1.5529v2.7856c0 0.13588-0.04 0.26206-0.1 0.36882zm-11.9-12.016h11.2c0.44 0 0.8 0.34941 0.8 0.77647v5.8915l-0.47-0.45618c-0.84-0.825-2.22-0.825-3.07 0l-1.35 1.3103-2.39-2.2421c-0.85-0.825-2.22-0.825-3.05-0.019412l-2.48 2.2615v-6.7456c0.01-0.42706 0.37-0.77647 0.81-0.77647zm-0.8 11.647v-1.9897l3.6-3.2806c0.21-0.20382 0.58-0.21353 0.81 0.0097059l6.43 6.0371h-10.04c-0.44 0-0.8-0.33971-0.8-0.77647z"></path>
-                                                        <ellipse cx="10.5" cy="6.4059" rx="1" ry="1"></ellipse>
-                                                    </g>
-                                                </g>
-                                            </svg>
+
                                         </span>
                                     </div>
                                 </div>
+                            <?php else: ?>
+                                <p>
+                                    <label for="author" class="required"><?php _e('称呼'); ?></label>
+                                    <input type="text" name="author" id="author" class="text"
+                                           value="<?php $this->remember('author'); ?>" required/>
+                                </p>
+                                <p>
+                                    <label
+                                            for="mail"<?php if ($this->options->commentsRequireMail): ?> class="required"<?php endif; ?>><?php _e('Email'); ?></label>
+                                    <input type="email" name="mail" id="mail" class="text"
+                                           value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
+                                </p>
+                                <p>
+                                    <label
+                                            for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
+                                    <input type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>"
+                                           value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
+                                </p>
+                            <?php endif; ?>
                                 <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
                                 <div class="commentbox_footer">
                                     <span>&nbsp;</span>
@@ -159,9 +146,6 @@
                 </div>
             </div>
             <div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
-            <?php else: ?>
-                注册用户登录后才能发表评论，请 <a href="<?php $this->options->siteUrl(); ?>admin/login.php">登录</a> 或<a href="<?php $this->options->siteUrl(); ?>admin/register.php">注册</a>
-            <?php endif; ?>
     <?php else: ?>
         <p class="commentClose panel">o_o ....评论被关闭咯~</p>
     <?php endif; ?>
