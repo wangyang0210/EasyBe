@@ -17,7 +17,8 @@
   - [友链](Docs/Customization/links.md)
   
 - 扩展
-  - [伪静态](Docs/Customization/rewrite.md)
+  - [伪静态配置](Docs/Customization/rewrite.md)
+  - [markdown评论](Docs/Customization/commentMd.md)
   - [播放器](Docs/Customization/player.md)
   - [网站统计](Docs/Customization/statistical.md)
 
