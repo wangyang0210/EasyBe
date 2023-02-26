@@ -436,3 +436,12 @@ details {
 .box .box-description .box-description-container .box-description-text {
     color: #fcfcfc !important;
 }
+
+/*评论框*/
+.el-input input::placeholder, .el-input_inner, .el-input-group_prepend, #tbCommentBody {
+    color: #757575;
+}
+
+.commentbox_footer {
+    border-top: 1px solid;
+}

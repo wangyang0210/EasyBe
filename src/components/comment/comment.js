@@ -14,11 +14,10 @@ export default function main() {
         POWERMODE.shake = $.__config.articleContent.commentTyping.options.shake;
         document.body.addEventListener('input', POWERMODE);
     }
-    if($.__config.articleContent.owo.enabled) {
+    if($.__config.articleContent.owo.enable) {
         $(".OwO").show()
         import(/* webpackChunkName: "owo-css" */  '../../style/owo.scss')
         new OwO({
-            logo: 'OwO表情',
             container: $('.OwO')[0],
             target: $('textarea')[0],
             position: 'down',
@@ -42,7 +41,7 @@ export default function main() {
                     let id = idInfo[idInfo.length - 1],
                         idTmp = id.toString().match(/\d/g);
                     if ($.isArray(idTmp)) id = idTmp.join('');
-                    let op = $('#comment_' + id + '_avatar'), patch  = op.length > 0 ? op.text().trim() : $.__config.default.avatar;
+                    let op = $('#comment_' + id + '_avatar img').attr('src'), patch  = op.length > 0 ? op : $.__config.default.avatar;
                     let ac = $('#a_comment_author_' + id), ah = ac.length ? ac.attr('href') : 'javascropt:void(0);';
                     avatarHtml = '<div class="feedbackAvatar"><a href="' + ah + '" target="_blank"><img src="'+patch+'"/></a></div>';
                     obj.prepend(avatarHtml);

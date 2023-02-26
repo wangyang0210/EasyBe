@@ -23,7 +23,7 @@
     $comments->alt(' comment-odd', ' comment-even');
     echo $commentClass;
     ?>">
-
+        <?php print_r($comments)?>
         <div class="feedbackItem" id="<?php $comments->theId(); ?>">
             <div class="feedbackListSubtitle">
                 <div class="feedbackManage">
@@ -51,9 +51,7 @@
                 <div class="comment_vote">
                     <span class="comment_error" style="color: red"></span>
                 </div>
-                <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
-             https://cdn.jsdelivr.net/gh/wangyang0210/pic/avatar-img/avatar-<?php echo mt_rand(1, 377); ?>.jpg
-            </span>
+                <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none"><?php $comments->gravatar('40', ''); ?></span>
             </div>
         </div>
 
@@ -88,60 +86,45 @@
                 <div id="comment_form_container">
                     <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
                         <div class="commentbox_main comment_textarea">
-                            <?php if ($this->user->hasLogin()): ?>
                                 <div class="commentbox_title">
                                     <div class="commentbox_title_left">
-                                        <span id="btn_edit_comment" class="commentbox_tab active" title="编辑评论"><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a></span>
+                                        <?php if ($this->user->hasLogin()): ?>
+                                        <span id="btn_edit_comment" class="commentbox_tab active" title="用户名称"><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a></span>
                                         <span id="btn_preview_comment" class="commentbox_tab" title="Logout"><a href="<?php $this->options->logoutUrl(); ?>" >退出</a></span>
                                         <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
-                                    </div>
-                                    <div class="commentbox_title_right">
-                                        <span id="ubb_bold" class="comment_icon" alt="表情" title="OwO" style="display: none"></span>
-                                        <span id="ubb_url" class="comment_icon" title="添加链接(Ctrl + K)" alt="链接">
-
-                                        </span>
-                                        <span id="ubb_code" class="comment_icon" title="添加代码(Ctrl + `)" alt="代码">
-
-                                        </span>
-                                        <span id="ubb_quote" class="comment_icon" title="添加引用(Ctrl + Q)" alt="引用">
-
-                                        </span>
-                                        <span id="ubb_img" class="comment_icon" alt="图片" title="上传图片(Ctrl + I)">
-
-                                        </span>
+                                        <?php else: ?>
+                                        <div class="el-input">
+                                            <div class="el-input-group_prepend">昵称</div>
+                                            <input type="text" required autocomplete="off" name="author" placeholder="请输入昵称" id="author" class="el-input_inner" value="<?php $this->remember('author'); ?>">
+                                        </div>
+                                        <div class="el-input">
+                                            <div class="el-input-group_prepend" >邮箱</div>
+                                            <input type="email" autocomplete="off" name="mail" id="mail" placeholder="请输入邮箱" class="el-input_inner" value="<?php $this->remember('mail'); ?>">
+                                        </div>
+                                        <div class="el-input">
+                                            <div class="el-input-group_prepend">网址</div>
+                                            <input type="text" autocomplete="off" name="url" placeholder="请输入网址" class="el-input_inner" value="<?php $this->remember('url'); ?>">
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
-                            <?php else: ?>
-                                <p>
-                                    <label for="author" class="required"><?php _e('称呼'); ?></label>
-                                    <input type="text" name="author" id="author" class="text"
-                                           value="<?php $this->remember('author'); ?>" required/>
-                                </p>
-                                <p>
-                                    <label
-                                            for="mail"<?php if ($this->options->commentsRequireMail): ?> class="required"<?php endif; ?>><?php _e('Email'); ?></label>
-                                    <input type="email" name="mail" id="mail" class="text"
-                                           value="<?php $this->remember('mail'); ?>"<?php if ($this->options->commentsRequireMail): ?> required<?php endif; ?> />
-                                </p>
-                                <p>
-                                    <label
-                                            for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
-                                    <input type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>"
-                                           value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
-                                </p>
-                            <?php endif; ?>
+
                                 <textarea name="text" id="tbCommentBody" placeholder="当年你退出文坛,我是极力反对的!" required></textarea>
                                 <div class="commentbox_footer">
-                                    <span>&nbsp;</span>
-                                    <span id="ubb_auto_completion" class="comment_option">
-<!--                                      <span class="inline_middle OwO" style="display: none">OwO</span>-->
+                                    <span>
+                                         <span class="OwO" style="display: none"></span>
+                                        <span class="img-upload">
+                                            <svg t="1677417496372" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="11411" width="200" height="200">
+                                                <path d="M716.78 609.59L604.8 525.61c-16.97-12.72-40.62-12.72-57.59 0l-98.58 73.92L317.2 494.39c-16.48-13.19-39.28-14.19-56.81-2.39L128 581.02V224h704v352c0 17.67 14.33 32 32 32s32-14.33 32-32V221.31c0-33.81-27.5-61.31-61.31-61.31H125.31C91.5 160 64 187.5 64 221.31v581.38C64 836.5 91.5 864 125.31 864H608c17.67 0 32-14.33 32-32s-14.33-32-32-32H128V658.16l158.36-106.48 161.02 128.8L576 584l102.38 76.78c14.19 10.67 34.23 7.73 44.8-6.39 10.6-14.14 7.74-34.2-6.4-44.8z" fill="#333333" p-id="11412"></path>
+                                                <path d="M576 384c0 52.94 43.06 96 96 96s96-43.06 96-96-43.06-96-96-96-96 43.06-96 96z m128 0c0 17.64-14.36 32-32 32s-32-14.36-32-32 14.36-32 32-32 32 14.36 32 32zM928 768h-64v-64c0-17.67-14.33-32-32-32s-32 14.33-32 32v64h-64c-17.67 0-32 14.33-32 32s14.33 32 32 32h64v64c0 17.67 14.33 32 32 32s32-14.33 32-32v-64h64c17.67 0 32-14.33 32-32s-14.33-32-32-32z" fill="#333333" p-id="11413"></path>
+                                            </svg>
+                                        </span>
+                                        <span id="ubb_auto_completion" class="comment_option">
+                                      <input id="btn_comment_submit" onclick="comments('<?php $this->commentUrl() ?>')" type="button" class="comment_btn" title="提交评论" value="提交评论">
+                                    </span>
                                     </span>
                                 </div>
                         </div>
-                        <p id="commentbox_opt">
-                            <input id="btn_comment_submit" onclick="comments('<?php $this->commentUrl() ?>')" type="button" class="comment_btn" title="提交评论" value="提交评论">
-                            <span class="OwO" style="display: none">OwO</span>
-                        </p>
                     </form>
                 </div>
             </div>

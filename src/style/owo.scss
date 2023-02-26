@@ -37,19 +37,15 @@
     }
 
     .OwO-logo {
-        position: relative;
-        display: inline-block;
-        color: #888;
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 13px;
-        padding: 2px 5px;
-        cursor: pointer;
-        height: 22px;
         box-sizing: border-box;
-        z-index: 2;
+        color: #888;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 20px;
         line-height: 16px;
+        padding: 2px 5px;
+        position: relative;
+        z-index: 2;
 
         &:hover {
             span {
