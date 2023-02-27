@@ -3587,7 +3587,7 @@ table#blogCalendar > tbody > tr > td > a {
     text-shadow: unset !important
 }
 
-.art-dialog-button button[i-id="注册"] {
+.art-dialog-button button[i-id="æ³¨å†Œ"] {
     background-color: #5fcc7d !important
 }
 
@@ -4169,8 +4169,8 @@ table#blogCalendar > tbody > tr > td > a {
 
     #home {
         padding-left: 5px;
-        /*padding-right: 5px;*/
-        box-shadow: unset
+        padding-right: 5px;
+        box-shadow: unset;
     }
 
     .entrylistPosttitle a:link, .postTitle a:link {
@@ -4573,7 +4573,7 @@ table#blogCalendar > tbody > tr > td > a {
     padding: 0px 0px 0px 12px;
 }
 
-/*评论框*/
+/*è¯„è®ºæ¡†*/
 .el-input {
     width: calc((100% - 1rem) / 3);
     display: inline-table;
