@@ -7,21 +7,6 @@ const cssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin")
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
-/**
- * 随机字符串
- * @param len
- * @returns {string}
- */
-function randomString(len) {
-    len = len || 32;
-    let $chars = 'abcdefhijkmnprstwxyz23456789';
-    let maxPos = $chars.length;
-    let pwd = '';
-    for (let i = 0; i < len; i++) {
-        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-    }
-    return pwd;
-}
 
 module.exports = {
     mode: 'development',
@@ -31,20 +16,20 @@ module.exports = {
         chunkFilename:'script/[name].[contenthash:8].js',
         path: path.resolve(__dirname, 'easybe'),
         clean: true,
+        pathinfo: false,
     },
     experiments: {
         topLevelAwait: true,
     },
     plugins: [
         // new BundleAnalyzerPlugin({
-        //     analyzerMode: 'disabled',
-        //     generateStatsFile: true,
+            // analyzerMode: 'disabled',
+            // generateStatsFile: true,
         // }),
         new fileManagerPlugin({
             events: {
                 onEnd: {
                     copy: [
-                        { source: './easybe/simple-memory.js', destination: './easybe/simple-memory.' + randomString(8) + '.js' },
                         { source: './src/typecho/', destination: './easybe/' }
                     ],
                 }
