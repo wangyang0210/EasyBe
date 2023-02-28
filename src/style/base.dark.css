@@ -121,10 +121,6 @@ body {
     border: 1px solid #555
 }
 
-.commentbox_title {
-    border-bottom: 1px dashed #555
-}
-
 footer-background {
     display: none
 }
@@ -440,6 +436,10 @@ details {
 /*评论框*/
 .el-input input::placeholder, .el-input_inner, .el-input-group_prepend, #tbCommentBody {
     color: #757575;
+}
+
+.el-input {
+    border-bottom: 1px dashed #555;
 }
 
 .commentbox_footer {

@@ -21,7 +21,7 @@ export default function main() {
             container: $('.OwO')[0],
             target: $('textarea')[0],
             position: 'down',
-            width: '100%',
+            width: '368px',
             maxHeight: '250px',
             data: $.__config.articleContent.owo.options
         });

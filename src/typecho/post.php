@@ -2,17 +2,17 @@
 <?php if (isset($_POST['digg']) && $_POST['digg'] == $this->cid) exit( strval(digg($this->cid)) ); ?>
 <?php if (isset($_POST['bury']) && $_POST['bury'] == $this->cid) exit( strval(bury($this->cid)) ); ?>
 <?php $this->need('header.php'); ?>
-<div <?php if ($this->hidden): ?> class="">
-    <form class="protected" action="https://dev.wangyangyang.vip/archives/68/" method="post">
-            <p class="word">请输入密码访问</p>
-            <p>
-                <input type="password" class="text" name="protectPassword">
-                <input type="hidden" name="protectCID" value="68">
-                <input type="submit" class="submit" value="提交">
-            </p>
-    </form>
-</div>
-<?php endif; ?>">
+<!--<div --><?php //if ($this->hidden): ?><!-- class="">-->
+<!--    <form class="protected" action="https://dev.wangyangyang.vip/archives/68/" method="post">-->
+<!--            <p class="word">请输入密码访问</p>-->
+<!--            <p>-->
+<!--                <input type="password" class="text" name="protectPassword">-->
+<!--                <input type="hidden" name="protectCID" value="68">-->
+<!--                <input type="submit" class="submit" value="提交">-->
+<!--            </p>-->
+<!--    </form>-->
+<!--</div>-->
+<?php //endif; ?><!--">-->
 <div id="mainContent">
     <div class="forFlow">
         <div id="post_detail">

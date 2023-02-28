@@ -4998,7 +4998,7 @@ table#blogCalendar > tbody > tr > td > a {
     display: inline-table;
     position: relative;
     font-size: 14px;
-    border-bottom: 2px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
     flex: 1;
 }
 

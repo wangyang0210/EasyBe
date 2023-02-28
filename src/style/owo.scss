@@ -1,5 +1,4 @@
 .OwO {
-    position: relative;
     user-select: none;
 
     &:hover {
@@ -61,8 +60,8 @@
         width: 400px;
         background: #fff;
         border: 1px solid #ddd;
-        z-index: 1;
-        top: 21px;
+        margin-top: 10px;
+        z-index: 3;
         border-radius: 0 4px 4px 4px;
 
         .OwO-items {
