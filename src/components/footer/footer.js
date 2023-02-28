@@ -153,22 +153,23 @@ export default function main() {
      */
     (() => {
         if ( $.__config.umami?.url && $.__config.umami?.shareId) {
-            const baseUrl = $.__config.umami.url
+            const baseUrl = $.__config.umami.url;
+            const shareId = $.__config.umami.shareId;
+            let websiteId = localStorage.getItem(shareId);
+            (!websiteId) && request(`${baseUrl}api/share/${shareId}`).then( r => { localStorage.setItem(shareId, r.websiteId)})
             $.__timeIds.umamiTId = window.setInterval(() => {
-                request(`${baseUrl}api/share/${ $.__config.umami.shareId}`).then( r => {
-                    Promise.all([
-                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${ $.__tools.getTodayStart()}&end_at=${ $.__tools.getTodayEnd()}`),
-                        request(`${baseUrl}api/website/${r.websiteId}/stats?start_at=${ $.__tools.getYesterdayStart()}&end_at=${ $.__tools.getYesterdayEnd()}`),
-                        request(`${baseUrl}api/website/${r.websiteId}/active`)])
-                        .then(function (results) {
-                            const todayState = results[0]
-                            const yesterdayState = results[1]
-                            const online = results[2]
-                            $('#cnzzInfo').text(`Online: ${online[0].x} | Today: ${todayState.pageviews.value} / ${todayState.uniques.value} / ${todayState.totaltime.value} | Yesterday: ${yesterdayState.pageviews.value} / ${yesterdayState.uniques.value} / ${yesterdayState.totaltime.value}`).show();
-                        });
-                })
+                Promise.all([
+                    request(`${baseUrl}api/website/${websiteId}/stats?start_at=${ $.__tools.getTodayStart()}&end_at=${ $.__tools.getTodayEnd()}`),
+                    request(`${baseUrl}api/website/${websiteId}/stats?start_at=${ $.__tools.getYesterdayStart()}&end_at=${ $.__tools.getYesterdayEnd()}`),
+                    request(`${baseUrl}api/website/${websiteId}/active`)])
+                    .then(function (results) {
+                        const todayState = results[0]
+                        const yesterdayState = results[1]
+                        const online = results[2]
+                        $('#cnzzInfo').text(`Online: ${online[0].x} | Today: ${todayState.pageviews.value} / ${todayState.uniques.value} / ${todayState.totaltime.value} | Yesterday: ${yesterdayState.pageviews.value} / ${yesterdayState.uniques.value} / ${yesterdayState.totaltime.value}`).show();
+                    });
                 $.__tools.clearIntervalTimeId( $.__timeIds.umamiTId);
-            },1000);
+            },5000);
         }
     })();
 }
