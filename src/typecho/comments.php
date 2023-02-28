@@ -23,7 +23,6 @@
     $comments->alt(' comment-odd', ' comment-even');
     echo $commentClass;
     ?>">
-        <?php print_r($comments)?>
         <div class="feedbackItem" id="<?php $comments->theId(); ?>">
             <div class="feedbackListSubtitle">
                 <div class="feedbackManage">
@@ -88,24 +87,26 @@
                         <div class="commentbox_main comment_textarea">
                                 <div class="commentbox_title">
                                     <div class="commentbox_title_left">
-                                        <?php if ($this->user->hasLogin()): ?>
-                                        <span id="btn_edit_comment" class="commentbox_tab active" title="用户名称"><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a></span>
-                                        <span id="btn_preview_comment" class="commentbox_tab" title="Logout"><a href="<?php $this->options->logoutUrl(); ?>" >退出</a></span>
-                                        <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
-                                        <?php else: ?>
-                                        <div class="el-input">
-                                            <div class="el-input-group_prepend">昵称</div>
-                                            <input type="text" required autocomplete="off" name="author" placeholder="请输入昵称" id="author" class="el-input_inner" value="<?php $this->remember('author'); ?>">
+                                        <div class="el-input-group">
+                                            <?php if ($this->user->hasLogin()): ?>
+                                                <span id="btn_edit_comment" class="commentbox_tab active" title="用户名称"><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a></span>
+                                                <span id="btn_preview_comment" class="commentbox_tab" title="Logout"><a href="<?php $this->options->logoutUrl(); ?>" >退出</a></span>
+                                                <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
+                                            <?php else: ?>
+                                                <div class="el-input">
+                                                    <div class="el-input-group_prepend">昵称</div>
+                                                    <input type="text" required autocomplete="off" name="author" placeholder="请输入昵称" id="author" class="el-input_inner" value="<?php $this->remember('author'); ?>">
+                                                </div>
+                                                <div class="el-input">
+                                                    <div class="el-input-group_prepend" >邮箱</div>
+                                                    <input type="email" autocomplete="off" name="mail" id="mail" placeholder="请输入邮箱" class="el-input_inner" value="<?php $this->remember('mail'); ?>">
+                                                </div>
+                                                <div class="el-input">
+                                                    <div class="el-input-group_prepend">网址</div>
+                                                    <input type="text" autocomplete="off" name="url" placeholder="请输入网址" class="el-input_inner" value="<?php $this->remember('url'); ?>">
+                                                </div>
+                                            <?php endif; ?>
                                         </div>
-                                        <div class="el-input">
-                                            <div class="el-input-group_prepend" >邮箱</div>
-                                            <input type="email" autocomplete="off" name="mail" id="mail" placeholder="请输入邮箱" class="el-input_inner" value="<?php $this->remember('mail'); ?>">
-                                        </div>
-                                        <div class="el-input">
-                                            <div class="el-input-group_prepend">网址</div>
-                                            <input type="text" autocomplete="off" name="url" placeholder="请输入网址" class="el-input_inner" value="<?php $this->remember('url'); ?>">
-                                        </div>
-                                        <?php endif; ?>
                                     </div>
                                 </div>
 
