@@ -30,8 +30,6 @@
         init(options) {
             this.area = options.target
             this.packages = Object.keys(options.data)
-
-            // fill in HTML
             let html = `
             <div class="OwO-logo">
                     <span>
@@ -65,11 +63,8 @@
             </div>
             `
             this.container.innerHTML = html
-
-            // bind event
             this.logo = this.container.getElementsByClassName('OwO-logo')[0]
             this.logo.addEventListener('click', () => { this.toggle() })
-
             this.container.getElementsByClassName('OwO-body')[0].addEventListener('click', e => {
                 let target = null
                 if (e.target.classList.contains('OwO-item')) {
@@ -96,11 +91,7 @@
         }
 
         toggle() {
-            if (this.container.classList.contains('OwO-open')) {
-                this.container.classList.remove('OwO-open')
-            } else {
-                this.container.classList.add('OwO-open')
-            }
+            this.container.classList.contains('OwO-open') ? this.container.classList.remove('OwO-open') : this.container.classList.add('OwO-open');
         }
 
         tab(index) {

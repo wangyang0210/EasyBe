@@ -6,13 +6,14 @@
 - 我的标签页面（更多）| https://www.cnblogs.com/wangyang0210/tag/
 - 随笔分类页面（更多）
 - 随笔档案页面（更多）
-- 优化评论问题 | 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail 
+- 优化评论问题[校验必填信息|邮箱|名称|评论内容|气泡提示语|评论框背景图片] | 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail 
 - 头像优化展示 | 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
 
 # 2023.2.9 - v2.1.8
-- 新增文章置顶
-- 新增配置`articleContent.owo`,评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO) [需适配移动端]
-- 使用Gravtar头像[需优化]
+- 新增文章置顶,在文章编辑页面开启置顶即可
+  新增配置`articleContent.commentBackground`,评论框背景图片(修图贼费时间,不能浪费这里也用下吧)
+- 新增配置`articleContent.owo`,评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)
+- 使用Gravtar头像来代替目前的随机头像
 - 新增评论打字特效,来自[activate-power-mode](https://github.com/disjukr/activate-power-mode)
 - 新增文章点赞特效
 - 新增文章踩功能
