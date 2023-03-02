@@ -95,11 +95,11 @@
                                             <?php else: ?>
                                                 <div class="el-input">
                                                     <div class="el-input-group_prepend">昵称</div>
-                                                    <input type="text" required autocomplete="off" name="author" placeholder="请输入昵称" id="author" class="el-input_inner" value="<?php $this->remember('author'); ?>">
+                                                    <input required type="text" required autocomplete="off" name="author" placeholder="请输入昵称（必填）" id="author" class="el-input_inner" value="<?php $this->remember('author'); ?>">
                                                 </div>
                                                 <div class="el-input">
                                                     <div class="el-input-group_prepend" >邮箱</div>
-                                                    <input type="email" autocomplete="off" name="mail" id="mail" placeholder="请输入邮箱" class="el-input_inner" value="<?php $this->remember('mail'); ?>">
+                                                    <input required type="email" autocomplete="off" name="mail" id="mail" placeholder="请输入邮箱（必填）" class="el-input_inner" value="<?php $this->remember('mail'); ?>">
                                                 </div>
                                                 <div class="el-input">
                                                     <div class="el-input-group_prepend">网址</div>

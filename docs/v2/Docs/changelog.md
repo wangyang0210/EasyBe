@@ -3,9 +3,6 @@
 - 新增配置浏览器信息,IP地址等[https://github.com/hakula139/UserAgent-for-Typecho | https://doge.uk/coding/useragent-modify.html]
 - 文章加密输入密码优化
 - 插件部署的文档
-- 我的标签页面（更多）| https://www.cnblogs.com/wangyang0210/tag/
-- 随笔分类页面（更多）
-- 随笔档案页面（更多）
 - 优化评论问题[校验必填信息|邮箱|名称|评论内容|气泡提示语|评论框背景图片] | 新增评论回复邮件提醒 | https://github.com/uniartisan/CommentToMail 
 - 头像优化展示 | 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
 

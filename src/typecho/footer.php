@@ -87,6 +87,7 @@
             timeout: 30000,
             cache: false,
             success: function (data) {
+                console.log(data, '11111111111')
                 $('#comments').html($("#comments", data).html());
                 $('#tbCommentBody').val("");
             },
