@@ -1155,29 +1155,12 @@ div#tbCommentBodyPreview {
     font-size: 13px;
     padding: 8px 0;
     resize: none;
-    /* background-color: transparent; */
-}
-
-.commentbox_footer input {
-    width: 31.7%;
-    height: 25px;
-    border: 1px dashed #ccc;
-    padding: 0 5px;
-}
-
-.commentbox_footer input:focus {
-    outline: none;
-    border-color: #409eff;
 }
 
 .feedbackItem .respond {
     width: 95%;
     position: relative;
     left: 33px;
-}
-
-.feedbackItem .respond .commentbox_footer input {
-    width: 31.4%;
 }
 
 #comment_form_container .comment_textarea:focus {
