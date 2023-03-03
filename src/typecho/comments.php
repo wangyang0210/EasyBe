@@ -105,6 +105,7 @@
                                                     <div class="el-input-group_prepend">网址</div>
                                                     <input type="text" autocomplete="off" name="url" placeholder="请输入网址" class="el-input_inner" value="<?php $this->remember('url'); ?>">
                                                 </div>
+                                                <a href="javascript:void(0);"><?php $comments->cancelReply(); ?></a>
                                             <?php endif; ?>
                                         </div>
                                     </div>
