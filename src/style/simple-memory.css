@@ -5041,6 +5041,7 @@ textarea:focus,
     width: 20px;
     text-align: center;
     top: 14px;
+    left: 10px;
 }
 
 .el-notification.right {
@@ -5084,6 +5085,7 @@ textarea:focus,
 .el-notification__group {
     margin-left: 13px;
     margin-right: 8px;
+    text-align: left;
 }
 
 .el-notification__title {
@@ -5107,7 +5109,7 @@ textarea:focus,
 
 .el-notification__closeBtn {
     position: absolute;
-    top: 18px;
+    top: 5px;
     right: 15px;
     cursor: pointer;
     color: #909399;

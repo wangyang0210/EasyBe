@@ -79,22 +79,56 @@
 
     // 评论
     function comments(url) {
-        $.ajax({
-            type: 'post',
-            url: url,
-            data:  $('#comment-form').serializeArray(),
-            async: true,
-            timeout: 30000,
-            cache: false,
-            success: function (data) {
-                console.log(data, '11111111111')
-                $('#comments').html($("#comments", data).html());
-                $('#tbCommentBody').val("");
-            },
-            error: function () {
-                alert('评论提交失败(っ °Д °;)っ');
-            },
+        let data = $('#comment-form').serializeArray()
+        const commentObj = {
+            "author": '昵称',
+            "mail": '邮箱',
+            "text": '评论内容'
+        }
+        data = data.map(item => {
+
+            if ((item.name in commentObj) && !item.value) {
+                $("#notification").show()
+                $(".el-notification__content p").text(`${commentObj[item.name]}不能为空哦👻`)
+            }
+
+            if (item.name == 'mail' && item.value && !(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(item.value))) {
+                $("#notification").show()
+                $(".el-notification__content p").text('邮箱格式貌似不正确哦🤔')
+                item.value = ''
+            }
+            let notificationTid = setTimeout(() => {
+                $("#notification").fadeOut()
+                clearTimeout(notificationTid)
+            }, 3000)
+
+            return item
+
         })
+
+        $(".el-notification__closeBtn").click(() => {
+            $("#notification").hide()
+        })
+
+        if (data.every(item => item.value !== '')) {
+            $.ajax({
+                type: 'post',
+                url: url,
+                data:  data,
+                async: true,
+                timeout: 30000,
+                cache: false,
+                success: function (data) {
+                    $('#comments').html($("#comments", data).html());
+                    $('#tbCommentBody').val("");
+                },
+                error: function () {
+                    $("#notification").show()
+                    $(".el-notification__content p").text('对不起, 您的发言过于频繁, 请稍侯再次发布')
+                },
+            })
+        }
+
     };
 
 </script>

@@ -23,7 +23,6 @@ export default function main() {
 
     // 表情
     if($.__config.articleContent.owo.enable) {
-        $(".OwO").show()
         import(/* webpackChunkName: "owo-css" */  '../../style/owo.scss')
         new OwO({
             container: $('.OwO')[0],
