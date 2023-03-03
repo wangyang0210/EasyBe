@@ -3,8 +3,8 @@
 - 新增配置浏览器信息,IP地址等[https://github.com/hakula139/UserAgent-for-Typecho | https://doge.uk/coding/useragent-modify.html]
 - 文章加密输入密码优化
 - 插件部署的文档
-- 优化评论问题[校验必填信息|邮箱|名称|评论内容|气泡提示语] | 
 - 头像优化展示 | 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
+- owojs 通过cdn引入？
 
 # 2023.2.9 - v2.1.8
 - 新增文章置顶,在文章编辑页面开启置顶即可
@@ -30,6 +30,7 @@
 - 优化默认展示网站名称
 - 优化自动配置侧边栏底部导航
 - 优化评论关闭样式
+- 优化评论问题[校验必填信息|邮箱|名称|评论内容|气泡提示语]
 - 删除微博分享，收藏本文按钮
 - 删除博客园相关的关注模块
 

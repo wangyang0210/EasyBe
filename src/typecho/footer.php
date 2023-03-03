@@ -79,7 +79,11 @@
 
     // 评论
     function comments(url) {
+        let emoji = $.__config.articleContent.owo.enable;
+        emoji && localStorage.setItem("emoji", $(".OwO").html())
+
         let data = $('#comment-form').serializeArray()
+
         const commentObj = {
             "author": '昵称',
             "mail": '邮箱',
@@ -121,10 +125,12 @@
                 success: function (data) {
                     $('#comments').html($("#comments", data).html());
                     $('#tbCommentBody').val("");
+                    emoji && $('.OwO').html(localStorage.getItem("emoji"))
                 },
                 error: function () {
                     $("#notification").show()
                     $(".el-notification__content p").text('对不起, 您的发言过于频繁, 请稍侯再次发布')
+                    emoji && $('.OwO').html(localStorage.getItem("emoji"))
                 },
             })
         }
