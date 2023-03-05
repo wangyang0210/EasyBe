@@ -413,6 +413,53 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
 
 
     // 浏览器版本信息
+
+    $browsers_360SE = [
+        108 => '14.0',
+        86 => '13.0',
+        78 => '12.0',
+        69 => '11.0',
+        63 => '10.0',
+        55 => '9.1',
+        45 => '8.1',
+        42 => '8.0',
+        31 => '7.0',
+        21 => '6.3',
+    ];
+
+    $browsers_360EE = [
+        95 => '21',
+        86 => '13.0',
+        78 => '12.0',
+        69 => '11.0',
+        63 => '9.5',
+        55 => '9.0',
+        50 => '8.7',
+        30 => '7.5',
+    ];
+
+    $browsers_liebao = [
+         57 => '6.5',
+        49 => '6.0',
+        46 => '5.9',
+        42 => '5.3',
+        39 => '5.2',
+        34 => '5.0',
+        29 => '4.5',
+        21 => '4.0'
+    ];
+
+    $browsers_2345 = [
+        69 => '10.0',
+        55 => '9.9',
+        69 => '10.0',
+        55 => '9.9',
+        69 => '10.0',
+        55 => '9.9'
+    ];
+
+    $chromeVersion = pregMatch('/^.*Chrome\/([\d]+).*$/', $userAgent);
+
     $browsersVersion = [
         "Safari" => pregMatch("/^.*Version\/([\d.]+).*$/", $userAgent),
         "Chrome" => pregMatch("/^.*Chrome\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*CriOS\/([\d.]+).*$/", $userAgent),
@@ -422,6 +469,48 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         "Firefox Focus" => pregMatch("/^.*Focus\/([\d.]+).*$/", $userAgent),
         "Chromium" => pregMatch("/^.*Chromium\/([\d.]+).*$/", $userAgent),
         "Opera" => pregMatch("/^.*Opera\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*OPR\/([\d.]+).*$/", $userAgent),
+        "Vivaldi" => pregMatch("/^.*Vivaldi\/([\d.]+).*$/", $userAgent),
+        "Yandex" => pregMatch("/^.*YaBrowser\/([\d.]+).*$/", $userAgent),
+        "Brave" => pregMatch("/^.*Chrome\/([\d.]+).*$/", $userAgent),
+        "Arora" => pregMatch("/^.*Arora\/([\d.]+).*$/", $userAgent),
+        "Lunascape" => pregMatch("/^.*Lunascape[\/\s]([\d.]+).*$/", $userAgent),
+        "QupZilla" => pregMatch("/^.*QupZilla[\/\s]([\d.]+).*$/", $userAgent),
+        "Coc Coc" => pregMatch("/^.*coc_coc_browser\/([\d.]+).*$/", $userAgent),
+        "Kindle" => pregMatch("/^.*Version\/([\d.]+).*$/", $userAgent),
+        "Iceweasel" => pregMatch("/^.*Iceweasel\/([\d.]+).*$/", $userAgent),
+        "Konqueror" => pregMatch("/^.*Konqueror\/([\d.]+).*$/", $userAgent),
+        "Iceape" => pregMatch("/^.*Iceape\/([\d.]+).*$/", $userAgent),
+        "SeaMonkey" => pregMatch("/^.*SeaMonkey\/([\d.]+).*$/", $userAgent),
+        "Epiphany" => pregMatch("/^.*Epiphany\/([\d.]+).*$/", $userAgent),
+        "360" => pregMatch("/^.*QihooBrowser(HD)?\/([\d.]+).*$/", $userAgent),
+        "Maxthon" => pregMatch("/^.*Maxthon\/([\d.]+).*$/", $userAgent),
+        "QQBrowser" => pregMatch("/^.*QQBrowser\/([\d.]+).*$/", $userAgent),
+        "QQ" => pregMatch("/^.*QQ\/([\d.]+).*$/", $userAgent),
+        "Baidu" => pregMatch("/^.*BIDUBrowser[\s\/]([\d.]+).*$/", $userAgent) || pregMatch("/^.*baiduboxapp\/([\d.]+).*$/", $userAgent),
+        "UC" => pregMatch("/^.*UC?Browser\/([\d.]+).*$/", $userAgent),
+        "Sogou" => pregMatch("/^.*SE ([\d.X]+).*$/", $userAgent) || pregMatch("/^.*SogouMobileBrowser\/([\d.]+).*$/", $userAgent),
+        "115Browser" => pregMatch("/^.*115Browser\/([\d.]+).*$/", $userAgent),
+        "TheWorld" => pregMatch("/^.*TheWorld ([\d.]+).*$/", $userAgent),
+        "XiaoMi" => pregMatch("/^.*MiuiBrowser\/([\d.]+).*$/", $userAgent),
+        "Vivo" => pregMatch("/^.*VivoBrowser\/([\d.]+).*$/", $userAgent),
+        "OPPO" => pregMatch("/^.*HeyTapBrowser\/([\d.]+).*$/", $userAgent),
+        "Quark" => pregMatch("/^.*Quark\/([\d.]+).*$/", $userAgent),
+        "Qiyu" => pregMatch("/^.*Qiyu\/([\d.]+).*$/", $userAgent),
+        "Wechat" => pregMatch("/^.*MicroMessenger\/([\d.]+).*$/", $userAgent),
+        "WechatWork" => pregMatch("/^.*wxwork\/([\d.]+).*$/", $userAgent),
+        "Taobao" => pregMatch("/^.*AliApp\(TB\/([\d.]+).*$/", $userAgent),
+        "Alipay" => pregMatch("/^.*AliApp\(AP\/([\d.]+).*$/", $userAgent),
+        "Weibo" => pregMatch("/^.*weibo__([\d.]+).*$/", $userAgent),
+        "Douban" => pregMatch("/^.*com.douban.frodo\/([\d.]+).*$/", $userAgent),
+        "Suning" => pregMatch("/^.*SNEBUY-APP([\d.]+).*$/", $userAgent),
+        "iQiYi" => pregMatch("/^.*IqiyiVersion\/([\d.]+).*$/", $userAgent),
+        "DingTalk" => pregMatch("/^.*DingTalk\/([\d.]+).*$/", $userAgent),
+        "Douyin" => pregMatch("/^.*app_version\/([\d.]+).*$/", $userAgent),
+        "Huawei" => pregMatch("/^.*Version\/([\d.]+).*$/", $userAgent) ||  pregMatch("/^.*HuaweiBrowser\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*HBPC\/([\d.]+).*$/", $userAgent),
+        "360SE" => $browsers_360SE[$chromeVersion] || '',
+        "360EE" => $browsers_360EE[$chromeVersion] || '',
+        "Liebao" => pregMatch("/^.*LieBaoFast\/([\d.]+).*$/", $userAgent) || $browsers_liebao[$chromeVersion],
+        "2345Explorer" => $browsers_2345[$chromeVersion]  || pregMatch("/^.*2345Explorer\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*Mb2345Browser\/([\d.]+).*$/", $userAgent),
     ];
 
     if ($browsersVersion[$deviceInfo['browser']]) {

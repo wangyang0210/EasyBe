@@ -267,8 +267,7 @@
                 }
                 return hash[v] || v
             },
-            Android: function () {
-                return u.replace(/^.*Android ([\d.]+);.*$/, '$1')
+            Android" => pregMatch("/^.*Android ([\d.]+);.*$/, '$1')
             },
             HarmonyOS: function () {
                 var v = u.replace(/^Mozilla.*Android ([\d.]+)[;)].*$/, '$1')
@@ -278,20 +277,15 @@
                 }
                 return hash[v] || ''
             },
-            iOS: function () {
-                return u.replace(/^.*OS ([\d_]+) like.*$/, '$1').replace(/_/g, '.')
+            iOS" => pregMatch("/^.*OS ([\d_]+) like.*$/, '$1').replace(/_/g, '.')
             },
-            Debian: function () {
-                return u.replace(/^.*Debian\/([\d.]+).*$/, '$1')
+            Debian" => pregMatch("/^.*Debian\/([\d.]+).*$/, '$1')
             },
-            'Windows Phone': function () {
-                return u.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/, '$2')
+            'Windows Phone'" => pregMatch("/^.*Windows Phone( OS)? ([\d.]+);.*$/, '$2')
             },
-            'Mac OS': function () {
-                return u.replace(/^.*Mac OS X ([\d_]+).*$/, '$1').replace(/_/g, '.')
+            'Mac OS'" => pregMatch("/^.*Mac OS X ([\d_]+).*$/, '$1').replace(/_/g, '.')
             },
-            WebOS: function () {
-                return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1')
+            WebOS" => pregMatch("/^.*hpwOS\/([\d.]+);.*$/, '$1')
             },
         }
         _this.systemVersion = ''
@@ -325,161 +319,31 @@
         var version = {
 
 
-            Vivaldi: function () {
-                return u.replace(/^.*Vivaldi\/([\d.]+).*$/, '$1')
-            },
-            Yandex: function () {
-                return u.replace(/^.*YaBrowser\/([\d.]+).*$/, '$1')
-            },
-            Brave: function () {
-                return u.replace(/^.*Chrome\/([\d.]+).*$/, '$1')
-            },
-            Arora: function () {
-                return u.replace(/^.*Arora\/([\d.]+).*$/, '$1')
-            },
-            Lunascape: function () {
-                return u.replace(/^.*Lunascape[\/\s]([\d.]+).*$/, '$1')
-            },
-            QupZilla: function () {
-                return u.replace(/^.*QupZilla[\/\s]([\d.]+).*$/, '$1')
-            },
-            'Coc Coc': function () {
-                return u.replace(/^.*coc_coc_browser\/([\d.]+).*$/, '$1')
-            },
-            Kindle: function () {
-                return u.replace(/^.*Version\/([\d.]+).*$/, '$1')
-            },
-            Iceweasel: function () {
-                return u.replace(/^.*Iceweasel\/([\d.]+).*$/, '$1')
-            },
-            Konqueror: function () {
-                return u.replace(/^.*Konqueror\/([\d.]+).*$/, '$1')
-            },
-            Iceape: function () {
-                return u.replace(/^.*Iceape\/([\d.]+).*$/, '$1')
-            },
-            SeaMonkey: function () {
-                return u.replace(/^.*SeaMonkey\/([\d.]+).*$/, '$1')
-            },
-            Epiphany: function () {
-                return u.replace(/^.*Epiphany\/([\d.]+).*$/, '$1')
-            },
-            360: function () {
-                return u.replace(/^.*QihooBrowser(HD)?\/([\d.]+).*$/, '$2')
-            },
-            '360SE': function () {
-                var hash = {
-                    108: '14.0',
-                    86: '13.0',
-                    78: '12.0',
-                    69: '11.0',
-                    63: '10.0',
-                    55: '9.1',
-                    45: '8.1',
-                    42: '8.0',
-                    31: '7.0',
-                    21: '6.3',
-                }
-                var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1')
+
+
+
+
+
+
+            '': function () {
+                var hash = {  }
+                var chrome_version = u.replace(, '$1')
                 return hash[chrome_version] || ''
             },
-            '360EE': function () {
-                var hash = { 95: '21', 86: '13.0', 78: '12.0', 69: '11.0', 63: '9.5', 55: '9.0', 50: '8.7', 30: '7.5' }
-                var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1')
-                return hash[chrome_version] || ''
-            },
-            Maxthon: function () {
-                return u.replace(/^.*Maxthon\/([\d.]+).*$/, '$1')
-            },
-            QQBrowser: function () {
-                return u.replace(/^.*QQBrowser\/([\d.]+).*$/, '$1')
-            },
-            QQ: function () {
-                return u.replace(/^.*QQ\/([\d.]+).*$/, '$1')
-            },
-            Baidu: function () {
-                return u.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/, '$1').replace(/^.*baiduboxapp\/([\d.]+).*$/, '$1')
-            },
-            UC: function () {
-                return u.replace(/^.*UC?Browser\/([\d.]+).*$/, '$1')
-            },
-            Sogou: function () {
-                return u.replace(/^.*SE ([\d.X]+).*$/, '$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, '$1')
-            },
-            Liebao: function () {
-                var version = ''
-                if (u.indexOf('LieBaoFast') > -1) {
-                    version = u.replace(/^.*LieBaoFast\/([\d.]+).*$/, '$1')
-                }
-                var hash = { 57: '6.5', 49: '6.0', 46: '5.9', 42: '5.3', 39: '5.2', 34: '5.0', 29: '4.5', 21: '4.0' }
-                var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1')
-                return version || hash[chrome_version] || ''
-            },
-            '2345Explorer': function () {
-                var hash = { 69: '10.0', 55: '9.9' }
+
+
+
+
+            '': function () {
+                var hash = {  }
                 var chrome_version = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1')
                 return (
                     hash[chrome_version] ||
-                    u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1')
+                    u.replace(, '$1').replace(, '$1')
                 )
             },
-            '115Browser': function () {
-                return u.replace(/^.*115Browser\/([\d.]+).*$/, '$1')
-            },
-            TheWorld: function () {
-                return u.replace(/^.*TheWorld ([\d.]+).*$/, '$1')
-            },
-            XiaoMi: function () {
-                return u.replace(/^.*MiuiBrowser\/([\d.]+).*$/, '$1')
-            },
-            Vivo: function () {
-                return u.replace(/^.*VivoBrowser\/([\d.]+).*$/, '$1')
-            },
-            OPPO: function () {
-                return u.replace(/^.*HeyTapBrowser\/([\d.]+).*$/, '$1')
-            },
-            Quark: function () {
-                return u.replace(/^.*Quark\/([\d.]+).*$/, '$1')
-            },
-            Qiyu: function () {
-                return u.replace(/^.*Qiyu\/([\d.]+).*$/, '$1')
-            },
-            Wechat: function () {
-                return u.replace(/^.*MicroMessenger\/([\d.]+).*$/, '$1')
-            },
-            WechatWork: function () {
-                return u.replace(/^.*wxwork\/([\d.]+).*$/, '$1')
-            },
-            Taobao: function () {
-                return u.replace(/^.*AliApp\(TB\/([\d.]+).*$/, '$1')
-            },
-            Alipay: function () {
-                return u.replace(/^.*AliApp\(AP\/([\d.]+).*$/, '$1')
-            },
-            Weibo: function () {
-                return u.replace(/^.*weibo__([\d.]+).*$/, '$1')
-            },
-            Douban: function () {
-                return u.replace(/^.*com.douban.frodo\/([\d.]+).*$/, '$1')
-            },
-            Suning: function () {
-                return u.replace(/^.*SNEBUY-APP([\d.]+).*$/, '$1')
-            },
-            iQiYi: function () {
-                return u.replace(/^.*IqiyiVersion\/([\d.]+).*$/, '$1')
-            },
-            DingTalk: function () {
-                return u.replace(/^.*DingTalk\/([\d.]+).*$/, '$1')
-            },
-            Douyin: function () {
-                return u.replace(/^.*app_version\/([\d.]+).*$/, '$1')
-            },
-            Huawei: function () {
-                return u
-                    .replace(/^.*Version\/([\d.]+).*$/, '$1')
-                    .replace(/^.*HuaweiBrowser\/([\d.]+).*$/, '$1')
-                    .replace(/^.*HBPC\/([\d.]+).*$/, '$1')
-            },
+
+
 
         }
         _this.version = ''
