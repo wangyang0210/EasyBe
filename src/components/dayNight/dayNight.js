@@ -11,7 +11,7 @@ import dayNightControl from "../../hooks/dayNightControl";
 
 export default function main() {
 
-    if (! $.__config.switchDayNight.enable) return true;
+    if (!$.__config.switchDayNight.enable) return true;
 
     let h         = parseInt(new Date().getHours()),
         cookieKey = 'cnblogs_config_isNight',
@@ -20,31 +20,49 @@ export default function main() {
     $.__status.dayNightCssHref = ''; // 夜间模式css样式文件路径，用于记录webpack打包后路径
 
     /**
+     * 评论框背景
+     * @param status {string} 日夜模式
+     */
+    let commentBackground = (status) => {
+        $.__config.articleContent.commentBackground.enable && $.__tools.setCommentBackground(status)
+    }
+
+    /**
      * 判断当前日/夜模式
      */
     (() => {
-        switch ( $.__tools.getCookie(cookieKey)) {
+        switch ($.__tools.getCookie(cookieKey)) {
             case 'day':
-                daySwitch = 'daySwitch'; break;
+                daySwitch = 'daySwitch';
+                break;
             case 'night':
-                daySwitch = ''; break;
+                daySwitch = '';
+                break;
             default:
-                daySwitch = $.__config.switchDayNight.auto.enable ? (h >= $.__config.switchDayNight.auto.nightHour ? '' : (h >= $.__config.switchDayNight.auto.dayHour ? 'daySwitch' : '')) : 'daySwitch'; break;
+                daySwitch = $.__config.switchDayNight.auto.enable ? (h >= $.__config.switchDayNight.auto.nightHour ? '' : (h >= $.__config.switchDayNight.auto.dayHour ? 'daySwitch' : '')) : 'daySwitch';
+                break;
         }
+    })();
+
+    /**
+     * 设置评论框背景
+     */
+    (() => {
+        daySwitch ? commentBackground('day') : commentBackground('night');
     })();
 
     /**
      * 判断是否强制夜间
      */
     (() => {
-        if ( $.__config.switchDayNight.nightMode) daySwitch = '';
+        if ($.__config.switchDayNight.nightMode) daySwitch = '';
     })();
 
     /**
      * 设置基础模版
      */
     (() => {
-        $('body').prepend( $.__tools.tempReplacement(dayNightTemp, 'daySwitch', daySwitch));
+        $('body').prepend($.__tools.tempReplacement(dayNightTemp, 'daySwitch', daySwitch));
     })();
 
     /**
@@ -64,13 +82,13 @@ export default function main() {
                 $(this).removeClass('daySwitch');
                 loadDarkCss();
                 dayNightControl('night');
-                $.__config.articleContent.commentBackground.enable && $.__tools.setCommentBackground('night')
+                commentBackground('night')
             } else { // 日间
                 $.__tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
                 dayNightControl( 'day');
-                $.__config.articleContent.commentBackground.enable && $.__tools.setCommentBackground('day')
+                commentBackground('day')
             }
         });
     })();
