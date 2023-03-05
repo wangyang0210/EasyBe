@@ -1,12 +1,10 @@
 # todo
 - typecho后台主题+antDesign [后期]
-- 新增配置浏览器信息,IP地址等[https://github.com/hakula139/UserAgent-for-Typecho | https://doge.uk/coding/useragent-modify.html]
 - 文章加密输入密码优化
-- 插件部署的文档
-- 头像优化展示 | 新增头像缓存插件,来自[GravatarCache](https://github.com/asdi998/GravatarCache)
-- owojs 通过cdn引入？
+
 
 # 2023.2.9 - v2.1.8
+- 新增评论显示地理位置信息
 - 新增文章置顶,在文章编辑页面开启置顶即可
   新增配置`articleContent.commentBackground`,评论框背景图片(修图贼费时间,不能浪费这里也用下吧)
 - 新增配置`articleContent.owo`,评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)

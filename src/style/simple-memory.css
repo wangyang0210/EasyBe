@@ -1132,7 +1132,7 @@ div#tbCommentBodyPreview {
 
 #comment_form_container .comment_textarea {
     font-size: 13px;
-    margin-bottom: 10px;
+    margin-bottom: 235px;
     color: #555;
     border: 1px solid #ddd;
     border-radius: 3px;
@@ -1161,6 +1161,7 @@ div#tbCommentBodyPreview {
     width: 95%;
     position: relative;
     left: 33px;
+    z-index: 10;
 }
 
 #comment_form_container .comment_textarea:focus {

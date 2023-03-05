@@ -7,23 +7,19 @@
  * @describe: owo.js
  */
 
-;(() => {
-    class OwO {
-        constructor(options) {
-            const defaultOption = {
+class OwO {
+        constructor() {
+            const options = {
                 container: $('.OwO')[0],
                 target: $('textarea')[0],
                 position: 'down',
-                width: '100%',
+                width: '383px',
                 maxHeight: '250px',
-                data: $.__config.articleContent.owo.options,
+                data: $.__config.articleContent.owo.options
             }
-            for (let defaultKey in defaultOption) {
-                if (defaultOption.hasOwnProperty(defaultKey) && !options.hasOwnProperty(defaultKey)) options[defaultKey] = defaultOption[defaultKey]
-            }
+
             this.container = options.container
             this.target = options.target
-            if (options.position === 'up') this.container.classList.add('OwO-up')
             this.init(options)
         }
 
@@ -98,15 +94,11 @@
             const itemsShow = this.container.getElementsByClassName('OwO-items-show')[0]
             if (itemsShow) itemsShow.classList.remove('OwO-items-show')
             this.container.getElementsByClassName('OwO-items')[index].classList.add('OwO-items-show')
-
             const packageActive = this.container.getElementsByClassName('OwO-package-active')[0]
             if (packageActive) packageActive.classList.remove('OwO-package-active')
             this.packagesEle.getElementsByTagName('li')[index].classList.add('OwO-package-active')
         }
     }
-    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-        module.exports = OwO
-    } else {
-        window.OwO = OwO
-    }
-})()
+
+export default new OwO()
+

@@ -79,8 +79,8 @@
 
     // 评论
     function comments(url) {
-        let emoji = $.__config.articleContent.owo.enable;
-        emoji && localStorage.setItem("emoji", $(".OwO").html())
+        // let emoji = $.__config.articleContent.owo.enable;
+        // emoji && localStorage.setItem("emoji", $(".OwO").html())
 
         let data = $('#comment-form').serializeArray()
 
@@ -89,32 +89,29 @@
             "mail": '邮箱',
             "text": '评论内容'
         }
-        data = data.map(item => {
-
+        let status = data.map(item => {
             if ((item.name in commentObj) && !item.value) {
                 $("#notification").show()
                 $(".el-notification__content p").text(`${commentObj[item.name]}不能为空哦👻`)
+                return false
             }
-
             if (item.name == 'mail' && item.value && !(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(item.value))) {
                 $("#notification").show()
                 $(".el-notification__content p").text('邮箱格式貌似不正确哦🤔')
-                item.value = ''
+                return false
             }
             let notificationTid = setTimeout(() => {
                 $("#notification").fadeOut()
                 clearTimeout(notificationTid)
             }, 3000)
-
-            return item
-
+            return true
         })
 
         $(".el-notification__closeBtn").click(() => {
             $("#notification").hide()
         })
 
-        if (data.every(item => item.value !== '')) {
+        if (status.indexOf(false) === -1) {
             $.ajax({
                 type: 'post',
                 url: url,
@@ -123,14 +120,12 @@
                 timeout: 30000,
                 cache: false,
                 success: function (data) {
-                    $('#comments').html($("#comments", data).html());
+                    $('.comment-list').html($(".comment-list", data).html());
                     $('#tbCommentBody').val("");
-                    emoji && $('.OwO').html(localStorage.getItem("emoji"))
                 },
                 error: function () {
                     $("#notification").show()
                     $(".el-notification__content p").text('对不起, 您的发言过于频繁, 请稍侯再次发布')
-                    emoji && $('.OwO').html(localStorage.getItem("emoji"))
                 },
             })
         }

@@ -37,13 +37,14 @@
                     } ?>
                 <?php } ?>
                 <span class="comment_date"><?php $comments->date('Y-m-d H:i'); ?></span>
-                <a id="a_comment_author_<?php $comments->sequence(); ?>"
-                   href="<?php $comments->permalink(); ?>"><?php $comments->author(); ?></a>
+                <a id="a_comment_author_<?php $comments->sequence(); ?>" href="<?php $comments->permalink(); ?>"><?php $comments->author(); ?></a>
+                <span id="device_comment_<?php $comments->sequence(); ?>" ><script type="text/javascript">  </script></span>
+                <span id="ip_comment_<?php $comments->sequence(); ?>" ><?php getIPInfo($comments->ip) ?></span>
             </div>
             <div class="feedbackCon">
                 <div id="comment_body_<?php $comments->sequence(); ?>" class="blog_comment_body cnblogs-markdown">
                     <p>
-                        <a><?php echo getPermalinkFromCoid($comments->parent); ?></a>
+                        <a><?php echo getPermalinkFromCoId($comments->parent); ?></a>
                         <br><?php $comments->content(); ?>
                     </p>
                 </div>

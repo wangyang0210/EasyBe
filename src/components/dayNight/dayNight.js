@@ -44,12 +44,6 @@ export default function main() {
         }
     })();
 
-    /**
-     * 设置评论框背景
-     */
-    (() => {
-        daySwitch ? commentBackground('day') : commentBackground('night');
-    })();
 
     /**
      * 判断是否强制夜间
@@ -70,6 +64,13 @@ export default function main() {
      */
     (() => {
         if (!daySwitch) loadDarkCss();
+    })();
+
+    /**
+     * 设置评论框背景
+     */
+    (() => {
+        daySwitch ? commentBackground('day') : commentBackground('night');
     })();
 
     /**

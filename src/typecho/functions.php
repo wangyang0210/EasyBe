@@ -2,7 +2,11 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 
-// 主题配置
+/**
+ * 主题配置
+ *
+ * @param $form
+ */
 function themeConfig($form) {
     echo '<style>
             #typecho-option-item-latestPosts-2, #typecho-option-item-myTags-3, 
@@ -83,13 +87,23 @@ function themeConfig($form) {
     echo '<form class="protected home col-mb-12" action="" method="post"><ul class="typecho-option" style="position: relative;left: -9px;"><li><label class="typecho-label">主题配置恢复</label><input type="submit" name="restore" class="btn primary" value="恢复主题配置"></li></ul></form>';
 }
 
-// 字段配置
+/**
+ * 字段配置
+ *
+ * @param $layout
+ */
 function themeFields($layout) {
     $postTop = new Typecho_Widget_Helper_Form_Element_Radio('postSticky', [1 => '开启', 0 => '关闭'], '0', _t('是否置顶'));
     $layout->addItem($postTop);
 }
 
-// 获取全部文章
+/**
+ * 获取全部文章
+ *
+ * @param int $page 分页
+ * @param int $limit 文章数量
+ * @return mixed
+ */
 function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
     $prefix = $db->getPrefix();
@@ -114,23 +128,34 @@ function getAllPosts($page, $limit) {
     return  $db->fetchAll($sql);
 }
 
-// 获取当前页面地址
+/**
+ * 获取当前页面地址
+ *
+ * @return string 链接
+ */
 function getUrl() {
-    $protocal = isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443' ? 'https://' : 'http://';
+    $protocol = isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == '443' ? 'https://' : 'http://';
     $php_self = $_SERVER['PHP_SELF'] ?? $_SERVER['SCRIPT_NAME'];
     $path_info = $_SERVER['PATH_INFO'] ??  '';
     $relate_url = $_SERVER['REQUEST_URI'] ?? $php_self.$path_info;
-    return $protocal.($_SERVER['HTTP_HOST'] ?? '').$relate_url;
+    return $protocol.($_SERVER['HTTP_HOST'] ?? '').$relate_url;
 }
 
-// 获取全部文章阅读量
+/**
+ * 获取全部文章阅读量
+ *
+ */
 function getAllPostViews() {
     $db = Typecho_Db::get();
     $row = $db->fetchAll("select sum(views) as views from `{$db->getPrefix()}contents`;");
     echo $row[0]['views'];
 }
 
-// 获取指定文章的阅读访问量
+/**
+ * 获取指定文章的阅读访问量
+ *
+ * @param object $archive 文章属性
+ */
 function getPostView($archive) {
     $cid    = $archive->cid;
     $db     = Typecho_Db::get();
@@ -139,7 +164,11 @@ function getPostView($archive) {
     echo $row;
 }
 
-// 获取推荐最多的文章
+/**
+ * 获取推荐最多的文章
+ *
+ * @param int $limit 文章数量
+ */
 function getPostDiggRank($limit){
     $db     = Typecho_Db::get();
     $posts = $db->fetchAll($db->select()->from('table.contents')
@@ -159,7 +188,11 @@ function getPostDiggRank($limit){
     }
 }
 
-// 获取阅读量最多的文章
+/**
+ * 获取阅读量最多的文章
+ *
+ * @param int $limit 文章数量
+ */
 function getPostViewRank($limit) {
     $db     = Typecho_Db::get();
     $posts = $db->fetchAll($db->select()->from('table.contents')
@@ -179,7 +212,11 @@ function getPostViewRank($limit) {
     }
 }
 
-// 获取评论最多的文章
+/**
+ * 获取评论最多的文章
+ *
+ * @param int $limit 文章数量
+ */
 function getPostCommentRank($limit) {
     $db     = Typecho_Db::get();
     $posts = $db->fetchAll($db->select()->from('table.contents')
@@ -199,16 +236,161 @@ function getPostCommentRank($limit) {
     }
 }
 
-// 留言@
-function getPermalinkFromCoid($coid) {
+/**
+ * 留言@
+ *
+ * @param int $coid 评论ID
+ * @return string
+ */
+function getPermalinkFromCoId($coid): string {
     $db = Typecho_Db::get();
     $row = $db->fetchRow($db->select('author')->from('table.comments')->where('coid = ? AND status = ?', $coid, 'approved'));
     if (empty($row)) return '';
     return '<a href="#comment-'.$coid.'">@'.$row['author'].'</a>';
 }
 
-// 获取指定文章的点赞数量
-function getDiggNum($cid, &$record = NULL) {
+/**
+ * IP转地址
+ *
+ * @param int $ip ip地址
+ */
+function getIPInfo($ip) {
+    $url =  "http://ip.plyz.net/ip.ashx?ip={$ip}";
+    $data = curlRequest($url, 'GET');
+    echo explode("|",$data)[1];
+}
+
+function getBrowsersInfo ($userAgent) {
+
+    $_window = $userAgent || '';
+    $_navigator = '';
+    $device = 'PC';
+
+
+    $match = [
+        // 内核
+        "Trident" => strstr($userAgent, 'Trident') != false || strstr($userAgent, 'NET CLR') != false ,
+        "Presto" =>  strstr($userAgent, 'Presto') != false ,
+        "WebKit" => strstr($userAgent, 'AppleWebKit') != false ,
+        "Gecko" => strstr($userAgent, 'Gecko/') != false ,
+        "KHTML" => strstr($userAgent, 'KHTML/') != false ,
+        // 浏览器 - 国外浏览器
+        "Safari" => strstr($userAgent, 'Safari') != false ,
+        "Chrome" => strstr($userAgent, 'Chrome') != false || strstr($userAgent, 'CriOS') != false ,
+        "IE" => strstr($userAgent, 'MSIE') != false || strstr($userAgent, 'Trident') != false ,
+        "Edge" => strstr($userAgent, 'Edge') != false || strstr($userAgent, 'Edg/') != false || strstr($userAgent, 'EdgA') != false || strstr($userAgent, 'EdgiOS') != false,
+        "Firefox" => strstr($userAgent, 'Firefox') != false || strstr($userAgent, 'FxiOS') != false ,
+        "Firefox Focus" => strstr($userAgent, 'Focus') != false,
+        "Chromium" => strstr($userAgent,'Chromium') != false,
+        "Opera" => strstr($userAgent,'Opera') != false || strstr($userAgent,'OPR') != false,
+        "Vivaldi" => strstr($userAgent,'Vivaldi') != false,
+        "Yandex" => strstr($userAgent,'YaBrowser') != false,
+        "Arora" => strstr($userAgent,'Arora') != false,
+        "Lunascape" => strstr($userAgent,'Lunascape') != false,
+        "QupZilla" => strstr($userAgent,'QupZilla') != false,
+        "Coc Coc" => strstr($userAgent,'coc_coc_browser') != false,
+        "Kindle" => strstr($userAgent,'Kindle') != false || strstr($userAgent,'Silk/') != false,
+        "Iceweasel" => strstr($userAgent,'Iceweasel') != false,
+        "Konqueror" => strstr($userAgent,'Konqueror') != false,
+        "Iceape" => strstr($userAgent,'Iceape') != false,
+        "SeaMonkey" => strstr($userAgent,'SeaMonkey') != false,
+        "Epiphany" => strstr($userAgent,'Epiphany') != false,
+        // 浏览器 - 国内浏览器
+        "360" => strstr($userAgent,'QihooBrowser') != false || strstr($userAgent,'QHBrowser') != false,
+        "360EE" => strstr($userAgent,'360EE') != false,
+        "360SE" => strstr($userAgent,'360SE') != false,
+        "UC" => strstr($userAgent,'UCBrowser') != false || strstr($userAgent,' UBrowser') != false || strstr($userAgent,'UCWEB') != false,
+        "QQBrowser" => strstr($userAgent,'QQBrowser') != false,
+        "QQ" => strstr($userAgent,'QQ/') != false,
+        "Baidu" => strstr($userAgent,'Baidu') != false || strstr($userAgent,'BIDUBrowser') != false || strstr($userAgent,'baidubrowser') != false || strstr($userAgent,'baiduboxapp') != false || strstr($userAgent,'BaiduHD') != false,
+        "Maxthon" => strstr($userAgent,'Maxthon') != false,
+        "Sogou" => strstr($userAgent,'MetaSr') != false || strstr($userAgent,'Sogou') != false,
+        "Liebao" => strstr($userAgent,'LBBROWSER') != false || strstr($userAgent,'LieBaoFast') != false,
+        "2345Explorer" => strstr($userAgent,'2345Explorer') != false || strstr($userAgent,'Mb2345Browser') != false || strstr($userAgent,'2345chrome') != false,
+        "115Browser" => strstr($userAgent,'115Browser') != false,
+        "TheWorld" => strstr($userAgent,'TheWorld') != false,
+        "Quark" => strstr($userAgent,'Quark') != false,
+        "Qiyu" => strstr($userAgent,'Qiyu') != false,
+        // 浏览器 - 手机厂商
+        "XiaoMi" => strstr($userAgent,'MiuiBrowser') != false,
+        "Huawei" => strstr($userAgent,'HuaweiBrowser') != false || strstr($userAgent,'HUAWEI/') != false || strstr($userAgent,'HONOR') != false || strstr($userAgent,'HBPC/') != false,
+        "Vivo" => strstr($userAgent,'VivoBrowser') != false,
+        "OPPO" => strstr($userAgent,'HeyTapBrowser') != false,
+        // 浏览器 - 客户端
+        "Wechat" => strstr($userAgent,'MicroMessenger') != false,
+        "WechatWork" => strstr($userAgent,'wxwork/') != false,
+        "Taobao" => strstr($userAgent,'AliApp(TB') != false,
+        "Alipay" => strstr($userAgent,'AliApp(AP') != false,
+        "Weibo" => strstr($userAgent,'Weibo') != false,
+        "Douban" => strstr($userAgent,'com.douban.frodo') != false,
+        "Suning" => strstr($userAgent,'SNEBUY-APP') != false,
+        "iQiYi" => strstr($userAgent,'IqiyiApp') != false,
+        "DingTalk" => strstr($userAgent,'DingTalk') != false,
+        "Douyin" => strstr($userAgent,'aweme') != false,
+        // 系统或平台
+        "Windows" => strstr($userAgent,'Windows') != false,
+        "Linux" => strstr($userAgent,'Linux') != false || strstr($userAgent,'X11') != false,
+        "Mac OS" => strstr($userAgent,'Macintosh') != false,
+        "Android" => strstr($userAgent,'Android') != false || strstr($userAgent,'Adr') != false,
+        "HarmonyOS" => strstr($userAgent,'HarmonyOS') != false,
+        "Ubuntu" => strstr($userAgent,'Ubuntu') != false,
+        "FreeBSD" => strstr($userAgent,'FreeBSD') != false,
+        "Debian" => strstr($userAgent,'Debian') != false,
+        "Windows Phone" => strstr($userAgent,'IEMobile') != false || strstr($userAgent,'Windows Phone') != false,
+        "BlackBerry" => strstr($userAgent,'BlackBerry') != false || strstr($userAgent,'RIM') != false,
+        "MeeGo" => strstr($userAgent,'MeeGo') != false,
+        "Symbian" => strstr($userAgent,'Symbian') != false,
+        "iOS" => strstr($userAgent,'like Mac OS X') != false,
+        "Chrome OS" => strstr($userAgent,'CrOS') != false,
+        "WebOS" => strstr($userAgent,'hpwOS') != false,
+        // 设备
+        "Mobile" => strstr($userAgent,'Mobi') != false || strstr($userAgent,'iPh') != false || strstr($userAgent,'480') != false,
+        "Tablet" => strstr($userAgent,'Tablet') != false || strstr($userAgent,'Pad') != false || strstr($userAgent,'Nexus 7') != false,
+        // 环境
+        "isWebview" => strstr($userAgent,'; wv)') != false,
+    ];
+
+    // 部分修正 | 因typecho评论数据只存储了ua的信息,所以不能完全进行修正尤其是360相关浏览器
+    if ($match['Baidu'] && $match['Opera']) $match['Baidu'] = false;
+    if ($match['iOS']) $match['Safari'] = true;
+
+    $baseInfo = [
+        "engine" => ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
+        "browser" => [
+            'Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium',
+            'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape','QupZilla', 'Coc Coc',
+            'Kindle', 'Iceweasel', 'Konqueror', 'Iceape','SeaMonkey', 'Epiphany', 'XiaoMi',
+            'Vivo', 'OPPO', '360', '360SE','360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu',
+            'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu',
+            'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban', 'Suning', 'iQiYi', 'DingTalk', 'Douyin'
+        ],
+        "system" => [
+            'Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu',
+            'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo',
+            'Symbian', 'Chrome OS', 'WebOS'
+        ],
+        "device" => ['Mobile', 'Tablet'],
+    ];
+
+    $deviceInfo = [];
+    foreach ($baseInfo as $k => $v) {
+        foreach ($v as $xv) {
+            if ($match[$xv]) $deviceInfo[$k] = $xv;
+        }
+    }
+
+}
+
+
+
+/**
+ * 获取指定文章的点赞数量
+ *
+ * @param int $cid 文章ID
+ * @param null $record 标记
+ * @return array
+ */
+function getDiggNum($cid, &$record = NULL):array {
     $db = Typecho_Db::get();
     $res = [
         'msg' => '',
@@ -226,7 +408,12 @@ function getDiggNum($cid, &$record = NULL) {
     return $res;
 }
 
-// 请求点赞
+/**
+ * 请求点赞
+ *
+ * @param int $cid 文章ID
+ * @return false|string
+ */
 function digg($cid) {
     $db = Typecho_Db::get();
     $res = getDiggNum($cid, $record);
@@ -247,8 +434,14 @@ function digg($cid) {
     return json_encode($res);
 }
 
-// 获取指定文章的踩
-function getBuryNum($cid, &$record = NULL) {
+/**
+ * 获取指定文章的踩
+ *
+ * @param int $cid 文章ID
+ * @param null $record 标记
+ * @return array
+ */
+function getBuryNum($cid, &$record = NULL):array {
     $db = Typecho_Db::get();
     $res = [
         'msg' => '',
@@ -266,7 +459,10 @@ function getBuryNum($cid, &$record = NULL) {
     return $res;
 }
 
-// 请求踩
+/**
+ * @param int $cid 文章ID
+ * @return false|string
+ */
 function bury($cid) {
     $db = Typecho_Db::get();
     $res = getBuryNum($cid, $record);
@@ -285,4 +481,44 @@ function bury($cid) {
     $res['msg'] = '感谢批评,我会再接再厉的(づ￣ 3￣)づ';
     $res['bury'] = $bury;
     return json_encode($res);
+}
+
+
+/**
+ * 多种请求方法封装
+ *
+ * @param string   $url      请求地址
+ * @param string   $method   请求方式
+ * @param array    $header   请求头
+ * @param array    $data     请求体
+ *
+ * @return mixed
+ */
+function curlRequest($url, $method = 'POST', $header = ["Content-type:application/json;charset=utf-8", "Accept:application/json"], $data = [])
+{
+
+    $method = strtoupper($method);
+    //初始化
+    $ch = curl_init();
+    //设置桥接(抓包)
+    //curl_setopt($ch, CURLOPT_PROXY, '127.0.0.1:8888');
+    //设置请求地址
+    curl_setopt($ch, CURLOPT_URL, $url);
+    // 检查ssl证书
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    // 从检查本地证书检查是否ssl加密
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, $url);
+    //设置请求方法
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+    //设置请求头
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    //设置请求数据
+    if (!empty($data)) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    }
+    //设置curl_exec()的返回值以字符串返回
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $res = curl_exec($ch);
+    curl_close($ch);
+    return $res;
 }

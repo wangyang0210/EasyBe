@@ -6,12 +6,8 @@
  * ----------------------------------------------
  * @describe: 评论处理
  */
-import OwO from "./owo/owo";
+
 export default function main() {
-
-    // 评论框背景图片
-    $.__config.articleContent.commentBackground.enable && $.__tools.setCommentBackground($.__tools.getCookie('cnblogs_config_isNight'));
-
 
     // 评论打字特效
     if($.__config.articleContent.commentTyping.enable) {
@@ -24,14 +20,7 @@ export default function main() {
     // 表情
     if($.__config.articleContent.owo.enable) {
         import(/* webpackChunkName: "owo-css" */  '../../style/owo.scss')
-        new OwO({
-            container: $('.OwO')[0],
-            target: $('textarea')[0],
-            position: 'down',
-            width: '383px',
-            maxHeight: '250px',
-            data: $.__config.articleContent.owo.options
-        });
+        import(/* webpackChunkName: "owo-js" */  './owo/owo')
     }
     let setComment = () => {
         let feedbackItem = $('.feedbackItem');

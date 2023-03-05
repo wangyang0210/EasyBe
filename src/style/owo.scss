@@ -17,23 +17,6 @@
             display: block;
         }
     }
-    &.OwO-up {
-        .OwO-body {
-            top: inherit;
-            bottom: 21px;
-            border-radius: 4px 4px 4px 0;
-
-            .OwO-bar .OwO-packages li:nth-child(1) {
-                border-radius: 0;
-            }
-        }
-
-        &.OwO-open .OwO-logo {
-            border: 1px solid #ddd;
-            border-radius: 0 0 4px 4px;
-            border-top: none;
-        }
-    }
 
     .OwO-logo {
         box-sizing: border-box;
