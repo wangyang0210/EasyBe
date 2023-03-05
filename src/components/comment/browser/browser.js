@@ -154,48 +154,9 @@
             // 环境
             isWebview: u.indexOf('; wv)') > -1,
         }
-        var is360 = false
-        if (_window.chrome) {
-            var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1')
-            if (_window.chrome.adblock2345 || _window.chrome.common2345) {
-                match['2345Explorer'] = true
-            } else if (
-                _mime('type', 'application/360softmgrplugin') ||
-                _mime('type', 'application/mozilla-npqihooquicklogin')
-            ) {
-                is360 = true
-            } else if (chrome_version > 36 && _window.showModalDialog) {
-                is360 = true
-            } else if (chrome_version > 45) {
-                is360 = _mime('type', 'application/vnd.chromium.remoting-viewer')
-                if (!is360 && chrome_version >= 69) {
-                    is360 =
-                        _mime('type', 'application/hwepass2001.installepass2001') || _mime('type', 'application/asx')
-                }
-            }
-        }
 
         // 修正
-        if (match['Mobile']) {
-            match['Mobile'] = !(u.indexOf('iPad') > -1)
-        } else if (is360) {
-            if (_mime('type', 'application/gameplugin')) {
-                match['360SE'] = true
-            } else if (
-                _navigator &&
-                typeof _navigator['connection'] !== 'undefined' &&
-                typeof _navigator['connection']['saveData'] == 'undefined'
-            ) {
-                match['360SE'] = true
-            } else {
-                match['360EE'] = true
-            }
-        }
-        if (match['Baidu'] && match['Opera']) {
-            match['Baidu'] = false
-        } else if (match['iOS']) {
-            match['Safari'] = true
-        }
+
         // 基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
@@ -280,15 +241,7 @@
             device: ['Mobile', 'Tablet'],
         }
         _this.device = 'PC'
-        _this.language = (function () {
-            var g = _navigator.browserLanguage || _navigator.language
-            if (typeof g !== 'string') return 'Unknown language'
-            var arr = g.split('-')
-            if (arr[1]) {
-                arr[1] = arr[1].toUpperCase()
-            }
-            return arr.join('_')
-        })()
+
         for (var s in hash) {
             for (var i = 0; i < hash[s].length; i++) {
                 var value = hash[s][i]
@@ -344,6 +297,8 @@
         _this.systemVersion = ''
         if (systemVersion[_this.system]) {
             _this.systemVersion = systemVersion[_this.system]()
+            console.log('%c', 'font-size:18px;color:red;', _this.systemVersion)
+            console.log(u);
             if (_this.systemVersion == u) {
                 _this.systemVersion = ''
             }
@@ -368,34 +323,8 @@
 
         // 浏览器版本信息
         var version = {
-            Safari: function () {
-                return u.replace(/^.*Version\/([\d.]+).*$/, '$1')
-            },
-            Chrome: function () {
-                return u.replace(/^.*Chrome\/([\d.]+).*$/, '$1').replace(/^.*CriOS\/([\d.]+).*$/, '$1')
-            },
-            IE: function () {
-                return u.replace(/^.*MSIE ([\d.]+).*$/, '$1').replace(/^.*rv:([\d.]+).*$/, '$1')
-            },
-            Edge: function () {
-                return u
-                    .replace(/^.*Edge\/([\d.]+).*$/, '$1')
-                    .replace(/^.*Edg\/([\d.]+).*$/, '$1')
-                    .replace(/^.*EdgA\/([\d.]+).*$/, '$1')
-                    .replace(/^.*EdgiOS\/([\d.]+).*$/, '$1')
-            },
-            Firefox: function () {
-                return u.replace(/^.*Firefox\/([\d.]+).*$/, '$1').replace(/^.*FxiOS\/([\d.]+).*$/, '$1')
-            },
-            'Firefox Focus': function () {
-                return u.replace(/^.*Focus\/([\d.]+).*$/, '$1')
-            },
-            Chromium: function () {
-                return u.replace(/^.*Chromium\/([\d.]+).*$/, '$1')
-            },
-            Opera: function () {
-                return u.replace(/^.*Opera\/([\d.]+).*$/, '$1').replace(/^.*OPR\/([\d.]+).*$/, '$1')
-            },
+
+
             Vivaldi: function () {
                 return u.replace(/^.*Vivaldi\/([\d.]+).*$/, '$1')
             },
@@ -551,33 +480,7 @@
                     .replace(/^.*HuaweiBrowser\/([\d.]+).*$/, '$1')
                     .replace(/^.*HBPC\/([\d.]+).*$/, '$1')
             },
-            Googlebot: function () {
-                return u.replace(/^.*Googlebot\/([\d.]+).*$/, '$1')
-            },
-            Baiduspider: function () {
-                return u.replace(/^.*Baiduspider(-render)?\/([\d.]+).*$/, '$1')
-            },
-            Sogouspider: function () {
-                return u.replace(/^.*Sogou (\S+) Spider\/([\d.]+).*$/i, '$2')
-            },
-            Bingbot: function () {
-                return u.replace(/^.*bingbot\/([\d.]+).*$/, '$1')
-            },
-            '360Spider': function () {
-                return ''
-            },
-            Bytespider: function () {
-                return ''
-            },
-            YisouSpider: function () {
-                return u.replace(/^.*YisouSpider\/([\d.]+).*$/, '$1')
-            },
-            YodaoBot: function () {
-                return u.replace(/^.*YodaoBot\/([\d.]+).*$/, '$1')
-            },
-            YandexBot: function () {
-                return u.replace(/^.*YandexBot\/([\d.]+).*$/, '$1')
-            },
+
         }
         _this.version = ''
         if (version[_this.browser]) {

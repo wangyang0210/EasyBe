@@ -111,6 +111,19 @@
             $("#notification").hide()
         })
 
+        if (typeof navigator.userAgentData != 'undefined') {
+            navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function (ua) {
+                if (navigator.userAgentData.platform === 'Windows') {
+                    const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0])
+                    if (majorPlatformVersion >= 13) {
+                        console.log('%c', 'font-size:18px;color:red;','windows11')
+                    } else {
+                        console.log('%c', 'font-size:18px;color:red;','windows10')
+                    }
+                }
+            })
+        }
+
         if (status.indexOf(false) === -1) {
             $.ajax({
                 type: 'post',

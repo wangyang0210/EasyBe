@@ -260,20 +260,20 @@ function getIPInfo($ip) {
     echo explode("|",$data)[1];
 }
 
-function getBrowsersInfo ($userAgent) {
+function getBrowsersInfo ($userAgent, $_windowsVersion) {
 
     $_window = $userAgent || '';
     $_navigator = '';
-    $device = 'PC';
+    $deviceInfo = [
+        "system" => "",
+        "systemVersion" => "",
+        "browser" => "",
+        "version" => "",
+        "device" => "PC"
+    ];
 
 
     $match = [
-        // 内核
-        "Trident" => strstr($userAgent, 'Trident') != false || strstr($userAgent, 'NET CLR') != false ,
-        "Presto" =>  strstr($userAgent, 'Presto') != false ,
-        "WebKit" => strstr($userAgent, 'AppleWebKit') != false ,
-        "Gecko" => strstr($userAgent, 'Gecko/') != false ,
-        "KHTML" => strstr($userAgent, 'KHTML/') != false ,
         // 浏览器 - 国外浏览器
         "Safari" => strstr($userAgent, 'Safari') != false ,
         "Chrome" => strstr($userAgent, 'Chrome') != false || strstr($userAgent, 'CriOS') != false ,
@@ -346,16 +346,14 @@ function getBrowsersInfo ($userAgent) {
         // 设备
         "Mobile" => strstr($userAgent,'Mobi') != false || strstr($userAgent,'iPh') != false || strstr($userAgent,'480') != false,
         "Tablet" => strstr($userAgent,'Tablet') != false || strstr($userAgent,'Pad') != false || strstr($userAgent,'Nexus 7') != false,
-        // 环境
-        "isWebview" => strstr($userAgent,'; wv)') != false,
     ];
 
     // 部分修正 | 因typecho评论数据只存储了ua的信息,所以不能完全进行修正尤其是360相关浏览器
     if ($match['Baidu'] && $match['Opera']) $match['Baidu'] = false;
     if ($match['iOS']) $match['Safari'] = true;
 
+    // 基本信息
     $baseInfo = [
-        "engine" => ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
         "browser" => [
             'Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium',
             'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape','QupZilla', 'Coc Coc',
@@ -372,13 +370,84 @@ function getBrowsersInfo ($userAgent) {
         "device" => ['Mobile', 'Tablet'],
     ];
 
-    $deviceInfo = [];
     foreach ($baseInfo as $k => $v) {
         foreach ($v as $xv) {
             if ($match[$xv]) $deviceInfo[$k] = $xv;
         }
     }
 
+    // 操作系统版本信息
+    $windowsVersion = [
+        '10' => "10",
+        '6.4' => '10',
+        '6.3' => '8.1',
+        '6.2' => '8',
+        '6.1' => '7',
+        '6.0' => 'Vista',
+        '5.2' => 'XP',
+        '5.1' => 'XP',
+        '5.0' => '2000',
+    ];
+    $wv = pregMatch("/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/", $userAgent);
+    $HarmonyOSVersion = [
+        10 => "2",
+        12 => "3"
+    ];
+    $systemVersion = [
+        "Windows" => $windowsVersion[$wv] || $wv,
+        "Android" => pregMatch("/^.*Android ([\d.]+);.*$/", $userAgent),
+        "HarmonyOS" => $HarmonyOSVersion[pregMatch("/^Mozilla.*Android ([\d.]+)[;)].*$/", $userAgent)] || '',
+        "iOS" => preg_replace("/_/g", '.', pregMatch("/^.*OS ([\d_]+) like.*$/", $userAgent)),
+        "Debian" =>  pregMatch("/^.*Debian\/([\d.]+).*$/", $userAgent),
+        "Windows Phone" => pregMatch("/^.*Windows Phone( OS)? ([\d.]+);.*$/", $userAgent),
+        "Mac OS" => preg_replace("/_/g", '.',pregMatch("/^.*Mac OS X ([\d_]+).*$/", $userAgent)),
+        "WebOS" => pregMatch("/^.*hpwOS\/([\d.]+);.*$/", $userAgent)
+    ];
+
+    if ($systemVersion[$deviceInfo['system']]) {
+        $deviceInfo['systemVersion'] = $systemVersion[$deviceInfo['system']];
+        if ($deviceInfo['systemVersion'] == $userAgent) $deviceInfo['systemVersion'] = '';
+    }
+
+    if ($deviceInfo['system'] == 'Windows' && $_windowsVersion) $deviceInfo['systemVersion'] = $_windowsVersion;
+
+
+    // 浏览器版本信息
+    $browsersVersion = [
+        "Safari" => pregMatch("/^.*Version\/([\d.]+).*$/", $userAgent),
+        "Chrome" => pregMatch("/^.*Chrome\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*CriOS\/([\d.]+).*$/", $userAgent),
+        "IE" => pregMatch("/^.*MSIE ([\d.]+).*$/", $userAgent) || pregMatch("/^.*rv:([\d.]+).*$/", $userAgent),
+        "Edge" => pregMatch("/^.*Edge\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*Edg\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*EdgA\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*EdgiOS\/([\d.]+).*$/", $userAgent),
+        "Firefox" => pregMatch("/^.*Firefox\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*FxiOS\/([\d.]+).*$/", $userAgent),
+        "Firefox Focus" => pregMatch("/^.*Focus\/([\d.]+).*$/", $userAgent),
+        "Chromium" => pregMatch("/^.*Chromium\/([\d.]+).*$/", $userAgent),
+        "Opera" => pregMatch("/^.*Opera\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*OPR\/([\d.]+).*$/", $userAgent),
+    ];
+
+    if ($browsersVersion[$deviceInfo['browser']]) {
+        $deviceInfo["version"] = $browsersVersion[$deviceInfo['browser']];
+        if ($deviceInfo["version"] == $userAgent) $deviceInfo['version'] = '';
+    }
+
+    // 修正浏览器版本信息
+    $chrome = pregMatch('/\S+Browser/', $userAgent);
+    if ($deviceInfo['browser'] == 'Chrome' && $chrome) {
+        $deviceInfo['browser'] = $chrome;
+        $deviceInfo['version'] = pregMatch('/^.*Browser\/([\d.]+).*$/', $userAgent);
+    }
+
+
+}
+
+/**
+ * 返回符合正则的值
+ *
+ * @param string $reg 正则
+ * @param string $sourceData 源数据
+ * @return mixed|void
+ */
+function pregMatch($reg, $sourceData) {
+    if (preg_match($reg, $sourceData, $mat)) return $mat[1];
 }
 
 
