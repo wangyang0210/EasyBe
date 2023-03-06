@@ -8,7 +8,7 @@
 - 新增文章置顶,在文章编辑页面开启置顶即可
   新增配置`articleContent.commentBackground`,评论框背景图片(修图贼费时间,不能浪费这里也用下吧)
 - 新增配置`articleContent.owo`,评论表情,来自[DIYgod/OwO](https://github.com/DIYgod/OwO)
-- 使用gravtar头像来代替目前的随机头像
+- 使用gravtar头像来代替目前的随机头像,默认设置缓存
 - 新增评论打字特效,来自[activate-power-mode](https://github.com/disjukr/activate-power-mode)
 - 新增文章点赞特效
 - 新增文章踩功能

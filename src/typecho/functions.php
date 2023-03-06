@@ -65,6 +65,9 @@ function themeConfig($form) {
         'https://gravatar.loli.net/avatar/', _t('Gravatar镜像'), _t('Gravatar镜像服务器'));
     $form->addInput($gravatarPrefix->multiMode());
 
+    $salt = new Typecho_Widget_Helper_Form_Element_Text('salt', NULL, 'easybe', _t('加密参数'), _t('头像加密参数建议修改'));
+    $form->addInput($salt);
+
 
     // 备份主题配置信息
     $name = 'easybe';
@@ -656,14 +659,14 @@ function bury($cid) {
 /**
  * 多种请求方法封装
  *
- * @param string   $url      请求地址
- * @param string   $method   请求方式
- * @param array    $header   请求头
- * @param array    $data     请求体
+ * @param string $url      请求地址
+ * @param string $method   请求方式
+ * @param array $header   请求头
+ * @param array $data     请求体
  *
  * @return mixed
  */
-function curlRequest($url, $method = 'POST', $header = ["Content-type:application/json;charset=utf-8", "Accept:application/json"], $data = [])
+function curlRequest(string $url, string $method = 'POST', array $header = ["Content-type:application/json;charset=utf-8", "Accept:application/json"], array $data = [])
 {
 
     $method = strtoupper($method);
@@ -690,4 +693,31 @@ function curlRequest($url, $method = 'POST', $header = ["Content-type:applicatio
     $res = curl_exec($ch);
     curl_close($ch);
     return $res;
+}
+
+
+/**
+ * 获取本地头像
+ * @param string $siteUrl 站点地址
+ * @param string $email 邮箱地址
+ * @param string $gravatarPrefix gavatarCDN
+ * @param string $salt 加盐
+ * @param int $time 缓存时间|默认缓存15天
+ * @return string 返回头像链接
+ */
+function getAvatar(string $siteUrl, string $email, string $gravatarPrefix, string $salt = 'easybe', int $time = 1296000): string
+{
+        $encryptEmailMD5 = md5(strtolower(trim($email)));
+        $encryptEmailMD5Salt = md5(strtolower(trim($email.$salt)));
+        $qqAvatarUrl = "https://q.qlogo.cn/headimg_dl?dst_uin={$email}&spec=100&img_type=jpg";
+        $gravatarUrl = "{$gravatarPrefix}{$encryptEmailMD5}?s=100&r=G";
+        $qqNumber = preg_match('/@qq.com/', $email) ?  explode('@', $email)[0] : '';
+        $fileUrl = $qqNumber ? urlencode($qqAvatarUrl) : urlencode($gravatarUrl);
+        $filePath = '/usr/uploads/avatar/'.$encryptEmailMD5Salt.'.jpg';
+        $fileInfo = __TYPECHO_ROOT_DIR__.$filePath;
+        if (file_exists($fileInfo) && (time() - filemtime($fileInfo)) < $time) return $siteUrl.$filePath;
+        $dirPath = dirname($fileInfo);
+        if (!is_dir($dirPath)) mkdir($dirPath, 0755);
+        if(file_put_contents($fileInfo,file_get_contents($fileUrl))) return $siteUrl.$filePath;
+        return 'https://www.wangyangyang.vip/usr/uploads/imgs/o_221114123823_default_avatar.webp';
 }

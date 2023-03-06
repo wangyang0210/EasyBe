@@ -134,12 +134,11 @@ class GravatarCache implements Typecho_Plugin_Interface
             }
         }
 
-//        https://q.qlogo.cn/headimg_dl?dst_uin=2752154874&spec=100&img_type=jpg
+//
 //        https://q.qlogo.cn/g?b=qq&nk=2752154874&s=100
 //        http://qlogo3.store.qq.com/qzone/2752154873/2752154873/100
 //        https://r.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins=2752154874 [昵称|头像]
-//        https://q2.qlogo.cn/headimg_dl?dst_uin=2752154874&spec=100
-//        https://q1.qlogo.cn/headimg_dl?dst_uin=2752154874&spec=100
+
 
         /** 如果默认的 default_qq.jpg不存在，则下载 QQ 默认的头像到本地*/
         if (!file_exists($file_qq)) {
@@ -185,29 +184,6 @@ class GravatarCache implements Typecho_Plugin_Interface
         return is_dir($dir) or (self::mkdirs(dirname($dir)) and mkdir($dir, 0777));
     }
 
-    /**
-     * 禁用插件时同时删除缓存头像
-     *
-     * @access public
-     * @return void
-     */
-    public static function deleteFile()
-    {
-        $option = Typecho_Widget::widget('Widget_Options')->plugin('GravatarCache');
-        $path = __TYPECHO_ROOT_DIR__ . DIRECTORY_SEPARATOR. $option->dir;
-        if (substr($path, -1)!='/') $path.='/';
-        if ($option->delCache == 'delY') {
-            foreach (glob($path. '*.jpg') as $filename) {
-                unlink($filename);
-            }
-            $sysDir =  array( 'usr', 'uploads', 'themes', 'plugins' );
-            $dirArray = explode("/", $path);
-            array_pop($dirArray);
-            $currentDir = array_pop($dirArray);
-
-            if (!in_array($currentDir, $sysDir))  rmdir($path);
-        }
-    }
 
     /**
      * 下载头像到本地

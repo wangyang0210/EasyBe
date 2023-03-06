@@ -1,7 +1,10 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
-<?php function threadedComments($comments, $options)
-{
+<?php
+
+
+function threadedComments($comments, $options){
+    var_dump($comments);
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -55,7 +58,9 @@
                 <div class="comment_vote">
                     <span class="comment_error" style="color: red"></span>
                 </div>
-                <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none"><?php $comments->gravatar('40', ''); ?></span>
+                <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
+                    <?php echo getAvatar($options->siteUrl(), $comments->mail, $options->gravatarPrefix(), $options->salt()) ?>
+                </span>
             </div>
         </div>
 
@@ -77,7 +82,7 @@
             <div class="feedbackNoItems">
                 <div class="feedbackNoItems"></div>
             </div>
-            <?php $comments->listComments(); ?>
+            <?php threadedComments($comments, $this); ?>
             <div id="comment_pager_bottom">
                 <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current',)); ?>
             </div>
