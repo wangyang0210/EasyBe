@@ -56,6 +56,15 @@ function themeConfig($form) {
     $postsArchive->input->setAttribute('class', 'w-60');
     $form->addInput($postsArchive->addRule('isInteger', _t('请输入纯数字')));
 
+    $gravatarPrefix = new Typecho_Widget_Helper_Form_Element_Radio('gravatarPrefix', array(
+        'https://gravatar.loli.net/avatar/' => 'LOLI镜像 <small>https://gravatar.loli.net</small>',
+        'https://gravatar.cat.net/avatar/' => 'CAT镜像 <small>https://gravatar.cat.net</small>',
+        'https://sdn.geekzu.org/avatar/' => '极客镜像 <small>https://sdn.geekzu.org</small>',
+        'https://dn-qiniu-avatar.qbox.me/avatar/' => '七牛镜像 <small>https://dn-qiniu-avatar.qbox.me</small>',
+        ),
+        'https://gravatar.loli.net/avatar/', _t('Gravatar镜像'), _t('Gravatar镜像服务器'));
+    $form->addInput($gravatarPrefix->multiMode());
+
 
     // 备份主题配置信息
     $name = 'easybe';
@@ -170,7 +179,7 @@ function getPostView($archive) {
  *
  * @param int $limit 文章数量
  */
-function getPostDiggRank($limit){
+function getPostDiggRank($limit) {
     $db     = Typecho_Db::get();
     $posts = $db->fetchAll($db->select()->from('table.contents')
         ->where('type = ? AND status = ? AND password is NULL', 'post', 'publish')
@@ -243,7 +252,7 @@ function getPostCommentRank($limit) {
  * @param int $coid 评论ID
  * @return string
  */
-function getPermalinkFromCoId($coid): string {
+function getPermalinkFromCoId($coid) {
     $db = Typecho_Db::get();
     $row = $db->fetchRow($db->select('author')->from('table.comments')->where('coid = ? AND status = ?', $coid, 'approved'));
     if (empty($row)) return '';
@@ -550,7 +559,7 @@ function pregMatch($reg, $sourceData) {
  * @param null $record 标记
  * @return array
  */
-function getDiggNum($cid, &$record = NULL):array {
+function getDiggNum($cid, &$record = NULL) {
     $db = Typecho_Db::get();
     $res = [
         'msg' => '',
@@ -601,7 +610,7 @@ function digg($cid) {
  * @param null $record 标记
  * @return array
  */
-function getBuryNum($cid, &$record = NULL):array {
+function getBuryNum($cid, &$record = NULL) {
     $db = Typecho_Db::get();
     $res = [
         'msg' => '',

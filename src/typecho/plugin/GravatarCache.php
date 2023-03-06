@@ -134,6 +134,13 @@ class GravatarCache implements Typecho_Plugin_Interface
             }
         }
 
+//        https://q.qlogo.cn/headimg_dl?dst_uin=2752154874&spec=100&img_type=jpg
+//        https://q.qlogo.cn/g?b=qq&nk=2752154874&s=100
+//        http://qlogo3.store.qq.com/qzone/2752154873/2752154873/100
+//        https://r.qzone.qq.com/fcg-bin/cgi_get_portrait.fcg?uins=2752154874 [昵称|头像]
+//        https://q2.qlogo.cn/headimg_dl?dst_uin=2752154874&spec=100
+//        https://q1.qlogo.cn/headimg_dl?dst_uin=2752154874&spec=100
+
         /** 如果默认的 default_qq.jpg不存在，则下载 QQ 默认的头像到本地*/
         if (!file_exists($file_qq)) {
             $avatar = 'http://q1.qlogo.cn/headimg_dl?dst_uin=0&spec='.$size_qq;
