@@ -38,7 +38,11 @@
                 <?php } ?>
                 <span class="comment_date"><?php $comments->date('Y-m-d H:i'); ?></span>
                 <a id="a_comment_author_<?php $comments->sequence(); ?>" href="<?php $comments->permalink(); ?>"><?php $comments->author(); ?></a>
-                <span id="device_comment_<?php $comments->sequence(); ?>" ><script type="text/javascript">  </script></span>
+                <span id="device_comment_<?php $comments->sequence(); ?>" >
+                    <?php $data = getBrowsersInfo($comments->agent); ?>
+                    <span><?php echo $data['system']; ?> <?php echo $data['systemVersion']; ?></span>
+                    <span><?php echo $data['browser']; ?> <?php echo $data['version']; ?> </span>
+                </span>
                 <span id="ip_comment_<?php $comments->sequence(); ?>" ><?php getIPInfo($comments->ip) ?></span>
             </div>
             <div class="feedbackCon">
@@ -127,6 +131,7 @@
                                         </span>
                                     </span>
                                 </div>
+                            <input type="hidden" id="windows"  name="windows"  value="">
                         </div>
                     </form>
                 </div>

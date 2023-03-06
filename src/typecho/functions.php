@@ -108,6 +108,7 @@ function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
     $prefix = $db->getPrefix();
     $data = $db->fetchRow($db->select()->from('table.contents'));
+
     if (!array_key_exists('views', $data )) {
         $db->query("ALTER TABLE `{$prefix}contents` ADD `views` INT(10) NOT NULL DEFAULT 0;");
     }
@@ -260,10 +261,14 @@ function getIPInfo($ip) {
     echo explode("|",$data)[1];
 }
 
-function getBrowsersInfo ($userAgent, $_windowsVersion) {
+/**
+ * 浏览器和设备信息
+ *
+ * @param string $userAgent 用户代理
+ * @return string[]
+ */
+function getBrowsersInfo ($userAgent) {
 
-    $_window = $userAgent || '';
-    $_navigator = '';
     $deviceInfo = [
         "system" => "",
         "systemVersion" => "",
@@ -394,13 +399,13 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         12 => "3"
     ];
     $systemVersion = [
-        "Windows" => $windowsVersion[$wv] || $wv,
+        "Windows" => $windowsVersion[$wv] ?? $wv,
         "Android" => pregMatch("/^.*Android ([\d.]+);.*$/", $userAgent),
-        "HarmonyOS" => $HarmonyOSVersion[pregMatch("/^Mozilla.*Android ([\d.]+)[;)].*$/", $userAgent)] || '',
-        "iOS" => preg_replace("/_/g", '.', pregMatch("/^.*OS ([\d_]+) like.*$/", $userAgent)),
+        "HarmonyOS" => $HarmonyOSVersion[pregMatch("/^Mozilla.*Android ([\d.]+)[;)].*$/", $userAgent)] ?? '',
+        "iOS" => preg_replace("/_/", '.', pregMatch("/^.*OS ([\d_]+) like.*$/", $userAgent)),
         "Debian" =>  pregMatch("/^.*Debian\/([\d.]+).*$/", $userAgent),
         "Windows Phone" => pregMatch("/^.*Windows Phone( OS)? ([\d.]+);.*$/", $userAgent),
-        "Mac OS" => preg_replace("/_/g", '.',pregMatch("/^.*Mac OS X ([\d_]+).*$/", $userAgent)),
+        "Mac OS" => preg_replace("/_/", '.',pregMatch("/^.*Mac OS X ([\d_]+).*$/", $userAgent)),
         "WebOS" => pregMatch("/^.*hpwOS\/([\d.]+);.*$/", $userAgent)
     ];
 
@@ -409,11 +414,10 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         if ($deviceInfo['systemVersion'] == $userAgent) $deviceInfo['systemVersion'] = '';
     }
 
-    if ($deviceInfo['system'] == 'Windows' && $_windowsVersion) $deviceInfo['systemVersion'] = $_windowsVersion;
+//    if ($deviceInfo['system'] == 'Windows' && $_windowsVersion) $deviceInfo['systemVersion'] = $_windowsVersion;
 
 
     // 浏览器版本信息
-
     $browsers_360SE = [
         108 => '14.0',
         86 => '13.0',
@@ -426,7 +430,6 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         31 => '7.0',
         21 => '6.3',
     ];
-
     $browsers_360EE = [
         95 => '21',
         86 => '13.0',
@@ -437,7 +440,6 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         50 => '8.7',
         30 => '7.5',
     ];
-
     $browsers_liebao = [
          57 => '6.5',
         49 => '6.0',
@@ -448,7 +450,6 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         29 => '4.5',
         21 => '4.0'
     ];
-
     $browsers_2345 = [
         69 => '10.0',
         55 => '9.9',
@@ -462,13 +463,13 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
 
     $browsersVersion = [
         "Safari" => pregMatch("/^.*Version\/([\d.]+).*$/", $userAgent),
-        "Chrome" => pregMatch("/^.*Chrome\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*CriOS\/([\d.]+).*$/", $userAgent),
-        "IE" => pregMatch("/^.*MSIE ([\d.]+).*$/", $userAgent) || pregMatch("/^.*rv:([\d.]+).*$/", $userAgent),
-        "Edge" => pregMatch("/^.*Edge\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*Edg\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*EdgA\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*EdgiOS\/([\d.]+).*$/", $userAgent),
-        "Firefox" => pregMatch("/^.*Firefox\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*FxiOS\/([\d.]+).*$/", $userAgent),
+        "Chrome" => pregMatch("/^.*Chrome\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*CriOS\/([\d.]+).*$/", $userAgent),
+        "IE" => pregMatch("/^.*MSIE ([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*rv:([\d.]+).*$/", $userAgent),
+        "Edge" => pregMatch("/^.*Edge\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*Edg\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*EdgA\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*EdgiOS\/([\d.]+).*$/", $userAgent),
+        "Firefox" => pregMatch("/^.*Firefox\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*FxiOS\/([\d.]+).*$/", $userAgent),
         "Firefox Focus" => pregMatch("/^.*Focus\/([\d.]+).*$/", $userAgent),
         "Chromium" => pregMatch("/^.*Chromium\/([\d.]+).*$/", $userAgent),
-        "Opera" => pregMatch("/^.*Opera\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*OPR\/([\d.]+).*$/", $userAgent),
+        "Opera" => pregMatch("/^.*Opera\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*OPR\/([\d.]+).*$/", $userAgent),
         "Vivaldi" => pregMatch("/^.*Vivaldi\/([\d.]+).*$/", $userAgent),
         "Yandex" => pregMatch("/^.*YaBrowser\/([\d.]+).*$/", $userAgent),
         "Brave" => pregMatch("/^.*Chrome\/([\d.]+).*$/", $userAgent),
@@ -486,9 +487,9 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         "Maxthon" => pregMatch("/^.*Maxthon\/([\d.]+).*$/", $userAgent),
         "QQBrowser" => pregMatch("/^.*QQBrowser\/([\d.]+).*$/", $userAgent),
         "QQ" => pregMatch("/^.*QQ\/([\d.]+).*$/", $userAgent),
-        "Baidu" => pregMatch("/^.*BIDUBrowser[\s\/]([\d.]+).*$/", $userAgent) || pregMatch("/^.*baiduboxapp\/([\d.]+).*$/", $userAgent),
+        "Baidu" => pregMatch("/^.*BIDUBrowser[\s\/]([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*baiduboxapp\/([\d.]+).*$/", $userAgent),
         "UC" => pregMatch("/^.*UC?Browser\/([\d.]+).*$/", $userAgent),
-        "Sogou" => pregMatch("/^.*SE ([\d.X]+).*$/", $userAgent) || pregMatch("/^.*SogouMobileBrowser\/([\d.]+).*$/", $userAgent),
+        "Sogou" => pregMatch("/^.*SE ([\d.X]+).*$/", $userAgent) ?? pregMatch("/^.*SogouMobileBrowser\/([\d.]+).*$/", $userAgent),
         "115Browser" => pregMatch("/^.*115Browser\/([\d.]+).*$/", $userAgent),
         "TheWorld" => pregMatch("/^.*TheWorld ([\d.]+).*$/", $userAgent),
         "XiaoMi" => pregMatch("/^.*MiuiBrowser\/([\d.]+).*$/", $userAgent),
@@ -506,12 +507,13 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         "iQiYi" => pregMatch("/^.*IqiyiVersion\/([\d.]+).*$/", $userAgent),
         "DingTalk" => pregMatch("/^.*DingTalk\/([\d.]+).*$/", $userAgent),
         "Douyin" => pregMatch("/^.*app_version\/([\d.]+).*$/", $userAgent),
-        "Huawei" => pregMatch("/^.*Version\/([\d.]+).*$/", $userAgent) ||  pregMatch("/^.*HuaweiBrowser\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*HBPC\/([\d.]+).*$/", $userAgent),
-        "360SE" => $browsers_360SE[$chromeVersion] || '',
-        "360EE" => $browsers_360EE[$chromeVersion] || '',
-        "Liebao" => pregMatch("/^.*LieBaoFast\/([\d.]+).*$/", $userAgent) || $browsers_liebao[$chromeVersion],
-        "2345Explorer" => $browsers_2345[$chromeVersion]  || pregMatch("/^.*2345Explorer\/([\d.]+).*$/", $userAgent) || pregMatch("/^.*Mb2345Browser\/([\d.]+).*$/", $userAgent),
+        "Huawei" => pregMatch("/^.*Version\/([\d.]+).*$/", $userAgent) ??  pregMatch("/^.*HuaweiBrowser\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*HBPC\/([\d.]+).*$/", $userAgent),
+        "360SE" => $browsers_360SE[$chromeVersion] ?? '',
+        "360EE" => $browsers_360EE[$chromeVersion] ?? '',
+        "Liebao" => pregMatch("/^.*LieBaoFast\/([\d.]+).*$/", $userAgent) ?? $browsers_liebao[$chromeVersion],
+        "2345Explorer" => $browsers_2345[$chromeVersion]  ?? pregMatch("/^.*2345Explorer\/([\d.]+).*$/", $userAgent) ?? pregMatch("/^.*Mb2345Browser\/([\d.]+).*$/", $userAgent),
     ];
+
 
     if ($browsersVersion[$deviceInfo['browser']]) {
         $deviceInfo["version"] = $browsersVersion[$deviceInfo['browser']];
@@ -525,7 +527,7 @@ function getBrowsersInfo ($userAgent, $_windowsVersion) {
         $deviceInfo['version'] = pregMatch('/^.*Browser\/([\d.]+).*$/', $userAgent);
     }
 
-
+    return $deviceInfo;
 }
 
 /**

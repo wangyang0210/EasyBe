@@ -79,11 +79,22 @@
 
     // 评论
     function comments(url) {
-        // let emoji = $.__config.articleContent.owo.enable;
-        // emoji && localStorage.setItem("emoji", $(".OwO").html())
+        // win11 判断
+        if (typeof navigator.userAgentData != 'undefined') {
+            navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function (ua) {
+                if (navigator.userAgentData.platform === 'Windows') {
+                    const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0])
+                    if (majorPlatformVersion >= 13) {
+                        $("#windows").attr('value', '11');
+                    } else {
+                        $("#windows").attr('value', '10');
+                    }
+                }
+            })
+        }
 
         let data = $('#comment-form').serializeArray()
-
+        console.log(data)
         const commentObj = {
             "author": '昵称',
             "mail": '邮箱',
@@ -111,18 +122,6 @@
             $("#notification").hide()
         })
 
-        if (typeof navigator.userAgentData != 'undefined') {
-            navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function (ua) {
-                if (navigator.userAgentData.platform === 'Windows') {
-                    const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0])
-                    if (majorPlatformVersion >= 13) {
-                        console.log('%c', 'font-size:18px;color:red;','windows11')
-                    } else {
-                        console.log('%c', 'font-size:18px;color:red;','windows10')
-                    }
-                }
-            })
-        }
 
         if (status.indexOf(false) === -1) {
             $.ajax({
