@@ -1,7 +1,6 @@
 <?php
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
-
 /**
  * 主题配置
  *
@@ -289,7 +288,6 @@ function getBrowsersInfo ($userAgent) {
         "device" => "PC"
     ];
 
-
     $match = [
         // 浏览器 - 国外浏览器
         "Safari" => strstr($userAgent, 'Safari') != false ,
@@ -406,6 +404,7 @@ function getBrowsersInfo ($userAgent) {
         '5.0' => '2000',
     ];
     $wv = pregMatch("/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/", $userAgent);
+
     $HarmonyOSVersion = [
         10 => "2",
         12 => "3"
@@ -426,7 +425,7 @@ function getBrowsersInfo ($userAgent) {
         if ($deviceInfo['systemVersion'] == $userAgent) $deviceInfo['systemVersion'] = '';
     }
 
-//    if ($deviceInfo['system'] == 'Windows' && $_windowsVersion) $deviceInfo['systemVersion'] = $_windowsVersion;
+    // if ($deviceInfo['system'] == 'Windows' && $_windowsVersion) $deviceInfo['systemVersion'] = $_windowsVersion;
 
 
     // 浏览器版本信息
@@ -698,26 +697,23 @@ function curlRequest(string $url, string $method = 'POST', array $header = ["Con
 
 /**
  * 获取本地头像
- * @param string $siteUrl 站点地址
  * @param string $email 邮箱地址
- * @param string $gravatarPrefix gavatarCDN
- * @param string $salt 加盐
- * @param int $time 缓存时间|默认缓存15天
  * @return string 返回头像链接
  */
-function getAvatar(string $siteUrl, string $email, string $gravatarPrefix, string $salt = 'easybe', int $time = 1296000): string
-{
-        $encryptEmailMD5 = md5(strtolower(trim($email)));
-        $encryptEmailMD5Salt = md5(strtolower(trim($email.$salt)));
-        $qqAvatarUrl = "https://q.qlogo.cn/headimg_dl?dst_uin={$email}&spec=100&img_type=jpg";
-        $gravatarUrl = "{$gravatarPrefix}{$encryptEmailMD5}?s=100&r=G";
+function getAvatar(string $email) {
+        $options = Helper::options();
+        $time = 1296000;
+        $gravatarUrl = $options->gravatarPrefix.md5(strtolower(trim($email))).'?s=100&r=G';
         $qqNumber = preg_match('/@qq.com/', $email) ?  explode('@', $email)[0] : '';
-        $fileUrl = $qqNumber ? urlencode($qqAvatarUrl) : urlencode($gravatarUrl);
-        $filePath = '/usr/uploads/avatar/'.$encryptEmailMD5Salt.'.jpg';
+        $fileUrl = $qqNumber ? "https://q.qlogo.cn/headimg_dl?dst_uin={$qqNumber}&spec=100&img_type=jpg" : $gravatarUrl;
+        $filePath = '/usr/uploads/avatar/'.md5(strtolower(trim($email.$options->salt))).'.jpg';
         $fileInfo = __TYPECHO_ROOT_DIR__.$filePath;
-        if (file_exists($fileInfo) && (time() - filemtime($fileInfo)) < $time) return $siteUrl.$filePath;
         $dirPath = dirname($fileInfo);
         if (!is_dir($dirPath)) mkdir($dirPath, 0755);
-        if(file_put_contents($fileInfo,file_get_contents($fileUrl))) return $siteUrl.$filePath;
-        return 'https://www.wangyangyang.vip/usr/uploads/imgs/o_221114123823_default_avatar.webp';
+        if (file_exists($fileInfo) && (time() - filemtime($fileInfo)) < $time) {
+            echo $options->siteUrl.$filePath;
+        } else if (file_put_contents($fileInfo,file_get_contents($fileUrl))) { 
+            echo $options->siteUrl.$filePath;
+        }
+
 }

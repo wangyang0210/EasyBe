@@ -1,8 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 
 <?php
-
-function threadedComments($comments, $options, $avatarArr){
+function threadedComments($comments, $options){
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -57,7 +56,7 @@ function threadedComments($comments, $options, $avatarArr){
                     <span class="comment_error" style="color: red"></span>
                 </div>
                 <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
-                    <?php echo getAvatar($comments->mail) ?>
+                    <img  src="<?php getAvatar($comments->mail) ?>" alt='avatar' >
                 </span>
             </div>
         </div>
