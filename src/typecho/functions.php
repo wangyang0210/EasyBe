@@ -67,6 +67,10 @@ function themeConfig($form) {
     $salt = new Typecho_Widget_Helper_Form_Element_Text('salt', NULL, 'easybe', _t('加密参数'), _t('头像加密参数建议修改'));
     $form->addInput($salt);
 
+    $cacheTime = new Typecho_Widget_Helper_Form_Element_Text('cacheTime', NULL, '10', _t('缓存时间'), _t('头像缓存时间(小时)'));
+    $cacheTime->input->setAttribute('class', 'w-60');
+    $form->addInput($cacheTime->addRule('isInteger', _t('请输入纯数字')));
+
 
     // 备份主题配置信息
     $name = 'easybe';
@@ -710,7 +714,7 @@ function getAvatar(string $email) {
         $fileInfo = __TYPECHO_ROOT_DIR__.$filePath;
         $dirPath = dirname($fileInfo);
         if (!is_dir($dirPath)) mkdir($dirPath, 0755);
-        if (file_exists($fileInfo) && (time() - filemtime($fileInfo)) < $time) {
+        if (file_exists($fileInfo) && (time() - filemtime($fileInfo)) < ($options->cacheTime * 3600)) {
             echo $options->siteUrl.$filePath;
         } else if (file_put_contents($fileInfo,file_get_contents($fileUrl))) { 
             echo $options->siteUrl.$filePath;
