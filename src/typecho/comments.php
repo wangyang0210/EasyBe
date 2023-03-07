@@ -2,9 +2,7 @@
 
 <?php
 
-
-function threadedComments($comments, $options){
-    var_dump($comments);
+function threadedComments($comments, $options, $avatarArr){
     $commentClass = '';
     if ($comments->authorId) {
         if ($comments->authorId == $comments->ownerId) {
@@ -59,7 +57,7 @@ function threadedComments($comments, $options){
                     <span class="comment_error" style="color: red"></span>
                 </div>
                 <span id="comment_<?php $comments->sequence(); ?>_avatar" style="display:none">
-                    <?php echo getAvatar($options->siteUrl(), $comments->mail, $options->gravatarPrefix(), $options->salt()) ?>
+                    <?php echo getAvatar($comments->mail) ?>
                 </span>
             </div>
         </div>
@@ -82,7 +80,7 @@ function threadedComments($comments, $options){
             <div class="feedbackNoItems">
                 <div class="feedbackNoItems"></div>
             </div>
-            <?php threadedComments($comments, $this); ?>
+            <?php $comments->listComments();?>
             <div id="comment_pager_bottom">
                 <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current',)); ?>
             </div>
