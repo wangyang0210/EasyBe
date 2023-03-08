@@ -842,7 +842,7 @@ p.article-info-text > .postMeta br {
     padding: 0 0 10px;
     margin: 15px auto 4rem;
     font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei,
-    sans-serif;
+        sans-serif;
 }
 
 #topics .postTitle {
@@ -2718,14 +2718,14 @@ div#tbCommentBodyPreview {
 
 .menu-button-scroll:before {
     background: linear-gradient(
-            #777aaf 20%,
-            transparent 0,
-            transparent 40%,
-            #777aaf 0,
-            #777aaf 60%,
-            transparent 0,
-            transparent 80%,
-            #777aaf 0
+        #777aaf 20%,
+        transparent 0,
+        transparent 40%,
+        #777aaf 0,
+        #777aaf 60%,
+        transparent 0,
+        transparent 80%,
+        #777aaf 0
     ) !important;
 }
 
@@ -3251,7 +3251,7 @@ div#rightMenu .rightMenuItem {
     margin: 13px auto;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI',
-    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
     letter-spacing: 0.015em;
     font-feature-settings: 'tnum';
@@ -5026,7 +5026,6 @@ textarea:focus,
     cursor: pointer;
 }
 
-
 /*notification*/
 .icon-warn:before {
     background-color: #f66;
@@ -5058,14 +5057,14 @@ textarea:focus,
     border-radius: 8px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    border: 1px solid #EBEEF5;
+    border: 1px solid #ebeef5;
     position: fixed;
-    background-color: #FFF;
+    background-color: #fff;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
-    -webkit-transition: opacity .3s,left .3s,right .3s,top .4s,bottom .3s,-webkit-transform .3s;
-    transition: opacity .3s,left .3s,right .3s,top .4s,bottom .3s,-webkit-transform .3s;
-    transition: opacity .3s,transform .3s,left .3s,right .3s,top .4s,bottom .3s;
-    transition: opacity .3s,transform .3s,left .3s,right .3s,top .4s,bottom .3s,-webkit-transform .3s;
+    -webkit-transition: opacity 0.3s, left 0.3s, right 0.3s, top 0.4s, bottom 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, left 0.3s, right 0.3s, top 0.4s, bottom 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s, left 0.3s, right 0.3s, top 0.4s, bottom 0.3s;
+    transition: opacity 0.3s, transform 0.3s, left 0.3s, right 0.3s, top 0.4s, bottom 0.3s, -webkit-transform 0.3s;
     overflow: hidden;
 }
 
@@ -5074,7 +5073,7 @@ textarea:focus,
 }
 
 .el-notification .el-icon-warning {
-    color: #E6A23C;
+    color: #e6a23c;
 }
 
 .el-notification__icon {
@@ -5115,4 +5114,33 @@ textarea:focus,
     cursor: pointer;
     color: #909399;
     font-size: 16px;
+}
+
+.protected {
+    text-align: center;
+}
+
+.protected .word {
+    color: #777aaf;
+    font-size: 18px;
+}
+
+.protected .text {
+    border: 1px solid #777aaf;
+    outline: 0;
+    height: 28px;
+}
+
+.protected .submit {
+    position: relative;
+    background: #777aaf;
+    border: 1px solid transparent;
+    height: 31px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 18px;
+    overflow: hidden;
+    width: 70px;
+    left: -6px;
+    top: 2px;
 }
