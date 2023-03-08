@@ -20,7 +20,7 @@ function themeConfig($form) {
     $jqueryConfig = new Typecho_Widget_Helper_Form_Element_Text('jqueryConfig', NULL, '//lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js', _t('JQuery CDN'));
     $form->addInput($jqueryConfig);
 
-    $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '<script src="//cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js" defer></script>', _t('全局配置'));
+    $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '<script src="//cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.8/easybe/simple-memory.js" defer></script>', _t('全局配置'));
     $form->addInput($globalConfig);
 
     $latestPosts = new Typecho_Widget_Helper_Form_Element_Text('latestPosts', NULL, '10', _t('最新随笔'), _t('最新随笔展示数量'));

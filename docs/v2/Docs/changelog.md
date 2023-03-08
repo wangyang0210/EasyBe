@@ -1,7 +1,6 @@
 # todo
 
 -   typecho 后台主题+antDesign [后期]
--   资源域名替换 wangyangyang.vip=>oyo.cool
 
 # 2023.2.9 - v2.1.8
 
