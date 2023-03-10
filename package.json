@@ -3,6 +3,10 @@
     "version": "2.1.8",
     "description": "<div align=\"center\">",
     "main": "index.js",
+    "files": [
+        "src",
+        "easybe"
+    ],
     "directories": {
         "doc": "docs"
     },
