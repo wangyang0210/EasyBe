@@ -113,6 +113,27 @@ function themeFields($layout) {
 }
 
 /**
+ * 获取全部文章阅读量
+ *
+ */
+function getAllPostViews() {
+    $db = Typecho_Db::get();
+    $data = $db->fetchRow($db->select()->from('table.contents'));
+
+    if (!array_key_exists('views', $data)) {
+        $db->query("ALTER TABLE `{$prefix}contents` ADD `views` INT(10) NOT NULL DEFAULT 0;");
+    }
+    if (!array_key_exists('digg', $data)) {
+        $db->query("ALTER TABLE `{$prefix}contents` ADD `digg` INT(10) NOT NULL DEFAULT 0;");
+    }
+    if (!array_key_exists('bury', $data)) {
+        $db->query("ALTER TABLE `{$prefix}contents` ADD `bury` INT(10) NOT NULL DEFAULT 0;");
+    }
+    $row = $db->fetchAll("select sum(views) as views from `{$db->getPrefix()}contents`;");
+    echo $row[0]['views'];
+}
+
+/**
  * 获取全部文章
  *
  * @param int $page 分页
@@ -122,18 +143,6 @@ function themeFields($layout) {
 function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
     $prefix = $db->getPrefix();
-    $data = $db->fetchRow($db->select()->from('table.contents'));
-
-    if (!array_key_exists('views', $data )) {
-        $db->query("ALTER TABLE `{$prefix}contents` ADD `views` INT(10) NOT NULL DEFAULT 0;");
-    }
-    if (!array_key_exists('digg', $data)) {
-        $db->query("ALTER TABLE `{$prefix}contents` ADD `digg` INT(10) NOT NULL DEFAULT 0;");
-    }
-    if (!array_key_exists('bury', $data)) {
-        $db->query("ALTER TABLE `{$prefix}contents` ADD `bury` INT(10) NOT NULL DEFAULT 0;");
-    }
-
     $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
             ->from('table.contents as c')
             ->join('table.fields as f', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
@@ -155,16 +164,6 @@ function getUrl() {
     $path_info = $_SERVER['PATH_INFO'] ??  '';
     $relate_url = $_SERVER['REQUEST_URI'] ?? $php_self.$path_info;
     return $protocol.($_SERVER['HTTP_HOST'] ?? '').$relate_url;
-}
-
-/**
- * 获取全部文章阅读量
- *
- */
-function getAllPostViews() {
-    $db = Typecho_Db::get();
-    $row = $db->fetchAll("select sum(views) as views from `{$db->getPrefix()}contents`;");
-    echo $row[0]['views'];
 }
 
 /**
