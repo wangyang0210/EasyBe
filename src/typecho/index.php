@@ -3,7 +3,7 @@
  * EasyBe Themes
  * @package EasyBe
  * @author WangYang
- * @version 2.1.8
+ * @version 2.1.9
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
