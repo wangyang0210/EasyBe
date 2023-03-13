@@ -119,7 +119,7 @@ function themeFields($layout) {
 function getAllPostViews() {
     $db = Typecho_Db::get();
     $data = $db->fetchRow($db->select()->from('table.contents'));
-
+    $prefix = $db->getPrefix();
     if (!array_key_exists('views', $data)) {
         $db->query("ALTER TABLE `{$prefix}contents` ADD `views` INT(10) NOT NULL DEFAULT 0;");
     }
@@ -129,7 +129,7 @@ function getAllPostViews() {
     if (!array_key_exists('bury', $data)) {
         $db->query("ALTER TABLE `{$prefix}contents` ADD `bury` INT(10) NOT NULL DEFAULT 0;");
     }
-    $row = $db->fetchAll("select sum(views) as views from `{$db->getPrefix()}contents`;");
+    $row = $db->fetchAll("select sum(views) as views from `{$prefix}contents`;");
     echo $row[0]['views'];
 }
 
@@ -142,7 +142,6 @@ function getAllPostViews() {
  */
 function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
-    $prefix = $db->getPrefix();
     $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
             ->from('table.contents as c')
             ->join('table.fields as f', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
