@@ -1,9 +1,12 @@
 <?php
 /**
- * EasyBe Themes
+ * 最初我们来到这个世界，是因为不得不来；
+ * 最终我们离开这个世界，是因为不得不走。
+ * 
  * @package EasyBe
  * @author WangYang
- * @version 2.1.9
+ * @version 2.1.10
+ * @link https://oyo.cool/
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
