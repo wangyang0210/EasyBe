@@ -2853,11 +2853,30 @@ blockquote p {
     color: #5d69a5;
     line-height: 50px;
 }
+#cnblogs_post_body {
+    margin-bottom: 20px;
+}
 
 #cnblogs_post_body ul {
     margin-left: 20px;
     margin-top: 5px;
     padding-left: 0;
+}
+
+#cnblogs_post_body ol {
+    padding-left: 40px;
+}
+
+#cnblogs_post_body ol li {
+    list-style-type: decimal;
+}
+
+#cnblogs_post_body ul li {
+    list-style-type: disc;
+}
+
+#cnblogs_post_body ul ul li {
+    list-style-type: circle;
 }
 
 .postBody li,
