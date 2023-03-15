@@ -32,14 +32,8 @@
                                     <a id="green_channel_wechat" href="javascript:void(0);" title="打赏博主" onclick="sponsor()"></a>
                                 </div>
                                 <div id="author_profile">
-                                    <div id="author_profile_info" class="author_profile_info">
-                                            <!-- 作者信息 -->
-                                    </div>
                                     <div class="clear"></div>
                                     <div id="author_profile_honor"></div>
-                                    <div id="author_profile_follow" class="follow-tip">
-                                                <!-- 加关注 -->
-                                    </div>
                                 </div>
                                 <div id="div_digg">
                                     <div class="diggit" onclick="digg('<?php $this->permalink(); ?>', <?php echo $this->cid; ?>)">
@@ -54,21 +48,7 @@
                                 </div>
                             </div>
                             <div class="clear"></div>
-                            <div id="post_next_prev">
-                                <a class="p_n_p_prefix">« </a> 上一篇： <?php $this->thePrev('%s', '我也是有上限的哦,(✿◡‿◡)'); ?> </a>
-                                <br>
-                                <a class="p_n_p_prefix">» </a> 下一篇： <?php $this->theNext('%s', '我可是有下限的哦,(●ˇ∀ˇ●)'); ?> </a>
-                            </div>
                         </div>
-                    </div>
-                    <div class="postDesc">posted @
-                        <span id="post-date"><?php $this->date("Y-m-d H:i:s"); ?></span>
-                        <a href="<?php $this->options->siteUrl(); ?>"><?php $this->author(); ?></a>
-                        阅读(<span id="post_view_count"><?php getPostView($this) ?></span>)
-                        评论(<span id="post_comment_count"><?php $this->commentsNum('%d'); ?></span>)
-                        <?php if($this->user->hasLogin()) :?>
-                            <a href="<?php $this->options->adminUrl(); ?>write-post.php?cid=<?php echo $this->cid;?>" target="_blank">编辑</a>
-                        <?php endif;?>
                     </div>
                 </div>
             </div><!--end: topics 文章、评论容器-->
