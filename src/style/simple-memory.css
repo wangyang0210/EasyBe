@@ -1348,11 +1348,11 @@ div#tbCommentBodyPreview {
 }
 
 .img-rounded {
-    transition: transform 0.5s ease-out;
     -webkit-transition: transform 0.6s ease-out;
     -moz-transition: transform 0.5s ease-out;
     -ms-transition: transform 0.5s ease-out;
     -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
 }
 
 .img-rounded:hover {
@@ -1507,9 +1507,9 @@ div#tbCommentBodyPreview {
     margin-bottom: 10px;
     color: #555;
     border: 1px solid #ddd;
-    border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+    border-radius: 3px;
 }
 
 #Profile1_panelAdd input[type='text']:hover,
@@ -1532,9 +1532,9 @@ div#tbCommentBodyPreview {
     color: #fff;
     border: none;
     background: #5c8ec6;
-    border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+    border-radius: 3px;
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
@@ -3235,11 +3235,11 @@ div#rightMenu .rightMenuItem {
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 7px;
     border-radius: 0 0 6px 6px;
     font-size: 0.85em;
-    transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
     -o-transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 
 #cnblogs_post_body table td,
@@ -3723,9 +3723,9 @@ pre .line-numbers-rows:before {
     height: 22px;
     line-height: 22px;
     color: #fff;
-    width: fit-content;
     width: -webkit-fit-content;
     width: -moz-fit-content;
+    width: fit-content;
 }
 
 .article-tag-class-color {
@@ -3791,11 +3791,11 @@ a#green_channel_weibo {
     letter-spacing: 2px;
     border-radius: 3px;
     text-transform: uppercase;
-    transition: all 0.4s;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     -ms-transition: all 0.4s;
     -o-transition: all 0.4s;
+    transition: all 0.4s;
     position: relative;
     background-image: none;
 }
@@ -4273,10 +4273,10 @@ table#blogCalendar > tbody > tr > td > a {
 }
 
 .htmlGray {
-    filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     -o-filter: grayscale(100%);
     -webkit-filter: grayscale(1);
+    filter: grayscale(100%);
 }
 
 .commentClose {
@@ -5159,6 +5159,7 @@ textarea:focus,
 
 .el-notification {
     -webkit-box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
 }
 
 .el-notification .el-icon-warning {

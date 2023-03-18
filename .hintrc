@@ -7,9 +7,18 @@
       "default",
       {
         "ignore": [
-          "-moz-font-feature-settings"
+          "-moz-font-feature-settings",
+          "background-clip",
+          "-webkit-tap-highlight-color"
         ]
       }
     ]
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 110",
+    "not firefox <= 110",
+    "not safari <= 16.3"
+  ]
 }
