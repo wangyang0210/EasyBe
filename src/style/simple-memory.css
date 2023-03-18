@@ -2578,8 +2578,8 @@ div#tbCommentBodyPreview {
 }
 
 .page-title {
-    animation: fade-in-down 1s both;
     -webkit-animation: fade-in-down 1s both;
+    animation: fade-in-down 1s both;
     mix-blend-mode: screen;
     font-size: 5rem;
     font-family: Playball, cursive, kaiti, Arial;
