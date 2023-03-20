@@ -169,7 +169,7 @@ export default function main() {
                     })
                 })
                 $.__tools.clearIntervalTimeId($.__timeIds.umamiTId)
-            }, 5000)
+            }, 2000)
         }
     })()
 }
