@@ -841,8 +841,7 @@ p.article-info-text > .postMeta br {
     min-height: 200px;
     padding: 0 0 10px;
     margin: 15px auto 4rem;
-    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei,
-        sans-serif;
+    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
 }
 
 #topics .postTitle {
@@ -998,6 +997,7 @@ p.article-info-text > .postMeta br {
 .feedbackAvatar {
     position: absolute;
     left: 1px;
+    cursor: pointer;
 }
 
 .feedbackAvatar img {
@@ -2787,16 +2787,7 @@ div#tbCommentBodyPreview {
 }
 
 .menu-button-scroll:before {
-    background: linear-gradient(
-        #777aaf 20%,
-        transparent 0,
-        transparent 40%,
-        #777aaf 0,
-        #777aaf 60%,
-        transparent 0,
-        transparent 80%,
-        #777aaf 0
-    ) !important;
+    background: linear-gradient(#777aaf 20%, transparent 0, transparent 40%, #777aaf 0, #777aaf 60%, transparent 0, transparent 80%, #777aaf 0) !important;
 }
 
 .m-list-title {
@@ -3339,8 +3330,8 @@ div#rightMenu .rightMenuItem {
 #cnblogs_post_body > p {
     margin: 13px auto;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI',
-        'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue',
+        Helvetica, Arial, sans-serif;
     font-size: 16px;
     letter-spacing: 0.015em;
     font-feature-settings: 'tnum';
