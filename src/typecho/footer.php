@@ -15,6 +15,19 @@
 
 <!--事件监听-->
 <script>
+ 
+    function notification(title, content) {
+        $(".el-notification__title").text(title);
+        $("#notification").show();
+        $(".el-notification__content p").html(content);
+        let notificationTid = setTimeout(() => {
+            $("#notification").fadeOut()
+            clearTimeout(notificationTid)
+        }, 3000)
+        $(".el-notification__closeBtn").click(() => {
+        $("#notification").hide()
+    })
+    }
 
     // 点赞
     function digg(url, cid) {
@@ -65,6 +78,10 @@
 
     // 关注博主
     function follow() {
+        if(!$.__config.rtMenu.qrCode) {
+            this.notification('关注博主', '当前还没有渠道关注该博主哦🤔 <br/> 可以试试ctrl+D收藏下哦😘')
+            return ;
+        }
         $('.hideRightMenu').show();
         $('#rightDashang .rightMenuSpan').hide();
         $('#rightGzh .rightMenuSpan').show();
@@ -72,6 +89,10 @@
 
     // 打赏博主
     function sponsor() {
+        if(!$.__config.rtMenu.reward.alipay && !$.__config.rtMenu.reward.wechatpay) {
+            this.notification('打赏博主', '当前还没有渠道打赏该博主哦🤔 <br/> 不如给个点赞吧👍')
+            return ;
+        }
         $('.hideRightMenu').show();
         $('#rightGzh .rightMenuSpan').hide();
         $('#rightDashang .rightMenuSpan').show();
@@ -79,6 +100,7 @@
 
     // 评论
     function comments(url) {
+        let _ = this
         // win11 判断
         if (typeof navigator.userAgentData != 'undefined') {
             navigator.userAgentData.getHighEntropyValues(['platformVersion']).then(function (ua) {
@@ -94,7 +116,6 @@
         }
 
         let data = $('#comment-form').serializeArray()
-        console.log(data)
         const commentObj = {
             "author": '昵称',
             "mail": '邮箱',
@@ -102,26 +123,16 @@
         }
         let status = data.map(item => {
             if ((item.name in commentObj) && !item.value) {
-                $("#notification").show()
-                $(".el-notification__content p").text(`${commentObj[item.name]}不能为空哦👻`)
+                _.notification('评论通知',`${commentObj[item.name]}不能为空哦👻`)
                 return false
             }
             if (item.name == 'mail' && item.value && !(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(item.value))) {
-                $("#notification").show()
-                $(".el-notification__content p").text('邮箱格式貌似不正确哦🤔')
+                _.notification('评论通知','邮箱格式貌似不正确哦🤔')
                 return false
             }
-            let notificationTid = setTimeout(() => {
-                $("#notification").fadeOut()
-                clearTimeout(notificationTid)
-            }, 3000)
+           
             return true
         })
-
-        $(".el-notification__closeBtn").click(() => {
-            $("#notification").hide()
-        })
-
 
         if (status.indexOf(false) === -1) {
             $.ajax({
@@ -136,8 +147,7 @@
                     $('#tbCommentBody').val("");
                 },
                 error: function () {
-                    $("#notification").show()
-                    $(".el-notification__content p").text('对不起, 您的发言过于频繁, 请稍侯再次发布')
+                    _.notification('评论通知','对不起, 您的发言过于频繁, 请稍侯再次发布')
                 },
             })
         }
