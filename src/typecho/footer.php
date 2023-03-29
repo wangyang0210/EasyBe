@@ -143,8 +143,10 @@
                 timeout: 30000,
                 cache: false,
                 success: function (data) {
-                    $('.comment-list').html($(".comment-list", data).html());
-                    $('#tbCommentBody').val("");
+                     !$("#blog-comments-placeholder").length ? 
+                      $('.respond').before($("#comments-show", data).html()) : 
+                      $('.comment-list').html($(".comment-list", data).html());
+                     $('#tbCommentBody').val("")
                 },
                 error: function () {
                     _.notification('评论通知','对不起, 您的发言过于频繁, 请稍侯再次发布')

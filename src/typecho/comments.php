@@ -69,19 +69,19 @@ function threadedComments($comments, $options){
 
 
 <div id="comments" class="commentform">
-    <div id="divCommentShow"></div>
     <?php $this->comments()->to($comments); ?>
     <?php if ($comments->have()): ?>
-        <div id="blog-comments-placeholder">
-            <div id="comment_pager_top"></div>
-            <br>
-            <div class="feedback_area_title">评论列表</div>
-            <div class="feedbackNoItems">
-                <div class="feedbackNoItems"></div>
-            </div>
-            <?php $comments->listComments();?>
-            <div id="comment_pager_bottom">
-                <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current',)); ?>
+        <div id="comments-show">
+            <div id="blog-comments-placeholder">
+                <br>
+                <div class="feedback_area_title">评论列表</div>
+                <div class="feedbackNoItems">
+                    <div class="feedbackNoItems"></div>
+                </div>
+                <?php $comments->listComments();?>
+                <div id="comment_pager_bottom">
+                    <?php $comments->pageNav('«', '»', 1, '...', array('wrapTag' => 'div', 'wrapClass' => 'layui-laypage layui-laypage-molv', 'itemTag' => '', 'currentClass' => 'current',)); ?>
+                </div>
             </div>
         </div>
     <?php endif; ?>
