@@ -2,7 +2,7 @@
 /**
  * 最初我们来到这个世界，是因为不得不来；
  * 最终我们离开这个世界，是因为不得不走。
- * 
+ *
  * @package EasyBe
  * @author WangYang
  * @version 2.1.11
@@ -29,6 +29,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 </div>
                 <div class="postCon">
                     <div class="c_b_p_desc" >
+                        <!-- TODO  增加一个摘要字段，摘要字段优先级高于文章内容显示 $res['text'] -->
                         摘要：<?php echo ($res['password'] && !$this->user->hasLogin()) ? '文章被加密了，不可以偷看哦🍉' : preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0}((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,200}).*#s', '$1', $res['text']); ?>
                         <a href="<?php echo $res['permalink']; ?>" class="c_b_p_desc_readmore">阅读全文</a>
                     </div>
