@@ -8,9 +8,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  */
 function themeConfig($form) {
     echo '<style>
-            #typecho-option-item-latestPosts-2, #typecho-option-item-myTags-3, 
-            #typecho-option-item-postsClassify-4, #typecho-option-item-postRank-5, 
-            #typecho-option-item-diggRank-6, #typecho-option-item-latestComment-7, 
+            #typecho-option-item-latestPosts-2, #typecho-option-item-myTags-3,
+            #typecho-option-item-postsClassify-4, #typecho-option-item-postRank-5,
+            #typecho-option-item-diggRank-6, #typecho-option-item-latestComment-7,
             #typecho-option-item-commentsRank-8, #typecho-option-item-postsArchive-9 {
                 position: relative;
                 float: right;
@@ -120,6 +120,9 @@ function getAllPostViews() {
     $db = Typecho_Db::get();
     $data = $db->fetchRow($db->select()->from('table.contents'));
     $prefix = $db->getPrefix();
+    if (!array_key_exists('abstracts', $data)) {
+        $db->query("ALTER TABLE `{$prefix}contents` ADD `abstracts` varchar(200) NULL;");
+    }
     if (!array_key_exists('views', $data)) {
         $db->query("ALTER TABLE `{$prefix}contents` ADD `views` INT(10) NOT NULL DEFAULT 0;");
     }
@@ -142,7 +145,7 @@ function getAllPostViews() {
  */
 function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
-    $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
+    $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.abstracts', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
             ->from('table.contents as c')
             ->join('table.fields as f', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
             ->where('c.status = ? and c.type = ?', 'publish', 'post')
@@ -714,7 +717,7 @@ function getAvatar(string $email) {
         if (!is_dir($dirPath)) mkdir($dirPath, 0755);
         if (file_exists($fileInfo) && (time() - filemtime($fileInfo)) < ($options->cacheTime * 3600)) {
             echo $options->siteUrl.$filePath;
-        } else if (file_put_contents($fileInfo,file_get_contents($fileUrl))) { 
+        } else if (file_put_contents($fileInfo,file_get_contents($fileUrl))) {
             echo $options->siteUrl.$filePath;
         }
 
