@@ -19,6 +19,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <?php  $posts = getAllPosts($this->currentPage, $this->options->pageSize); ?>
         <?php foreach ($posts as $post) {
             $res = Typecho_Widget::widget('Widget_Abstract_Contents')->push($post);
+
         ?>
             <div class="day" role="article" >
                 <div class="postTitle" role="heading" aria-level="2">
@@ -29,7 +30,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 </div>
                 <div class="postCon">
                     <div class="c_b_p_desc" >
-                        摘要：<?php echo ($res['password'] && !$this->user->hasLogin()) ? '文章被加密了，不可以偷看哦🍉' : ($res['abstracts'] ? $res['abstracts'] : preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0}((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,200}).*#s', '$1', $res['text'])); ?>
+                        摘要：<?php echo ($res['password'] && !$this->user->hasLogin()) ? '文章被加密了，不可以偷看哦🍉' : (getAbstract($res['text'], '/:::(.*):::/') ?: preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0}((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,200}).*#s', '$1', $res['text'])); ?>
                         <a href="<?php echo $res['permalink']; ?>" class="c_b_p_desc_readmore">阅读全文</a>
                     </div>
                 </div>

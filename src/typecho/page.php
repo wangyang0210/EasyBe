@@ -16,7 +16,7 @@
                     <div class="clear"></div>
                     <div class="postBody">
                         <div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown">
-                            <?php $this->content(); ?>
+                            <?php echo delAbstract($this->content(), '/:::(.*):::/'); ?>
                         </div>
                         <div class="clear"></div>
                         <div id="blog_post_info_block" role="contentinfo">

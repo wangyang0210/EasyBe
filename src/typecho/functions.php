@@ -113,6 +113,37 @@ function themeFields($layout) {
 }
 
 /**
+ * 删除摘要
+ * @param $str 需要截取的字符串
+ * @param $pattern 正则
+ */
+function delAbstract($str, $pattern) {
+        return preg_replace($pattern, '', $str);
+    }
+
+// Typecho_Plugin::factory('Widget_Abstract_Contents')->contentFilter[] = 'RegexFilter';
+
+// class RegexFilter
+// {
+//     public function execute($content, $pattern)
+//     {
+//         $content = preg_replace($pattern, '', $content);
+//         return $content;
+//     }
+// }
+
+
+/**
+ * 获取摘要
+ * @param $str 需要截取的字符串
+ * @param $pattern 正则
+ */
+function getAbstract($str, $pattern) {
+   preg_match_all($pattern, $str, $matches);
+   return $matches[1][0];
+}
+
+/**
  * 获取全部文章阅读量
  *
  */
@@ -120,9 +151,6 @@ function getAllPostViews() {
     $db = Typecho_Db::get();
     $data = $db->fetchRow($db->select()->from('table.contents'));
     $prefix = $db->getPrefix();
-    if (!array_key_exists('abstracts', $data)) {
-        $db->query("ALTER TABLE `{$prefix}contents` ADD `abstracts` varchar(200) NULL;");
-    }
     if (!array_key_exists('views', $data)) {
         $db->query("ALTER TABLE `{$prefix}contents` ADD `views` INT(10) NOT NULL DEFAULT 0;");
     }
@@ -145,7 +173,7 @@ function getAllPostViews() {
  */
 function getAllPosts($page, $limit) {
     $db = Typecho_Db::get();
-    $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.abstracts', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
+    $sql = $db->select('c.cid', 'c.title', 'c.created', 'c.text', 'c.password', 'c.commentsNum', 'c.views', 'c.type', 'c.digg', 'f.str_value as sticky')
             ->from('table.contents as c')
             ->join('table.fields as f', 'f.cid = c.cid', Typecho_Db::LEFT_JOIN)
             ->where('c.status = ? and c.type = ?', 'publish', 'post')
