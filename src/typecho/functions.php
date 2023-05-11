@@ -112,26 +112,6 @@ function themeFields($layout) {
     $layout->addItem($postTop);
 }
 
-/**
- * 删除摘要
- * @param $str 需要截取的字符串
- * @param $pattern 正则
- */
-function delAbstract($str, $pattern) {
-        return preg_replace($pattern, '', $str);
-    }
-
-// Typecho_Plugin::factory('Widget_Abstract_Contents')->contentFilter[] = 'RegexFilter';
-
-// class RegexFilter
-// {
-//     public function execute($content, $pattern)
-//     {
-//         $content = preg_replace($pattern, '', $content);
-//         return $content;
-//     }
-// }
-
 
 /**
  * 获取摘要

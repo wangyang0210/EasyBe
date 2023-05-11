@@ -10,6 +10,14 @@ import postMeta from '../../components/postMeta/postMeta'
 import consoleText from '../../vendor/consoleText/consoleText'
 
 export default function main() {
+
+    /**
+     * 隐藏文章摘要
+     */
+    (() => {
+        $('#cnblogs_post_body').find('p:first-child:contains(":::")').hide()
+    })()
+
     /**
      * 设置文章标题
      */
