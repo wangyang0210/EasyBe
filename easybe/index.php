@@ -1,11 +1,11 @@
 <?php
 /**
- * 最初我们来到这个世界，是因为不得不来；
- * 最终我们离开这个世界，是因为不得不走。
+ * May you be loyal to yourself, live like yourself.
+ * 愿你忠于自我，活出自我。
  *
  * @package EasyBe
  * @author WangYang
- * @version 2.1.11
+ * @version 2.1.12
  * @link https://oyo.cool/
  */
 
