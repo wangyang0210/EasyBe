@@ -33,7 +33,7 @@ export default function main() {
      * 国家公祭日和自定义重要的缅怀的日子
      */
     (() => {
-        if ( $.__tools.getTodayDate() == '12-13' || $.__config.memorialDays.includes( $.__tools.getTodayDate()) ) $('html').addClass('htmlGray')
+        if ($.__tools.getTodayDate() == '12-13' || $.__config.memorialDays.includes($.__tools.getTodayDate())) $('html').addClass('htmlGray')
     })();
 
     /**
@@ -41,8 +41,8 @@ export default function main() {
      */
     (() => {
         setTimeout(() => {
-            $.each( $.__timeIds, (e) => {
-                null != $.__timeIds[e] && window.clearInterval( $.__timeIds[e]);
+            $.each($.__timeIds, (e) => {
+                null != $.__timeIds[e] && window.clearInterval($.__timeIds[e]);
             });
         }, 30000);
     })();
@@ -72,7 +72,7 @@ export default function main() {
      * 添加扩展字体图标库
      */
     (() => {
-        if ( $.__config.fontIconExtend !== '') $.__tools.dynamicLoadingCss( $.__config.fontIconExtend, 1);
+        if ($.__config.fontIconExtend !== '') $.__tools.dynamicLoadingCss($.__config.fontIconExtend, 1);
     })();
 
     /**

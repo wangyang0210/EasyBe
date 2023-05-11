@@ -14,8 +14,9 @@
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
 
     <!-- 使用url函数转换相关路径 -->
+    <script rel="preload" src="<?php $this->options->jqueryConfig(); ?>"></script>
+    <script src="<?php $this->options->simpleMemoryJs(); ?>" defer></script>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('simple-memory.css'); ?>">
-    <script src="<?php $this->options->jqueryConfig(); ?>"></script>
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>

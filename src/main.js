@@ -37,11 +37,11 @@ $(document).ready(function () {
                     import(/* webpackChunkName: "com-after" */ /* webpackPreload: true */ './components/common/comAfter').then(afterModule => {
                         const comAfter = afterModule.default
                         comAfter()
-                        ;(() => {
-                            $.__tools.setDomHomePosition() // 文章主体位置修正
-                            event.handle.scroll() // 触发滚动处理
-                            event.handle.resize() // 触发窗口大小变化处理
-                        })()
+                            ; (() => {
+                                $.__tools.setDomHomePosition() // 文章主体位置修正
+                                event.handle.scroll() // 触发滚动处理
+                                event.handle.resize() // 触发窗口大小变化处理
+                            })()
                     })
                 })
             })
