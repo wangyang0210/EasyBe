@@ -6,7 +6,7 @@
  * ----------------------------------------------
  * @describe: 前置公共处理
  */
-import loading from "../loading/loading";
+
 import sidebar from "../sidebar/sidebar";
 import banner from "../banner/banner";
 import event from "../event/event";
@@ -14,20 +14,12 @@ await $.__tools.dynamicLoadingJs($.__config.default.jqueryrotate).catch(e => con
 
 export default function main() {
 
-    let loadingObj = loading();
 
     // 默认字体图标库
     import(/* webpackChunkName: "iconfont" */ '../../style/iconfont.css');
 
     // 谷歌字体
     import(/* webpackChunkName: "google-fonts" */ '../../style/google-fonts.css');
-
-    /**
-     * 开启 loading
-     */
-    (() => {
-        loadingObj.start();
-    })();
 
     /**
      * 国家公祭日和自定义重要的缅怀的日子
@@ -73,12 +65,5 @@ export default function main() {
      */
     (() => {
         if ($.__config.fontIconExtend !== '') $.__tools.dynamicLoadingCss($.__config.fontIconExtend, 1);
-    })();
-
-    /**
-     * 关闭 loading
-     */
-    (() => {
-        loadingObj.stop();
     })();
 }
