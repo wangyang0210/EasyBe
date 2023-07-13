@@ -12,8 +12,20 @@
 
 ## 博客设置
 
-!> 国内推荐使用自身站点资源,国外服务器可以直接使用 jsdelivr
+### JQuery CDN
+```
+//lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js
+```
 
+### EasyBe JS CDN
+
+!> 国内推荐使用自身站点资源或者国内的npm地址
+
+```
+//<域名>/usr/themes/easybe/simple-memory.js
+```
+
+### 全局配置
 ```html
 <script type="text/javascript">
     window.cnblogsConfig = {
@@ -24,13 +36,7 @@
         },
     }
 </script>
-<script
-    rel="preload"
-    src="https://cdn.jsdelivr.net/gh/wangyang0210/EasyBe@v2.1.7/easybe/simple-memory.js"
-    defer></script>
 ```
-
-![statistical_01](https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/install_02.jpg)
 
 详细配置参考相关[文档](https://wangyang0210.github.io/EasyBe/v2/#/Docs/Customization/config) 。
 
