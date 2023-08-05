@@ -20,7 +20,7 @@ function themeConfig($form) {
     $jqueryConfig = new Typecho_Widget_Helper_Form_Element_Text('jqueryConfig', NULL, '//lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js', _t('JQuery CDN'));
     $form->addInput($jqueryConfig);
 
-    $easybeJSConfig = new Typecho_Widget_Helper_Form_Element_Text('easybeJSConfig', NULL, '//npm.elemecdn.com/easybe@v2.1.11/easybe/simple-memory.js', _t('EasyBe JS CDN'));
+    $easybeJSConfig = new Typecho_Widget_Helper_Form_Element_Text('easybeJSConfig', NULL, '//npm.elemecdn.com/easybe@v2.1.12/easybe/simple-memory.js', _t('EasyBe JS CDN'));
     $form->addInput($easybeJSConfig);
 
     $globalConfig = new Typecho_Widget_Helper_Form_Element_Textarea('globalConfig', NULL, '', _t('全局配置'));
