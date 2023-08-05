@@ -13,7 +13,7 @@ import event from "../event/event";
 await $.__tools
   .dynamicLoadingJs($.__config.default.jqueryrotate)
   .catch((e) => console.error("jqueryrotate.js", e));
-import loading from "./components/loading/loading";
+import loading from "../loading/loading";
 
 export default function main() {
   let loadingObject = loading();
