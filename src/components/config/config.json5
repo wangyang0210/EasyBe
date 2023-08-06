@@ -1059,7 +1059,7 @@
     // -- 钩子 --
     hooks: {},
     default: {
-        version: 'v2.1.12',
+        version: 'v2.1.13',
         jquery: 'https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js',
         iconfont: 'https://at.alicdn.com/t/c/font_3628204_t6n3fw8b1zn.js',
         avatar: 'https://www.wangyangyang.vip/usr/uploads/imgs/o_221114123823_default_avatar.webp',

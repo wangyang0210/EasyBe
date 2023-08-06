@@ -5,7 +5,7 @@
  *
  * @package EasyBe
  * @author WangYang
- * @version 2.1.12
+ * @version 2.1.13
  * @link https://oyo.cool/
  */
 
