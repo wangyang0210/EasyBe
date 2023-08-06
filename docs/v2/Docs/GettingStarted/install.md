@@ -12,29 +12,33 @@
 
 ## 博客设置
 
+> MySQL 需要 DDL 权限，请注意给予对应的权限；
+
 ### JQuery CDN
+
 ```
 //lf26-cdn-tos.bytecdntp.com/cdn/expire-1-y/jquery/3.6.0/jquery.min.js
 ```
 
 ### EasyBe JS CDN
 
-!> 国内推荐使用自身站点资源或者国内的npm地址
+!> 国内推荐使用自身站点资源或者国内的 npm 地址
 
 ```
 //<域名>/usr/themes/easybe/simple-memory.js
 ```
 
 ### 全局配置
+
 ```html
 <script type="text/javascript">
-    window.cnblogsConfig = {
-        info: {
-            name: 'userName', // 用户名
-            startDate: '2021-01-01', // 站点建立时间
-            avatar: 'http://xxxx.png', // 用户头像
-        },
-    }
+  window.cnblogsConfig = {
+    info: {
+      name: "userName", // 用户名
+      startDate: "2021-01-01", // 站点建立时间
+      avatar: "http://xxxx.png", // 用户头像
+    },
+  };
 </script>
 ```
 
