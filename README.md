@@ -19,7 +19,3 @@
 **Cnblogs-Theme** © [wangyang0210](https://github.com/wangyang0210), Released under the [MIT](./LICENSE) License.<br>
 
 > Blog [@Blog](https://oyo.cool/) · GitHub [@GitHub](https://github.com/wangyang0210) · Email wangyang.0210@foxmail.com
-
-## Group
-
-![image-20220720003503285](https://cdn.jsdelivr.net/gh/wangyang0210/pic@428bdf28/imgs/typora-user-images/image-20220720003503285.png)
