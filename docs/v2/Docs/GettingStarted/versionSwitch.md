@@ -41,7 +41,7 @@
 ```html
 <script
     rel="preload"
-    src="https://www.wangyangyang.vip/dist/simple-memory.js"
+    src="https://www.oyo.cool/dist/simple-memory.js"
     defer></script>
 ```
 
@@ -50,6 +50,6 @@
 ```html
 <script
     rel="preload"
-    src="https://www.wangyangyang.vip/dist/simple-memory.js?_12322"
+    src="https://www.oyo.cool/dist/simple-memory.js?_12322"
     defer></script>
 ```

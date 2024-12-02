@@ -9,7 +9,6 @@
 import bannerTemp from '../../template/banner.html';
 
 export default function main() {
-
     $('#sidebar_news').prepend(bannerTemp);
 
     /**
@@ -21,10 +20,16 @@ export default function main() {
         let topImg, bgImg, height;
 
         // 设置图片
-        if ( $.__status.pageType === 'home') {
-            topImg = $.__config.banner.home.background.length > 0 ? $.__config.banner.home.background : ['https://www.wangyangyang.vip/usr/uploads/imgs/o_220917053600_wallhaven-6k3oox.webp'];
-        }  else {
-            topImg = $.__config.banner.article.background.length > 0 ? $.__config.banner.article.background : [	'https://www.wangyangyang.vip/usr/uploads/imgs/o_220917053937_wallhaven-j5mz95.webp'];
+        if ($.__status.pageType === 'home') {
+            topImg =
+                $.__config.banner.home.background.length > 0
+                    ? $.__config.banner.home.background
+                    : ['https://www.oyo.cool/usr/uploads/imgs/o_220917053600_wallhaven-6k3oox.webp'];
+        } else {
+            topImg =
+                $.__config.banner.article.background.length > 0
+                    ? $.__config.banner.article.background
+                    : ['https://www.oyo.cool/usr/uploads/imgs/o_220917053937_wallhaven-j5mz95.webp'];
             height = '40vh';
             $('#homeTopTitle').hide();
             $('.scroll-down').hide();
@@ -36,9 +41,9 @@ export default function main() {
         if (height) mainHeader.css('height', height);
 
         // banner动效
-        if ( $.__config.animate.bannerImages?.enable) {
+        if ($.__config.animate.bannerImages?.enable) {
             // 开启图片自动切换
-            import(/* webpackChunkName: "banner-images" */ '../bannerImages/bannerImages').then(module => {
+            import(/* webpackChunkName: "banner-images" */ '../bannerImages/bannerImages').then((module) => {
                 let bannerImages = module.default;
                 bannerImages(
                     'main-header',
@@ -54,30 +59,39 @@ export default function main() {
         } else {
             // 随机指定一个图片
 
-            if (topImg.length > 1) bgImg = topImg[ $.__tools.randomNum(0, topImg.length - 1)]
-            else bgImg = topImg[0] || ""
+            if (topImg.length > 1) bgImg = topImg[$.__tools.randomNum(0, topImg.length - 1)];
+            else bgImg = topImg[0] || '';
 
             mainHeader.css({
-                'background': '#222 url(\'' + encodeURI(bgImg) + '\')  center center no-repeat',
-                'background-size': 'cover'
+                background: "#222 url('" + encodeURI(bgImg) + "')  center center no-repeat",
+                'background-size': 'cover',
             });
         }
 
         // Banner文字是否可选
-        if(! $.__config.banner.text) $('.main-header-content.inner').addClass('textUnselect')
-
+        if (!$.__config.banner.text) $('.main-header-content.inner').addClass('textUnselect');
     })();
 
     // 添加事件监听
     $.__event.scroll.handle.push(() => {
         let openButton = $('#open-button');
 
-        if ( $.__event.scroll.temScroll < $.__event.scroll.docScroll && $.__event.scroll.homeScroll <= $.__event.scroll.docScroll && !openButton.hasClass('menu-button-scroll')) { // 向下滚动
+        if (
+            $.__event.scroll.temScroll < $.__event.scroll.docScroll &&
+            $.__event.scroll.homeScroll <= $.__event.scroll.docScroll &&
+            !openButton.hasClass('menu-button-scroll')
+        ) {
+            // 向下滚动
             openButton.addClass('menu-button-scroll');
             openButton.text('');
         }
 
-        if ( $.__event.scroll.temScroll > $.__event.scroll.docScroll && $.__event.scroll.homeScroll >= $.__event.scroll.docScroll && openButton.hasClass('menu-button-scroll')) { // 滚入头图
+        if (
+            $.__event.scroll.temScroll > $.__event.scroll.docScroll &&
+            $.__event.scroll.homeScroll >= $.__event.scroll.docScroll &&
+            openButton.hasClass('menu-button-scroll')
+        ) {
+            // 滚入头图
             openButton.removeClass('menu-button-scroll');
             openButton.text('MENU');
         }
