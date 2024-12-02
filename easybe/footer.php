@@ -1,12 +1,13 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php if (!defined('__TYPECHO_ROOT_DIR__'))
+    exit; ?>
 
-    </div><!--end: main -->
+</div><!--end: main -->
 </div><!--end: home 自定义的最大容器 -->
 
 <!--start: footer -->
-  <div id="footer">
+<div id="footer">
 
-  </div>
+</div>
 <!--end: footer -->
 
 <?php $this->options->globalConfig(); ?>
@@ -15,7 +16,7 @@
 
 <!--事件监听-->
 <script>
- 
+
     function notification(title, content) {
         $(".el-notification__title").text(title);
         $("#notification").show();
@@ -25,8 +26,8 @@
             clearTimeout(notificationTid)
         }, 3000)
         $(".el-notification__closeBtn").click(() => {
-        $("#notification").hide()
-    })
+            $("#notification").hide()
+        })
     }
 
     // 点赞
@@ -39,7 +40,7 @@
             timeout: 30000,
             cache: false,
             success: function (data) {
-                if(data) {
+                if (data) {
                     data = JSON.parse(data)
                     $('.rightDiggitSpan').text(data.digg)
                     $('#digg_count').text(data.digg);
@@ -63,7 +64,7 @@
             timeout: 30000,
             cache: false,
             success: function (data) {
-                if(data) {
+                if (data) {
                     data = JSON.parse(data)
                     $('.rightBuryitSpan').text(data.bury)
                     $('#bury_count').text(data.bury);
@@ -78,9 +79,9 @@
 
     // 关注博主
     function follow() {
-        if(!$.__config.rtMenu.qrCode) {
+        if (!$.__config.rtMenu.qrCode) {
             this.notification('关注博主', '当前还没有渠道关注该博主哦🤔 <br/> 可以试试ctrl+D收藏下哦😘')
-            return ;
+            return;
         }
         $('.hideRightMenu').show();
         $('#rightDashang .rightMenuSpan').hide();
@@ -89,9 +90,9 @@
 
     // 打赏博主
     function sponsor() {
-        if(!$.__config.rtMenu.reward.alipay && !$.__config.rtMenu.reward.wechatpay) {
+        if (!$.__config.rtMenu.reward.alipay && !$.__config.rtMenu.reward.wechatpay) {
             this.notification('打赏博主', '当前还没有渠道打赏该博主哦🤔 <br/> 不如给个点赞吧👍')
-            return ;
+            return;
         }
         $('.hideRightMenu').show();
         $('#rightGzh .rightMenuSpan').hide();
@@ -123,14 +124,14 @@
         }
         let status = data.map(item => {
             if ((item.name in commentObj) && !item.value) {
-                _.notification('评论通知',`${commentObj[item.name]}不能为空哦👻`)
+                _.notification('评论通知', `${commentObj[item.name]}不能为空哦👻`)
                 return false
             }
             if (item.name == 'mail' && item.value && !(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(item.value))) {
-                _.notification('评论通知','邮箱格式貌似不正确哦🤔')
+                _.notification('评论通知', '邮箱格式貌似不正确哦🤔')
                 return false
             }
-           
+
             return true
         })
 
@@ -138,25 +139,35 @@
             $.ajax({
                 type: 'post',
                 url: url,
-                data:  data,
+                data: data,
                 async: true,
                 timeout: 30000,
                 cache: false,
                 success: function (data) {
-                     !$("#blog-comments-placeholder").length ? 
-                      $('.respond').before($("#comments-show", data).html()) : 
-                      $('.comment-list').html($(".comment-list", data).html());
-                     $('#tbCommentBody').val("")
+                    !$("#blog-comments-placeholder").length ?
+                        $('.respond').before($("#comments-show", data).html()) :
+                        $('.comment-list').html($(".comment-list", data).html());
+                    $('#tbCommentBody').val("")
                 },
                 error: function () {
-                    _.notification('评论通知','对不起, 您的发言过于频繁, 请稍侯再次发布')
+                    _.notification('评论通知', '对不起, 您的发言过于频繁, 请稍侯再次发布')
                 },
             })
         }
 
     };
-
-</script>
-
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\(', right: '\\)', display: false },
+                { left: '\\[', right: '\\]', display: true }
+            ],
+            throwOnError: false
+        });
+    });
+</script>、
 </body>
+
 </html>
