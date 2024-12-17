@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/wangyang0210/easybe#readme",
   "devDependencies": {
-    "@popperjs/core": "^2.11.7",
+    "@popperjs/core": "^2.11.8",
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^5.2.7",
-    "css-minimizer-webpack-plugin": "^5.0.0",
-    "cssnano": "^6.0.0",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "cssnano": "^6.1.2",
     "cssnano-preset-advanced": "^5.3.10",
     "exports-loader": "^2.0.0",
     "filemanager-webpack-plugin": "^7.0.0",
@@ -40,16 +40,16 @@
     "imports-loader": "^2.0.0",
     "json5": "^2.2.3",
     "mini-css-extract-plugin": "^1.6.2",
-    "postcss": "^8.4.21",
+    "postcss": "^8.4.49",
     "postcss-cli": "^10.1.0",
-    "sass": "^1.60.0",
-    "sass-loader": "^13.2.2",
+    "sass": "^1.83.0",
+    "sass-loader": "^13.3.3",
     "style-loader": "^2.0.0",
     "toml": "^3.0.0",
-    "webpack": "^5.77.0",
-    "webpack-bundle-analyzer": "^4.8.0",
+    "webpack": "^5.97.1",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.13.2"
+    "webpack-dev-server": "^4.15.2"
   },
   "browserslist": {
     "development": [
