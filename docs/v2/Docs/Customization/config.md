@@ -1996,7 +1996,7 @@ window.cnblogsConfig = {
   consoleList: [
     ["wangyang CNBlogs", "https://www.cnblogs.com/wangyang0210"],
     ["wangyang GitHub", "https://github.com/wangyang0210"],
-    ["wangyang Email", "wangyang.0210@foxmail.com"],
+    ["wangyang Email", "i@oyo.cool"],
   ],
 };
 ```

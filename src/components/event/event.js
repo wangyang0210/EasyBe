@@ -1,14 +1,14 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-08-25 15:21
  * ----------------------------------------------
  * @describe: 事件监听
  */
 
 export default {
-    init(){
+    init() {
         // 滚动监听
         $.__event.scroll = {};
         $.__event.scroll.handle = [];
@@ -25,20 +25,20 @@ export default {
         $.__event.resize = {};
         $.__event.resize.handle = [];
         $(window).resize(() => {
-            this.handle.resize()
+            this.handle.resize();
         });
     },
     handle: {
         scroll: () => {
             for (let i = 0; i < $.__event.scroll.handle.length; i++) {
-                ($.__event.scroll.handle[i])()
+                $.__event.scroll.handle[i]();
             }
         },
         resize: () => {
             for (let i = 0; i < $.__event.resize.handle.length; i++) {
-                ($.__event.resize.handle[i])()
+                $.__event.resize.handle[i]();
             }
             $.__tools.setDomHomePosition();
         },
-    }
-}
+    },
+};

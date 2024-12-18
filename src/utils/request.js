@@ -1,7 +1,7 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-08-25 15:28
  * ----------------------------------------------
  * @describe: fetch封装
@@ -13,13 +13,13 @@ export async function request(url = '', method = 'GET', data = {}, headers = {})
         mode: 'cors',
         redirect: 'follow',
         referrerPolicy: 'no-referrer',
-    }
+    };
     if (Object.keys(headers).length) {
-        options.headers = headers
+        options.headers = headers;
     }
     if (Object.keys(data).length) {
-        options.body = JSON.stringify(data)
+        options.body = JSON.stringify(data);
     }
-    const response = await fetch(url, options)
-    return response.json()
+    const response = await fetch(url, options);
+    return response.json();
 }
