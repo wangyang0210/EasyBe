@@ -1,12 +1,11 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-09-11 22:28
  * ----------------------------------------------
  * @describe: 背景丝带效果
  */
-
 
 class Point {
     constructor(x, y) {
@@ -14,7 +13,6 @@ class Point {
         this.y = 0;
         this.set(x, y);
     }
-
 
     set(x, y) {
         this.x = x || 0;
@@ -27,7 +25,7 @@ class Point {
         return this;
     }
 
-    add (x, y) {
+    add(x, y) {
         this.x += x || 0;
         this.y += y || 0;
         return this;
@@ -43,9 +41,7 @@ class Point {
         this.y *= -1;
         return this;
     }
-
 }
-
 
 class Ribbons {
     _w = window;
@@ -61,15 +57,15 @@ class Ribbons {
         this._ribbons = [];
         this._options = {
             // ribbon color HSL saturation amount
-            colorSaturation: options.colorSaturation || "80%",
+            colorSaturation: options.colorSaturation || '80%',
             // ribbon color HSL brightness amount
-            colorBrightness: options.colorBrightness || "60%",
+            colorBrightness: options.colorBrightness || '60%',
             // ribbon color opacity amount
             colorAlpha: options.colorAlpha || 0.65,
             // how fast to cycle through colors in the HSL color space
             colorCycleSpeed: options.colorCycleSpeed || 6,
             // where to start from on the Y axis on each side (top|min, middle|center, bottom|max, random)
-            verticalPosition: options.verticalPosition || "center",
+            verticalPosition: options.verticalPosition || 'center',
             // how fast to get to the other side of the screen
             horizontalSpeed: options.horizontalSpeed || 150,
             // how many ribbons to keep on screen at any given time
@@ -79,7 +75,7 @@ class Ribbons {
             // move ribbons vertically by a factor on page scroll
             parallaxAmount: options.parallaxAmount || -0.5,
             // add animation effect to each ribbon section over time
-            animateSections: options.animateSections || true
+            animateSections: options.animateSections || true,
         };
 
         this._onDraw = this._onDraw.bind(this);
@@ -107,8 +103,12 @@ class Ribbons {
     screenInfo(e) {
         let width = Math.max(0, this._w.innerWidth || this._d.clientWidth || this._b.clientWidth || 0),
             height = Math.max(0, this._w.innerHeight || this._d.clientHeight || this._b.clientHeight || 0),
-            scrollx = Math.max(0, this._w.pageXOffset || this._d.scrollLeft || this._b.scrollLeft || 0) - (this._d.clientLeft || 0),
-            scrolly = Math.max(0, this._w.pageYOffset || this._d.scrollTop || this._b.scrollTop || 0) - (this._d.clientTop || 0);
+            scrollx =
+                Math.max(0, this._w.pageXOffset || this._d.scrollLeft || this._b.scrollLeft || 0) -
+                (this._d.clientLeft || 0),
+            scrolly =
+                Math.max(0, this._w.pageYOffset || this._d.scrollTop || this._b.scrollTop || 0) -
+                (this._d.clientTop || 0);
 
         return {
             width: width,
@@ -117,34 +117,33 @@ class Ribbons {
             centerx: width / 2,
             centery: height / 2,
             scrollx: scrollx,
-            scrolly: scrolly
+            scrolly: scrolly,
         };
-
     }
 
-    init () {
+    init() {
         try {
-            this._canvas = document.createElement("canvas");
-            this._canvas.style["display"] = "block";
-            this._canvas.style["position"] = "fixed";
-            this._canvas.style["margin"] = "0";
-            this._canvas.style["padding"] = "0";
-            this._canvas.style["border"] = "0";
-            this._canvas.style["outline"] = "0";
-            this._canvas.style["left"] = "0";
-            this._canvas.style["top"] = "0";
-            this._canvas.style["width"] = "100%";
-            this._canvas.style["height"] = "100%";
-            this._canvas.style["z-index"] = "-1";
-            this._canvas.id = "bgCanvas";
+            this._canvas = document.createElement('canvas');
+            this._canvas.style['display'] = 'block';
+            this._canvas.style['position'] = 'fixed';
+            this._canvas.style['margin'] = '0';
+            this._canvas.style['padding'] = '0';
+            this._canvas.style['border'] = '0';
+            this._canvas.style['outline'] = '0';
+            this._canvas.style['left'] = '0';
+            this._canvas.style['top'] = '0';
+            this._canvas.style['width'] = '100%';
+            this._canvas.style['height'] = '100%';
+            this._canvas.style['z-index'] = '-1';
+            this._canvas.id = 'bgCanvas';
             this._onResize();
 
-            this._context = this._canvas.getContext("2d");
+            this._context = this._canvas.getContext('2d');
             this._context.clearRect(0, 0, this._width, this._height);
             this._context.globalAlpha = this._options.colorAlpha;
 
-            window.addEventListener("resize", this._onResize);
-            window.addEventListener("scroll", this._onScroll);
+            window.addEventListener('resize', this._onResize);
+            window.addEventListener('scroll', this._onScroll);
             document.body.appendChild(this._canvas);
         } catch (e) {
             return;
@@ -153,15 +152,14 @@ class Ribbons {
     }
 
     addRibbon() {
-
-        let dir = Math.round(this.random(1, 9)) > 5 ? "right" : "left",
+        let dir = Math.round(this.random(1, 9)) > 5 ? 'right' : 'left',
             stop = 1000,
             hide = 200,
             min = 0 - hide,
             max = this._width + hide,
             movex = 0,
             movey = 0,
-            startx = dir === "right" ? min : max,
+            startx = dir === 'right' ? min : max,
             starty = Math.round(this.random(0, this._height));
 
         if (/^(top|min)$/i.test(this._options.verticalPosition)) starty = 0 + hide;
@@ -176,7 +174,6 @@ class Ribbons {
             delay = 0;
 
         while (true) {
-
             if (stop <= 0) break;
             stop--;
 
@@ -186,12 +183,12 @@ class Ribbons {
             point3 = new Point();
             point3.copy(point2);
 
-            if (dir === "right") {
+            if (dir === 'right') {
                 point3.add(movex, movey);
                 if (point2.x >= max) break;
             }
 
-            if (dir === "left") {
+            if (dir === 'left') {
                 point3.subtract(movex, movey);
                 if (point2.x <= min) break;
             }
@@ -204,7 +201,7 @@ class Ribbons {
                 delay: delay,
                 dir: dir,
                 alpha: 0,
-                phase: 0
+                phase: 0,
             });
 
             point1.copy(point2);
@@ -228,9 +225,9 @@ class Ribbons {
                 section.alpha = section.alpha >= 1 ? 1 : section.alpha;
 
                 if (this._options.animateSections) {
-                    let mod = Math.sin(1 + section.phase * Math.PI / 2) * 0.1;
+                    let mod = Math.sin(1 + (section.phase * Math.PI) / 2) * 0.1;
 
-                    if (section.dir === "right") {
+                    if (section.dir === 'right') {
                         section.point1.add(mod, 0);
                         section.point2.add(mod, 0);
                         section.point3.add(mod, 0);
@@ -250,11 +247,12 @@ class Ribbons {
 
             let s = this._options.colorSaturation,
                 l = this._options.colorBrightness,
-                c = "hsla(" + section.color + ", " + s + ", " + l + ", " + section.alpha + " )";
+                c = 'hsla(' + section.color + ', ' + s + ', ' + l + ', ' + section.alpha + ' )';
 
             this._context.save();
 
-            if (this._options.parallaxAmount !== 0) this._context.translate(0, this._scroll * this._options.parallaxAmount);
+            if (this._options.parallaxAmount !== 0)
+                this._context.translate(0, this._scroll * this._options.parallaxAmount);
             this._context.beginPath();
             this._context.moveTo(section.point1.x, section.point1.y);
             this._context.lineTo(section.point2.x, section.point2.y);
@@ -265,7 +263,7 @@ class Ribbons {
             if (this._options.strokeSize > 0) {
                 this._context.lineWidth = this._options.strokeSize;
                 this._context.strokeStyle = c;
-                this._context.lineCap = "round";
+                this._context.lineCap = 'round';
                 this._context.stroke();
             }
 
@@ -275,7 +273,6 @@ class Ribbons {
     }
 
     _onDraw() {
-
         for (let i = 0, t = this._ribbons.length; i < t; ++i) {
             if (!this._ribbons[i]) this._ribbons.splice(i, 1);
         }
@@ -317,5 +314,5 @@ class Ribbons {
 }
 
 export default function main(options) {
-    new Ribbons(options)
+    new Ribbons(options);
 }

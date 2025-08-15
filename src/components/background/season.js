@@ -1,7 +1,7 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-09-03 01:18
  * ----------------------------------------------
  * @describe: 可以自定义下落物品的背景特效
@@ -25,9 +25,9 @@ export default function main(options) {
         cxt.save();
         cxt.translate(this.x, this.y);
         cxt.rotate(this.r);
-        cxt.drawImage(img, 0, 0,  size * this.s, size * this.s)
+        cxt.drawImage(img, 0, 0, size * this.s, size * this.s);
         cxt.restore();
-    }
+    };
     Sakura.prototype.update = function () {
         this.x = this.fn.x(this.x, this.y);
         this.y = this.fn.y(this.y, this.y);
@@ -46,30 +46,30 @@ export default function main(options) {
                 this.r = getRandom('r');
             }
         }
-    }
+    };
 
     SakuraList = function () {
         this.list = [];
-    }
+    };
     SakuraList.prototype.push = function (sakura) {
         this.list.push(sakura);
-    }
+    };
     SakuraList.prototype.update = function () {
         for (let i = 0, len = this.list.length; i < len; i++) {
             this.list[i].update();
         }
-    }
+    };
     SakuraList.prototype.draw = function (cxt) {
         for (let i = 0, len = this.list.length; i < len; i++) {
             this.list[i].draw(cxt);
         }
-    }
+    };
     SakuraList.prototype.get = function (i) {
         return this.list[i];
-    }
+    };
     SakuraList.prototype.size = function () {
         return this.list.length;
-    }
+    };
 
     function getRandom(option) {
         let ret, random;
@@ -93,7 +93,7 @@ export default function main(options) {
                 };
                 break;
             case 'fny':
-                random = 1.5 + Math.random() * 0.7
+                random = 1.5 + Math.random() * 0.7;
                 ret = function (x, y) {
                     return y + random;
                 };
@@ -109,13 +109,19 @@ export default function main(options) {
     }
 
     function startSakura() {
-        requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame;
-        let canvas = document.createElement('canvas'), cxt;
+        requestAnimationFrame =
+            window.requestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            window.oRequestAnimationFrame;
+        let canvas = document.createElement('canvas'),
+            cxt;
         canvas.height = window.innerHeight;
         canvas.width = window.innerWidth;
         canvas.setAttribute('style', 'position: fixed;left: 0;top: 0;pointer-events: none;');
         canvas.setAttribute('id', 'canvas_sakura');
-        canvas.style.zIndex = '999999999999999999999999999999999999999999'
+        canvas.style.zIndex = '999999999999999999999999999999999999999999';
         document.getElementsByTagName('body')[0].appendChild(canvas);
         cxt = canvas.getContext('2d');
         let sakuraList = new SakuraList();
@@ -131,20 +137,20 @@ export default function main(options) {
             sakura = new Sakura(randomX, randomY, randomS, randomR, {
                 x: randomFnx,
                 y: randomFny,
-                r: randomFnR
+                r: randomFnR,
             });
             sakura.draw(cxt);
             sakuraList.push(sakura);
         }
-        requestAnimationFrame(function fn () {
+        requestAnimationFrame(function fn() {
             cxt.clearRect(0, 0, canvas.width, canvas.height);
             sakuraList.update();
             sakuraList.draw(cxt);
             requestAnimationFrame(fn);
-        })
+        });
     }
 
     img.onload = function () {
         startSakura();
-    }
+    };
 }

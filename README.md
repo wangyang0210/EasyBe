@@ -18,4 +18,4 @@
 
 **Cnblogs-Theme** © [wangyang0210](https://github.com/wangyang0210), Released under the [MIT](./LICENSE) License.<br>
 
-> Blog [@Blog](https://oyo.cool/) · GitHub [@GitHub](https://github.com/wangyang0210) · Email wangyang.0210@foxmail.com
+> Blog [@Blog](https://oyo.cool/) · GitHub [@GitHub](https://github.com/wangyang0210) · Email i@oyo.cool

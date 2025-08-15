@@ -1,21 +1,20 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-08-25 15:21
  * ----------------------------------------------
  * @describe: 日夜间模式处理
  */
 import dayNightTemp from '../../template/dayNight.html';
-import dayNightControl from "../../hooks/dayNightControl";
+import dayNightControl from '../../hooks/dayNightControl';
 
 export default function main() {
-
     if (!$.__config.switchDayNight.enable) return true;
 
-    let h         = parseInt(new Date().getHours()),
+    let h = parseInt(new Date().getHours()),
         cookieKey = 'cnblogs_config_isNight',
-        exp       =  4 * 3600,
+        exp = 4 * 3600,
         daySwitch;
     $.__status.dayNightCssHref = ''; // 夜间模式css样式文件路径，用于记录webpack打包后路径
 
@@ -24,8 +23,8 @@ export default function main() {
      * @param status {string} 日夜模式
      */
     let commentBackground = (status) => {
-        $.__config.articleContent.commentBackground.enable && $.__tools.setCommentBackground(status)
-    }
+        $.__config.articleContent.commentBackground.enable && $.__tools.setCommentBackground(status);
+    };
 
     /**
      * 判断当前日/夜模式
@@ -39,11 +38,16 @@ export default function main() {
                 daySwitch = '';
                 break;
             default:
-                daySwitch = $.__config.switchDayNight.auto.enable ? (h >= $.__config.switchDayNight.auto.nightHour ? '' : (h >= $.__config.switchDayNight.auto.dayHour ? 'daySwitch' : '')) : 'daySwitch';
+                daySwitch = $.__config.switchDayNight.auto.enable
+                    ? h >= $.__config.switchDayNight.auto.nightHour
+                        ? ''
+                        : h >= $.__config.switchDayNight.auto.dayHour
+                        ? 'daySwitch'
+                        : ''
+                    : 'daySwitch';
                 break;
         }
     })();
-
 
     /**
      * 判断是否强制夜间
@@ -78,18 +82,20 @@ export default function main() {
      */
     (() => {
         $('#dayNightSwitch .onOff').click(function () {
-            if ($(this).hasClass('daySwitch')) { // 夜间
+            if ($(this).hasClass('daySwitch')) {
+                // 夜间
                 $.__tools.setCookie(cookieKey, 'night', exp);
                 $(this).removeClass('daySwitch');
                 loadDarkCss();
                 dayNightControl('night');
-                commentBackground('night')
-            } else { // 日间
+                commentBackground('night');
+            } else {
+                // 日间
                 $.__tools.setCookie(cookieKey, 'day', exp);
                 $(this).addClass('daySwitch');
                 $('head link#baseDarkCss').remove();
-                dayNightControl( 'day');
-                commentBackground('day')
+                dayNightControl('day');
+                commentBackground('day');
             }
         });
     })();
@@ -100,15 +106,17 @@ export default function main() {
      * 第二次及以后使用标签构建文件加载
      */
     function loadDarkCss() {
-        if ( $.__status.dayNightCssHref) {
-            $('head').append('<link type="text/css" id="baseDarkCss" rel="stylesheet" href="'+ $.__status.dayNightCssHref+'">');
+        if ($.__status.dayNightCssHref) {
+            $('head').append(
+                '<link type="text/css" id="baseDarkCss" rel="stylesheet" href="' + $.__status.dayNightCssHref + '">'
+            );
         } else {
             import(/* webpackChunkName: "day-night" */ '../../style/base.dark.css');
 
             setTimeout(function () {
                 let links = $('head link');
                 for (let i = links.length - 1; i > 0; i--) {
-                    let obj  = $(links[i]);
+                    let obj = $(links[i]);
                     let href = obj.attr('href');
                     if (/^.*\/day-night\.[a-z0-9]{8}\.css$/.test(href)) {
                         $.__status.dayNightCssHref = href;

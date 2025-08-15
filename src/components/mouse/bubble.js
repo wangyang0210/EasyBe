@@ -1,7 +1,7 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-09-02 23:05
  * ----------------------------------------------
  * @describe: 鼠标移动汽包粒子效果
@@ -11,20 +11,20 @@ export default function main(options) {
     let canvasElement = document.createElement('canvas');
     canvasElement.id = 'bubble';
     $('#home').after(canvasElement);
-    let canvas = document.getElementById("bubble")
-    let ctx = canvas.getContext("2d")
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    let canvas = document.getElementById('bubble');
+    let ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     canvas.style.position = 'fixed';
     canvas.style.left = '0';
     canvas.style.bottom = '0';
-    canvas.style.zIndex = '999999999999999999999999999999999999999999'
+    canvas.style.zIndex = '999999999999999999999999999999999999999999';
     canvas.style.pointerEvents = 'none';
-    let points = []
-    let live = options.live
-    let colors = options.colors
+    let points = [];
+    let live = options.live;
+    let colors = options.colors;
 
-    window.addEventListener("mousemove", function (evt) {
+    window.addEventListener('mousemove', function (evt) {
         for (let i = 0; i < options.quantity; i++) {
             points.push({
                 sx: evt.x,
@@ -33,28 +33,27 @@ export default function main(options) {
                 vy: 0.5 - Math.random(),
                 life: live, //存活周期
                 color: colors[parseInt(Math.random() * colors.length)],
-                size: Math.random() * options.size
-            })
+                size: Math.random() * options.size,
+            });
         }
-    })
+    });
 
     function drawpoints() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < points.length; i++) {
-            let point = points[i]
-            ctx.beginPath()
-            ctx.arc(point.sx, point.sy, point.size, Math.PI * 2, false)
-            ctx.fillStyle = "rgba(" + point.color + "," + point.life / live + ")"
-            ctx.fill()
-            point.life--
+            let point = points[i];
+            ctx.beginPath();
+            ctx.arc(point.sx, point.sy, point.size, Math.PI * 2, false);
+            ctx.fillStyle = 'rgba(' + point.color + ',' + point.life / live + ')';
+            ctx.fill();
+            point.life--;
             if (point.life <= 0) {
-                points.splice(i, 1)
+                points.splice(i, 1);
             }
-            point.sx += point.vx * 3
-            point.sy += point.vy * 3
+            point.sx += point.vx * 3;
+            point.sy += point.vy * 3;
         }
     }
 
-    setInterval(drawpoints, 20)
-
+    setInterval(drawpoints, 20);
 }

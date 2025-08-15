@@ -182,19 +182,19 @@ window.cnblogsConfig = {
     navList: [
       [
         "随笔",
-        "https://www.wangyangyang.vip/admin/write-post.php/",
+        "https://www.oyo.cool/admin/write-post.php/",
         "icon-brush-fill",
       ],
       ["GitHub", "https://github.com/wangyang0210", "icon-github"],
       ["Cnblogs", "https://www.cnblogs.com/wangyang0210", "icon-cnblogs"],
       [
         "书单",
-        "https://www.wangyangyang.vip/index.php/archives/26/",
+        "https://www.oyo.cool/index.php/archives/26/",
         "icon-book",
       ],
       [
         "友链",
-        "https://www.wangyangyang.vip/index.php/archives/27/",
+        "https://www.oyo.cool/index.php/archives/27/",
         "icon-lianjie",
       ],
     ],
@@ -845,7 +845,7 @@ window.cnblogsConfig = {
             name: "王洋", // 昵称
             introduction: "IT技术类博客", // 简介
             avatar: "https://pic.cnblogs.com/face/1334215/20180504110551.png", // 头像
-            url: "https://www.wangyangyang.vip", // 友链地址
+            url: "https://www.oyo.cool", // 友链地址
           },
         ],
       },
@@ -1996,7 +1996,7 @@ window.cnblogsConfig = {
   consoleList: [
     ["wangyang CNBlogs", "https://www.cnblogs.com/wangyang0210"],
     ["wangyang GitHub", "https://github.com/wangyang0210"],
-    ["wangyang Email", "wangyang.0210@foxmail.com"],
+    ["wangyang Email", "i@oyo.cool"],
   ],
 };
 ```

@@ -1,6 +1,6 @@
 # 友链
 
-样式参考：[友联样式](https://www.wangyangyang.vip/index.php/archives/27/)
+样式参考：[友联样式](https://www.oyo.cool/index.php/archives/27/)
 
 ## 配置方式
 
@@ -21,7 +21,7 @@ window.cnblogsConfig = {
                 {
                    title: '友情链接', // 标题
                    icon: 'icon-lianjie', // iconfont
-                   style: 'color: #a78bfa;', 
+                   style: 'color: #a78bfa;',
                    links: [
                        {
                             name: '思索', // 昵称
@@ -33,7 +33,7 @@ window.cnblogsConfig = {
                             name: '王洋', // 昵称
                             introduction: 'IT技术类博客', // 简介
                             avatar: 'https://pic.cnblogs.com/face/1334215/20180504110551.png', // 头像
-                            url: 'https://www.wangyangyang.vip' // 友链地址
+                            url: 'https://www.oyo.cool' // 友链地址
                        },
                    ]
                 },
@@ -87,7 +87,7 @@ window.cnblogsConfig.links.page = [
                 name: '王洋', // 昵称
                 introduction: 'IT技术类博客', // 简介
                 avatar: 'https://pic.cnblogs.com/face/1334215/20180504110551.png', // 头像
-                url: 'https://www.wangyangyang.vip' // 友链地址
+                url: 'https://www.oyo.cool' // 友链地址
             },
         ]
     },

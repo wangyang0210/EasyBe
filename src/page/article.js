@@ -1,17 +1,16 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-08-25 15:26
  * ----------------------------------------------
  * @describe: 文章页处理
  */
-import comArticle from "./common/com-article";
-import imgBox from "../components/imgBox/imgBox";
-await $.__tools.dynamicLoadingJs($.__config.default.iconfont).catch(e => console.error('iconfont.js', e))
+import comArticle from './common/com-article';
+import imgBox from '../components/imgBox/imgBox';
+await $.__tools.dynamicLoadingJs($.__config.default.iconfont).catch((e) => console.error('iconfont.js', e));
 
 export default function main() {
-
     /**
      * 文章页公共处理
      */
@@ -24,7 +23,7 @@ export default function main() {
      */
     (() => {
         // 异步处理防止影响loading结束
-        import(/* webpackChunkName: "article-code" */  '../components/code/code').then(module => {
+        import(/* webpackChunkName: "article-code" */ '../components/code/code').then((module) => {
             const code = module.default;
             code();
         });

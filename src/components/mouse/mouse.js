@@ -1,15 +1,14 @@
 /**
  * UPDATES AND DOCS AT: https://github.com/wangyang0210
  * https://www.cnblogs.com/wangyang0210/
- * @author: WangYang, wangyang.0210@foxmail.com
+ * @author: WangYang, i@oyo.cool
  * @Date 2022-08-25 15:23
  * ----------------------------------------------
  * @describe: 鼠标移动/点击效果
  */
 import '../../style/mouse.css';
-await  $.__tools.dynamicLoadingJs($.__config.default.gsap).catch(e => console.error('gsap.js', e))
+await $.__tools.dynamicLoadingJs($.__config.default.gsap).catch((e) => console.error('gsap.js', e));
 export default function main(options) {
-
     const cursor = document.createElement('div');
     cursor.className = 'cursor';
 
@@ -22,7 +21,7 @@ export default function main(options) {
     let pageY = 0;
     let size = options.size;
     let sizeF = options.sizeF;
-    let followSpeed = .16;
+    let followSpeed = 0.16;
 
     document.body.appendChild(cursor);
     document.body.appendChild(cursorF);
@@ -39,11 +38,9 @@ export default function main(options) {
         pageX = e.pageX;
         pageY = e.pageY;
         cursor.style.top = pageY - size / 2 + 'px';
-        let cursorLeft  = pageX - size / 2;
+        let cursorLeft = pageX - size / 2;
         let offsetWidth = document.body.offsetWidth;
-        cursorLeft = cursorLeft < 0 ? 0 : (
-            offsetWidth - size < cursorLeft ? offsetWidth - size : cursorLeft
-        );
+        cursorLeft = cursorLeft < 0 ? 0 : offsetWidth - size < cursorLeft ? offsetWidth - size : cursorLeft;
         cursor.style.left = cursorLeft + 'px';
     });
 
@@ -57,9 +54,7 @@ export default function main(options) {
         cursorF.style.top = cursorY - sizeF / 2 + 'px';
         let cursorFLeft = cursorX - sizeF / 2;
         let offsetWidth = document.body.offsetWidth;
-        cursorFLeft = cursorFLeft < 0 ? 0 : (
-            offsetWidth - sizeF < cursorFLeft ? offsetWidth - sizeF : cursorFLeft
-        );
+        cursorFLeft = cursorFLeft < 0 ? 0 : offsetWidth - sizeF < cursorFLeft ? offsetWidth - sizeF : cursorFLeft;
         cursorF.style.left = cursorFLeft + 'px';
 
         requestAnimationFrame(loop);
@@ -72,16 +67,16 @@ export default function main(options) {
     let clicked = false;
 
     function mousedown(e) {
-        gsap.to(cursor, {scale: 4.5});
-        gsap.to(cursorF, {scale: .4});
+        gsap.to(cursor, { scale: 4.5 });
+        gsap.to(cursorF, { scale: 0.4 });
 
         clicked = true;
         startY = e.clientY || e.touches[0].clientY || e.targetTouches[0].clientY;
     }
 
     function mouseup(e) {
-        gsap.to(cursor, {scale: 1});
-        gsap.to(cursorF, {scale: 1});
+        gsap.to(cursor, { scale: 1 });
+        gsap.to(cursorF, { scale: 1 });
 
         endY = e.clientY || endY;
         if (clicked && startY && Math.abs(startY - endY) >= 40) {
@@ -93,9 +88,13 @@ export default function main(options) {
 
     window.addEventListener('mousedown', mousedown, false);
     window.addEventListener('touchstart', mousedown, false);
-    window.addEventListener('touchmove', function (e) {
-        if (clicked) endY = e.touches[0].clientY || e.targetTouches[0].clientY;
-    }, false);
+    window.addEventListener(
+        'touchmove',
+        function (e) {
+            if (clicked) endY = e.touches[0].clientY || e.targetTouches[0].clientY;
+        },
+        false
+    );
     window.addEventListener('touchend', mouseup, false);
     window.addEventListener('mouseup', mouseup, false);
 }

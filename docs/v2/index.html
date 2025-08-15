@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
   <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
   <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
   <meta HTTP-EQUIV="expires" CONTENT="0">
   <link rel="stylesheet" href="Css/vue.css">
-  <link rel="icon" href="https://cdn.jsdelivr.net/gh/wangyang0210/pic/imgs/project/cnblogs/logo.png" sizes="32x32">
+  <link rel="icon" href="https://oyo.cool/usr/uploads/2024/12/1060281842.png" sizes="32x32">
   <style>
     version {
       display: block;
       text-align: center;
       color: #42b983;
     }
+
     version select {
       width: 63px;
       height: 22px;
@@ -27,11 +30,13 @@
       position: relative;
       top: -2px;
     }
+
     .app-nav {
       right: 20px;
     }
   </style>
 </head>
+
 <body>
   <nav>
     <version>
@@ -70,16 +75,16 @@
   <script src="Js/search.min.js"></script>
   <script>
     function docVersionFn(e) {
-          let origin   = location.origin;
-          let pathname = location.pathname;
-          let pathnameArr = pathname.split('/');
-          for (let i = pathnameArr.length - 1; i >= 0; i--) {
-            if (pathnameArr[i] !== "" && /v[0-9]{1}/.test(pathnameArr[i])) {
-              pathnameArr[i] = e.value;
-              break;
-            }
-          }
-          window.location.href = origin + pathnameArr.join('/');
+      let origin = location.origin;
+      let pathname = location.pathname;
+      let pathnameArr = pathname.split('/');
+      for (let i = pathnameArr.length - 1; i >= 0; i--) {
+        if (pathnameArr[i] !== "" && /v[0-9]{1}/.test(pathnameArr[i])) {
+          pathnameArr[i] = e.value;
+          break;
+        }
+      }
+      window.location.href = origin + pathnameArr.join('/');
     }
 
     // let icon = document.getElementsByClassName('icon-code-show');
@@ -89,4 +94,5 @@
     // }
   </script>
 </body>
+
 </html>
